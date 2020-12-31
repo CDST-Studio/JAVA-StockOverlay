@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "579738020007",
+    "project_id": "needfor-stockoverlay",
+    "storage_bucket": "needfor-stockoverlay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579738020007:android:87f757a72328e34d4c9382",
+        "android_client_info": {
+          "package_name": "com.needfor.stockoverlay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579738020007-n6id8s80m8cble0tkvs98kubbkbu8ppu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAajrEEADheqBNfU59YcEaiiE7S4vZlN2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579738020007-n6id8s80m8cble0tkvs98kubbkbu8ppu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
