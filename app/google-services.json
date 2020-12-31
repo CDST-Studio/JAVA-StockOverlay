@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "579738020007-q8rej07nko4dr9m5sthf74jiehdr7na2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.needfor.stockoverlay",
+            "certificate_hash": "046be28606b4f319f4635d922e80213e2cbc3f7e"
+          }
+        },
+        {
           "client_id": "579738020007-n6id8s80m8cble0tkvs98kubbkbu8ppu.apps.googleusercontent.com",
           "client_type": 3
         }
