@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         checkPermission();
+        Stock s = new Stock("삼성전자");
     }
 
     // 권한 확인 메서드
