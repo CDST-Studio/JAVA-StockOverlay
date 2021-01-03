@@ -16,7 +16,7 @@ public class Stock implements Serializable {
     public Stock(String name) {
         this.name = name;
 
-        final DocumentReference docRef = db.collection("Stock").document("StockNameToCode");
+        DocumentReference docRef = db.collection("Stock").document("StockNameToCode");
     }
 
     // 해당 종목의 현재가 메서드
