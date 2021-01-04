@@ -15,7 +15,6 @@ import java.io.Serializable;
 public class Stock implements Serializable {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final DocumentReference docRef = db.collection("Stock").document("StockNameToCode");
 
     private String name; // 종목명
     private String stockCode; // 종목코드
@@ -24,18 +23,25 @@ public class Stock implements Serializable {
     public Stock(String name) {
         this.name = name;
 
+        // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
+        final DocumentReference docRef = db.collection("Stock").document(this.name);
         docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
+                // 불러오기 실패시
                 if (e != null) {
                     Log.w("Failed", "Listen failed.", e);
                     return;
                 }
 
+                // 불러오기 성공시
                 if (snapshot != null && snapshot.exists()) {
-                    stockCode = snapshot.getData().get(name).toString();
-                    Log.d("Stock name To code", "StockCode: " + stockCode);
+                    // 데이터가 null 이 아닐때
+                    stockCode = snapshot.getData().get("code").toString();
+                    detailCode = snapshot.getData().get("detail_code").toString();
+                    Log.d("This stock's data", "Stock Code: " + stockCode + ", Detail Code: " + detailCode);
                 } else {
+                    // 데이터가 null 일때
                     Log.d("Null", "Current data: null");
                 }
             }
