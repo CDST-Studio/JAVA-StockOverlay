@@ -19,7 +19,7 @@ public class Stock implements Serializable {
 
     private String name; // 종목명
     private String stockCode; // 종목코드
-    private int price; // 현재가
+    private String detailCode; // 업종코드
 
     public Stock(String name) {
         this.name = name;
