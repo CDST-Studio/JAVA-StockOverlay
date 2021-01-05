@@ -2,16 +2,24 @@ package Model;
 
 import android.util.Log;
 
-import org.jsoup.nodes.Document;
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
 
 import Model.Thread.Crawling_Thread;
-import Model.Thread.FireStore_Thread;
 
 public class Stock implements Serializable {
-    // 웹 크롤링용 클래스 변수
-    private Document doc; // URL 정보
+    // FireStore(Firebase) 접속용 Instance
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+    // 스레드
+    private Crawling_Thread CrawlingTh;
 
     // 해당 주식 관련 클래스 변수
     private String name; // 종목명
@@ -26,28 +34,31 @@ public class Stock implements Serializable {
         this.name = name;
         Log.d("start", "Init Start");
 
-        FireStore_Thread FireStoreTh = new FireStore_Thread(this.name, this.stockCode, this.detailCode);
-        Crawling_Thread CrawlingTh = new Crawling_Thread(this.stockCode, this.doc);
-        try {
-            FireStoreTh.start();
-            FireStoreTh.join();
-            CrawlingTh.start();
-            CrawlingTh.join();
+        // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
+        final DocumentReference docRef = db.collection("Stock").document(this.name);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        stockCode = document.getData().get("code").toString();
+                        detailCode = document.getData().get("detail_code").toString();
+                        Log.d("This stock's data", "Stock Code: " + stockCode + ", Detail Code: " + detailCode);
 
-            Log.d("Complete Init", "name: " + this.name + ", stockCode: " + stockCode + ", detailCode: " + detailCode);
-            Log.d("Doc detail", doc.text());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+                        CrawlingTh = new Crawling_Thread(stockCode);
+                        CrawlingTh.start();
+                    } else { Log.d("No Search", "No such document"); }
+                } else { Log.d("Failed", "get failed with ", task.getException()); }
+            }
+        });
+
         Log.d("end", "Init end");
     }
 
     // 해당 종목의 현재가 메서드
     public int currentPrice() {
-        int price = Integer.parseInt(doc.select("#chart_area > div.rate_info > div.today > div.no_today > em.no_up").text());
-        Log.d("price", "Current price :" + price);
-
-        return price;
+        return 0;
     }
 
     // 전일 종가 대비 등락 동향(▲ 또는 - 또는 ▼) 메서드
@@ -84,5 +95,27 @@ public class Stock implements Serializable {
         String name = "";
 
         return name;
+    }
+
+    // Getter, Setter
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getStockCode() {
+        return stockCode;
+    }
+    public void setStockCode(String stockCode) {
+        this.stockCode = stockCode;
+    }
+
+    public String getDetailCode() {
+        return detailCode;
+    }
+    public void setDetailCode(String detailCode) {
+        this.detailCode = detailCode;
     }
 }
