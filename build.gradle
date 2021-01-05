@@ -5,6 +5,8 @@ buildscript {
         jcenter()
     }
     dependencies {
+        //implementation'androidx.appcompat:appcompat:1.0.2'
+        //implementation'com.goole.android.material:material:1.0.0-rc01'
         classpath "com.android.tools.build:gradle:4.1.1"
         classpath 'com.google.gms:google-services:4.3.4'
         // NOTE: Do not place your application dependencies here; they belong

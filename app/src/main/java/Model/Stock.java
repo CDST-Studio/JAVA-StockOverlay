@@ -15,6 +15,7 @@ import java.io.Serializable;
 public class Stock implements Serializable {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final DocumentReference docRef = db.collection("Stock").document("StockNameToCode");
 
     private String name; // 종목명
     private String stockCode; // 종목코드
