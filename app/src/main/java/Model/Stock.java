@@ -2,62 +2,56 @@ package Model;
 
 import android.util.Log;
 
-import androidx.annotation.Nullable;
-
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
+import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
 
-public class Stock implements Serializable {
-    // FireStore(Firebase) 접속용 Instance
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final DocumentReference docRef = db.collection("Stock").document("StockNameToCode");
+import Model.Thread.Crawling_Thread;
+import Model.Thread.FireStore_Thread;
 
+public class Stock implements Serializable {
+    // 웹 크롤링용 클래스 변수
+    private Document doc; // URL 정보
+
+    // 해당 주식 관련 클래스 변수
     private String name; // 종목명
     private String stockCode; // 종목코드
     private String detailCode; // 업종코드
 
+    /**
+     * 생성자의 매개변수에 종목명을 입력하여 객체를 선언한다.
+     * @param name = 종목명
+     */
     public Stock(String name) {
         this.name = name;
+        Log.d("start", "Init Start");
 
-        // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
-        final DocumentReference docRef = db.collection("Stock").document(this.name);
-        docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot snapshot, @Nullable FirebaseFirestoreException e) {
-                // 불러오기 실패시
-                if (e != null) {
-                    Log.w("Failed", "Listen failed.", e);
-                    return;
-                }
+        FireStore_Thread FireStoreTh = new FireStore_Thread(this.name, this.stockCode, this.detailCode);
+        Crawling_Thread CrawlingTh = new Crawling_Thread(this.stockCode, this.doc);
+        try {
+            FireStoreTh.start();
+            FireStoreTh.join();
+            CrawlingTh.start();
+            CrawlingTh.join();
 
-                // 불러오기 성공시
-                if (snapshot != null && snapshot.exists()) {
-                    // 데이터가 null 이 아닐때
-                    stockCode = snapshot.getData().get("code").toString();
-                    detailCode = snapshot.getData().get("detail_code").toString();
-                    Log.d("This stock's data", "Stock Code: " + stockCode + ", Detail Code: " + detailCode);
-                } else {
-                    // 데이터가 null 일때
-                    Log.d("Null", "Current data: null");
-                }
-            }
-        });
+            Log.d("Complete Init", "name: " + this.name + ", stockCode: " + stockCode + ", detailCode: " + detailCode);
+            Log.d("Doc detail", doc.text());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        Log.d("end", "Init end");
     }
 
     // 해당 종목의 현재가 메서드
-    public int currentPrice(String code) {
-        int price = 0;
+    public int currentPrice() {
+        int price = Integer.parseInt(doc.select("#chart_area > div.rate_info > div.today > div.no_today > em.no_up").text());
+        Log.d("price", "Current price :" + price);
 
         return price;
     }
 
     // 전일 종가 대비 등락 동향(▲ 또는 - 또는 ▼) 메서드
-    public int change(String code) {
+    public int change() {
         // 1 = ▲, 0 = -, -1 = ▼
         int cFlag = 0;
 
@@ -65,28 +59,28 @@ public class Stock implements Serializable {
     }
 
     // 전일 종가 대비 등락 가격 계산 메서드
-    public int changePrice(String code) {
+    public int changePrice() {
         int cPrice = 0;
 
         return cPrice;
     }
 
     // 전일 종가 대비 등락률 계산 메서드
-    public double changeRate(String code) {
+    public double changeRate() {
         double cRate = 0.0;
 
         return cRate;
     }
 
     // 종목명에서 종목코드로 바꾸는 메서드
-    public String nameToCode(String name) {
+    public String nameToCode() {
         String code = "";
 
         return code;
     }
 
     // 종목코드에서 종목명으로 바꾸는 메서드
-    public String codeToName(String code) {
+    public String codeToName() {
         String name = "";
 
         return name;
