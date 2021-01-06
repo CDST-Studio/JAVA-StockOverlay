@@ -1,34 +1,63 @@
 package Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class User {
-    // 사용자의 ID, Password
-    private String id, pwd;
-    // 사용자의 관심종목
-    private ArrayList<String> interestedStocks = new ArrayList<>();
+public class User implements Parcelable {
+    private String id; // ID
+    private String pwd; // Password
+    private ArrayList interestedStocks; // 관심종목
 
-    public User() {
-
+    // -------------- 생성자 --------------
+    /**
+     * 유저에 대한 기본 정보
+     * @param id
+     * @param pwd
+     * @param interestedStocks
+     */
+    public User(String id, String pwd, ArrayList<String> interestedStocks) {
+        this.id = id;
+        this.pwd = pwd;
+        this.interestedStocks = interestedStocks;
     }
 
-    // 회원가입 메서드
-    public void signUp() {
+    // Parcelable 사용을 위한 생성자
+    protected User(Parcel source) {
+        id = source.readString();
+        pwd = source.readString();
 
+        String stock = source.readString();
+        while(stock != null) {
+            interestedStocks.add(stock);
+            stock = source.readString();
+        }
     }
 
-    // 관심종목 추가 메서드
-    public void addInterestedStock(String name) {
+    // -------------- Parcelable --------------
+    // Parcelable 사용을 위한 creator 객체 생성
+    public static final Parcelable.Creator<User> CREATOR = new Parcelable.Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel source) {
+            return new User(source);
+        }
 
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(id);
+        parcel.writeString(pwd);
+        parcel.writeTypedList(interestedStocks);
     }
 
-    // 관심종목 삭제 메서드
-    public void subInterestedStock(String name) {
-
-    }
-
-    // 모든 관심종목 읽어오는 메서드
-    public void readInterestedStock() {
-
+    @Override
+    public int describeContents() {
+        return 0;
     }
 }

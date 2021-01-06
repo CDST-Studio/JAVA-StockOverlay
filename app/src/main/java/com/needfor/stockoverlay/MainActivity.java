@@ -5,11 +5,13 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
 import Model.Stock;
+import Module.Crawling;
 
 public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -22,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         checkPermission();
+
+        Stock s = new Stock("삼성전자", "005930", "032604");
+        Crawling ct = new Crawling(s.getStockCode());
+
+        Log.d("Test price", ct.currentPrice());
     }
 
     // 권한 확인 메서드

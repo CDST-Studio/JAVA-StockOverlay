@@ -10,8 +10,10 @@ public class Stock implements Parcelable {
 
     // -------------- 생성자 --------------
     /**
-     * 생성자의 매개변수에 종목명을 입력하여 객체를 선언한다.
-     * @param name = 종목명
+     * 해당 종목에 대한 기본 값
+     * @param name
+     * @param stockCode
+     * @param detailCode
      */
     public Stock(String name, String stockCode, String detailCode) {
         this.name = name;

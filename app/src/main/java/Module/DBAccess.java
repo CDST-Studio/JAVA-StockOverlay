@@ -16,7 +16,11 @@ public class DBAccess {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // Google FireStore DB 내에서 Stock 컬렉션 Access 해서 데이터 받아오는 생성자
+    // -------------- 생성자 --------------
+    /**
+     * Google FireStore DB 내에서 Stock 컬렉션 Access 해서 데이터 받아오는 생성자
+     * @param stock
+     */
     public DBAccess(Stock stock) {
         Log.d("start", "DB access start");
         // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
@@ -44,5 +48,26 @@ public class DBAccess {
             }
         });
         Log.d("end", "DB access end");
+    }
+
+    // -------------- 기타 메서드 --------------
+    // 회원가입 메서드
+    public void signUp() {
+
+    }
+
+    // 관심종목 추가 메서드
+    public void addInterestedStock(String name) {
+
+    }
+
+    // 관심종목 삭제 메서드
+    public void subInterestedStock(String name) {
+
+    }
+
+    // 모든 관심종목 읽어오는 메서드
+    public void readInterestedStock() {
+
     }
 }
