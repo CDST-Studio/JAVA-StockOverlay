@@ -22,7 +22,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="47dp"
-            android:drawableLeft="@drawable/ic_flag_SouthKorea"
+            android:drawableLeft="@drawable/ic_flag_southkorea"
             android:text="한국"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp" >
