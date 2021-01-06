@@ -1,4 +1,4 @@
-package Model.Thread;
+package Module.Thread;
 
 import android.util.Log;
 
@@ -7,7 +7,7 @@ import org.jsoup.nodes.Document;
 
 import java.io.IOException;
 
-public class Crawling_Thread extends Thread {
+public class CrawlingThread extends Thread {
     // 해당 주식의 종목코드
     private String stockCode;
 
@@ -19,7 +19,7 @@ public class Crawling_Thread extends Thread {
      * 종목코드를 생성자의 매개변수에 입력하여 객체를 선언한다.
      * @param stockCode = 종목코드
      */
-    public Crawling_Thread(String stockCode) { this.stockCode = stockCode; }
+    public CrawlingThread(String stockCode) { this.stockCode = stockCode; }
 
     @Override
     public void run() {
@@ -40,7 +40,44 @@ public class Crawling_Thread extends Thread {
         Log.d("end", "Crawling_Thread end");
     }
 
-    public int crawlingCurrentPrice() {
-        return Integer.parseInt(doc.select("#chart_area > div.rate_info > div.today > div.no_today > em.no_up").text());
+    // 현재가 크롤링 메서드
+    public int currentPrice() {
+        return Integer.parseInt(doc.select("#content").text());
+    }
+
+    // 전일 종가 대비 등락 동향(▲ 또는 - 또는 ▼) 메서드
+    public int change() {
+        // 1 = ▲, 0 = -, -1 = ▼
+        int cFlag = 0;
+
+        return cFlag;
+    }
+
+    // 전일 종가 대비 등락 가격 계산 메서드
+    public int changePrice() {
+        int cPrice = 0;
+
+        return cPrice;
+    }
+
+    // 전일 종가 대비 등락률 계산 메서드
+    public double changeRate() {
+        double cRate = 0.0;
+
+        return cRate;
+    }
+
+    // 종목명에서 종목코드로 바꾸는 메서드
+    public String nameToCode() {
+        String code = "";
+
+        return code;
+    }
+
+    // 종목코드에서 종목명으로 바꾸는 메서드
+    public String codeToName() {
+        String name = "";
+
+        return name;
     }
 }
