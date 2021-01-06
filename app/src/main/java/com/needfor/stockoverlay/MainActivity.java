@@ -7,6 +7,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 
 import Model.Stock;
 
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermission();
         Stock s = new Stock("삼성전자");
+        int p = s.currentPrice();
+        Log.d("test", Integer.toString(p));
     }
 
     // 권한 확인 메서드
