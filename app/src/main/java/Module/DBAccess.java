@@ -11,18 +11,16 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import Model.Stock;
-import Module.Thread.CrawlingThread;
 
-public class DBAcess {
+public class DBAccess {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private final DocumentReference docRef;
 
     // Google FireStore DB 내에서 Stock 컬렉션 Access 해서 데이터 받아오는 생성자
-    public DBAcess(Stock stock) {
+    public DBAccess(Stock stock) {
         Log.d("start", "DB access start");
         // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
-        docRef = db.collection("Stock").document(stock.getName());
+        final DocumentReference docRef = db.collection("Stock").document(stock.getName());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -47,6 +45,4 @@ public class DBAcess {
         });
         Log.d("end", "DB access end");
     }
-
-    public DocumentSnapshot getDoc() { return docRef.get().getResult(); }
 }
