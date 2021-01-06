@@ -19,12 +19,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_main);
 
         checkPermission();
-        Stock s = new Stock("삼성전자");
-        int p = s.currentPrice();
-        Log.d("test", Integer.toString(p));
     }
 
     // 권한 확인 메서드

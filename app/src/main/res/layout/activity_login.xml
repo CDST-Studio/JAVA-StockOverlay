@@ -37,7 +37,7 @@
             android:layout_height="60dp"
             android:layout_width="match_parent"
             android:hint="이메일 주소"
-            android:id="@+id/TextInputEditText_email">
+            android:id="@+id/TextInputEditText_Email">
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,8 +48,9 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_height="60dp"
             android:layout_width="match_parent"
-            android:hint0="비밀번호"
-            android:id="@+id/TextInputEditText_password">
+            android:hint="비밀번호"
+            android:id="@+id/TextInputEditText_Password"
+            android:layout_marginBottom="16dp" >
         </com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,7 +61,7 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="131dp"
         android:layout_marginBottom="5dp"
-        android:id="@+id/TextInputEditText_login"
+        android:id="@+id/Button_Login"
         >
     </Button>
     <Button
