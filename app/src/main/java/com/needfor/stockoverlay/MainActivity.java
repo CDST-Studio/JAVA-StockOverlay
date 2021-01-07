@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermission();
 
+        /*
         Stock s = new Stock("삼성전자", "005930", "032604");
         Crawling ct = new Crawling(s);
 
@@ -34,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Crawling test", ct.change());
         Log.d("Crawling test", ct.changePrice());
         Log.d("Crawling test", ct.changeRate());
-
-        // new DBAccess().signUp(new User("123123", "123123"));
-        new DBAccess().signIn(new User("123123", "123123"));
+         */
+        //new DBAccess().signUp(new User("123123", "123123"));
+        //new DBAccess().signIn(new User("123123", "123123"));
+        //new DBAccess().readAllInterestedStock(new User("123123", "123123"));
+        //new DBAccess().addInterestedStock(new User("123123", "123123"), "센트리온");
+        new DBAccess().subInterestedStock(new User("123123", "123123"), "센트리온");
     }
 
     // 권한 확인 메서드

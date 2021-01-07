@@ -7,6 +7,7 @@ public class Stock implements Parcelable {
     private String name; // 종목명
     private String stockCode; // 종목코드
     private String detailCode; // 업종코드
+    private String price; // 현재가
 
     // -------------- 생성자 --------------
     /**
@@ -37,6 +38,9 @@ public class Stock implements Parcelable {
 
     public String getDetailCode() { return detailCode; }
     public void setDetailCode(String detailCode) { this.detailCode = detailCode; }
+
+    public String getPrice() { return price; }
+    public void setPrice(String price) { this.price = price; }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성
