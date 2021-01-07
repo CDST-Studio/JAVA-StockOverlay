@@ -26,9 +26,12 @@ public class MainActivity extends AppCompatActivity {
         checkPermission();
 
         Stock s = new Stock("삼성전자", "005930", "032604");
-        Crawling ct = new Crawling(s.getStockCode());
+        Crawling ct = new Crawling(s);
 
-        Log.d("Test price", ct.currentPrice());
+        Log.d("Crawling test", ct.currentPrice());
+        Log.d("Crawling test", ct.change());
+        Log.d("Crawling test", ct.changePrice());
+        Log.d("Crawling test", ct.changeRate());
     }
 
     // 권한 확인 메서드
