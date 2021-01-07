@@ -22,6 +22,12 @@ public class User implements Parcelable {
         this.pwd = pwd;
         this.interestedStocks = interestedStocks;
     }
+    
+    // 로그인 및 회원가입용 생성자
+    public User(String id, String pwd) {
+        this.id = id;
+        this.pwd = pwd;
+    }
 
     // Parcelable 사용을 위한 생성자
     protected User(Parcel source) {
@@ -34,6 +40,11 @@ public class User implements Parcelable {
             stock = source.readString();
         }
     }
+
+    // -------------- Getter --------------
+    public String getId() { return id; }
+    public String getPwd() { return pwd; }
+    public ArrayList getInterestedStocks() { return interestedStocks; }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성

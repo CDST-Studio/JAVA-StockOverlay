@@ -1,6 +1,5 @@
 package Module;
 
-import android.os.AsyncTask;
 import android.util.Log;
 
 import org.jsoup.Jsoup;
@@ -24,7 +23,6 @@ public class Crawling {
      * @param stock
      */
     public Crawling(Stock stock) {
-        Log.d("start", "Crawling init start");
         this.stock = stock;
 
         // URL 정보 초기화
@@ -48,8 +46,6 @@ public class Crawling {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        Log.d("end", "Crawling init end");
     }
 
     // -------------- 기타 메서드 --------------
@@ -82,9 +78,8 @@ public class Crawling {
 
     // 전일 종가 대비 등락률 계산 메서드
     public String changeRate() {
-        String rate = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[3]
-                + doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[4]
-                + doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[6];
+        String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
+        String rate = crawlingResult[3] + crawlingResult[4] + crawlingResult[6];
         return rate;
     }
 

@@ -11,7 +11,9 @@ import android.os.Bundle;
 import android.util.Log;
 
 import Model.Stock;
+import Model.User;
 import Module.Crawling;
+import Module.DBAccess;
 
 public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Crawling test", ct.change());
         Log.d("Crawling test", ct.changePrice());
         Log.d("Crawling test", ct.changeRate());
+
+        // new DBAccess().signUp(new User("123123", "123123"));
+        new DBAccess().signIn(new User("123123", "123123"));
     }
 
     // 권한 확인 메서드
