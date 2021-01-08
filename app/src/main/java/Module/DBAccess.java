@@ -33,10 +33,7 @@ public class DBAccess {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // 기본 생성자
-    public DBAccess() { }
-
-    // -------------- 기타 메서드 --------------
+    // -------------- 커스텀 메서드 --------------
     // -------------- User 모델 관련 --------------
     // 회원가입 메서드
     public void signUp(User user) {
@@ -216,6 +213,7 @@ public class DBAccess {
         });
         return result[0];
     }
+
     // -------------- 암호화, 복호화 메서드 --------------
     // 암호화 메서드
     public HashMap<String, Object> encrypt(String plainText) {
