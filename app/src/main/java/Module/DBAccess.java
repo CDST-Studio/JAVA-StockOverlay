@@ -33,9 +33,6 @@ public class DBAccess {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // -------------- 생성자 --------------
-    public DBAccess() {
-
-    }
     /**
      * Google FireStore DB 내에서 Stock 컬렉션 Access 해서 데이터 받아오는 생성자
      * @param stock
@@ -63,6 +60,9 @@ public class DBAccess {
         });
         Log.d("end", "DB access end");
     }
+
+    // 기본 생성자
+    public DBAccess() { }
 
     // -------------- 기타 메서드 --------------
     // 회원가입 메서드
@@ -129,7 +129,7 @@ public class DBAccess {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replace("[", "").replace("]", "").split(",");
+                        String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
                         List<String> savedInterestedStocks = new ArrayList<>(Arrays.asList(loadedInterestedStocks));
                         savedInterestedStocks.add(name);
 
@@ -166,8 +166,11 @@ public class DBAccess {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replace("[", "").replace("]", "").split(",");
+                        String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
+                        for(String s : loadedInterestedStocks) Log.d(s.toUpperCase(), s);
                         List<String> savedInterestedStocks = new ArrayList<>(Arrays.asList(loadedInterestedStocks));
+                        for(String s : savedInterestedStocks) Log.d("savedElement", s + " " + s.getClass().getName());
+                        Log.d("indexOf", Integer.toString(savedInterestedStocks.indexOf(name)));
                         savedInterestedStocks.remove(name);
 
                         washingtonRef
@@ -204,7 +207,7 @@ public class DBAccess {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        interestedStocks[0] = document.getData().get("interestedStocks").toString().replace("[", "").replace("]", "").split(",");
+                        interestedStocks[0] = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
                         for (String s : interestedStocks[0]) Log.d("test", s);
                     } else {
                         Log.d("No Search", "No such document");
@@ -217,7 +220,7 @@ public class DBAccess {
         return interestedStocks[0];
     }
 
-    // -------------- 암호화 메서드 --------------
+    // -------------- 암호화, 복호화 메서드 --------------
     public HashMap<String, Object> encrypt(String plainText) {
         HashMap<String, Object> pwdData = new HashMap<>();
 

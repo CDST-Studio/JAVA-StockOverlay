@@ -71,16 +71,16 @@ public class Crawling {
         return cFlag;
     }
 
-    // 전일 종가 대비 등락 가격 계산 메서드
-    public String changePrice() {
-        return doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[1];
-    }
-
     // 전일 종가 대비 등락률 계산 메서드
     public String changeRate() {
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
         String rate = crawlingResult[3] + crawlingResult[4] + crawlingResult[6];
         return rate;
+    }
+
+    // 전일 종가 대비 등락 가격 계산 메서드
+    public String changePrice() {
+        return doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[1];
     }
 
     // -------------- Getter --------------
