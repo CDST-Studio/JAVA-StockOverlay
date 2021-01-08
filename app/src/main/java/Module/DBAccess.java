@@ -45,7 +45,7 @@ public class DBAccess {
 
         userData.put("pwd", encryptPwd.get("pwd"));
         userData.put("salt", encryptPwd.get("salt"));
-        userData.put("interestedStocks", Arrays.asList("삼성전자", "LG전자", "센트리온", "포항제철", "현대자동차", "LG건강"));
+        userData.put("interestedStocks", Arrays.asList("-"));
 
         db.collection("User").document(user.getId())
                 .set(userData)
@@ -100,7 +100,9 @@ public class DBAccess {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
-                        List<String> savedInterestedStocks = new ArrayList<>(Arrays.asList(loadedInterestedStocks));
+                        List<String> savedInterestedStocks;
+                        if (loadedInterestedStocks[0].equals("-")) savedInterestedStocks = new ArrayList<>();
+                        else savedInterestedStocks= new ArrayList<>(Arrays.asList(loadedInterestedStocks));
                         savedInterestedStocks.add(name);
 
                         washingtonRef
@@ -137,8 +139,15 @@ public class DBAccess {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
-                        List<String> savedInterestedStocks = new ArrayList<>(Arrays.asList(loadedInterestedStocks));
-                        savedInterestedStocks.remove(name);
+                        List<String> savedInterestedStocks;
+                        if (loadedInterestedStocks.equals("-")) {
+                            savedInterestedStocks = new ArrayList<>();
+                            savedInterestedStocks.add("-");
+                        }
+                        else {
+                            savedInterestedStocks= new ArrayList<>(Arrays.asList(loadedInterestedStocks));
+                            savedInterestedStocks.remove(name);
+                        }
 
                         washingtonRef
                                 .update("interestedStocks", savedInterestedStocks)

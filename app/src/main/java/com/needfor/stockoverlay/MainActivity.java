@@ -42,14 +42,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Crawling test", new Crawling("005930").codeToName());
          */
 
-        /*
-        DB 접속 예제
-        new DBAccess().signUp(new User("123123", "123123"));
-        new DBAccess().signIn(new User("123123", "123123"));
-        new DBAccess().readAllInterestedStock(new User("123123", "123123"));
-        new DBAccess().addInterestedStock(new User("123123", "123123"), "센트리온");
-        new DBAccess().subInterestedStock(new User("123123", "123123"), "포항제철");
-         */
+        //new DBAccess().signUp(new User("111111", "111111"));
+        //new DBAccess().signIn(new User("111111", "111111"));
+        //new DBAccess().readAllInterestedStock(new User("111111", "111111"));
+        //new DBAccess().addInterestedStock(new User("111111", "111111"), "LG전자");
+        //new DBAccess().subInterestedStock(new User("111111", "111111"), "삼성전자");
 
         /*
         검색 예제
