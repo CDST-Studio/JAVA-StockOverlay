@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import Model.Stock;
 import Model.User;
@@ -32,39 +33,11 @@ public class DBAccess {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    // -------------- 생성자 --------------
-    /**
-     * Google FireStore DB 내에서 Stock 컬렉션 Access 해서 데이터 받아오는 생성자
-     * @param stock
-     */
-    public DBAccess(Stock stock) {
-        Log.d("start", "DB access start");
-        // 종목명에 맞는 데이터를 FireStore DB 중 Stock 컬렉션에서 불러온다.
-        final DocumentReference docRef = db.collection("Stock").document(stock.getName());
-        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()) {
-                    DocumentSnapshot document = task.getResult();
-                    if (document.exists()) {
-                        stock.setStockCode(document.getData().get("code").toString());
-                        stock.setDetailCode(document.getData().get("detail_code").toString());
-                        Log.d("This stock's data", "Stock Code: " + stock.getStockCode() + ", Detail Code: " + stock.getDetailCode());
-                    } else {
-                        Log.d("No Search", "No such document");
-                    }
-                } else {
-                    Log.d("Failed", "get failed with ", task.getException());
-                }
-            }
-        });
-        Log.d("end", "DB access end");
-    }
-
     // 기본 생성자
     public DBAccess() { }
 
     // -------------- 기타 메서드 --------------
+    // -------------- User 모델 관련 --------------
     // 회원가입 메서드
     public void signUp(User user) {
         HashMap<String, Object> userData = new HashMap<>();
@@ -125,7 +98,7 @@ public class DBAccess {
         final DocumentReference washingtonRef = db.collection("User").document(user.getId());
         washingtonRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public synchronized void onComplete(@NonNull Task<DocumentSnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
@@ -162,15 +135,12 @@ public class DBAccess {
         final DocumentReference washingtonRef = db.collection("User").document(user.getId());
         washingtonRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public synchronized void onComplete(@NonNull Task<DocumentSnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         String[] loadedInterestedStocks = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
-                        for(String s : loadedInterestedStocks) Log.d(s.toUpperCase(), s);
                         List<String> savedInterestedStocks = new ArrayList<>(Arrays.asList(loadedInterestedStocks));
-                        for(String s : savedInterestedStocks) Log.d("savedElement", s + " " + s.getClass().getName());
-                        Log.d("indexOf", Integer.toString(savedInterestedStocks.indexOf(name)));
                         savedInterestedStocks.remove(name);
 
                         washingtonRef
@@ -203,12 +173,11 @@ public class DBAccess {
         final DocumentReference docRef = db.collection("User").document(user.getId());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public synchronized void onComplete(@NonNull Task<DocumentSnapshot> task) {
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         interestedStocks[0] = document.getData().get("interestedStocks").toString().replaceAll(" ", "").replace("[", "").replace("]", "").split(",");
-                        for (String s : interestedStocks[0]) Log.d("test", s);
                     } else {
                         Log.d("No Search", "No such document");
                     }
@@ -220,7 +189,35 @@ public class DBAccess {
         return interestedStocks[0];
     }
 
+    // -------------- Stock 모델 관련 --------------
+    // 특정 종목의 DB에 저장된 데이터 읽어오는 메서드
+    public Stock readStock(String name) {
+        final Stock[] result = new Stock[1];
+
+        final DocumentReference docRef = db.collection("Stock").document(name);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String stockCode = document.getData().get("code").toString();
+                        String detailCode = document.getData().get("detail_code").toString();
+
+                        Crawling crawling = new Crawling(stockCode);
+                        result[0] = new Stock(name, stockCode, detailCode, crawling.currentPrice(), crawling.change(), crawling.changeRate(), crawling.changePrice());
+                    } else {
+                        Log.d("No Search", "No such document");
+                    }
+                } else {
+                    Log.d("Failed", "get failed with ", task.getException());
+                }
+            }
+        });
+        return result[0];
+    }
     // -------------- 암호화, 복호화 메서드 --------------
+    // 암호화 메서드
     public HashMap<String, Object> encrypt(String plainText) {
         HashMap<String, Object> pwdData = new HashMap<>();
 
@@ -249,6 +246,7 @@ public class DBAccess {
         return pwdData;
     }
 
+    // 복호화 메서드
     public String decrypt(String encryptedText, String salt) {
         MessageDigest md = null;
         try {

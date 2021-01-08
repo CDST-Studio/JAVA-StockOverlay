@@ -10,23 +10,18 @@ import java.io.IOException;
 import Model.Stock;
 
 public class Crawling {
-    // 해당 주식의 종목코드
-    private Stock stock;
-
     // 웹 크롤링용 클래스 변수
     private Document doc; // URL 정보
     private String url; // url
 
     // -------------- 생성자 --------------
     /**
-     * 해당 종목코드에 대한 크롤러, https://finance.naver.com (네이버 금융)
-     * @param stock
+     * 해당 종목에 대한 크롤러, https://finance.naver.com (네이버 금융)
+     * @param code
      */
-    public Crawling(Stock stock) {
-        this.stock = stock;
-
+    public Crawling(String code) {
         // URL 정보 초기화
-        url = "https://finance.naver.com/item/main.nhn?code=" + this.stock.getStockCode();
+        url = "https://finance.naver.com/item/main.nhn?code=" + code;
         Log.d("crawling", "URL: " + url);
 
         // URL의 HTML 정보 가져오기, android.os.NetworkOnMainThreadException 오류 해결을 위한 개별 스레드에서 작업 진행
@@ -46,6 +41,11 @@ public class Crawling {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    // Stock 객체로 들어왔을 때의 생성자
+    public Crawling(Stock stock) {
+        this(stock.getStockCode());
     }
 
     // -------------- 기타 메서드 --------------
@@ -74,6 +74,7 @@ public class Crawling {
     // 전일 종가 대비 등락률 계산 메서드
     public String changeRate() {
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
+        for (String s : crawlingResult) Log.d("test", s);
         String rate = crawlingResult[3] + crawlingResult[4] + crawlingResult[6];
         return rate;
     }
@@ -83,6 +84,9 @@ public class Crawling {
         return doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[1];
     }
 
+    public String codeToName() {
+         return doc.select("#middle > div.h_company > div.wrap_company > h2").text();
+    }
     // -------------- Getter --------------
     public Document getDoc() { return doc; }
     public String getUrl() { return url; }

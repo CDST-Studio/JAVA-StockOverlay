@@ -10,10 +10,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import java.util.HashMap;
+
 import Model.Stock;
 import Model.User;
 import Module.Crawling;
 import Module.DBAccess;
+import Module.Search;
 
 public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         checkPermission();
 
         /*
+        크롤링 예제
         Stock s = new Stock("삼성전자", "005930", "032604");
         Crawling ct = new Crawling(s);
 
@@ -35,13 +39,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Crawling test", ct.change());
         Log.d("Crawling test", ct.changePrice());
         Log.d("Crawling test", ct.changeRate());
+        Log.d("Crawling test", new Crawling("005930").codeToName());
          */
 
-        //new DBAccess().signUp(new User("123123", "123123"));
-        //new DBAccess().signIn(new User("123123", "123123"));
-        //new DBAccess().readAllInterestedStock(new User("123123", "123123"));
-        //new DBAccess().addInterestedStock(new User("123123", "123123"), "센트리온");
+        /*
+        DB 접속 예제
+        new DBAccess().signUp(new User("123123", "123123"));
+        new DBAccess().signIn(new User("123123", "123123"));
+        new DBAccess().readAllInterestedStock(new User("123123", "123123"));
+        new DBAccess().addInterestedStock(new User("123123", "123123"), "센트리온");
         new DBAccess().subInterestedStock(new User("123123", "123123"), "포항제철");
+         */
+
+        /*
+        검색 예제
+        Stock searchStock1 = new Search().searchStock("삼성전자");
+        Stock searchStock2 = new Search().searchStock("086900");
+         */
     }
 
     // 권한 확인 메서드
