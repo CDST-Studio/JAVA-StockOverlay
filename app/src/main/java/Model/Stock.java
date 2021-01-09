@@ -38,6 +38,7 @@ public class Stock implements Parcelable {
      * @param name
      * @param stockCode
      * @param detailCode
+     * 
      */
     public Stock(String name, String stockCode, String detailCode) {
         this.name = name;

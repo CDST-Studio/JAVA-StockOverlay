@@ -2,6 +2,7 @@ package com.needfor.stockoverlay;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -22,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         checkPermission();
 
