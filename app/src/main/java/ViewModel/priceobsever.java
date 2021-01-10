@@ -21,7 +21,8 @@ public class priceobsever {
             public void onChanged(@Nullable final Integer newprice){
                 //Update the UI, in this case, a TextView
                 nameTextView.setText(newprice);*/
-    }/*
+    }
+    /*
         final Observer<Integer> stockObserver = (price) -> {
             view의 price.set(price);
 
@@ -31,5 +32,5 @@ public class priceobsever {
         model.getLiveDataPrice().observe(this,stockObserver);
     }
 
-
+*/
 }
