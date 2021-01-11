@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.needfor.stockoverlay.R;
 import Model.User;
-import Module.DBAccess;
+import Module.DBA;
 
 public class Login extends AppCompatActivity {
 
@@ -32,8 +32,8 @@ public class Login extends AppCompatActivity {
                 String email = TextInputEditText_email.getText().toString();
                 String password = TextInputEditText_password.getText().toString();
 
-                DBAccess DB = new DBAccess();
-                DB.signIn(new User(email, password));
+                DBA DB = new DBA();
+                //DB.signIn(new User(email, password));
                 Intent intent = new Intent(Login.this, Main.class);
                 startActivity(intent);
             }
