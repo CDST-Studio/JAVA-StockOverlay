@@ -34,21 +34,11 @@ public class Stock implements Parcelable {
     }
 
     /**
-     * 해당 종목에 대한 종목명, 종목코드, 업종코드 초기화 생성자
+     * 해당 종목명 초기화 생성자
      * @param name
-     * @param stockCode
-     * @param detailCode
-     * 
      */
-    public Stock(String name, String stockCode, String detailCode) {
-        this.name = name;
-        this.stockCode = stockCode;
-        this.detailCode = detailCode;
-    }
-
-    public Stock(String name) {
-        this.name = name;
-    }
+    public Stock(String name) { this.name = name; }
+    public Stock(){};
 
     // Parcelable 사용을 위한 생성자
     protected Stock(Parcel source) {

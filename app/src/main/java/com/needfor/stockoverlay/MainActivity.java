@@ -11,10 +11,12 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
+import Model.Stock;
 import Model.User;
 import Module.Crawling;
 import Module.DBA;
 import Module.Parsing;
+import Module.Search;
 
 public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -22,23 +24,37 @@ public class MainActivity extends AppCompatActivity {
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         checkPermission();
 
         /*
         주식 객체 예제
-        Stock s = new Stock("삼성전자", "005930", "032604");
+        AssetManager assetManager = getResources().getAssets();
+        Stock s = new Stock("삼성전자");
+        new DBA().initStock(assetManager, s);
+        */
+
+        /*
+        관심종목 관련 예제
+        // 관심종목 추가
+        new DBA().addInterestedStocks(getDatabasePath("Stock"), "NAVER");
+        
+        // 관심종목 모두 불러오기
+        ArrayList<String> test = new DBA().getInterestedStocks(getDatabasePath("Stock"));
+        for(String s:test) Log.d("DB read test", s);
+
+        // 관심종목 삭제
+        new DBA().subInterestedStocks(getDatabasePath("Stock"), "현대자동차");
+
+        test = new DBA().getInterestedStocks(getDatabasePath("Stock"));
+        for(String s:test) Log.d("DB read test", s);
          */
 
-        new DBA().initInterestedStocks(getDatabasePath("Stock"), "삼성전자");
-        ArrayList<String> test = new DBA().readInterestedStocks(getDatabasePath("Stock"));
-        Log.d("DB read test", test.get(0));
         /*
-        AssetManager assetManager = getApplicationContext().getAssets();
+        크롤링 예제
+        AssetManager assetManager = getResources().getAssets();
         Crawling ct = new Crawling(new Parsing().getStockCode(assetManager, "삼성전자"));
         Log.d("Crawling test", ct.currentPrice());
         Log.d("Crawling test", ct.change());
@@ -46,11 +62,26 @@ public class MainActivity extends AppCompatActivity {
         Log.d("Crawling test", ct.changeRate());
         Log.d("Crawling test", ct.codeToName());
          */
-        
+
         /*
         검색 예제
-        Stock searchStock1 = new Search().searchStock("삼성전자");
-        Stock searchStock2 = new Search().searchStock("086900");
+        AssetManager assetManager = getResources().getAssets();
+
+        Stock searchStock1 = new Search().searchStock(assetManager,"삼성전자");
+        Log.d("Search test", searchStock1.getName());
+        Log.d("Search test", searchStock1.getStockCode());
+        Log.d("Search test", searchStock1.getDetailCode());
+        Log.d("Search test", searchStock1.getChange());
+        Log.d("Search test", searchStock1.getChangeRate());
+        Log.d("Search test", searchStock1.getChangePrice());
+
+        Stock searchStock2 = new Search().searchStock(assetManager,"086900");
+        Log.d("Search test 2", searchStock2.getName());
+        Log.d("Search test 2", searchStock2.getStockCode());
+        Log.d("Search test 2", searchStock2.getDetailCode());
+        Log.d("Search test 2", searchStock2.getChange());
+        Log.d("Search test 2", searchStock2.getChangeRate());
+        Log.d("Search test 2", searchStock2.getChangePrice());
          */
     }
 

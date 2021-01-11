@@ -2,9 +2,6 @@ package Module;
 
 import android.util.Log;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -77,7 +74,6 @@ public class Crawling {
     // 전일 종가 대비 등락률 계산 메서드
     public String changeRate() {
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
-        for (String s : crawlingResult) Log.d("test", s);
         String rate = crawlingResult[3] + crawlingResult[4] + crawlingResult[6];
         return rate;
     }

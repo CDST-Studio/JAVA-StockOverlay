@@ -1,8 +1,6 @@
 package Module;
 
-import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,8 +9,15 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class Parsing {
+    /**
+     * assetManager: getApplicationContext().getAssets(), name: stockName, codeType: "code"=종목코드 | "detail_code"=업종코드
+     * @param assetManager
+     * @param name
+     * @param codeType
+     * @return
+     */
     // 종목코드 파싱
-    public String getStockCode(AssetManager assetManager, String name) {
+    public String getCode(AssetManager assetManager, String name, String codeType) {
         String result = null;
         try {
             InputStream is = assetManager.open("StockData.json");
@@ -26,7 +31,7 @@ public class Parsing {
             JSONObject jsonObject = new JSONObject(json);
             JSONObject stockData = jsonObject.getJSONObject(name);
 
-            result = stockData.getString("code");
+            result = stockData.getString(codeType);
             if (result.length() < 6) for (int i=0; i<=6-(result.length()); i++) result = "0" + result;
         } catch (IOException | JSONException ex) {
             ex.printStackTrace();
