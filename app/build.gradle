@@ -30,6 +30,10 @@ android {
     dataBinding{
         enabled = true
     }
+
+    viewBinding {
+        enabled = true
+    }
 }
 
 apply plugin: 'com.android.application'
