@@ -1,23 +1,20 @@
 package com.needfor.stockoverlay;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.os.AsyncTask;
+import android.content.res.AssetManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
-import Model.Stock;
 import Model.User;
 import Module.Crawling;
-import Module.DBAccess;
-import Module.Search;
+import Module.DBA;
+import Module.Parsing;
 
 public class MainActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -33,23 +30,23 @@ public class MainActivity extends AppCompatActivity {
         checkPermission();
 
         /*
-        크롤링 예제
+        주식 객체 예제
         Stock s = new Stock("삼성전자", "005930", "032604");
-        Crawling ct = new Crawling(s);
+         */
 
+        new DBA().initInterestedStocks(getDatabasePath("Stock"), "삼성전자");
+        ArrayList<String> test = new DBA().readInterestedStocks(getDatabasePath("Stock"));
+        Log.d("DB read test", test.get(0));
+        /*
+        AssetManager assetManager = getApplicationContext().getAssets();
+        Crawling ct = new Crawling(new Parsing().getStockCode(assetManager, "삼성전자"));
         Log.d("Crawling test", ct.currentPrice());
         Log.d("Crawling test", ct.change());
         Log.d("Crawling test", ct.changePrice());
         Log.d("Crawling test", ct.changeRate());
-        Log.d("Crawling test", new Crawling("005930").codeToName());
+        Log.d("Crawling test", ct.codeToName());
          */
-
-        //new DBAccess().signUp(new User("111111", "111111"));
-        //new DBAccess().signIn(new User("111111", "111111"));
-        //new DBAccess().readAllInterestedStock(new User("111111", "111111"));
-        //new DBAccess().addInterestedStock(new User("111111", "111111"), "LG전자");
-        //new DBAccess().subInterestedStock(new User("111111", "111111"), "삼성전자");
-
+        
         /*
         검색 예제
         Stock searchStock1 = new Search().searchStock("삼성전자");

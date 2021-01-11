@@ -1,0 +1,9646 @@
+{
+   "3S": {
+      "code": 60310,
+      "detail_code": 32902
+   },
+   "AJ네트웍스": {
+      "code": 95570,
+      "detail_code": 147603
+   },
+   "AK홀딩스": {
+      "code": 6840,
+      "detail_code": 116409
+   },
+   "APS홀딩스": {
+      "code": 54620,
+      "detail_code": 116409
+   },
+   "AP시스템": {
+      "code": 265520,
+      "detail_code": 32902
+   },
+   "AP위성": {
+      "code": 211270,
+      "detail_code": 32604
+   },
+   "BGF": {
+      "code": 27410,
+      "detail_code": 116409
+   },
+   "BGF리테일": {
+      "code": 282330,
+      "detail_code": 74701
+   },
+   "BNK금융지주": {
+      "code": 138930,
+      "detail_code": 116409
+   },
+   "BYC": {
+      "code": 1460,
+      "detail_code": 31401
+   },
+   "CJ": {
+      "code": 1040,
+      "detail_code": 116409
+   },
+   "CJ CGV": {
+      "code": 79160,
+      "detail_code": 105901
+   },
+   "CJ ENM": {
+      "code": 35760,
+      "detail_code": 106002
+   },
+   "CJ대한통운": {
+      "code": 120,
+      "detail_code": 84903
+   },
+   "CJ씨푸드": {
+      "code": 11150,
+      "detail_code": 31007
+   },
+   "CJ제일제당": {
+      "code": 97950,
+      "detail_code": 31007
+   },
+   "CJ프레시웨이": {
+      "code": 51500,
+      "detail_code": 74603
+   },
+   "CMG제약": {
+      "code": 58820,
+      "detail_code": 32102
+   },
+   "CNH": {
+      "code": 23460,
+      "detail_code": 116402
+   },
+   "CS": {
+      "code": 65770,
+      "detail_code": 32604
+   },
+   "CSA 코스믹": {
+      "code": 83660,
+      "detail_code": 32004
+   },
+   "CS홀딩스": {
+      "code": 590,
+      "detail_code": 116409
+   },
+   "DB": {
+      "code": 12030,
+      "detail_code": 106201
+   },
+   "DB금융스팩8호": {
+      "code": 367340,
+      "detail_code": 116409
+   },
+   "DB금융투자": {
+      "code": 16610,
+      "detail_code": 116601
+   },
+   "DB손해보험": {
+      "code": 5830,
+      "detail_code": 116501
+   },
+   "DB하이텍": {
+      "code": 990,
+      "detail_code": 32601
+   },
+   "DGB금융지주": {
+      "code": 139130,
+      "detail_code": 116409
+   },
+   "DMS": {
+      "code": 68790,
+      "detail_code": 32902
+   },
+   "DRB동일": {
+      "code": 4840,
+      "detail_code": 116409
+   },
+   "DSC인베스트먼트": {
+      "code": 241520,
+      "detail_code": 116402
+   },
+   "DSR": {
+      "code": 155660,
+      "detail_code": 32402
+   },
+   "DSR제강": {
+      "code": 69730,
+      "detail_code": 32401
+   },
+   "E1": {
+      "code": 17940,
+      "detail_code": 74607
+   },
+   "EDGC": {
+      "code": 245620,
+      "detail_code": 137001
+   },
+   "EG": {
+      "code": 37370,
+      "detail_code": 74607
+   },
+   "EMW": {
+      "code": 79190,
+      "detail_code": 32604
+   },
+   "ESR켄달스퀘어리츠": {
+      "code": 365550,
+      "detail_code": 126801
+   },
+   "F&F": {
+      "code": 7700,
+      "detail_code": 31401
+   },
+   "GH신소재": {
+      "code": 130500,
+      "detail_code": 31309
+   },
+   "GKL": {
+      "code": 114090,
+      "detail_code": 189102
+   },
+   "GRT": {
+      "code": 900290,
+      "detail_code": 116409
+   },
+   "GS": {
+      "code": 78930,
+      "detail_code": 116409
+   },
+   "GST": {
+      "code": 83450,
+      "detail_code": 32902
+   },
+   "GS건설": {
+      "code": 6360,
+      "detail_code": 64101
+   },
+   "GS글로벌": {
+      "code": 1250,
+      "detail_code": 74608
+   },
+   "GS리테일": {
+      "code": 7070,
+      "detail_code": 74701
+   },
+   "GS홈쇼핑": {
+      "code": 28150,
+      "detail_code": 106002
+   },
+   "GV": {
+      "code": 45890,
+      "detail_code": 32804
+   },
+   "HB테크놀러지": {
+      "code": 78150,
+      "detail_code": 32902
+   },
+   "HDC": {
+      "code": 12630,
+      "detail_code": 116409
+   },
+   "HDC아이콘트롤스": {
+      "code": 39570,
+      "detail_code": 64203
+   },
+   "HDC현대EP": {
+      "code": 89470,
+      "detail_code": 32004
+   },
+   "HDC현대산업개발": {
+      "code": 294870,
+      "detail_code": 64101
+   },
+   "HMM": {
+      "code": 11200,
+      "detail_code": 85001
+   },
+   "HRS": {
+      "code": 36640,
+      "detail_code": 32002
+   },
+   "HSD엔진": {
+      "code": 82740,
+      "detail_code": 32901
+   },
+   "IBKS제12호스팩": {
+      "code": 335870,
+      "detail_code": 116601
+   },
+   "IBKS제13호스팩": {
+      "code": 351340,
+      "detail_code": 116601
+   },
+   "IBKS제14호스팩": {
+      "code": 351320,
+      "detail_code": 116409
+   },
+   "ISC": {
+      "code": 95340,
+      "detail_code": 32602
+   },
+   "ITX-AI": {
+      "code": 99520,
+      "detail_code": 32605
+   },
+   "JB금융지주": {
+      "code": 175330,
+      "detail_code": 116409
+   },
+   "JTC": {
+      "code": 950170,
+      "detail_code": 74701
+   },
+   "JW생명과학": {
+      "code": 234080,
+      "detail_code": 32102
+   },
+   "JW신약": {
+      "code": 67290,
+      "detail_code": 32102
+   },
+   "JW중외제약": {
+      "code": 1060,
+      "detail_code": 32102
+   },
+   "JW홀딩스": {
+      "code": 96760,
+      "detail_code": 116409
+   },
+   "JYP Ent.": {
+      "code": 35900,
+      "detail_code": 105902
+   },
+   "KBI메탈": {
+      "code": 24840,
+      "detail_code": 32402
+   },
+   "KB금융": {
+      "code": 105560,
+      "detail_code": 116409
+   },
+   "KB오토시스": {
+      "code": 24120,
+      "detail_code": 33003
+   },
+   "KCC건설": {
+      "code": 21320,
+      "detail_code": 64101
+   },
+   "KCI": {
+      "code": 36670,
+      "detail_code": 32004
+   },
+   "KC그린홀딩스": {
+      "code": 9440,
+      "detail_code": 116409
+   },
+   "KC산업": {
+      "code": 112190,
+      "detail_code": 32303
+   },
+   "KC코트렐": {
+      "code": 119650,
+      "detail_code": 32901
+   },
+   "KD": {
+      "code": 44180,
+      "detail_code": 64101
+   },
+   "KEC": {
+      "code": 92220,
+      "detail_code": 32601
+   },
+   "KG ETS": {
+      "code": 151860,
+      "detail_code": 53802
+   },
+   "KG동부제철": {
+      "code": 16380,
+      "detail_code": 32401
+   },
+   "KG모빌리언스": {
+      "code": 46440,
+      "detail_code": 105802
+   },
+   "KG이니시스": {
+      "code": 35600,
+      "detail_code": 105802
+   },
+   "KG케미칼": {
+      "code": 1390,
+      "detail_code": 32001
+   },
+   "KH바텍": {
+      "code": 60720,
+      "detail_code": 32602
+   },
+   "KISCO홀딩스": {
+      "code": 1940,
+      "detail_code": 32401
+   },
+   "KMH": {
+      "code": 122450,
+      "detail_code": 106002
+   },
+   "KMH하이텍": {
+      "code": 52900,
+      "detail_code": 32202
+   },
+   "KNN": {
+      "code": 58400,
+      "detail_code": 106002
+   },
+   "KPX생명과학": {
+      "code": 114450,
+      "detail_code": 32101
+   },
+   "KPX케미칼": {
+      "code": 25000,
+      "detail_code": 32001
+   },
+   "KPX홀딩스": {
+      "code": 92230,
+      "detail_code": 32001
+   },
+   "KR모터스": {
+      "code": 40,
+      "detail_code": 33109
+   },
+   "KSS해운": {
+      "code": 44450,
+      "detail_code": 85001
+   },
+   "KTB투자증권": {
+      "code": 30210,
+      "detail_code": 116601
+   },
+   "KTH": {
+      "code": 36030,
+      "detail_code": 74601
+   },
+   "KTcs": {
+      "code": 58850,
+      "detail_code": 106309
+   },
+   "KTis": {
+      "code": 58860,
+      "detail_code": 106309
+   },
+   "KT서브마린": {
+      "code": 60370,
+      "detail_code": 64203
+   },
+   "LF": {
+      "code": 93050,
+      "detail_code": 31401
+   },
+   "LG": {
+      "code": 3550,
+      "detail_code": 116409
+   },
+   "LG디스플레이": {
+      "code": 34220,
+      "detail_code": 32602
+   },
+   "LG상사": {
+      "code": 1120,
+      "detail_code": 74601
+   },
+   "LG생활건강": {
+      "code": 51900,
+      "detail_code": 32004
+   },
+   "LG유플러스": {
+      "code": 32640,
+      "detail_code": 106102
+   },
+   "LG이노텍": {
+      "code": 11070,
+      "detail_code": 32602
+   },
+   "LG전자": {
+      "code": 66570,
+      "detail_code": 32604
+   },
+   "LG하우시스": {
+      "code": 108670,
+      "detail_code": 32202
+   },
+   "LG헬로비전": {
+      "code": 37560,
+      "detail_code": 106002
+   },
+   "LG화학": {
+      "code": 51910,
+      "detail_code": 32001
+   },
+   "LIG넥스원": {
+      "code": 79550,
+      "detail_code": 32502
+   },
+   "LS": {
+      "code": 6260,
+      "detail_code": 116409
+   },
+   "LS네트웍스": {
+      "code": 680,
+      "detail_code": 74608
+   },
+   "LS전선아시아": {
+      "code": 229640,
+      "detail_code": 116409
+   },
+   "MH에탄올": {
+      "code": 23150,
+      "detail_code": 31101
+   },
+   "MP그룹": {
+      "code": 65150,
+      "detail_code": 74603
+   },
+   "MP한강": {
+      "code": 219550,
+      "detail_code": 74604
+   },
+   "NAVER": {
+      "code": 35420,
+      "detail_code": 106301
+   },
+   "NEW": {
+      "code": 160550,
+      "detail_code": 105901
+   },
+   "NE능률": {
+      "code": 53290,
+      "detail_code": 105801
+   },
+   "NHN벅스": {
+      "code": 104200,
+      "detail_code": 105802
+   },
+   "NHN한국사이버결제": {
+      "code": 60250,
+      "detail_code": 106309
+   },
+   "NH투자증권": {
+      "code": 5940,
+      "detail_code": 116601
+   },
+   "NH프라임리츠": {
+      "code": 338100,
+      "detail_code": 126801
+   },
+   "NICE": {
+      "code": 34310,
+      "detail_code": 137105
+   },
+   "NICE평가정보": {
+      "code": 30190,
+      "detail_code": 106309
+   },
+   "NI스틸": {
+      "code": 8260,
+      "detail_code": 32401
+   },
+   "OCI": {
+      "code": 10060,
+      "detail_code": 32001
+   },
+   "OQP": {
+      "code": 78590,
+      "detail_code": 33003
+   },
+   "PI첨단소재": {
+      "code": 178920,
+      "detail_code": 32202
+   },
+   "PN풍년": {
+      "code": 24940,
+      "detail_code": 32509
+   },
+   "RFHIC": {
+      "code": 218410,
+      "detail_code": 32604
+   },
+   "S&K폴리텍": {
+      "code": 91340,
+      "detail_code": 32602
+   },
+   "S&TC": {
+      "code": 100840,
+      "detail_code": 32901
+   },
+   "S&T모티브": {
+      "code": 64960,
+      "detail_code": 33003
+   },
+   "S&T중공업": {
+      "code": 3570,
+      "detail_code": 33003
+   },
+   "S&T홀딩스": {
+      "code": 36530,
+      "detail_code": 116409
+   },
+   "S-Oil": {
+      "code": 10950,
+      "detail_code": 31902
+   },
+   "SBI인베스트먼트": {
+      "code": 19550,
+      "detail_code": 116402
+   },
+   "SBI핀테크솔루션즈": {
+      "code": 950110,
+      "detail_code": 105802
+   },
+   "SBS": {
+      "code": 34120,
+      "detail_code": 106002
+   },
+   "SBS미디어홀딩스": {
+      "code": 101060,
+      "detail_code": 106002
+   },
+   "SBS콘텐츠허브": {
+      "code": 46140,
+      "detail_code": 105901
+   },
+   "SCI평가정보": {
+      "code": 36120,
+      "detail_code": 106309
+   },
+   "SDN": {
+      "code": 99220,
+      "detail_code": 74605
+   },
+   "SFA반도체": {
+      "code": 36540,
+      "detail_code": 32601
+   },
+   "SG": {
+      "code": 255220,
+      "detail_code": 32309
+   },
+   "SG&G": {
+      "code": 40610,
+      "detail_code": 33003
+   },
+   "SGA": {
+      "code": 49470,
+      "detail_code": 105802
+   },
+   "SGA솔루션즈": {
+      "code": 184230,
+      "detail_code": 105802
+   },
+   "SGA클라우드서비스": {
+      "code": 224880,
+      "detail_code": 105802
+   },
+   "SGC에너지": {
+      "code": 5090,
+      "detail_code": 43501
+   },
+   "SGC이테크건설": {
+      "code": 16250,
+      "detail_code": 64101
+   },
+   "SG세계물산": {
+      "code": 4060,
+      "detail_code": 74608
+   },
+   "SG충방": {
+      "code": 1380,
+      "detail_code": 33003
+   },
+   "SH에너지화학": {
+      "code": 2360,
+      "detail_code": 32001
+   },
+   "SIMPAC": {
+      "code": 9160,
+      "detail_code": 32902
+   },
+   "SK": {
+      "code": 34730,
+      "detail_code": 116409
+   },
+   "SK4호스팩": {
+      "code": 307070,
+      "detail_code": 116601
+   },
+   "SK5호스팩": {
+      "code": 337450,
+      "detail_code": 116601
+   },
+   "SK6호스팩": {
+      "code": 340350,
+      "detail_code": 116601
+   },
+   "SKC": {
+      "code": 11790,
+      "detail_code": 32004
+   },
+   "SK가스": {
+      "code": 18670,
+      "detail_code": 74607
+   },
+   "SK네트웍스": {
+      "code": 1740,
+      "detail_code": 74607
+   },
+   "SK디스커버리": {
+      "code": 6120,
+      "detail_code": 116409
+   },
+   "SK디앤디": {
+      "code": 210980,
+      "detail_code": 126801
+   },
+   "SK렌터카": {
+      "code": 68400,
+      "detail_code": 147601
+   },
+   "SK머티리얼즈": {
+      "code": 36490,
+      "detail_code": 32001
+   },
+   "SK이노베이션": {
+      "code": 96770,
+      "detail_code": 31902
+   },
+   "SK증권": {
+      "code": 1510,
+      "detail_code": 116601
+   },
+   "SK케미칼": {
+      "code": 285130,
+      "detail_code": 32002
+   },
+   "SK텔레콤": {
+      "code": 17670,
+      "detail_code": 106102
+   },
+   "SK하이닉스": {
+      "code": 660,
+      "detail_code": 32601
+   },
+   "SM C&C": {
+      "code": 48550,
+      "detail_code": 137103
+   },
+   "SM Life Design": {
+      "code": 63440,
+      "detail_code": 31802
+   },
+   "SNK": {
+      "code": 950180,
+      "detail_code": 105802
+   },
+   "SPC삼립": {
+      "code": 5610,
+      "detail_code": 31007
+   },
+   "STX": {
+      "code": 11810,
+      "detail_code": 74608
+   },
+   "STX엔진": {
+      "code": 77970,
+      "detail_code": 32901
+   },
+   "STX중공업": {
+      "code": 71970,
+      "detail_code": 32901
+   },
+   "SV인베스트먼트": {
+      "code": 289080,
+      "detail_code": 116409
+   },
+   "TCC스틸": {
+      "code": 2710,
+      "detail_code": 32401
+   },
+   "THE E&M": {
+      "code": 89230,
+      "detail_code": 106309
+   },
+   "THE MIDONG": {
+      "code": 161570,
+      "detail_code": 32605
+   },
+   "TJ미디어": {
+      "code": 32540,
+      "detail_code": 32605
+   },
+   "TPC": {
+      "code": 48770,
+      "detail_code": 32901
+   },
+   "TS인베스트먼트": {
+      "code": 246690,
+      "detail_code": 116402
+   },
+   "TS트릴리온": {
+      "code": 317240,
+      "detail_code": 32004
+   },
+   "UCI": {
+      "code": 38340,
+      "detail_code": 168505
+   },
+   "WI": {
+      "code": 73570,
+      "detail_code": 32902
+   },
+   "WISCOM": {
+      "code": 24070,
+      "detail_code": 32202
+   },
+   "W홀딩컴퍼니": {
+      "code": 52300,
+      "detail_code": 85209
+   },
+   "YBM넷": {
+      "code": 57030,
+      "detail_code": 168507
+   },
+   "YG PLUS": {
+      "code": 37270,
+      "detail_code": 106301
+   },
+   "YTN": {
+      "code": 40300,
+      "detail_code": 105901
+   },
+   "YW": {
+      "code": 51390,
+      "detail_code": 74608
+   },
+   "iMBC": {
+      "code": 52220,
+      "detail_code": 106301
+   },
+   "가비아": {
+      "code": 79940,
+      "detail_code": 105802
+   },
+   "가온미디어": {
+      "code": 78890,
+      "detail_code": 32604
+   },
+   "가온전선": {
+      "code": 500,
+      "detail_code": 32803
+   },
+   "감마누": {
+      "code": 192410,
+      "detail_code": 32604
+   },
+   "강남제비스코": {
+      "code": 860,
+      "detail_code": 32004
+   },
+   "강스템바이오텍": {
+      "code": 217730,
+      "detail_code": 32101
+   },
+   "강원": {
+      "code": 114190,
+      "detail_code": 32501
+   },
+   "강원랜드": {
+      "code": 35250,
+      "detail_code": 189102
+   },
+   "갤럭시아머니트리": {
+      "code": 94480,
+      "detail_code": 105802
+   },
+   "갤럭시아에스엠": {
+      "code": 11420,
+      "detail_code": 189101
+   },
+   "게임빌": {
+      "code": 63080,
+      "detail_code": 105802
+   },
+   "경남바이오파마": {
+      "code": 44480,
+      "detail_code": 32201
+   },
+   "경남스틸": {
+      "code": 39240,
+      "detail_code": 32401
+   },
+   "경남제약": {
+      "code": 53950,
+      "detail_code": 32102
+   },
+   "경남제약헬스케어": {
+      "code": 223310,
+      "detail_code": 105802
+   },
+   "경농": {
+      "code": 2100,
+      "detail_code": 32003
+   },
+   "경동나비엔": {
+      "code": 9450,
+      "detail_code": 32805
+   },
+   "경동도시가스": {
+      "code": 267290,
+      "detail_code": 43502
+   },
+   "경동인베스트": {
+      "code": 12320,
+      "detail_code": 116409
+   },
+   "경동제약": {
+      "code": 11040,
+      "detail_code": 32102
+   },
+   "경방": {
+      "code": 50,
+      "detail_code": 74701
+   },
+   "경보제약": {
+      "code": 214390,
+      "detail_code": 32101
+   },
+   "경인양행": {
+      "code": 12610,
+      "detail_code": 32001
+   },
+   "경인전자": {
+      "code": 9140,
+      "detail_code": 32602
+   },
+   "경창산업": {
+      "code": 24910,
+      "detail_code": 33003
+   },
+   "계룡건설산업": {
+      "code": 13580,
+      "detail_code": 64102
+   },
+   "계양전기": {
+      "code": 12200,
+      "detail_code": 32901
+   },
+   "고려산업": {
+      "code": 2140,
+      "detail_code": 31006
+   },
+   "고려시멘트": {
+      "code": 198440,
+      "detail_code": 32303
+   },
+   "고려신용정보": {
+      "code": 49720,
+      "detail_code": 147509
+   },
+   "고려아연": {
+      "code": 10130,
+      "detail_code": 32402
+   },
+   "고려제강": {
+      "code": 2240,
+      "detail_code": 32401
+   },
+   "고려제약": {
+      "code": 14570,
+      "detail_code": 32102
+   },
+   "고바이오랩": {
+      "code": 348150,
+      "detail_code": 137001
+   },
+   "고영": {
+      "code": 98460,
+      "detail_code": 32902
+   },
+   "골드퍼시픽": {
+      "code": 38530,
+      "detail_code": 74604
+   },
+   "골든센츄리": {
+      "code": 900280,
+      "detail_code": 116409
+   },
+   "골프존": {
+      "code": 215000,
+      "detail_code": 105802
+   },
+   "골프존뉴딘홀딩스": {
+      "code": 121440,
+      "detail_code": 74601
+   },
+   "골프존데카": {
+      "code": 183410,
+      "detail_code": 32702
+   },
+   "관악산업": {
+      "code": 76340,
+      "detail_code": 64201
+   },
+   "광동제약": {
+      "code": 9290,
+      "detail_code": 32102
+   },
+   "광림": {
+      "code": 14200,
+      "detail_code": 33001
+   },
+   "광명전기": {
+      "code": 17040,
+      "detail_code": 32801
+   },
+   "광전자": {
+      "code": 17900,
+      "detail_code": 32601
+   },
+   "광주신세계": {
+      "code": 37710,
+      "detail_code": 74701
+   },
+   "광진실업": {
+      "code": 26910,
+      "detail_code": 32401
+   },
+   "광진윈텍": {
+      "code": 90150,
+      "detail_code": 33003
+   },
+   "교보10호기업인수목적": {
+      "code": 355150,
+      "detail_code": 116409
+   },
+   "교보8호스팩": {
+      "code": 307280,
+      "detail_code": 116601
+   },
+   "교보9호스팩": {
+      "code": 331520,
+      "detail_code": 116601
+   },
+   "교보증권": {
+      "code": 30610,
+      "detail_code": 116601
+   },
+   "교촌에프앤비": {
+      "code": 339770,
+      "detail_code": 74603
+   },
+   "구스앤홈": {
+      "code": 329050,
+      "detail_code": 31302
+   },
+   "구영테크": {
+      "code": 53270,
+      "detail_code": 33003
+   },
+   "국도화학": {
+      "code": 7690,
+      "detail_code": 32001
+   },
+   "국동": {
+      "code": 5320,
+      "detail_code": 74604
+   },
+   "국보": {
+      "code": 1140,
+      "detail_code": 84903
+   },
+   "국보디자인": {
+      "code": 66620,
+      "detail_code": 64204
+   },
+   "국순당": {
+      "code": 43650,
+      "detail_code": 31101
+   },
+   "국영지앤엠": {
+      "code": 6050,
+      "detail_code": 32301
+   },
+   "국일신동": {
+      "code": 60480,
+      "detail_code": 32402
+   },
+   "국일제지": {
+      "code": 78130,
+      "detail_code": 31709
+   },
+   "국전약품": {
+      "code": 307750,
+      "detail_code": 32102
+   },
+   "국제약품": {
+      "code": 2720,
+      "detail_code": 32102
+   },
+   "굿센": {
+      "code": 243870,
+      "detail_code": 106201
+   },
+   "그리티": {
+      "code": 204020,
+      "detail_code": 31401
+   },
+   "그린케미칼": {
+      "code": 83420,
+      "detail_code": 32004
+   },
+   "그린플러스": {
+      "code": 186230,
+      "detail_code": 32402
+   },
+   "극동유화": {
+      "code": 14530,
+      "detail_code": 31902
+   },
+   "글로벌에스엠": {
+      "code": 900070,
+      "detail_code": 116409
+   },
+   "글로벌텍스프리": {
+      "code": 204620,
+      "detail_code": 116601
+   },
+   "글로본": {
+      "code": 19660,
+      "detail_code": 74608
+   },
+   "글로스퍼랩스": {
+      "code": 32860,
+      "detail_code": 53803
+   },
+   "금강공업": {
+      "code": 14280,
+      "detail_code": 32401
+   },
+   "금강철강": {
+      "code": 53260,
+      "detail_code": 32401
+   },
+   "금비": {
+      "code": 8870,
+      "detail_code": 32301
+   },
+   "금양": {
+      "code": 1570,
+      "detail_code": 32001
+   },
+   "금호산업": {
+      "code": 2990,
+      "detail_code": 64101
+   },
+   "금호석유화학": {
+      "code": 11780,
+      "detail_code": 32001
+   },
+   "금호에이치티": {
+      "code": 214330,
+      "detail_code": 33003
+   },
+   "금호전기": {
+      "code": 1210,
+      "detail_code": 32804
+   },
+   "금호타이어": {
+      "code": 73240,
+      "detail_code": 32201
+   },
+   "금화피에스시": {
+      "code": 36190,
+      "detail_code": 64203
+   },
+   "기가레인": {
+      "code": 49080,
+      "detail_code": 32902
+   },
+   "기산텔레콤": {
+      "code": 35460,
+      "detail_code": 32604
+   },
+   "기신정기": {
+      "code": 92440,
+      "detail_code": 32902
+   },
+   "기아자동차": {
+      "code": 270,
+      "detail_code": 33001
+   },
+   "기업은행": {
+      "code": 24110,
+      "detail_code": 116401
+   },
+   "까뮤이앤씨": {
+      "code": 13700,
+      "detail_code": 64101
+   },
+   "까스텔바작": {
+      "code": 308100,
+      "detail_code": 74704
+   },
+   "깨끗한나라": {
+      "code": 4540,
+      "detail_code": 31701
+   },
+   "나노": {
+      "code": 187790,
+      "detail_code": 32001
+   },
+   "나노브릭": {
+      "code": 286750,
+      "detail_code": 32001
+   },
+   "나노스": {
+      "code": 151910,
+      "detail_code": 32602
+   },
+   "나노신소재": {
+      "code": 121600,
+      "detail_code": 32004
+   },
+   "나노엔텍": {
+      "code": 39860,
+      "detail_code": 32701
+   },
+   "나노캠텍": {
+      "code": 91970,
+      "detail_code": 32202
+   },
+   "나눔테크": {
+      "code": 244880,
+      "detail_code": 32701
+   },
+   "나라소프트": {
+      "code": 288490,
+      "detail_code": 105802
+   },
+   "나라엠앤디": {
+      "code": 51490,
+      "detail_code": 32902
+   },
+   "나무가": {
+      "code": 190510,
+      "detail_code": 32602
+   },
+   "나무기술": {
+      "code": 242040,
+      "detail_code": 105802
+   },
+   "나스미디어": {
+      "code": 89600,
+      "detail_code": 137103
+   },
+   "나우IB": {
+      "code": 293580,
+      "detail_code": 116409
+   },
+   "나우코스": {
+      "code": 257990,
+      "detail_code": 32004
+   },
+   "나이벡": {
+      "code": 138610,
+      "detail_code": 32103
+   },
+   "나이스디앤비": {
+      "code": 130580,
+      "detail_code": 147509
+   },
+   "나이스정보통신": {
+      "code": 36800,
+      "detail_code": 106102
+   },
+   "나인테크": {
+      "code": 267320,
+      "detail_code": 32902
+   },
+   "남광토건": {
+      "code": 1260,
+      "detail_code": 64102
+   },
+   "남선알미늄": {
+      "code": 8350,
+      "detail_code": 32402
+   },
+   "남성": {
+      "code": 4270,
+      "detail_code": 74607
+   },
+   "남양유업": {
+      "code": 3920,
+      "detail_code": 31005
+   },
+   "남해화학": {
+      "code": 25860,
+      "detail_code": 32003
+   },
+   "남화산업": {
+      "code": 111710,
+      "detail_code": 189101
+   },
+   "남화토건": {
+      "code": 91590,
+      "detail_code": 64101
+   },
+   "내츄럴엔도텍": {
+      "code": 168330,
+      "detail_code": 137001
+   },
+   "네스엠": {
+      "code": 56000,
+      "detail_code": 105802
+   },
+   "네오셈": {
+      "code": 253590,
+      "detail_code": 32902
+   },
+   "네오오토": {
+      "code": 212560,
+      "detail_code": 33003
+   },
+   "네오위즈": {
+      "code": 95660,
+      "detail_code": 105802
+   },
+   "네오위즈홀딩스": {
+      "code": 42420,
+      "detail_code": 105802
+   },
+   "네오크레마": {
+      "code": 311390,
+      "detail_code": 31007
+   },
+   "네오티스": {
+      "code": 85910,
+      "detail_code": 33003
+   },
+   "네오팜": {
+      "code": 92730,
+      "detail_code": 32004
+   },
+   "네오펙트": {
+      "code": 290660,
+      "detail_code": 32701
+   },
+   "네온테크": {
+      "code": 306620,
+      "detail_code": 32902
+   },
+   "네이블커뮤니케이션즈": {
+      "code": 153460,
+      "detail_code": 105802
+   },
+   "네이처셀": {
+      "code": 7390,
+      "detail_code": 32101
+   },
+   "네추럴FNP": {
+      "code": 86220,
+      "detail_code": 31007
+   },
+   "네패스": {
+      "code": 33640,
+      "detail_code": 32601
+   },
+   "네패스아크": {
+      "code": 330860,
+      "detail_code": 137309
+   },
+   "넥센": {
+      "code": 5720,
+      "detail_code": 32201
+   },
+   "넥센타이어": {
+      "code": 2350,
+      "detail_code": 32201
+   },
+   "넥스턴": {
+      "code": 89140,
+      "detail_code": 32301
+   },
+   "넥스트BT": {
+      "code": 65170,
+      "detail_code": 74603
+   },
+   "넥스트사이언스": {
+      "code": 3580,
+      "detail_code": 20702
+   },
+   "넥스트아이": {
+      "code": 137940,
+      "detail_code": 32702
+   },
+   "넥스틴": {
+      "code": 348210,
+      "detail_code": 32902
+   },
+   "넥슨지티": {
+      "code": 41140,
+      "detail_code": 105802
+   },
+   "넵튠": {
+      "code": 217270,
+      "detail_code": 105802
+   },
+   "넷게임즈": {
+      "code": 225570,
+      "detail_code": 105802
+   },
+   "넷마블": {
+      "code": 251270,
+      "detail_code": 105802
+   },
+   "노드메이슨": {
+      "code": 317860,
+      "detail_code": 32004
+   },
+   "노랑풍선": {
+      "code": 104620,
+      "detail_code": 147502
+   },
+   "노루페인트": {
+      "code": 90350,
+      "detail_code": 32004
+   },
+   "노루홀딩스": {
+      "code": 320,
+      "detail_code": 116409
+   },
+   "노바렉스": {
+      "code": 194700,
+      "detail_code": 31007
+   },
+   "노바텍": {
+      "code": 285490,
+      "detail_code": 33309
+   },
+   "노브메타파마": {
+      "code": 229500,
+      "detail_code": 137001
+   },
+   "노터스": {
+      "code": 278650,
+      "detail_code": 137001
+   },
+   "녹십자": {
+      "code": 6280,
+      "detail_code": 32102
+   },
+   "녹십자랩셀": {
+      "code": 144510,
+      "detail_code": 137309
+   },
+   "녹십자셀": {
+      "code": 31390,
+      "detail_code": 32101
+   },
+   "녹십자엠에스": {
+      "code": 142280,
+      "detail_code": 32103
+   },
+   "녹십자웰빙": {
+      "code": 234690,
+      "detail_code": 32102
+   },
+   "녹십자홀딩스": {
+      "code": 5250,
+      "detail_code": 137105
+   },
+   "녹원씨엔아이": {
+      "code": 65560,
+      "detail_code": 31801
+   },
+   "농심": {
+      "code": 4370,
+      "detail_code": 31007
+   },
+   "농심홀딩스": {
+      "code": 72710,
+      "detail_code": 116409
+   },
+   "농우바이오": {
+      "code": 54050,
+      "detail_code": 10101
+   },
+   "누리텔레콤": {
+      "code": 40160,
+      "detail_code": 105802
+   },
+   "누리플랜": {
+      "code": 69140,
+      "detail_code": 32501
+   },
+   "뉴로스": {
+      "code": 126870,
+      "detail_code": 32901
+   },
+   "뉴보텍": {
+      "code": 60260,
+      "detail_code": 32202
+   },
+   "뉴인텍": {
+      "code": 12340,
+      "detail_code": 32602
+   },
+   "뉴지랩": {
+      "code": 214870,
+      "detail_code": 32604
+   },
+   "뉴트리": {
+      "code": 270870,
+      "detail_code": 31007
+   },
+   "뉴파워프라즈마": {
+      "code": 144960,
+      "detail_code": 32902
+   },
+   "뉴프라이드": {
+      "code": 900100,
+      "detail_code": 74502
+   },
+   "뉴프렉스": {
+      "code": 85670,
+      "detail_code": 32602
+   },
+   "다나와": {
+      "code": 119860,
+      "detail_code": 105802
+   },
+   "다날": {
+      "code": 64260,
+      "detail_code": 105802
+   },
+   "다믈멀티미디어": {
+      "code": 93640,
+      "detail_code": 32601
+   },
+   "다산네트웍스": {
+      "code": 39560,
+      "detail_code": 32604
+   },
+   "다스코": {
+      "code": 58730,
+      "detail_code": 32501
+   },
+   "다우기술": {
+      "code": 23590,
+      "detail_code": 106301
+   },
+   "다우데이타": {
+      "code": 32190,
+      "detail_code": 74605
+   },
+   "다원넥스뷰": {
+      "code": 323350,
+      "detail_code": 32703
+   },
+   "다원시스": {
+      "code": 68240,
+      "detail_code": 32801
+   },
+   "다이노나": {
+      "code": 86080,
+      "detail_code": 137001
+   },
+   "다이오진": {
+      "code": 271850,
+      "detail_code": 137001
+   },
+   "단디바이오": {
+      "code": 343090,
+      "detail_code": 32103
+   },
+   "대교": {
+      "code": 19680,
+      "detail_code": 168501
+   },
+   "대구백화점": {
+      "code": 6370,
+      "detail_code": 74701
+   },
+   "대덕": {
+      "code": 8060,
+      "detail_code": 116409
+   },
+   "대덕전자": {
+      "code": 353200,
+      "detail_code": 32602
+   },
+   "대동고려삼": {
+      "code": 178600,
+      "detail_code": 31007
+   },
+   "대동공업": {
+      "code": 490,
+      "detail_code": 32902
+   },
+   "대동금속": {
+      "code": 20400,
+      "detail_code": 32403
+   },
+   "대동기어": {
+      "code": 8830,
+      "detail_code": 32902
+   },
+   "대동스틸": {
+      "code": 48470,
+      "detail_code": 32401
+   },
+   "대동전자": {
+      "code": 8110,
+      "detail_code": 32604
+   },
+   "대륙제관": {
+      "code": 4780,
+      "detail_code": 32509
+   },
+   "대림건설": {
+      "code": 1880,
+      "detail_code": 64101
+   },
+   "대림비앤코": {
+      "code": 5750,
+      "detail_code": 32302
+   },
+   "대림산업": {
+      "code": 210,
+      "detail_code": 64102
+   },
+   "대림제지": {
+      "code": 17650,
+      "detail_code": 31709
+   },
+   "대림통상": {
+      "code": 6570,
+      "detail_code": 32509
+   },
+   "대명소노시즌": {
+      "code": 7720,
+      "detail_code": 74608
+   },
+   "대모": {
+      "code": 317850,
+      "detail_code": 32902
+   },
+   "대보마그네틱": {
+      "code": 290670,
+      "detail_code": 32809
+   },
+   "대봉엘에스": {
+      "code": 78140,
+      "detail_code": 32102
+   },
+   "대상": {
+      "code": 1680,
+      "detail_code": 31007
+   },
+   "대상홀딩스": {
+      "code": 84690,
+      "detail_code": 116409
+   },
+   "대성미생물": {
+      "code": 36480,
+      "detail_code": 32102
+   },
+   "대성산업": {
+      "code": 128820,
+      "detail_code": 74707
+   },
+   "대성에너지": {
+      "code": 117580,
+      "detail_code": 43502
+   },
+   "대성엘텍": {
+      "code": 25440,
+      "detail_code": 32605
+   },
+   "대성창투": {
+      "code": 27830,
+      "detail_code": 116402
+   },
+   "대성파인텍": {
+      "code": 104040,
+      "detail_code": 33003
+   },
+   "대성홀딩스": {
+      "code": 16710,
+      "detail_code": 137105
+   },
+   "대신밸런스제7호스팩": {
+      "code": 332290,
+      "detail_code": 116601
+   },
+   "대신밸런스제8호스팩": {
+      "code": 336570,
+      "detail_code": 116601
+   },
+   "대신밸런스제9호스팩": {
+      "code": 369370,
+      "detail_code": 116601
+   },
+   "대신정보통신": {
+      "code": 20180,
+      "detail_code": 106201
+   },
+   "대신증권": {
+      "code": 3540,
+      "detail_code": 116601
+   },
+   "대아티아이": {
+      "code": 45390,
+      "detail_code": 32809
+   },
+   "대양금속": {
+      "code": 9190,
+      "detail_code": 32401
+   },
+   "대양전기공업": {
+      "code": 108380,
+      "detail_code": 33101
+   },
+   "대양제지": {
+      "code": 6580,
+      "detail_code": 31701
+   },
+   "대영포장": {
+      "code": 14160,
+      "detail_code": 31702
+   },
+   "대우건설": {
+      "code": 47040,
+      "detail_code": 64101
+   },
+   "대우부품": {
+      "code": 9320,
+      "detail_code": 33003
+   },
+   "대우조선해양": {
+      "code": 42660,
+      "detail_code": 33101
+   },
+   "대웅": {
+      "code": 3090,
+      "detail_code": 116409
+   },
+   "대웅제약": {
+      "code": 69620,
+      "detail_code": 32102
+   },
+   "대원": {
+      "code": 7680,
+      "detail_code": 64101
+   },
+   "대원강업": {
+      "code": 430,
+      "detail_code": 33003
+   },
+   "대원미디어": {
+      "code": 48910,
+      "detail_code": 74607
+   },
+   "대원산업": {
+      "code": 5710,
+      "detail_code": 33003
+   },
+   "대원전선": {
+      "code": 6340,
+      "detail_code": 32803
+   },
+   "대원제약": {
+      "code": 3220,
+      "detail_code": 32102
+   },
+   "대원화성": {
+      "code": 24890,
+      "detail_code": 32202
+   },
+   "대유": {
+      "code": 290380,
+      "detail_code": 32003
+   },
+   "대유에이텍": {
+      "code": 2880,
+      "detail_code": 33003
+   },
+   "대유에이피": {
+      "code": 290120,
+      "detail_code": 33003
+   },
+   "대유플러스": {
+      "code": 300,
+      "detail_code": 32604
+   },
+   "대정화금": {
+      "code": 120240,
+      "detail_code": 32001
+   },
+   "대주산업": {
+      "code": 3310,
+      "detail_code": 31008
+   },
+   "대주이엔티": {
+      "code": 114920,
+      "detail_code": 32401
+   },
+   "대주전자재료": {
+      "code": 78600,
+      "detail_code": 32602
+   },
+   "대창": {
+      "code": 12800,
+      "detail_code": 32402
+   },
+   "대창단조": {
+      "code": 15230,
+      "detail_code": 33003
+   },
+   "대창솔루션": {
+      "code": 96350,
+      "detail_code": 32501
+   },
+   "대창스틸": {
+      "code": 140520,
+      "detail_code": 32401
+   },
+   "대한과학": {
+      "code": 131220,
+      "detail_code": 74605
+   },
+   "대한광통신": {
+      "code": 10170,
+      "detail_code": 32803
+   },
+   "대한그린파워": {
+      "code": 60900,
+      "detail_code": 32004
+   },
+   "대한뉴팜": {
+      "code": 54670,
+      "detail_code": 32102
+   },
+   "대한방직": {
+      "code": 1070,
+      "detail_code": 31302
+   },
+   "대한약품": {
+      "code": 23910,
+      "detail_code": 32102
+   },
+   "대한유화": {
+      "code": 6650,
+      "detail_code": 32001
+   },
+   "대한전선": {
+      "code": 1440,
+      "detail_code": 32803
+   },
+   "대한제강": {
+      "code": 84010,
+      "detail_code": 32401
+   },
+   "대한제당": {
+      "code": 1790,
+      "detail_code": 31006
+   },
+   "대한제분": {
+      "code": 1130,
+      "detail_code": 31006
+   },
+   "대한항공": {
+      "code": 3490,
+      "detail_code": 85101
+   },
+   "대한해운": {
+      "code": 5880,
+      "detail_code": 85001
+   },
+   "대한화섬": {
+      "code": 3830,
+      "detail_code": 32005
+   },
+   "대현": {
+      "code": 16090,
+      "detail_code": 31401
+   },
+   "대호에이엘": {
+      "code": 69460,
+      "detail_code": 32402
+   },
+   "대호피앤씨": {
+      "code": 21040,
+      "detail_code": 32401
+   },
+   "대화제약": {
+      "code": 67080,
+      "detail_code": 32102
+   },
+   "더네이쳐홀딩스": {
+      "code": 298540,
+      "detail_code": 74704
+   },
+   "더블유게임즈": {
+      "code": 192080,
+      "detail_code": 105802
+   },
+   "더블유에스아이": {
+      "code": 299170,
+      "detail_code": 74604
+   },
+   "더블유에프엠": {
+      "code": 35290,
+      "detail_code": 105801
+   },
+   "더존비즈온": {
+      "code": 12510,
+      "detail_code": 106201
+   },
+   "더콘텐츠온": {
+      "code": 302920,
+      "detail_code": 105901
+   },
+   "덕산네오룩스": {
+      "code": 213420,
+      "detail_code": 32602
+   },
+   "덕산테코피아": {
+      "code": 317330,
+      "detail_code": 32004
+   },
+   "덕산하이메탈": {
+      "code": 77360,
+      "detail_code": 32601
+   },
+   "덕성": {
+      "code": 4830,
+      "detail_code": 32202
+   },
+   "덕신하우징": {
+      "code": 90410,
+      "detail_code": 32501
+   },
+   "덕양산업": {
+      "code": 24900,
+      "detail_code": 33003
+   },
+   "덕우전자": {
+      "code": 263600,
+      "detail_code": 32602
+   },
+   "데브시스터즈": {
+      "code": 194480,
+      "detail_code": 105802
+   },
+   "데이드림엔터": {
+      "code": 348840,
+      "detail_code": 105901
+   },
+   "데이타솔루션": {
+      "code": 263800,
+      "detail_code": 74605
+   },
+   "데이터스트림즈": {
+      "code": 199150,
+      "detail_code": 105802
+   },
+   "데일리블록체인": {
+      "code": 139050,
+      "detail_code": 106201
+   },
+   "덱스터": {
+      "code": 206560,
+      "detail_code": 105901
+   },
+   "덴티스": {
+      "code": 261200,
+      "detail_code": 32701
+   },
+   "덴티움": {
+      "code": 145720,
+      "detail_code": 32701
+   },
+   "도부마스크": {
+      "code": 227420,
+      "detail_code": 74607
+   },
+   "도이치모터스": {
+      "code": 67990,
+      "detail_code": 74501
+   },
+   "도화엔지니어링": {
+      "code": 2150,
+      "detail_code": 137201
+   },
+   "동구바이오제약": {
+      "code": 6620,
+      "detail_code": 32102
+   },
+   "동국S&C": {
+      "code": 100130,
+      "detail_code": 32501
+   },
+   "동국산업": {
+      "code": 5160,
+      "detail_code": 32401
+   },
+   "동국알앤에스": {
+      "code": 75970,
+      "detail_code": 32309
+   },
+   "동국제강": {
+      "code": 1230,
+      "detail_code": 32401
+   },
+   "동국제약": {
+      "code": 86450,
+      "detail_code": 32102
+   },
+   "동남합성": {
+      "code": 23450,
+      "detail_code": 32001
+   },
+   "동방": {
+      "code": 4140,
+      "detail_code": 85209
+   },
+   "동방선기": {
+      "code": 99410,
+      "detail_code": 33101
+   },
+   "동방아그로": {
+      "code": 7590,
+      "detail_code": 32003
+   },
+   "동부건설": {
+      "code": 5960,
+      "detail_code": 64102
+   },
+   "동서": {
+      "code": 26960,
+      "detail_code": 74603
+   },
+   "동성제약": {
+      "code": 2210,
+      "detail_code": 32102
+   },
+   "동성코퍼레이션": {
+      "code": 102260,
+      "detail_code": 137105
+   },
+   "동성화인텍": {
+      "code": 33500,
+      "detail_code": 32001
+   },
+   "동성화학": {
+      "code": 5190,
+      "detail_code": 32001
+   },
+   "동신건설": {
+      "code": 25950,
+      "detail_code": 64102
+   },
+   "동아쏘시오홀딩스": {
+      "code": 640,
+      "detail_code": 116409
+   },
+   "동아에스티": {
+      "code": 170900,
+      "detail_code": 32102
+   },
+   "동아엘텍": {
+      "code": 88130,
+      "detail_code": 32902
+   },
+   "동아지질": {
+      "code": 28100,
+      "detail_code": 64201
+   },
+   "동아타이어": {
+      "code": 282690,
+      "detail_code": 32201
+   },
+   "동아화성": {
+      "code": 41930,
+      "detail_code": 32201
+   },
+   "동양": {
+      "code": 1520,
+      "detail_code": 32303
+   },
+   "동양고속": {
+      "code": 84670,
+      "detail_code": 84902
+   },
+   "동양물산기업": {
+      "code": 2900,
+      "detail_code": 32902
+   },
+   "동양생명": {
+      "code": 82640,
+      "detail_code": 116501
+   },
+   "동양에스텍": {
+      "code": 60380,
+      "detail_code": 32401
+   },
+   "동양이엔피": {
+      "code": 79960,
+      "detail_code": 32801
+   },
+   "동양철관": {
+      "code": 8970,
+      "detail_code": 32401
+   },
+   "동양파일": {
+      "code": 228340,
+      "detail_code": 32303
+   },
+   "동양피스톤": {
+      "code": 92780,
+      "detail_code": 33001
+   },
+   "동우팜투테이블": {
+      "code": 88910,
+      "detail_code": 31001
+   },
+   "동운아나텍": {
+      "code": 94170,
+      "detail_code": 32601
+   },
+   "동원F&B": {
+      "code": 49770,
+      "detail_code": 31007
+   },
+   "동원개발": {
+      "code": 13120,
+      "detail_code": 64101
+   },
+   "동원금속": {
+      "code": 18500,
+      "detail_code": 33003
+   },
+   "동원산업": {
+      "code": 6040,
+      "detail_code": 10301
+   },
+   "동원수산": {
+      "code": 30720,
+      "detail_code": 10301
+   },
+   "동원시스템즈": {
+      "code": 14820,
+      "detail_code": 32202
+   },
+   "동일고무벨트": {
+      "code": 163560,
+      "detail_code": 32201
+   },
+   "동일금속": {
+      "code": 109860,
+      "detail_code": 32403
+   },
+   "동일기연": {
+      "code": 32960,
+      "detail_code": 32602
+   },
+   "동일산업": {
+      "code": 4890,
+      "detail_code": 32401
+   },
+   "동일제강": {
+      "code": 2690,
+      "detail_code": 32401
+   },
+   "동일철강": {
+      "code": 23790,
+      "detail_code": 32401
+   },
+   "동진쎄미켐": {
+      "code": 5290,
+      "detail_code": 32001
+   },
+   "동화기업": {
+      "code": 25900,
+      "detail_code": 31602
+   },
+   "동화약품": {
+      "code": 20,
+      "detail_code": 32102
+   },
+   "두산": {
+      "code": 150,
+      "detail_code": 137105
+   },
+   "두산밥캣": {
+      "code": 241560,
+      "detail_code": 32902
+   },
+   "두산인프라코어": {
+      "code": 42670,
+      "detail_code": 32902
+   },
+   "두산중공업": {
+      "code": 34020,
+      "detail_code": 32901
+   },
+   "두산퓨얼셀": {
+      "code": 336260,
+      "detail_code": 32801
+   },
+   "두올": {
+      "code": 16740,
+      "detail_code": 33003
+   },
+   "듀오백": {
+      "code": 73190,
+      "detail_code": 33201
+   },
+   "듀켐바이오": {
+      "code": 176750,
+      "detail_code": 32102
+   },
+   "드래곤플라이": {
+      "code": 30350,
+      "detail_code": 105802
+   },
+   "드림시큐리티": {
+      "code": 203650,
+      "detail_code": 105802
+   },
+   "드림씨아이에스": {
+      "code": 223250,
+      "detail_code": 137001
+   },
+   "드림어스컴퍼니": {
+      "code": 60570,
+      "detail_code": 74607
+   },
+   "드림텍": {
+      "code": 192650,
+      "detail_code": 32602
+   },
+   "디딤": {
+      "code": 217620,
+      "detail_code": 95601
+   },
+   "디바이스이엔지": {
+      "code": 187870,
+      "detail_code": 32902
+   },
+   "디스플레이텍": {
+      "code": 66670,
+      "detail_code": 32602
+   },
+   "디씨엠": {
+      "code": 24090,
+      "detail_code": 32401
+   },
+   "디아이": {
+      "code": 3160,
+      "detail_code": 32702
+   },
+   "디아이동일": {
+      "code": 1530,
+      "detail_code": 74601
+   },
+   "디아이씨": {
+      "code": 92200,
+      "detail_code": 33003
+   },
+   "디아이티": {
+      "code": 110990,
+      "detail_code": 32902
+   },
+   "디알젬": {
+      "code": 263690,
+      "detail_code": 32701
+   },
+   "디알텍": {
+      "code": 214680,
+      "detail_code": 32701
+   },
+   "디앤씨미디어": {
+      "code": 263720,
+      "detail_code": 105801
+   },
+   "디에스케이": {
+      "code": 109740,
+      "detail_code": 32902
+   },
+   "디에스티": {
+      "code": 33430,
+      "detail_code": 32902
+   },
+   "디에이치피코리아": {
+      "code": 131030,
+      "detail_code": 32102
+   },
+   "디에이테크놀로지": {
+      "code": 196490,
+      "detail_code": 32902
+   },
+   "디에이피": {
+      "code": 66900,
+      "detail_code": 32602
+   },
+   "디엔에이링크": {
+      "code": 127120,
+      "detail_code": 137001
+   },
+   "디엔에프": {
+      "code": 92070,
+      "detail_code": 32004
+   },
+   "디엠티": {
+      "code": 134580,
+      "detail_code": 32604
+   },
+   "디오": {
+      "code": 39840,
+      "detail_code": 32701
+   },
+   "디오스텍": {
+      "code": 196450,
+      "detail_code": 32703
+   },
+   "디와이": {
+      "code": 13570,
+      "detail_code": 116409
+   },
+   "디와이파워": {
+      "code": 210540,
+      "detail_code": 32902
+   },
+   "디와이피엔에프": {
+      "code": 104460,
+      "detail_code": 32901
+   },
+   "디이엔티": {
+      "code": 79810,
+      "detail_code": 32902
+   },
+   "디자인": {
+      "code": 227100,
+      "detail_code": 32801
+   },
+   "디젠스": {
+      "code": 113810,
+      "detail_code": 33003
+   },
+   "디지아이": {
+      "code": 43360,
+      "detail_code": 32603
+   },
+   "디지캡": {
+      "code": 197140,
+      "detail_code": 105802
+   },
+   "디지탈옵틱": {
+      "code": 106520,
+      "detail_code": 32703
+   },
+   "디지털대성": {
+      "code": 68930,
+      "detail_code": 168505
+   },
+   "디지틀조선": {
+      "code": 33130,
+      "detail_code": 106301
+   },
+   "디케이락": {
+      "code": 105740,
+      "detail_code": 32901
+   },
+   "디케이앤디": {
+      "code": 263020,
+      "detail_code": 32202
+   },
+   "디케이티": {
+      "code": 290550,
+      "detail_code": 32602
+   },
+   "디티알오토모티브": {
+      "code": 7340,
+      "detail_code": 32802
+   },
+   "디티앤씨": {
+      "code": 187220,
+      "detail_code": 137209
+   },
+   "디피씨": {
+      "code": 26890,
+      "detail_code": 32801
+   },
+   "디피코": {
+      "code": 163430,
+      "detail_code": 137201
+   },
+   "딜리": {
+      "code": 131180,
+      "detail_code": 32603
+   },
+   "라닉스": {
+      "code": 317120,
+      "detail_code": 32601
+   },
+   "라온시큐어": {
+      "code": 42510,
+      "detail_code": 105802
+   },
+   "라온테크": {
+      "code": 232680,
+      "detail_code": 32902
+   },
+   "라온피플": {
+      "code": 300120,
+      "detail_code": 105802
+   },
+   "라이브파이낸셜": {
+      "code": 36170,
+      "detail_code": 32601
+   },
+   "라이브플렉스": {
+      "code": 50120,
+      "detail_code": 74604
+   },
+   "라이온켐텍": {
+      "code": 171120,
+      "detail_code": 32004
+   },
+   "라이트론": {
+      "code": 69540,
+      "detail_code": 32604
+   },
+   "라이프사이언스테크놀로지": {
+      "code": 285770,
+      "detail_code": 105802
+   },
+   "라파스": {
+      "code": 214260,
+      "detail_code": 32004
+   },
+   "락앤락": {
+      "code": 115390,
+      "detail_code": 32202
+   },
+   "래몽래인": {
+      "code": 200350,
+      "detail_code": 105901
+   },
+   "램테크놀러지": {
+      "code": 171010,
+      "detail_code": 32001
+   },
+   "랩지노믹스": {
+      "code": 84650,
+      "detail_code": 137001
+   },
+   "러셀": {
+      "code": 217500,
+      "detail_code": 32902
+   },
+   "럭스피아": {
+      "code": 92590,
+      "detail_code": 32601
+   },
+   "럭슬": {
+      "code": 33600,
+      "detail_code": 33003
+   },
+   "레고켐바이오": {
+      "code": 141080,
+      "detail_code": 137001
+   },
+   "레드로버": {
+      "code": 60300,
+      "detail_code": 105901
+   },
+   "레드캡투어": {
+      "code": 38390,
+      "detail_code": 147502
+   },
+   "레몬": {
+      "code": 294140,
+      "detail_code": 32005
+   },
+   "레이": {
+      "code": 228670,
+      "detail_code": 32701
+   },
+   "레이언스": {
+      "code": 228850,
+      "detail_code": 32701
+   },
+   "레이크머티리얼즈": {
+      "code": 281740,
+      "detail_code": 32004
+   },
+   "로보로보": {
+      "code": 215100,
+      "detail_code": 32809
+   },
+   "로보스타": {
+      "code": 90360,
+      "detail_code": 32902
+   },
+   "로보쓰리": {
+      "code": 238500,
+      "detail_code": 137309
+   },
+   "로보티즈": {
+      "code": 108490,
+      "detail_code": 32902
+   },
+   "로스웰": {
+      "code": 900260,
+      "detail_code": 116409
+   },
+   "로지시스": {
+      "code": 67730,
+      "detail_code": 106201
+   },
+   "로체시스템즈": {
+      "code": 71280,
+      "detail_code": 32902
+   },
+   "롯데관광개발": {
+      "code": 32350,
+      "detail_code": 147502
+   },
+   "롯데리츠": {
+      "code": 330590,
+      "detail_code": 126801
+   },
+   "롯데손해보험": {
+      "code": 400,
+      "detail_code": 116501
+   },
+   "롯데쇼핑": {
+      "code": 23530,
+      "detail_code": 74701
+   },
+   "롯데정밀화학": {
+      "code": 4000,
+      "detail_code": 32001
+   },
+   "롯데정보통신": {
+      "code": 286940,
+      "detail_code": 106201
+   },
+   "롯데제과": {
+      "code": 280360,
+      "detail_code": 31007
+   },
+   "롯데지주": {
+      "code": 4990,
+      "detail_code": 116409
+   },
+   "롯데칠성음료": {
+      "code": 5300,
+      "detail_code": 31102
+   },
+   "롯데케미칼": {
+      "code": 11170,
+      "detail_code": 32001
+   },
+   "롯데푸드": {
+      "code": 2270,
+      "detail_code": 31005
+   },
+   "롯데하이마트": {
+      "code": 71840,
+      "detail_code": 74703
+   },
+   "루멘스": {
+      "code": 38060,
+      "detail_code": 32601
+   },
+   "루켄테크놀러지스": {
+      "code": 162120,
+      "detail_code": 32809
+   },
+   "루트락": {
+      "code": 253610,
+      "detail_code": 74607
+   },
+   "루트로닉": {
+      "code": 85370,
+      "detail_code": 32701
+   },
+   "룽투코리아": {
+      "code": 60240,
+      "detail_code": 105802
+   },
+   "리노공업": {
+      "code": 58470,
+      "detail_code": 32602
+   },
+   "리노스": {
+      "code": 39980,
+      "detail_code": 74704
+   },
+   "리더스 기술투자": {
+      "code": 19570,
+      "detail_code": 116402
+   },
+   "리더스코스메틱": {
+      "code": 16100,
+      "detail_code": 32004
+   },
+   "리드코프": {
+      "code": 12700,
+      "detail_code": 74607
+   },
+   "리메드": {
+      "code": 302550,
+      "detail_code": 32701
+   },
+   "릭스솔루션": {
+      "code": 29480,
+      "detail_code": 32604
+   },
+   "린드먼아시아": {
+      "code": 277070,
+      "detail_code": 116402
+   },
+   "링네트": {
+      "code": 42500,
+      "detail_code": 106201
+   },
+   "링크제니시스": {
+      "code": 219420,
+      "detail_code": 105802
+   },
+   "마니커": {
+      "code": 27740,
+      "detail_code": 31001
+   },
+   "마니커에프앤지": {
+      "code": 195500,
+      "detail_code": 31001
+   },
+   "마이더스AI": {
+      "code": 222810,
+      "detail_code": 105802
+   },
+   "마이크로디지탈": {
+      "code": 305090,
+      "detail_code": 32701
+   },
+   "마이크로컨텍솔": {
+      "code": 98120,
+      "detail_code": 32602
+   },
+   "마이크로프랜드": {
+      "code": 147760,
+      "detail_code": 32702
+   },
+   "마크로젠": {
+      "code": 38290,
+      "detail_code": 137309
+   },
+   "만도": {
+      "code": 204320,
+      "detail_code": 33003
+   },
+   "만호제강": {
+      "code": 1080,
+      "detail_code": 32401
+   },
+   "매일유업": {
+      "code": 267980,
+      "detail_code": 31005
+   },
+   "매일홀딩스": {
+      "code": 5990,
+      "detail_code": 31005
+   },
+   "매직마이크로": {
+      "code": 127160,
+      "detail_code": 32602
+   },
+   "매커스": {
+      "code": 93520,
+      "detail_code": 74605
+   },
+   "맥스로텍": {
+      "code": 141070,
+      "detail_code": 32902
+   },
+   "맥쿼리인프라": {
+      "code": 88980,
+      "detail_code": 116402
+   },
+   "맵스리얼티1": {
+      "code": 94800,
+      "detail_code": 116402
+   },
+   "머큐리": {
+      "code": 100590,
+      "detail_code": 32604
+   },
+   "멀티캠퍼스": {
+      "code": 67280,
+      "detail_code": 168506
+   },
+   "메가스터디": {
+      "code": 72870,
+      "detail_code": 105801
+   },
+   "메가스터디교육": {
+      "code": 215200,
+      "detail_code": 168505
+   },
+   "메가엠디": {
+      "code": 133750,
+      "detail_code": 168505
+   },
+   "메드팩토": {
+      "code": 235980,
+      "detail_code": 137001
+   },
+   "메디쎄이": {
+      "code": 200580,
+      "detail_code": 32701
+   },
+   "메디아나": {
+      "code": 41920,
+      "detail_code": 32701
+   },
+   "메디안디노스틱": {
+      "code": 233250,
+      "detail_code": 32103
+   },
+   "메디앙스": {
+      "code": 14100,
+      "detail_code": 32004
+   },
+   "메디젠휴먼케어": {
+      "code": 236340,
+      "detail_code": 137001
+   },
+   "메디콕스": {
+      "code": 54180,
+      "detail_code": 33101
+   },
+   "메디톡스": {
+      "code": 86900,
+      "detail_code": 32101
+   },
+   "메디포스트": {
+      "code": 78160,
+      "detail_code": 32101
+   },
+   "메디프론": {
+      "code": 65650,
+      "detail_code": 74605
+   },
+   "메리츠금융지주": {
+      "code": 138040,
+      "detail_code": 116409
+   },
+   "메리츠증권": {
+      "code": 8560,
+      "detail_code": 116601
+   },
+   "메리츠화재": {
+      "code": 60,
+      "detail_code": 116501
+   },
+   "메이슨캐피탈": {
+      "code": 21880,
+      "detail_code": 116409
+   },
+   "메지온": {
+      "code": 140410,
+      "detail_code": 137001
+   },
+   "메카로": {
+      "code": 241770,
+      "detail_code": 32004
+   },
+   "메타랩스": {
+      "code": 90370,
+      "detail_code": 31401
+   },
+   "메타바이오메드": {
+      "code": 59210,
+      "detail_code": 32103
+   },
+   "메탈라이프": {
+      "code": 327260,
+      "detail_code": 32602
+   },
+   "멕아이씨에스": {
+      "code": 58110,
+      "detail_code": 32701
+   },
+   "멜파스": {
+      "code": 96640,
+      "detail_code": 32602
+   },
+   "명문제약": {
+      "code": 17180,
+      "detail_code": 32102
+   },
+   "명성티엔에스": {
+      "code": 257370,
+      "detail_code": 32902
+   },
+   "명신산업": {
+      "code": 9900,
+      "detail_code": 33003
+   },
+   "명진홀딩스": {
+      "code": 267060,
+      "detail_code": 31002
+   },
+   "모나리자": {
+      "code": 12690,
+      "detail_code": 31709
+   },
+   "모나미": {
+      "code": 5360,
+      "detail_code": 74604
+   },
+   "모다이노칩": {
+      "code": 80420,
+      "detail_code": 74704
+   },
+   "모두투어": {
+      "code": 80160,
+      "detail_code": 147502
+   },
+   "모두투어리츠": {
+      "code": 204210,
+      "detail_code": 126801
+   },
+   "모바일리더": {
+      "code": 100030,
+      "detail_code": 105802
+   },
+   "모바일어플라이언스": {
+      "code": 87260,
+      "detail_code": 105802
+   },
+   "모베이스": {
+      "code": 101330,
+      "detail_code": 32604
+   },
+   "모베이스전자": {
+      "code": 12860,
+      "detail_code": 33003
+   },
+   "모비스": {
+      "code": 250060,
+      "detail_code": 106201
+   },
+   "모아텍": {
+      "code": 33200,
+      "detail_code": 32602
+   },
+   "모토닉": {
+      "code": 9680,
+      "detail_code": 33003
+   },
+   "모트렉스": {
+      "code": 118990,
+      "detail_code": 33003
+   },
+   "모헨즈": {
+      "code": 6920,
+      "detail_code": 32303
+   },
+   "무림P&P": {
+      "code": 9580,
+      "detail_code": 31701
+   },
+   "무림SP": {
+      "code": 1810,
+      "detail_code": 31701
+   },
+   "무림페이퍼": {
+      "code": 9200,
+      "detail_code": 31701
+   },
+   "무진메디": {
+      "code": 322970,
+      "detail_code": 137001
+   },
+   "무학": {
+      "code": 33920,
+      "detail_code": 31101
+   },
+   "문배철강": {
+      "code": 8420,
+      "detail_code": 32401
+   },
+   "미디어젠": {
+      "code": 279600,
+      "detail_code": 105802
+   },
+   "미래SCI": {
+      "code": 28040,
+      "detail_code": 74601
+   },
+   "미래나노텍": {
+      "code": 95500,
+      "detail_code": 32202
+   },
+   "미래산업": {
+      "code": 25560,
+      "detail_code": 32702
+   },
+   "미래생명자원": {
+      "code": 218150,
+      "detail_code": 31008
+   },
+   "미래아이앤지": {
+      "code": 7120,
+      "detail_code": 106201
+   },
+   "미래에셋대우": {
+      "code": 6800,
+      "detail_code": 116601
+   },
+   "미래에셋대우스팩 5호": {
+      "code": 353490,
+      "detail_code": 116601
+   },
+   "미래에셋대우스팩3호": {
+      "code": 328380,
+      "detail_code": 116601
+   },
+   "미래에셋대우스팩4호": {
+      "code": 333430,
+      "detail_code": 116601
+   },
+   "미래에셋맵스리츠": {
+      "code": 357250,
+      "detail_code": 126801
+   },
+   "미래에셋벤처투자": {
+      "code": 100790,
+      "detail_code": 116409
+   },
+   "미래에셋생명": {
+      "code": 85620,
+      "detail_code": 116501
+   },
+   "미래엔에듀파트너": {
+      "code": 208890,
+      "detail_code": 168507
+   },
+   "미래컴퍼니": {
+      "code": 49950,
+      "detail_code": 32902
+   },
+   "미래테크놀로지": {
+      "code": 213090,
+      "detail_code": 105802
+   },
+   "미스터블루": {
+      "code": 207760,
+      "detail_code": 106309
+   },
+   "미애부": {
+      "code": 225850,
+      "detail_code": 74604
+   },
+   "미원상사": {
+      "code": 2840,
+      "detail_code": 32004
+   },
+   "미원에스씨": {
+      "code": 268280,
+      "detail_code": 32001
+   },
+   "미원홀딩스": {
+      "code": 107590,
+      "detail_code": 116409
+   },
+   "미원화학": {
+      "code": 134380,
+      "detail_code": 32004
+   },
+   "미창석유공업": {
+      "code": 3650,
+      "detail_code": 31902
+   },
+   "미코": {
+      "code": 59090,
+      "detail_code": 32601
+   },
+   "미코바이오메드": {
+      "code": 214610,
+      "detail_code": 32701
+   },
+   "미투온": {
+      "code": 201490,
+      "detail_code": 105802
+   },
+   "미투젠": {
+      "code": 950190,
+      "detail_code": 105802
+   },
+   "민앤지": {
+      "code": 214180,
+      "detail_code": 106309
+   },
+   "바다로19호": {
+      "code": 155900,
+      "detail_code": 147601
+   },
+   "바디텍메드": {
+      "code": 206640,
+      "detail_code": 32103
+   },
+   "바른손": {
+      "code": 18700,
+      "detail_code": 105901
+   },
+   "바른손이앤에이": {
+      "code": 35620,
+      "detail_code": 105901
+   },
+   "바른전자": {
+      "code": 64520,
+      "detail_code": 32601
+   },
+   "바이넥스": {
+      "code": 53030,
+      "detail_code": 32102
+   },
+   "바이브컴퍼니": {
+      "code": 301300,
+      "detail_code": 105802
+   },
+   "바이오니아": {
+      "code": 64550,
+      "detail_code": 32103
+   },
+   "바이오로그디바이스": {
+      "code": 208710,
+      "detail_code": 32602
+   },
+   "바이오리더스": {
+      "code": 142760,
+      "detail_code": 137001
+   },
+   "바이오솔루션": {
+      "code": 86820,
+      "detail_code": 32101
+   },
+   "바이오스마트": {
+      "code": 38460,
+      "detail_code": 32602
+   },
+   "바이오시네틱스": {
+      "code": 281310,
+      "detail_code": 137001
+   },
+   "바이오인프라생명과학": {
+      "code": 266470,
+      "detail_code": 137001
+   },
+   "바이오코아": {
+      "code": 216400,
+      "detail_code": 137001
+   },
+   "바이오톡스텍": {
+      "code": 86040,
+      "detail_code": 137001
+   },
+   "바이오프로테크": {
+      "code": 199290,
+      "detail_code": 32701
+   },
+   "바이온": {
+      "code": 32980,
+      "detail_code": 74603
+   },
+   "바이옵트로": {
+      "code": 222160,
+      "detail_code": 32702
+   },
+   "바텍": {
+      "code": 43150,
+      "detail_code": 32701
+   },
+   "박셀바이오": {
+      "code": 323990,
+      "detail_code": 137001
+   },
+   "방림": {
+      "code": 3610,
+      "detail_code": 31302
+   },
+   "배럴": {
+      "code": 267790,
+      "detail_code": 31401
+   },
+   "백광산업": {
+      "code": 1340,
+      "detail_code": 32001
+   },
+   "백금T&A": {
+      "code": 46310,
+      "detail_code": 32604
+   },
+   "백산": {
+      "code": 35150,
+      "detail_code": 32202
+   },
+   "버추얼텍": {
+      "code": 36620,
+      "detail_code": 74607
+   },
+   "버킷스튜디오": {
+      "code": 66410,
+      "detail_code": 105901
+   },
+   "범양건영": {
+      "code": 2410,
+      "detail_code": 64101
+   },
+   "베노홀딩스": {
+      "code": 206400,
+      "detail_code": 105802
+   },
+   "베뉴지": {
+      "code": 19010,
+      "detail_code": 74701
+   },
+   "베셀": {
+      "code": 177350,
+      "detail_code": 32902
+   },
+   "베스파": {
+      "code": 299910,
+      "detail_code": 105802
+   },
+   "베트남개발1": {
+      "code": 96300,
+      "detail_code": 116402
+   },
+   "벽산": {
+      "code": 7210,
+      "detail_code": 32309
+   },
+   "보광산업": {
+      "code": 225530,
+      "detail_code": 32309
+   },
+   "보라티알": {
+      "code": 250000,
+      "detail_code": 74603
+   },
+   "보락": {
+      "code": 2760,
+      "detail_code": 32004
+   },
+   "보령제약": {
+      "code": 3850,
+      "detail_code": 32102
+   },
+   "보성파워텍": {
+      "code": 6910,
+      "detail_code": 32501
+   },
+   "보해양조": {
+      "code": 890,
+      "detail_code": 31101
+   },
+   "본느": {
+      "code": 226340,
+      "detail_code": 32004
+   },
+   "볼빅": {
+      "code": 206950,
+      "detail_code": 33303
+   },
+   "부광약품": {
+      "code": 3000,
+      "detail_code": 32102
+   },
+   "부국증권": {
+      "code": 1270,
+      "detail_code": 116601
+   },
+   "부국철강": {
+      "code": 26940,
+      "detail_code": 32401
+   },
+   "부방": {
+      "code": 14470,
+      "detail_code": 116409
+   },
+   "부산도시가스": {
+      "code": 15350,
+      "detail_code": 43502
+   },
+   "부산산업": {
+      "code": 11390,
+      "detail_code": 32303
+   },
+   "부산주공": {
+      "code": 5030,
+      "detail_code": 33003
+   },
+   "부스타": {
+      "code": 8470,
+      "detail_code": 32501
+   },
+   "뷰웍스": {
+      "code": 100120,
+      "detail_code": 32701
+   },
+   "브랜드엑스코퍼레이션": {
+      "code": 337930,
+      "detail_code": 106309
+   },
+   "브레인콘텐츠": {
+      "code": 66980,
+      "detail_code": 106309
+   },
+   "브리지텍": {
+      "code": 64480,
+      "detail_code": 105802
+   },
+   "브릿지바이오": {
+      "code": 288330,
+      "detail_code": 32101
+   },
+   "브이원텍": {
+      "code": 251630,
+      "detail_code": 32902
+   },
+   "브이티지엠피": {
+      "code": 18290,
+      "detail_code": 32603
+   },
+   "블러썸엠앤씨": {
+      "code": 263920,
+      "detail_code": 33309
+   },
+   "블루콤": {
+      "code": 33560,
+      "detail_code": 32605
+   },
+   "비나텍": {
+      "code": 126340,
+      "detail_code": 32802
+   },
+   "비덴트": {
+      "code": 121800,
+      "detail_code": 32604
+   },
+   "비디아이": {
+      "code": 148140,
+      "detail_code": 32901
+   },
+   "비보존 헬스케어": {
+      "code": 82800,
+      "detail_code": 32601
+   },
+   "비비씨": {
+      "code": 318410,
+      "detail_code": 33309
+   },
+   "비비안": {
+      "code": 2070,
+      "detail_code": 31401
+   },
+   "비상교육": {
+      "code": 100220,
+      "detail_code": 105801
+   },
+   "비씨월드제약": {
+      "code": 200780,
+      "detail_code": 32102
+   },
+   "비아트론": {
+      "code": 141000,
+      "detail_code": 32902
+   },
+   "비에이치": {
+      "code": 90460,
+      "detail_code": 32602
+   },
+   "비에이치아이": {
+      "code": 83650,
+      "detail_code": 32901
+   },
+   "비엔디생활건강": {
+      "code": 215050,
+      "detail_code": 32004
+   },
+   "비엠티": {
+      "code": 86670,
+      "detail_code": 32901
+   },
+   "비올": {
+      "code": 335890,
+      "detail_code": 32701
+   },
+   "비즈니스온": {
+      "code": 138580,
+      "detail_code": 105802
+   },
+   "비츠로셀": {
+      "code": 82920,
+      "detail_code": 32802
+   },
+   "비츠로시스": {
+      "code": 54220,
+      "detail_code": 32801
+   },
+   "비츠로테크": {
+      "code": 42370,
+      "detail_code": 116409
+   },
+   "비케이탑스": {
+      "code": 30790,
+      "detail_code": 106201
+   },
+   "비트컴퓨터": {
+      "code": 32850,
+      "detail_code": 105802
+   },
+   "비플라이소프트": {
+      "code": 148780,
+      "detail_code": 105802
+   },
+   "비피도": {
+      "code": 238200,
+      "detail_code": 31007
+   },
+   "빅솔론": {
+      "code": 93190,
+      "detail_code": 32603
+   },
+   "빅텍": {
+      "code": 65450,
+      "detail_code": 32702
+   },
+   "빅텐츠": {
+      "code": 210120,
+      "detail_code": 105901
+   },
+   "빅히트": {
+      "code": 352820,
+      "detail_code": 105902
+   },
+   "빙그레": {
+      "code": 5180,
+      "detail_code": 31005
+   },
+   "빛샘전자": {
+      "code": 72950,
+      "detail_code": 32602
+   },
+   "뿌리깊은나무들": {
+      "code": 266170,
+      "detail_code": 105901
+   },
+   "사람인에이치알": {
+      "code": 143240,
+      "detail_code": 106301
+   },
+   "사조대림": {
+      "code": 3960,
+      "detail_code": 31002
+   },
+   "사조동아원": {
+      "code": 8040,
+      "detail_code": 31006
+   },
+   "사조산업": {
+      "code": 7160,
+      "detail_code": 10301
+   },
+   "사조씨푸드": {
+      "code": 14710,
+      "detail_code": 31002
+   },
+   "사조오양": {
+      "code": 6090,
+      "detail_code": 31002
+   },
+   "삼강엠앤티": {
+      "code": 100090,
+      "detail_code": 32401
+   },
+   "삼기": {
+      "code": 122350,
+      "detail_code": 33003
+   },
+   "삼륭물산": {
+      "code": 14970,
+      "detail_code": 31702
+   },
+   "삼목에스폼": {
+      "code": 18310,
+      "detail_code": 32501
+   },
+   "삼보모터스": {
+      "code": 53700,
+      "detail_code": 33003
+   },
+   "삼보산업": {
+      "code": 9620,
+      "detail_code": 32402
+   },
+   "삼보판지": {
+      "code": 23600,
+      "detail_code": 31701
+   },
+   "삼본전자": {
+      "code": 111870,
+      "detail_code": 32605
+   },
+   "삼부토건": {
+      "code": 1470,
+      "detail_code": 64102
+   },
+   "삼성SDI": {
+      "code": 6400,
+      "detail_code": 32802
+   },
+   "삼성공조": {
+      "code": 6660,
+      "detail_code": 33003
+   },
+   "삼성물산": {
+      "code": 28260,
+      "detail_code": 74607
+   },
+   "삼성바이오로직스": {
+      "code": 207940,
+      "detail_code": 32101
+   },
+   "삼성생명": {
+      "code": 32830,
+      "detail_code": 116501
+   },
+   "삼성스팩2호": {
+      "code": 291230,
+      "detail_code": 116601
+   },
+   "삼성에스디에스": {
+      "code": 18260,
+      "detail_code": 106201
+   },
+   "삼성엔지니어링": {
+      "code": 28050,
+      "detail_code": 137201
+   },
+   "삼성전기": {
+      "code": 9150,
+      "detail_code": 32602
+   },
+   "삼성전자": {
+      "code": 5930,
+      "detail_code": 32604
+   },
+   "삼성제약": {
+      "code": 1360,
+      "detail_code": 32102
+   },
+   "삼성중공업": {
+      "code": 10140,
+      "detail_code": 33101
+   },
+   "삼성증권": {
+      "code": 16360,
+      "detail_code": 116601
+   },
+   "삼성출판사": {
+      "code": 68290,
+      "detail_code": 105801
+   },
+   "삼성카드": {
+      "code": 29780,
+      "detail_code": 116409
+   },
+   "삼성화재해상보험": {
+      "code": 810,
+      "detail_code": 116501
+   },
+   "삼아알미늄": {
+      "code": 6110,
+      "detail_code": 32402
+   },
+   "삼아제약": {
+      "code": 9300,
+      "detail_code": 32102
+   },
+   "삼양사": {
+      "code": 145990,
+      "detail_code": 31007
+   },
+   "삼양식품": {
+      "code": 3230,
+      "detail_code": 31007
+   },
+   "삼양옵틱스": {
+      "code": 225190,
+      "detail_code": 32703
+   },
+   "삼양통상": {
+      "code": 2170,
+      "detail_code": 31501
+   },
+   "삼양패키징": {
+      "code": 272550,
+      "detail_code": 32202
+   },
+   "삼양홀딩스": {
+      "code": 70,
+      "detail_code": 116409
+   },
+   "삼영무역": {
+      "code": 2810,
+      "detail_code": 74607
+   },
+   "삼영엠텍": {
+      "code": 54540,
+      "detail_code": 32501
+   },
+   "삼영이엔씨": {
+      "code": 65570,
+      "detail_code": 32604
+   },
+   "삼영전자공업": {
+      "code": 5680,
+      "detail_code": 32602
+   },
+   "삼영화학공업": {
+      "code": 3720,
+      "detail_code": 32202
+   },
+   "삼원강재": {
+      "code": 23000,
+      "detail_code": 33003
+   },
+   "삼익THK": {
+      "code": 4380,
+      "detail_code": 32901
+   },
+   "삼익악기": {
+      "code": 2450,
+      "detail_code": 33302
+   },
+   "삼일": {
+      "code": 32280,
+      "detail_code": 84903
+   },
+   "삼일기업공사": {
+      "code": 2290,
+      "detail_code": 64101
+   },
+   "삼일씨엔에스": {
+      "code": 4440,
+      "detail_code": 32303
+   },
+   "삼일제약": {
+      "code": 520,
+      "detail_code": 32102
+   },
+   "삼정펄프": {
+      "code": 9770,
+      "detail_code": 31701
+   },
+   "삼지전자": {
+      "code": 37460,
+      "detail_code": 32604
+   },
+   "삼진": {
+      "code": 32750,
+      "detail_code": 32604
+   },
+   "삼진엘앤디": {
+      "code": 54090,
+      "detail_code": 33309
+   },
+   "삼진제약": {
+      "code": 5500,
+      "detail_code": 32102
+   },
+   "삼천당제약": {
+      "code": 250,
+      "detail_code": 32102
+   },
+   "삼천리": {
+      "code": 4690,
+      "detail_code": 43502
+   },
+   "삼천리자전거": {
+      "code": 24950,
+      "detail_code": 74604
+   },
+   "삼표시멘트": {
+      "code": 38500,
+      "detail_code": 32309
+   },
+   "삼현철강": {
+      "code": 17480,
+      "detail_code": 32401
+   },
+   "삼호개발": {
+      "code": 10960,
+      "detail_code": 64201
+   },
+   "삼화네트웍스": {
+      "code": 46390,
+      "detail_code": 105901
+   },
+   "삼화왕관": {
+      "code": 4450,
+      "detail_code": 32509
+   },
+   "삼화전기": {
+      "code": 9470,
+      "detail_code": 32602
+   },
+   "삼화전자공업": {
+      "code": 11230,
+      "detail_code": 32605
+   },
+   "삼화콘덴서공업": {
+      "code": 1820,
+      "detail_code": 32602
+   },
+   "삼화페인트공업": {
+      "code": 390,
+      "detail_code": 32004
+   },
+   "상보": {
+      "code": 27580,
+      "detail_code": 32202
+   },
+   "상상인": {
+      "code": 38540,
+      "detail_code": 106201
+   },
+   "상상인이안1호스팩": {
+      "code": 307870,
+      "detail_code": 116601
+   },
+   "상상인이안제2호스팩": {
+      "code": 329560,
+      "detail_code": 116601
+   },
+   "상상인인더스트리": {
+      "code": 101000,
+      "detail_code": 32902
+   },
+   "상상인증권": {
+      "code": 1290,
+      "detail_code": 116601
+   },
+   "상신브레이크": {
+      "code": 41650,
+      "detail_code": 33003
+   },
+   "상신이디피": {
+      "code": 91580,
+      "detail_code": 32802
+   },
+   "상신전자": {
+      "code": 263810,
+      "detail_code": 32602
+   },
+   "상아프론테크": {
+      "code": 89980,
+      "detail_code": 32202
+   },
+   "상지카일룸": {
+      "code": 42940,
+      "detail_code": 64101
+   },
+   "새로닉스": {
+      "code": 42600,
+      "detail_code": 32602
+   },
+   "새론오토모티브": {
+      "code": 75180,
+      "detail_code": 33003
+   },
+   "샘코": {
+      "code": 263540,
+      "detail_code": 33103
+   },
+   "샘표": {
+      "code": 7540,
+      "detail_code": 116409
+   },
+   "샘표식품": {
+      "code": 248170,
+      "detail_code": 31007
+   },
+   "서남": {
+      "code": 294630,
+      "detail_code": 32809
+   },
+   "서린바이오": {
+      "code": 38070,
+      "detail_code": 74607
+   },
+   "서부T&D": {
+      "code": 6730,
+      "detail_code": 95501
+   },
+   "서산": {
+      "code": 79650,
+      "detail_code": 32303
+   },
+   "서암기계공업": {
+      "code": 100660,
+      "detail_code": 32901
+   },
+   "서연": {
+      "code": 7860,
+      "detail_code": 116409
+   },
+   "서연이화": {
+      "code": 200880,
+      "detail_code": 33003
+   },
+   "서연탑메탈": {
+      "code": 19770,
+      "detail_code": 32902
+   },
+   "서울도시가스": {
+      "code": 17390,
+      "detail_code": 43502
+   },
+   "서울리거": {
+      "code": 43710,
+      "detail_code": 74607
+   },
+   "서울바이오시스": {
+      "code": 92190,
+      "detail_code": 32601
+   },
+   "서울반도체": {
+      "code": 46890,
+      "detail_code": 32601
+   },
+   "서울식품공업": {
+      "code": 4410,
+      "detail_code": 31007
+   },
+   "서울옥션": {
+      "code": 63170,
+      "detail_code": 74601
+   },
+   "서울전자통신": {
+      "code": 27040,
+      "detail_code": 74605
+   },
+   "서울제약": {
+      "code": 18680,
+      "detail_code": 32102
+   },
+   "서원": {
+      "code": 21050,
+      "detail_code": 32403
+   },
+   "서원인텍": {
+      "code": 93920,
+      "detail_code": 32604
+   },
+   "서전기전": {
+      "code": 189860,
+      "detail_code": 32801
+   },
+   "서진시스템": {
+      "code": 178320,
+      "detail_code": 32604
+   },
+   "서진오토모티브": {
+      "code": 122690,
+      "detail_code": 33003
+   },
+   "서플러스글로벌": {
+      "code": 140070,
+      "detail_code": 74605
+   },
+   "서한": {
+      "code": 11370,
+      "detail_code": 64101
+   },
+   "서호전기": {
+      "code": 65710,
+      "detail_code": 32801
+   },
+   "서흥": {
+      "code": 8490,
+      "detail_code": 32004
+   },
+   "서희건설": {
+      "code": 35890,
+      "detail_code": 64101
+   },
+   "석경에이티": {
+      "code": 357550,
+      "detail_code": 32001
+   },
+   "선광": {
+      "code": 3100,
+      "detail_code": 85209
+   },
+   "선데이토즈": {
+      "code": 123420,
+      "detail_code": 105802
+   },
+   "선도전기": {
+      "code": 7610,
+      "detail_code": 32801
+   },
+   "선바이오": {
+      "code": 67370,
+      "detail_code": 32102
+   },
+   "선익시스템": {
+      "code": 171090,
+      "detail_code": 32902
+   },
+   "선진": {
+      "code": 136490,
+      "detail_code": 31008
+   },
+   "선창산업": {
+      "code": 2820,
+      "detail_code": 31602
+   },
+   "성광벤드": {
+      "code": 14620,
+      "detail_code": 32401
+   },
+   "성도이엔지": {
+      "code": 37350,
+      "detail_code": 137201
+   },
+   "성문전자": {
+      "code": 14910,
+      "detail_code": 32602
+   },
+   "성보화학": {
+      "code": 3080,
+      "detail_code": 32003
+   },
+   "성신양회": {
+      "code": 4980,
+      "detail_code": 32303
+   },
+   "성안": {
+      "code": 11300,
+      "detail_code": 31302
+   },
+   "성우전자": {
+      "code": 81580,
+      "detail_code": 32604
+   },
+   "성우테크론": {
+      "code": 45300,
+      "detail_code": 32602
+   },
+   "성우하이텍": {
+      "code": 15750,
+      "detail_code": 33003
+   },
+   "성창기업지주": {
+      "code": 180,
+      "detail_code": 137105
+   },
+   "성창오토텍": {
+      "code": 80470,
+      "detail_code": 33003
+   },
+   "성호전자": {
+      "code": 43260,
+      "detail_code": 32602
+   },
+   "세경하이테크": {
+      "code": 148150,
+      "detail_code": 32602
+   },
+   "세기상사": {
+      "code": 2420,
+      "detail_code": 105901
+   },
+   "세동": {
+      "code": 53060,
+      "detail_code": 33003
+   },
+   "세명전기": {
+      "code": 17510,
+      "detail_code": 32509
+   },
+   "세미콘라이트": {
+      "code": 214310,
+      "detail_code": 32601
+   },
+   "세방": {
+      "code": 4360,
+      "detail_code": 84903
+   },
+   "세방전지": {
+      "code": 4490,
+      "detail_code": 32802
+   },
+   "세보엠이씨": {
+      "code": 11560,
+      "detail_code": 64202
+   },
+   "세아베스틸": {
+      "code": 1430,
+      "detail_code": 32401
+   },
+   "세아제강": {
+      "code": 306200,
+      "detail_code": 32401
+   },
+   "세아제강지주": {
+      "code": 3030,
+      "detail_code": 116409
+   },
+   "세아특수강": {
+      "code": 19440,
+      "detail_code": 32401
+   },
+   "세아홀딩스": {
+      "code": 58650,
+      "detail_code": 32401
+   },
+   "세우글로벌": {
+      "code": 13000,
+      "detail_code": 74607
+   },
+   "세운메디칼": {
+      "code": 100700,
+      "detail_code": 32103
+   },
+   "세원": {
+      "code": 234100,
+      "detail_code": 33003
+   },
+   "세원물산": {
+      "code": 24830,
+      "detail_code": 33003
+   },
+   "세원셀론텍": {
+      "code": 91090,
+      "detail_code": 32501
+   },
+   "세원정공": {
+      "code": 21820,
+      "detail_code": 33003
+   },
+   "세이브존I&C": {
+      "code": 67830,
+      "detail_code": 74701
+   },
+   "세종공업": {
+      "code": 33530,
+      "detail_code": 33003
+   },
+   "세종메디칼": {
+      "code": 258830,
+      "detail_code": 32701
+   },
+   "세종텔레콤": {
+      "code": 36630,
+      "detail_code": 106102
+   },
+   "세중": {
+      "code": 39310,
+      "detail_code": 147502
+   },
+   "세진중공업": {
+      "code": 75580,
+      "detail_code": 33101
+   },
+   "세진티에스": {
+      "code": 67770,
+      "detail_code": 32602
+   },
+   "세코닉스": {
+      "code": 53450,
+      "detail_code": 32703
+   },
+   "세틀뱅크": {
+      "code": 234340,
+      "detail_code": 106309
+   },
+   "세하": {
+      "code": 27970,
+      "detail_code": 31701
+   },
+   "세화아이엠씨": {
+      "code": 145210,
+      "detail_code": 32902
+   },
+   "세화피앤씨": {
+      "code": 252500,
+      "detail_code": 32004
+   },
+   "센코": {
+      "code": 347000,
+      "detail_code": 32602
+   },
+   "센트랄모텍": {
+      "code": 308170,
+      "detail_code": 33003
+   },
+   "센트럴바이오": {
+      "code": 51980,
+      "detail_code": 32202
+   },
+   "센트럴인사이트": {
+      "code": 12600,
+      "detail_code": 32901
+   },
+   "셀레믹스": {
+      "code": 331920,
+      "detail_code": 32101
+   },
+   "셀루메드": {
+      "code": 49180,
+      "detail_code": 32101
+   },
+   "셀리드": {
+      "code": 299660,
+      "detail_code": 137001
+   },
+   "셀리버리": {
+      "code": 268600,
+      "detail_code": 137001
+   },
+   "셀바스AI": {
+      "code": 108860,
+      "detail_code": 105802
+   },
+   "셀바스헬스케어": {
+      "code": 208370,
+      "detail_code": 32701
+   },
+   "셀젠텍": {
+      "code": 258250,
+      "detail_code": 105802
+   },
+   "셀트리온": {
+      "code": 68270,
+      "detail_code": 32101
+   },
+   "셀트리온제약": {
+      "code": 68760,
+      "detail_code": 32102
+   },
+   "셀트리온헬스케어": {
+      "code": 91990,
+      "detail_code": 74607
+   },
+   "소룩스": {
+      "code": 290690,
+      "detail_code": 32804
+   },
+   "소리바다": {
+      "code": 53110,
+      "detail_code": 106301
+   },
+   "소마젠": {
+      "code": 950200,
+      "detail_code": 137309
+   },
+   "소프트센": {
+      "code": 32680,
+      "detail_code": 74605
+   },
+   "소프트캠프": {
+      "code": 258790,
+      "detail_code": 105802
+   },
+   "손오공": {
+      "code": 66910,
+      "detail_code": 74607
+   },
+   "솔고바이오": {
+      "code": 43100,
+      "detail_code": 32701
+   },
+   "솔루스첨단소재": {
+      "code": 336370,
+      "detail_code": 32602
+   },
+   "솔루에타": {
+      "code": 154040,
+      "detail_code": 32602
+   },
+   "솔본": {
+      "code": 35610,
+      "detail_code": 137105
+   },
+   "솔브레인": {
+      "code": 357780,
+      "detail_code": 32004
+   },
+   "솔브레인홀딩스": {
+      "code": 36830,
+      "detail_code": 32004
+   },
+   "솔트룩스": {
+      "code": 304100,
+      "detail_code": 105802
+   },
+   "솔트웍스": {
+      "code": 230980,
+      "detail_code": 105802
+   },
+   "송원산업": {
+      "code": 4430,
+      "detail_code": 32004
+   },
+   "쇼박스": {
+      "code": 86980,
+      "detail_code": 105901
+   },
+   "수산아이앤티": {
+      "code": 50960,
+      "detail_code": 105802
+   },
+   "수산중공업": {
+      "code": 17550,
+      "detail_code": 32902
+   },
+   "수성": {
+      "code": 84180,
+      "detail_code": 32901
+   },
+   "수젠텍": {
+      "code": 253840,
+      "detail_code": 32103
+   },
+   "수프로": {
+      "code": 185190,
+      "detail_code": 74602
+   },
+   "슈펙스비앤피": {
+      "code": 58530,
+      "detail_code": 74604
+   },
+   "슈프리마": {
+      "code": 236200,
+      "detail_code": 32604
+   },
+   "슈프리마아이디": {
+      "code": 317770,
+      "detail_code": 32602
+   },
+   "슈프리마에이치큐": {
+      "code": 94840,
+      "detail_code": 32604
+   },
+   "슈피겐코리아": {
+      "code": 192440,
+      "detail_code": 33309
+   },
+   "스맥": {
+      "code": 99440,
+      "detail_code": 32902
+   },
+   "스카이문스테크놀로지": {
+      "code": 33790,
+      "detail_code": 32604
+   },
+   "스카이이앤엠": {
+      "code": 131100,
+      "detail_code": 74608
+   },
+   "스킨앤스킨": {
+      "code": 159910,
+      "detail_code": 32004
+   },
+   "스타모빌리티": {
+      "code": 158310,
+      "detail_code": 32902
+   },
+   "스타플렉스": {
+      "code": 115570,
+      "detail_code": 32202
+   },
+   "스템랩": {
+      "code": 258540,
+      "detail_code": 137001
+   },
+   "스튜디오드래곤": {
+      "code": 253450,
+      "detail_code": 105901
+   },
+   "스튜디오산타클로스": {
+      "code": 204630,
+      "detail_code": 189001
+   },
+   "스페코": {
+      "code": 13810,
+      "detail_code": 32902
+   },
+   "승일": {
+      "code": 49830,
+      "detail_code": 32509
+   },
+   "시공테크": {
+      "code": 20710,
+      "detail_code": 137302
+   },
+   "시그네틱스": {
+      "code": 33170,
+      "detail_code": 32601
+   },
+   "시그넷이브이": {
+      "code": 260870,
+      "detail_code": 32801
+   },
+   "시너지이노베이션": {
+      "code": 48870,
+      "detail_code": 32701
+   },
+   "시노펙스": {
+      "code": 25320,
+      "detail_code": 32602
+   },
+   "시디즈": {
+      "code": 134790,
+      "detail_code": 33201
+   },
+   "시스웍": {
+      "code": 269620,
+      "detail_code": 32702
+   },
+   "시큐브": {
+      "code": 131090,
+      "detail_code": 105802
+   },
+   "시큐센": {
+      "code": 232830,
+      "detail_code": 105802
+   },
+   "신대양제지": {
+      "code": 16590,
+      "detail_code": 31702
+   },
+   "신도기연": {
+      "code": 290520,
+      "detail_code": 32902
+   },
+   "신도리코": {
+      "code": 29530,
+      "detail_code": 32603
+   },
+   "신라교역": {
+      "code": 4970,
+      "detail_code": 10301
+   },
+   "신라섬유": {
+      "code": 1000,
+      "detail_code": 74703
+   },
+   "신라에스지": {
+      "code": 25870,
+      "detail_code": 74603
+   },
+   "신라젠": {
+      "code": 215600,
+      "detail_code": 137001
+   },
+   "신성델타테크": {
+      "code": 65350,
+      "detail_code": 32805
+   },
+   "신성이엔지": {
+      "code": 11930,
+      "detail_code": 32601
+   },
+   "신성통상": {
+      "code": 5390,
+      "detail_code": 74607
+   },
+   "신세계": {
+      "code": 4170,
+      "detail_code": 74701
+   },
+   "신세계I&C": {
+      "code": 35510,
+      "detail_code": 106201
+   },
+   "신세계건설": {
+      "code": 34300,
+      "detail_code": 64101
+   },
+   "신세계인터내셔날": {
+      "code": 31430,
+      "detail_code": 74704
+   },
+   "신세계푸드": {
+      "code": 31440,
+      "detail_code": 95601
+   },
+   "신송홀딩스": {
+      "code": 6880,
+      "detail_code": 74602
+   },
+   "신신제약": {
+      "code": 2800,
+      "detail_code": 32102
+   },
+   "신영스팩5호": {
+      "code": 323280,
+      "detail_code": 116601
+   },
+   "신영스팩6호": {
+      "code": 344050,
+      "detail_code": 116601
+   },
+   "신영와코루": {
+      "code": 5800,
+      "detail_code": 31401
+   },
+   "신영증권": {
+      "code": 1720,
+      "detail_code": 116601
+   },
+   "신원": {
+      "code": 9270,
+      "detail_code": 31401
+   },
+   "신원종합개발": {
+      "code": 17000,
+      "detail_code": 64101
+   },
+   "신일전자": {
+      "code": 2700,
+      "detail_code": 74605
+   },
+   "신일제약": {
+      "code": 12790,
+      "detail_code": 32102
+   },
+   "신진에스엠": {
+      "code": 138070,
+      "detail_code": 32509
+   },
+   "신테카바이오": {
+      "code": 226330,
+      "detail_code": 105802
+   },
+   "신풍제약": {
+      "code": 19170,
+      "detail_code": 32102
+   },
+   "신풍제지": {
+      "code": 2870,
+      "detail_code": 31701
+   },
+   "신한알파리츠": {
+      "code": 293940,
+      "detail_code": 126801
+   },
+   "신한제6호스팩": {
+      "code": 333050,
+      "detail_code": 116601
+   },
+   "신한지주": {
+      "code": 55550,
+      "detail_code": 116409
+   },
+   "신화실업": {
+      "code": 1770,
+      "detail_code": 32401
+   },
+   "신화인터텍": {
+      "code": 56700,
+      "detail_code": 32202
+   },
+   "신화콘텍": {
+      "code": 187270,
+      "detail_code": 32801
+   },
+   "신흥": {
+      "code": 4080,
+      "detail_code": 74605
+   },
+   "신흥에스이씨": {
+      "code": 243840,
+      "detail_code": 32802
+   },
+   "실리콘웍스": {
+      "code": 108320,
+      "detail_code": 32601
+   },
+   "심텍": {
+      "code": 222800,
+      "detail_code": 32602
+   },
+   "심텍홀딩스": {
+      "code": 36710,
+      "detail_code": 32604
+   },
+   "싸이맥스": {
+      "code": 160980,
+      "detail_code": 32902
+   },
+   "싸이토젠": {
+      "code": 217330,
+      "detail_code": 137001
+   },
+   "쌍방울": {
+      "code": 102280,
+      "detail_code": 31401
+   },
+   "쌍용양회공업": {
+      "code": 3410,
+      "detail_code": 32303
+   },
+   "쌍용자동차": {
+      "code": 3620,
+      "detail_code": 33001
+   },
+   "쌍용정보통신": {
+      "code": 10280,
+      "detail_code": 106201
+   },
+   "써니전자": {
+      "code": 4770,
+      "detail_code": 32601
+   },
+   "썬테크": {
+      "code": 217320,
+      "detail_code": 32801
+   },
+   "썸에이지": {
+      "code": 208640,
+      "detail_code": 105802
+   },
+   "쎄노텍": {
+      "code": 222420,
+      "detail_code": 32309
+   },
+   "쎄니트": {
+      "code": 37760,
+      "detail_code": 32401
+   },
+   "쎄미시스코": {
+      "code": 136510,
+      "detail_code": 32902
+   },
+   "쎄트렉아이": {
+      "code": 99320,
+      "detail_code": 33103
+   },
+   "쎌마테라퓨틱스": {
+      "code": 15540,
+      "detail_code": 147509
+   },
+   "쎌바이오텍": {
+      "code": 49960,
+      "detail_code": 32101
+   },
+   "쏠리드": {
+      "code": 50890,
+      "detail_code": 32604
+   },
+   "씨씨에스": {
+      "code": 66790,
+      "detail_code": 106002
+   },
+   "씨아이에스": {
+      "code": 222080,
+      "detail_code": 32902
+   },
+   "씨아이테크": {
+      "code": 4920,
+      "detail_code": 33309
+   },
+   "씨알푸드": {
+      "code": 236030,
+      "detail_code": 31006
+   },
+   "씨앗": {
+      "code": 103660,
+      "detail_code": 32004
+   },
+   "씨앤에스링크": {
+      "code": 245450,
+      "detail_code": 32604
+   },
+   "씨앤지하이테크": {
+      "code": 264660,
+      "detail_code": 32902
+   },
+   "씨에스베어링": {
+      "code": 297090,
+      "detail_code": 32901
+   },
+   "씨에스윈드": {
+      "code": 112610,
+      "detail_code": 32501
+   },
+   "씨엔티드림": {
+      "code": 286000,
+      "detail_code": 32004
+   },
+   "씨엔플러스": {
+      "code": 115530,
+      "detail_code": 32602
+   },
+   "씨엠에스에듀": {
+      "code": 225330,
+      "detail_code": 168505
+   },
+   "씨유메디칼": {
+      "code": 115480,
+      "detail_code": 32701
+   },
+   "씨이랩": {
+      "code": 189330,
+      "detail_code": 105802
+   },
+   "씨젠": {
+      "code": 96530,
+      "detail_code": 32103
+   },
+   "씨케이에이치": {
+      "code": 900120,
+      "detail_code": 116409
+   },
+   "씨큐브": {
+      "code": 101240,
+      "detail_code": 32001
+   },
+   "씨티씨바이오": {
+      "code": 60590,
+      "detail_code": 32102
+   },
+   "씨티케이코스메틱스": {
+      "code": 260930,
+      "detail_code": 32004
+   },
+   "아가방컴퍼니": {
+      "code": 13990,
+      "detail_code": 74604
+   },
+   "아나패스": {
+      "code": 123860,
+      "detail_code": 32601
+   },
+   "아난티": {
+      "code": 25980,
+      "detail_code": 95501
+   },
+   "아남전자": {
+      "code": 8700,
+      "detail_code": 32605
+   },
+   "아래스": {
+      "code": 50320,
+      "detail_code": 74605
+   },
+   "아리온": {
+      "code": 58220,
+      "detail_code": 32604
+   },
+   "아모그린텍": {
+      "code": 125210,
+      "detail_code": 32602
+   },
+   "아모레퍼시픽": {
+      "code": 90430,
+      "detail_code": 32004
+   },
+   "아모레퍼시픽그룹": {
+      "code": 2790,
+      "detail_code": 32004
+   },
+   "아모텍": {
+      "code": 52710,
+      "detail_code": 32602
+   },
+   "아미노로직스": {
+      "code": 74430,
+      "detail_code": 74607
+   },
+   "아미코젠": {
+      "code": 92040,
+      "detail_code": 31007
+   },
+   "아바코": {
+      "code": 83930,
+      "detail_code": 32902
+   },
+   "아바텍": {
+      "code": 149950,
+      "detail_code": 32602
+   },
+   "아비코전자": {
+      "code": 36010,
+      "detail_code": 32602
+   },
+   "아세아": {
+      "code": 2030,
+      "detail_code": 137105
+   },
+   "아세아시멘트": {
+      "code": 183190,
+      "detail_code": 32303
+   },
+   "아세아제지": {
+      "code": 2310,
+      "detail_code": 31702
+   },
+   "아세아텍": {
+      "code": 50860,
+      "detail_code": 32902
+   },
+   "아스타": {
+      "code": 246720,
+      "detail_code": 32103
+   },
+   "아스트": {
+      "code": 67390,
+      "detail_code": 33103
+   },
+   "아시아경제": {
+      "code": 127710,
+      "detail_code": 106301
+   },
+   "아시아나IDT": {
+      "code": 267850,
+      "detail_code": 106201
+   },
+   "아시아나항공": {
+      "code": 20560,
+      "detail_code": 85101
+   },
+   "아시아종묘": {
+      "code": 154030,
+      "detail_code": 10101
+   },
+   "아우딘퓨쳐스": {
+      "code": 227610,
+      "detail_code": 32004
+   },
+   "아이디스": {
+      "code": 143160,
+      "detail_code": 32604
+   },
+   "아이디스홀딩스": {
+      "code": 54800,
+      "detail_code": 137106
+   },
+   "아이디피": {
+      "code": 332370,
+      "detail_code": 32603
+   },
+   "아이마켓코리아": {
+      "code": 122900,
+      "detail_code": 74608
+   },
+   "아이비김영": {
+      "code": 339950,
+      "detail_code": 168505
+   },
+   "아이센스": {
+      "code": 99190,
+      "detail_code": 32701
+   },
+   "아이스크림에듀": {
+      "code": 289010,
+      "detail_code": 105801
+   },
+   "아이쓰리시스템": {
+      "code": 214430,
+      "detail_code": 32602
+   },
+   "아이씨디": {
+      "code": 40910,
+      "detail_code": 32902
+   },
+   "아이씨케이": {
+      "code": 68940,
+      "detail_code": 32602
+   },
+   "아이앤씨": {
+      "code": 52860,
+      "detail_code": 32601
+   },
+   "아이에스동서": {
+      "code": 10780,
+      "detail_code": 32302
+   },
+   "아이에스이커머스": {
+      "code": 69920,
+      "detail_code": 74709
+   },
+   "아이에이": {
+      "code": 38880,
+      "detail_code": 32602
+   },
+   "아이에이네트웍스": {
+      "code": 123010,
+      "detail_code": 32602
+   },
+   "아이에이치큐": {
+      "code": 3560,
+      "detail_code": 105901
+   },
+   "아이엘사이언스": {
+      "code": 307180,
+      "detail_code": 32804
+   },
+   "아이엠": {
+      "code": 101390,
+      "detail_code": 32602
+   },
+   "아이엠이연이": {
+      "code": 90740,
+      "detail_code": 32602
+   },
+   "아이엠텍": {
+      "code": 226350,
+      "detail_code": 32602
+   },
+   "아이오케이": {
+      "code": 78860,
+      "detail_code": 105901
+   },
+   "아이원스": {
+      "code": 114810,
+      "detail_code": 32902
+   },
+   "아이즈비전": {
+      "code": 31310,
+      "detail_code": 106102
+   },
+   "아이진": {
+      "code": 185490,
+      "detail_code": 137001
+   },
+   "아이컴포넌트": {
+      "code": 59100,
+      "detail_code": 32602
+   },
+   "아이케이세미콘": {
+      "code": 149010,
+      "detail_code": 32601
+   },
+   "아이큐어": {
+      "code": 175250,
+      "detail_code": 32102
+   },
+   "아이크래프트": {
+      "code": 52460,
+      "detail_code": 106201
+   },
+   "아이텍": {
+      "code": 119830,
+      "detail_code": 137309
+   },
+   "아이톡시": {
+      "code": 52770,
+      "detail_code": 105802
+   },
+   "아이티센": {
+      "code": 124500,
+      "detail_code": 106201
+   },
+   "아이티엠반도체": {
+      "code": 84850,
+      "detail_code": 32602
+   },
+   "아이피몬스터": {
+      "code": 223220,
+      "detail_code": 105802
+   },
+   "아주IB투자": {
+      "code": 27360,
+      "detail_code": 116409
+   },
+   "아주캐피탈": {
+      "code": 33660,
+      "detail_code": 116409
+   },
+   "아즈텍WB": {
+      "code": 32080,
+      "detail_code": 31304
+   },
+   "아진산업": {
+      "code": 13310,
+      "detail_code": 33003
+   },
+   "아진엑스텍": {
+      "code": 59120,
+      "detail_code": 32601
+   },
+   "아톤": {
+      "code": 158430,
+      "detail_code": 105802
+   },
+   "아퓨어스": {
+      "code": 149300,
+      "detail_code": 32101
+   },
+   "아프리카TV": {
+      "code": 67160,
+      "detail_code": 105802
+   },
+   "안국약품": {
+      "code": 1540,
+      "detail_code": 32102
+   },
+   "안랩": {
+      "code": 53800,
+      "detail_code": 105802
+   },
+   "안지오랩": {
+      "code": 251280,
+      "detail_code": 137001
+   },
+   "안트로젠": {
+      "code": 65660,
+      "detail_code": 74607
+   },
+   "알로이스": {
+      "code": 297570,
+      "detail_code": 32604
+   },
+   "알루코": {
+      "code": 1780,
+      "detail_code": 32402
+   },
+   "알리코제약": {
+      "code": 260660,
+      "detail_code": 32103
+   },
+   "알서포트": {
+      "code": 131370,
+      "detail_code": 105802
+   },
+   "알에스오토메이션": {
+      "code": 140670,
+      "detail_code": 32602
+   },
+   "알에프세미": {
+      "code": 96610,
+      "detail_code": 32601
+   },
+   "알에프텍": {
+      "code": 61040,
+      "detail_code": 32604
+   },
+   "알엔투테크놀로지": {
+      "code": 148250,
+      "detail_code": 32602
+   },
+   "알체라": {
+      "code": 347860,
+      "detail_code": 105802
+   },
+   "알테오젠": {
+      "code": 196170,
+      "detail_code": 137001
+   },
+   "알톤스포츠": {
+      "code": 123750,
+      "detail_code": 33109
+   },
+   "알티캐스트": {
+      "code": 85810,
+      "detail_code": 105802
+   },
+   "알파홀딩스": {
+      "code": 117670,
+      "detail_code": 32601
+   },
+   "압타머사이언스": {
+      "code": 291650,
+      "detail_code": 137001
+   },
+   "압타바이오": {
+      "code": 293780,
+      "detail_code": 137001
+   },
+   "앙츠": {
+      "code": 267810,
+      "detail_code": 199501
+   },
+   "애경산업": {
+      "code": 18250,
+      "detail_code": 32004
+   },
+   "애경유화": {
+      "code": 161000,
+      "detail_code": 32001
+   },
+   "애니젠": {
+      "code": 196300,
+      "detail_code": 32101
+   },
+   "애니플러스": {
+      "code": 310200,
+      "detail_code": 105901
+   },
+   "애드바이오텍": {
+      "code": 179530,
+      "detail_code": 32102
+   },
+   "액션스퀘어": {
+      "code": 205500,
+      "detail_code": 105802
+   },
+   "액토즈소프트": {
+      "code": 52790,
+      "detail_code": 105802
+   },
+   "액트": {
+      "code": 131400,
+      "detail_code": 32602
+   },
+   "액트로": {
+      "code": 290740,
+      "detail_code": 32602
+   },
+   "앤디포스": {
+      "code": 238090,
+      "detail_code": 32202
+   },
+   "앤씨앤": {
+      "code": 92600,
+      "detail_code": 32601
+   },
+   "앱코": {
+      "code": 129890,
+      "detail_code": 32603
+   },
+   "앱클론": {
+      "code": 174900,
+      "detail_code": 32103
+   },
+   "야스": {
+      "code": 255440,
+      "detail_code": 32902
+   },
+   "양지사": {
+      "code": 30960,
+      "detail_code": 31801
+   },
+   "어보브반도체": {
+      "code": 102120,
+      "detail_code": 32601
+   },
+   "얼라인드": {
+      "code": 238120,
+      "detail_code": 32703
+   },
+   "엄지하우스": {
+      "code": 224810,
+      "detail_code": 64204
+   },
+   "에너토크": {
+      "code": 19990,
+      "detail_code": 32901
+   },
+   "에넥스": {
+      "code": 11090,
+      "detail_code": 33201
+   },
+   "에버다임": {
+      "code": 41440,
+      "detail_code": 32902
+   },
+   "에브리봇": {
+      "code": 270660,
+      "detail_code": 32805
+   },
+   "에스넷": {
+      "code": 38680,
+      "detail_code": 106201
+   },
+   "에스디생명공학": {
+      "code": 217480,
+      "detail_code": 32004
+   },
+   "에스디시스템": {
+      "code": 121890,
+      "detail_code": 32602
+   },
+   "에스맥": {
+      "code": 97780,
+      "detail_code": 32604
+   },
+   "에스씨디": {
+      "code": 42110,
+      "detail_code": 32805
+   },
+   "에스씨엠생명과학": {
+      "code": 298060,
+      "detail_code": 32102
+   },
+   "에스아이리소스": {
+      "code": 65420,
+      "detail_code": 20501
+   },
+   "에스알바이오텍": {
+      "code": 270210,
+      "detail_code": 32004
+   },
+   "에스앤더블류": {
+      "code": 103230,
+      "detail_code": 32901
+   },
+   "에스앤디": {
+      "code": 260970,
+      "detail_code": 31007
+   },
+   "에스앤씨엔진그룹": {
+      "code": 900080,
+      "detail_code": 116409
+   },
+   "에스앤에스텍": {
+      "code": 101490,
+      "detail_code": 32602
+   },
+   "에스에너지": {
+      "code": 95910,
+      "detail_code": 32801
+   },
+   "에스에스알": {
+      "code": 275630,
+      "detail_code": 105802
+   },
+   "에스에이엠티": {
+      "code": 31330,
+      "detail_code": 74605
+   },
+   "에스에이티": {
+      "code": 60540,
+      "detail_code": 32702
+   },
+   "에스에이티이엔지": {
+      "code": 158300,
+      "detail_code": 32902
+   },
+   "에스에프에이": {
+      "code": 56190,
+      "detail_code": 32902
+   },
+   "에스엔유": {
+      "code": 80000,
+      "detail_code": 32902
+   },
+   "에스엔피제네틱스": {
+      "code": 86460,
+      "detail_code": 137001
+   },
+   "에스엘": {
+      "code": 5850,
+      "detail_code": 33003
+   },
+   "에스엘에스바이오": {
+      "code": 246250,
+      "detail_code": 137209
+   },
+   "에스엠": {
+      "code": 41510,
+      "detail_code": 105902
+   },
+   "에스엠비나": {
+      "code": 299670,
+      "detail_code": 31401
+   },
+   "에스엠코어": {
+      "code": 7820,
+      "detail_code": 32901
+   },
+   "에스와이": {
+      "code": 109610,
+      "detail_code": 32501
+   },
+   "에스원": {
+      "code": 12750,
+      "detail_code": 147503
+   },
+   "에스제이그룹": {
+      "code": 306040,
+      "detail_code": 31501
+   },
+   "에스제이엠": {
+      "code": 123700,
+      "detail_code": 33003
+   },
+   "에스제이엠홀딩스": {
+      "code": 25530,
+      "detail_code": 74502
+   },
+   "에스제이케이": {
+      "code": 80440,
+      "detail_code": 74607
+   },
+   "에스제이켐": {
+      "code": 217910,
+      "detail_code": 32001
+   },
+   "에스케이바이오팜": {
+      "code": 326030,
+      "detail_code": 137001
+   },
+   "에스케이씨에스": {
+      "code": 224020,
+      "detail_code": 32202
+   },
+   "에스코넥": {
+      "code": 96630,
+      "detail_code": 32604
+   },
+   "에스텍": {
+      "code": 69510,
+      "detail_code": 32605
+   },
+   "에스텍파마": {
+      "code": 41910,
+      "detail_code": 32102
+   },
+   "에스트래픽": {
+      "code": 234300,
+      "detail_code": 106201
+   },
+   "에스티아이": {
+      "code": 39440,
+      "detail_code": 32902
+   },
+   "에스티오": {
+      "code": 98660,
+      "detail_code": 31401
+   },
+   "에스티큐브": {
+      "code": 52020,
+      "detail_code": 74605
+   },
+   "에스티팜": {
+      "code": 237690,
+      "detail_code": 32102
+   },
+   "에스폴리텍": {
+      "code": 50760,
+      "detail_code": 32202
+   },
+   "에스퓨얼셀": {
+      "code": 288620,
+      "detail_code": 32801
+   },
+   "에스피시스템스": {
+      "code": 317830,
+      "detail_code": 32902
+   },
+   "에스피지": {
+      "code": 58610,
+      "detail_code": 32801
+   },
+   "에쎈테크": {
+      "code": 43340,
+      "detail_code": 32901
+   },
+   "에쓰씨엔지니어링": {
+      "code": 23960,
+      "detail_code": 64102
+   },
+   "에어부산": {
+      "code": 298690,
+      "detail_code": 85101
+   },
+   "에이디칩스": {
+      "code": 54630,
+      "detail_code": 33309
+   },
+   "에이디테크놀로지": {
+      "code": 200710,
+      "detail_code": 32601
+   },
+   "에이루트": {
+      "code": 96690,
+      "detail_code": 32603
+   },
+   "에이리츠": {
+      "code": 140910,
+      "detail_code": 126801
+   },
+   "에이블씨엔씨": {
+      "code": 78520,
+      "detail_code": 32004
+   },
+   "에이비엘바이오": {
+      "code": 298380,
+      "detail_code": 32101
+   },
+   "에이비온": {
+      "code": 203400,
+      "detail_code": 137001
+   },
+   "에이비프로바이오": {
+      "code": 195990,
+      "detail_code": 32902
+   },
+   "에이스침대": {
+      "code": 3800,
+      "detail_code": 33201
+   },
+   "에이스캠퍼": {
+      "code": 322190,
+      "detail_code": 33002
+   },
+   "에이스테크": {
+      "code": 88800,
+      "detail_code": 32604
+   },
+   "에이스토리": {
+      "code": 241840,
+      "detail_code": 105901
+   },
+   "에이씨티": {
+      "code": 138360,
+      "detail_code": 32004
+   },
+   "에이아이비트": {
+      "code": 39230,
+      "detail_code": 32702
+   },
+   "에이에프더블류": {
+      "code": 312610,
+      "detail_code": 32802
+   },
+   "에이엔피": {
+      "code": 15260,
+      "detail_code": 32602
+   },
+   "에이원알폼": {
+      "code": 234070,
+      "detail_code": 147603
+   },
+   "에이치시티": {
+      "code": 72990,
+      "detail_code": 137209
+   },
+   "에이치엔에스하이텍": {
+      "code": 44990,
+      "detail_code": 32602
+   },
+   "에이치엔티": {
+      "code": 176440,
+      "detail_code": 32602
+   },
+   "에이치엘비": {
+      "code": 28300,
+      "detail_code": 33101
+   },
+   "에이치엘비생명과학": {
+      "code": 67630,
+      "detail_code": 137201
+   },
+   "에이치엘비제약": {
+      "code": 47920,
+      "detail_code": 137001
+   },
+   "에이치엘비파워": {
+      "code": 43220,
+      "detail_code": 32902
+   },
+   "에이치엘사이언스": {
+      "code": 239610,
+      "detail_code": 31007
+   },
+   "에이치엠씨제4호스팩": {
+      "code": 353070,
+      "detail_code": 116601
+   },
+   "에이치엠씨제5호스팩": {
+      "code": 353060,
+      "detail_code": 116601
+   },
+   "에이치케이": {
+      "code": 44780,
+      "detail_code": 32902
+   },
+   "에이테크솔루션": {
+      "code": 71670,
+      "detail_code": 32902
+   },
+   "에이텍": {
+      "code": 45660,
+      "detail_code": 32603
+   },
+   "에이텍티앤": {
+      "code": 224110,
+      "detail_code": 32604
+   },
+   "에이티넘인베스트": {
+      "code": 21080,
+      "detail_code": 116402
+   },
+   "에이티세미콘": {
+      "code": 89530,
+      "detail_code": 32601
+   },
+   "에이팩트": {
+      "code": 200470,
+      "detail_code": 137309
+   },
+   "에이팸": {
+      "code": 73070,
+      "detail_code": 33003
+   },
+   "에이펙스인텍": {
+      "code": 207490,
+      "detail_code": 32804
+   },
+   "에이프런티어": {
+      "code": 36180,
+      "detail_code": 74605
+   },
+   "에이프로": {
+      "code": 262260,
+      "detail_code": 32809
+   },
+   "에이프로젠 H&G": {
+      "code": 109960,
+      "detail_code": 74607
+   },
+   "에이프로젠 KIC": {
+      "code": 7460,
+      "detail_code": 32509
+   },
+   "에이프로젠제약": {
+      "code": 3060,
+      "detail_code": 32102
+   },
+   "에이플러스에셋": {
+      "code": 244920,
+      "detail_code": 116602
+   },
+   "에이피티씨": {
+      "code": 89970,
+      "detail_code": 32902
+   },
+   "에치에프알": {
+      "code": 230240,
+      "detail_code": 32604
+   },
+   "에코마이스터": {
+      "code": 64510,
+      "detail_code": 32902
+   },
+   "에코마케팅": {
+      "code": 230360,
+      "detail_code": 137103
+   },
+   "에코바이오": {
+      "code": 38870,
+      "detail_code": 147401
+   },
+   "에코캡": {
+      "code": 128540,
+      "detail_code": 33003
+   },
+   "에코프로": {
+      "code": 86520,
+      "detail_code": 32004
+   },
+   "에코프로비엠": {
+      "code": 247540,
+      "detail_code": 32802
+   },
+   "에코플라스틱": {
+      "code": 38110,
+      "detail_code": 33003
+   },
+   "에프알텍": {
+      "code": 73540,
+      "detail_code": 32604
+   },
+   "에프앤가이드": {
+      "code": 64850,
+      "detail_code": 106309
+   },
+   "에프앤리퍼블릭": {
+      "code": 64090,
+      "detail_code": 74608
+   },
+   "에프에스티": {
+      "code": 36810,
+      "detail_code": 32602
+   },
+   "에프엔씨엔터": {
+      "code": 173940,
+      "detail_code": 189001
+   },
+   "에프엔에스테크": {
+      "code": 83500,
+      "detail_code": 32902
+   },
+   "엑사이엔씨": {
+      "code": 54940,
+      "detail_code": 64204
+   },
+   "엑세스바이오": {
+      "code": 950130,
+      "detail_code": 32103
+   },
+   "엑셈": {
+      "code": 205100,
+      "detail_code": 105802
+   },
+   "엑스큐어": {
+      "code": 70300,
+      "detail_code": 105802
+   },
+   "엑시콘": {
+      "code": 92870,
+      "detail_code": 32902
+   },
+   "엔바이오니아": {
+      "code": 317870,
+      "detail_code": 33309
+   },
+   "엔브이에이치코리아": {
+      "code": 67570,
+      "detail_code": 33003
+   },
+   "엔솔바이오사이언스": {
+      "code": 140610,
+      "detail_code": 137001
+   },
+   "엔시트론": {
+      "code": 101400,
+      "detail_code": 32601
+   },
+   "엔씨소프트": {
+      "code": 36570,
+      "detail_code": 105802
+   },
+   "엔에스": {
+      "code": 217820,
+      "detail_code": 32902
+   },
+   "엔에스쇼핑": {
+      "code": 138250,
+      "detail_code": 74709
+   },
+   "엔에스엔": {
+      "code": 31860,
+      "detail_code": 74608
+   },
+   "엔에스엠": {
+      "code": 238170,
+      "detail_code": 32002
+   },
+   "엔에스컴퍼니": {
+      "code": 224760,
+      "detail_code": 64102
+   },
+   "엔에이치스팩13호": {
+      "code": 310840,
+      "detail_code": 116601
+   },
+   "엔에이치스팩14호": {
+      "code": 319400,
+      "detail_code": 116601
+   },
+   "엔에이치스팩16호": {
+      "code": 353190,
+      "detail_code": 116601
+   },
+   "엔에이치스팩17호": {
+      "code": 359090,
+      "detail_code": 116601
+   },
+   "엔에이치스팩18호": {
+      "code": 365590,
+      "detail_code": 116601
+   },
+   "엔에이치엔": {
+      "code": 181710,
+      "detail_code": 105802
+   },
+   "엔에프씨": {
+      "code": 265740,
+      "detail_code": 32004
+   },
+   "엔젠바이오": {
+      "code": 354200,
+      "detail_code": 137309
+   },
+   "엔지브이아이": {
+      "code": 93510,
+      "detail_code": 33003
+   },
+   "엔지스테크널러지": {
+      "code": 208860,
+      "detail_code": 105802
+   },
+   "엔지켐생명과학": {
+      "code": 183490,
+      "detail_code": 32101
+   },
+   "엔케이": {
+      "code": 85310,
+      "detail_code": 32501
+   },
+   "엔케이맥스": {
+      "code": 182400,
+      "detail_code": 32101
+   },
+   "엔케이물산": {
+      "code": 9810,
+      "detail_code": 74607
+   },
+   "엔텔스": {
+      "code": 69410,
+      "detail_code": 105802
+   },
+   "엔투텍": {
+      "code": 227950,
+      "detail_code": 32902
+   },
+   "엔피디": {
+      "code": 198080,
+      "detail_code": 32602
+   },
+   "엔피씨": {
+      "code": 4250,
+      "detail_code": 32202
+   },
+   "엔피케이": {
+      "code": 48830,
+      "detail_code": 32002
+   },
+   "엘디티": {
+      "code": 96870,
+      "detail_code": 32601
+   },
+   "엘리비젼": {
+      "code": 276240,
+      "detail_code": 32605
+   },
+   "엘브이엠씨": {
+      "code": 900140,
+      "detail_code": 74501
+   },
+   "엘비세미콘": {
+      "code": 61970,
+      "detail_code": 32601
+   },
+   "엘아이에스": {
+      "code": 138690,
+      "detail_code": 32902
+   },
+   "엘앤씨바이오": {
+      "code": 290650,
+      "detail_code": 32102
+   },
+   "엘앤에프": {
+      "code": 66970,
+      "detail_code": 32802
+   },
+   "엘앤케이바이오": {
+      "code": 156100,
+      "detail_code": 32701
+   },
+   "엘에스일렉트릭": {
+      "code": 10120,
+      "detail_code": 32801
+   },
+   "엘에이티": {
+      "code": 311060,
+      "detail_code": 32902
+   },
+   "엘엠에스": {
+      "code": 73110,
+      "detail_code": 32602
+   },
+   "엘오티베큠": {
+      "code": 83310,
+      "detail_code": 32902
+   },
+   "엘이티": {
+      "code": 297890,
+      "detail_code": 32902
+   },
+   "엘컴텍": {
+      "code": 37950,
+      "detail_code": 32602
+   },
+   "엘티씨": {
+      "code": 170920,
+      "detail_code": 32001
+   },
+   "엠게임": {
+      "code": 58630,
+      "detail_code": 105802
+   },
+   "엠로": {
+      "code": 58970,
+      "detail_code": 105802
+   },
+   "엠벤처투자": {
+      "code": 19590,
+      "detail_code": 116402
+   },
+   "엠브레인": {
+      "code": 169330,
+      "detail_code": 137104
+   },
+   "엠씨넥스": {
+      "code": 97520,
+      "detail_code": 32605
+   },
+   "엠아이텍": {
+      "code": 179290,
+      "detail_code": 32701
+   },
+   "엠앤씨생명과학": {
+      "code": 225860,
+      "detail_code": 32004
+   },
+   "엠에스씨": {
+      "code": 9780,
+      "detail_code": 31007
+   },
+   "엠에스오토텍": {
+      "code": 123040,
+      "detail_code": 33003
+   },
+   "엠에프엠코리아": {
+      "code": 323230,
+      "detail_code": 31403
+   },
+   "엠젠플러스": {
+      "code": 32790,
+      "detail_code": 74605
+   },
+   "엠케이전자": {
+      "code": 33160,
+      "detail_code": 32602
+   },
+   "엠투아이": {
+      "code": 347890,
+      "detail_code": 32702
+   },
+   "엠투엔": {
+      "code": 33310,
+      "detail_code": 32509
+   },
+   "엠플러스": {
+      "code": 259630,
+      "detail_code": 32902
+   },
+   "연우": {
+      "code": 115960,
+      "detail_code": 32202
+   },
+   "영림원소프트랩": {
+      "code": 60850,
+      "detail_code": 105802
+   },
+   "영보화학": {
+      "code": 14440,
+      "detail_code": 32202
+   },
+   "영신금속": {
+      "code": 7530,
+      "detail_code": 32509
+   },
+   "영우디에스피": {
+      "code": 143540,
+      "detail_code": 32902
+   },
+   "영원무역": {
+      "code": 111770,
+      "detail_code": 74608
+   },
+   "영원무역홀딩스": {
+      "code": 9970,
+      "detail_code": 116409
+   },
+   "영진약품": {
+      "code": 3520,
+      "detail_code": 32102
+   },
+   "영풍": {
+      "code": 670,
+      "detail_code": 32402
+   },
+   "영풍정밀": {
+      "code": 36560,
+      "detail_code": 32901
+   },
+   "영풍제지": {
+      "code": 6740,
+      "detail_code": 31702
+   },
+   "영화금속": {
+      "code": 12280,
+      "detail_code": 33003
+   },
+   "영화테크": {
+      "code": 265560,
+      "detail_code": 33003
+   },
+   "영흥": {
+      "code": 12160,
+      "detail_code": 32401
+   },
+   "예림당": {
+      "code": 36000,
+      "detail_code": 105801
+   },
+   "예선테크": {
+      "code": 250930,
+      "detail_code": 32202
+   },
+   "예스24": {
+      "code": 53280,
+      "detail_code": 74709
+   },
+   "예스코홀딩스": {
+      "code": 15360,
+      "detail_code": 116409
+   },
+   "예스티": {
+      "code": 122640,
+      "detail_code": 32902
+   },
+   "옐로페이": {
+      "code": 179720,
+      "detail_code": 105802
+   },
+   "오가닉티코스메틱": {
+      "code": 900300,
+      "detail_code": 116409
+   },
+   "오공": {
+      "code": 45060,
+      "detail_code": 32004
+   },
+   "오디텍": {
+      "code": 80520,
+      "detail_code": 32601
+   },
+   "오뚜기": {
+      "code": 7310,
+      "detail_code": 31007
+   },
+   "오로라": {
+      "code": 39830,
+      "detail_code": 137302
+   },
+   "오르비텍": {
+      "code": 46120,
+      "detail_code": 137209
+   },
+   "오리엔탈정공": {
+      "code": 14940,
+      "detail_code": 32901
+   },
+   "오리엔트바이오": {
+      "code": 2630,
+      "detail_code": 32102
+   },
+   "오리엔트정공": {
+      "code": 65500,
+      "detail_code": 33003
+   },
+   "오리온": {
+      "code": 271560,
+      "detail_code": 31007
+   },
+   "오리온홀딩스": {
+      "code": 1800,
+      "detail_code": 116409
+   },
+   "오리콤": {
+      "code": 10470,
+      "detail_code": 137103
+   },
+   "오상자이엘": {
+      "code": 53980,
+      "detail_code": 106201
+   },
+   "오성첨단소재": {
+      "code": 52420,
+      "detail_code": 32202
+   },
+   "오션브릿지": {
+      "code": 241790,
+      "detail_code": 32902
+   },
+   "오션스톤": {
+      "code": 329020,
+      "detail_code": 74603
+   },
+   "오스코텍": {
+      "code": 39200,
+      "detail_code": 32102
+   },
+   "오스테오닉": {
+      "code": 226400,
+      "detail_code": 32701
+   },
+   "오스템": {
+      "code": 31510,
+      "detail_code": 33003
+   },
+   "오스템임플란트": {
+      "code": 48260,
+      "detail_code": 32701
+   },
+   "오이솔루션": {
+      "code": 138080,
+      "detail_code": 32604
+   },
+   "오킨스전자": {
+      "code": 80580,
+      "detail_code": 32602
+   },
+   "오텍": {
+      "code": 67170,
+      "detail_code": 33004
+   },
+   "오파스넷": {
+      "code": 173130,
+      "detail_code": 106201
+   },
+   "오픈베이스": {
+      "code": 49480,
+      "detail_code": 106201
+   },
+   "오하임아이엔티": {
+      "code": 309930,
+      "detail_code": 74705
+   },
+   "올리패스": {
+      "code": 244460,
+      "detail_code": 32101
+   },
+   "올릭스": {
+      "code": 226950,
+      "detail_code": 137001
+   },
+   "옴니시스템": {
+      "code": 57540,
+      "detail_code": 32702
+   },
+   "옵트론텍": {
+      "code": 82210,
+      "detail_code": 32703
+   },
+   "옵티시스": {
+      "code": 109080,
+      "detail_code": 32604
+   },
+   "옵티팜": {
+      "code": 153710,
+      "detail_code": 32103
+   },
+   "와이솔": {
+      "code": 122990,
+      "detail_code": 32602
+   },
+   "와이아이케이": {
+      "code": 232140,
+      "detail_code": 32902
+   },
+   "와이엔텍": {
+      "code": 67900,
+      "detail_code": 53802
+   },
+   "와이엠씨": {
+      "code": 155650,
+      "detail_code": 32602
+   },
+   "와이엠티": {
+      "code": 251370,
+      "detail_code": 32001
+   },
+   "와이오엠": {
+      "code": 66430,
+      "detail_code": 74607
+   },
+   "와이제이엠게임즈": {
+      "code": 193250,
+      "detail_code": 32602
+   },
+   "와이즈버즈": {
+      "code": 273060,
+      "detail_code": 137103
+   },
+   "와이지-원": {
+      "code": 19210,
+      "detail_code": 32509
+   },
+   "와이지엔터테인먼트": {
+      "code": 122870,
+      "detail_code": 105902
+   },
+   "와이팜": {
+      "code": 332570,
+      "detail_code": 32602
+   },
+   "와토스코리아": {
+      "code": 79000,
+      "detail_code": 32202
+   },
+   "용평리조트": {
+      "code": 70960,
+      "detail_code": 95501
+   },
+   "우노앤컴퍼니": {
+      "code": 114630,
+      "detail_code": 32005
+   },
+   "우리금융지주": {
+      "code": 316140,
+      "detail_code": 116409
+   },
+   "우리기술": {
+      "code": 32820,
+      "detail_code": 32801
+   },
+   "우리기술투자": {
+      "code": 41190,
+      "detail_code": 116409
+   },
+   "우리넷": {
+      "code": 115440,
+      "detail_code": 32604
+   },
+   "우리들제약": {
+      "code": 4720,
+      "detail_code": 32102
+   },
+   "우리들휴브레인": {
+      "code": 118000,
+      "detail_code": 74605
+   },
+   "우리로": {
+      "code": 46970,
+      "detail_code": 74607
+   },
+   "우리바이오": {
+      "code": 82850,
+      "detail_code": 32804
+   },
+   "우리산업": {
+      "code": 215360,
+      "detail_code": 33003
+   },
+   "우리산업홀딩스": {
+      "code": 72470,
+      "detail_code": 33003
+   },
+   "우리손에프앤지": {
+      "code": 73560,
+      "detail_code": 31001
+   },
+   "우리이앤엘": {
+      "code": 153490,
+      "detail_code": 32601
+   },
+   "우리조명": {
+      "code": 37400,
+      "detail_code": 32804
+   },
+   "우리종금": {
+      "code": 10050,
+      "detail_code": 116409
+   },
+   "우림기계": {
+      "code": 101170,
+      "detail_code": 32901
+   },
+   "우성사료": {
+      "code": 6980,
+      "detail_code": 31006
+   },
+   "우수AMS": {
+      "code": 66590,
+      "detail_code": 33003
+   },
+   "우신시스템": {
+      "code": 17370,
+      "detail_code": 32902
+   },
+   "우양": {
+      "code": 103840,
+      "detail_code": 31003
+   },
+   "우원개발": {
+      "code": 46940,
+      "detail_code": 64201
+   },
+   "우정바이오": {
+      "code": 215380,
+      "detail_code": 137001
+   },
+   "우주일렉트로": {
+      "code": 65680,
+      "detail_code": 32602
+   },
+   "우진": {
+      "code": 105840,
+      "detail_code": 32702
+   },
+   "우진비앤지": {
+      "code": 18620,
+      "detail_code": 32102
+   },
+   "우진아이엔에스": {
+      "code": 10400,
+      "detail_code": 64202
+   },
+   "우진플라임": {
+      "code": 49800,
+      "detail_code": 32902
+   },
+   "웅진": {
+      "code": 16880,
+      "detail_code": 116409
+   },
+   "웅진씽크빅": {
+      "code": 95720,
+      "detail_code": 168501
+   },
+   "원림": {
+      "code": 5820,
+      "detail_code": 31302
+   },
+   "원바이오젠": {
+      "code": 278380,
+      "detail_code": 32103
+   },
+   "원방테크": {
+      "code": 53080,
+      "detail_code": 32901
+   },
+   "원익": {
+      "code": 32940,
+      "detail_code": 74605
+   },
+   "원익IPS": {
+      "code": 240810,
+      "detail_code": 32902
+   },
+   "원익QnC": {
+      "code": 74600,
+      "detail_code": 32301
+   },
+   "원익머트리얼즈": {
+      "code": 104830,
+      "detail_code": 32001
+   },
+   "원익큐브": {
+      "code": 14190,
+      "detail_code": 74607
+   },
+   "원익홀딩스": {
+      "code": 30530,
+      "detail_code": 116409
+   },
+   "원일특강": {
+      "code": 12620,
+      "detail_code": 32401
+   },
+   "원텍": {
+      "code": 216280,
+      "detail_code": 32701
+   },
+   "원포유": {
+      "code": 122830,
+      "detail_code": 106102
+   },
+   "원풍": {
+      "code": 8370,
+      "detail_code": 32202
+   },
+   "원풍물산": {
+      "code": 8290,
+      "detail_code": 31401
+   },
+   "월덱스": {
+      "code": 101160,
+      "detail_code": 32602
+   },
+   "웨이브일렉트로": {
+      "code": 95270,
+      "detail_code": 32702
+   },
+   "웰바이오텍": {
+      "code": 10600,
+      "detail_code": 74601
+   },
+   "웰크론": {
+      "code": 65950,
+      "detail_code": 31302
+   },
+   "웰크론한텍": {
+      "code": 76080,
+      "detail_code": 64101
+   },
+   "웹스": {
+      "code": 196700,
+      "detail_code": 32002
+   },
+   "웹젠": {
+      "code": 69080,
+      "detail_code": 105802
+   },
+   "웹케시": {
+      "code": 53580,
+      "detail_code": 105802
+   },
+   "위니아딤채": {
+      "code": 71460,
+      "detail_code": 32805
+   },
+   "위닉스": {
+      "code": 44340,
+      "detail_code": 32805
+   },
+   "위더스제약": {
+      "code": 330350,
+      "detail_code": 32102
+   },
+   "위드텍": {
+      "code": 348350,
+      "detail_code": 32702
+   },
+   "위메이드": {
+      "code": 112040,
+      "detail_code": 105802
+   },
+   "위세아이텍": {
+      "code": 65370,
+      "detail_code": 105802
+   },
+   "위월드": {
+      "code": 140660,
+      "detail_code": 32604
+   },
+   "위즈코프": {
+      "code": 38620,
+      "detail_code": 74707
+   },
+   "위지윅스튜디오": {
+      "code": 299900,
+      "detail_code": 105901
+   },
+   "위지트": {
+      "code": 36090,
+      "detail_code": 32902
+   },
+   "윈스": {
+      "code": 136540,
+      "detail_code": 106201
+   },
+   "윈텍": {
+      "code": 320000,
+      "detail_code": 32902
+   },
+   "윈팩": {
+      "code": 97800,
+      "detail_code": 32601
+   },
+   "윈하이텍": {
+      "code": 192390,
+      "detail_code": 32501
+   },
+   "윌링스": {
+      "code": 313760,
+      "detail_code": 32801
+   },
+   "윌비스": {
+      "code": 8600,
+      "detail_code": 74604
+   },
+   "윙입푸드": {
+      "code": 900340,
+      "detail_code": 116409
+   },
+   "유나이티드": {
+      "code": 33270,
+      "detail_code": 32102
+   },
+   "유니드": {
+      "code": 14830,
+      "detail_code": 32001
+   },
+   "유니셈": {
+      "code": 36200,
+      "detail_code": 32902
+   },
+   "유니슨": {
+      "code": 18000,
+      "detail_code": 32901
+   },
+   "유니온": {
+      "code": 910,
+      "detail_code": 32303
+   },
+   "유니온머티리얼": {
+      "code": 47400,
+      "detail_code": 32302
+   },
+   "유니온커뮤니티": {
+      "code": 203450,
+      "detail_code": 32604
+   },
+   "유니켐": {
+      "code": 11330,
+      "detail_code": 31501
+   },
+   "유니퀘스트": {
+      "code": 77500,
+      "detail_code": 74605
+   },
+   "유니크": {
+      "code": 11320,
+      "detail_code": 33003
+   },
+   "유니테스트": {
+      "code": 86390,
+      "detail_code": 32902
+   },
+   "유니테크노": {
+      "code": 241690,
+      "detail_code": 33003
+   },
+   "유니트론텍": {
+      "code": 142210,
+      "detail_code": 74502
+   },
+   "유니포인트": {
+      "code": 121060,
+      "detail_code": 106201
+   },
+   "유라테크": {
+      "code": 48430,
+      "detail_code": 32801
+   },
+   "유바이오로직스": {
+      "code": 206650,
+      "detail_code": 32102
+   },
+   "유비벨록스": {
+      "code": 89850,
+      "detail_code": 105802
+   },
+   "유비온": {
+      "code": 84440,
+      "detail_code": 106309
+   },
+   "유비케어": {
+      "code": 32620,
+      "detail_code": 105802
+   },
+   "유비쿼스": {
+      "code": 264450,
+      "detail_code": 32604
+   },
+   "유비쿼스홀딩스": {
+      "code": 78070,
+      "detail_code": 32604
+   },
+   "유성기업": {
+      "code": 2920,
+      "detail_code": 33003
+   },
+   "유성티엔에스": {
+      "code": 24800,
+      "detail_code": 84902
+   },
+   "유수홀딩스": {
+      "code": 700,
+      "detail_code": 137105
+   },
+   "유신": {
+      "code": 54930,
+      "detail_code": 137201
+   },
+   "유아이디": {
+      "code": 69330,
+      "detail_code": 32602
+   },
+   "유아이엘": {
+      "code": 49520,
+      "detail_code": 32602
+   },
+   "유안타제3호스팩": {
+      "code": 287410,
+      "detail_code": 116601
+   },
+   "유안타제4호스팩": {
+      "code": 313750,
+      "detail_code": 116601
+   },
+   "유안타제5호스팩": {
+      "code": 336060,
+      "detail_code": 116601
+   },
+   "유안타제6호스팩": {
+      "code": 340360,
+      "detail_code": 116601
+   },
+   "유안타제7호스팩": {
+      "code": 367460,
+      "detail_code": 116601
+   },
+   "유안타증권": {
+      "code": 3470,
+      "detail_code": 116601
+   },
+   "유앤아이": {
+      "code": 56090,
+      "detail_code": 32701
+   },
+   "유양디앤유": {
+      "code": 11690,
+      "detail_code": 32601
+   },
+   "유에스티": {
+      "code": 263770,
+      "detail_code": 32401
+   },
+   "유엑스엔": {
+      "code": 337840,
+      "detail_code": 32701
+   },
+   "유엔젤": {
+      "code": 72130,
+      "detail_code": 106301
+   },
+   "유유제약": {
+      "code": 220,
+      "detail_code": 32102
+   },
+   "유진기업": {
+      "code": 23410,
+      "detail_code": 32303
+   },
+   "유진로봇": {
+      "code": 56080,
+      "detail_code": 32902
+   },
+   "유진스팩4호": {
+      "code": 321260,
+      "detail_code": 116601
+   },
+   "유진스팩5호": {
+      "code": 331380,
+      "detail_code": 116601
+   },
+   "유진증권": {
+      "code": 1200,
+      "detail_code": 116601
+   },
+   "유진테크": {
+      "code": 84370,
+      "detail_code": 32902
+   },
+   "유테크": {
+      "code": 178780,
+      "detail_code": 32602
+   },
+   "유투바이오": {
+      "code": 221800,
+      "detail_code": 137209
+   },
+   "유티아이": {
+      "code": 179900,
+      "detail_code": 32602
+   },
+   "유틸렉스": {
+      "code": 263050,
+      "detail_code": 32101
+   },
+   "유한양행": {
+      "code": 100,
+      "detail_code": 32102
+   },
+   "유화증권": {
+      "code": 3460,
+      "detail_code": 116601
+   },
+   "육일씨엔에쓰": {
+      "code": 191410,
+      "detail_code": 32602
+   },
+   "율촌화학": {
+      "code": 8730,
+      "detail_code": 32202
+   },
+   "율호": {
+      "code": 72770,
+      "detail_code": 106201
+   },
+   "이건산업": {
+      "code": 8250,
+      "detail_code": 31602
+   },
+   "이건홀딩스": {
+      "code": 39020,
+      "detail_code": 31601
+   },
+   "이구산업": {
+      "code": 25820,
+      "detail_code": 32402
+   },
+   "이그잭스": {
+      "code": 60230,
+      "detail_code": 32602
+   },
+   "이글루시큐리티": {
+      "code": 67920,
+      "detail_code": 106309
+   },
+   "이글벳": {
+      "code": 44960,
+      "detail_code": 74607
+   },
+   "이노메트리": {
+      "code": 302430,
+      "detail_code": 32902
+   },
+   "이노벡스": {
+      "code": 279060,
+      "detail_code": 32602
+   },
+   "이노션": {
+      "code": 214320,
+      "detail_code": 137103
+   },
+   "이노와이어리스": {
+      "code": 73490,
+      "detail_code": 32604
+   },
+   "이노와이즈": {
+      "code": 86250,
+      "detail_code": 32902
+   },
+   "이노인스트루먼트": {
+      "code": 215790,
+      "detail_code": 32604
+   },
+   "이노진": {
+      "code": 344860,
+      "detail_code": 32004
+   },
+   "이노테라피": {
+      "code": 246960,
+      "detail_code": 32103
+   },
+   "이녹스": {
+      "code": 88390,
+      "detail_code": 33109
+   },
+   "이녹스첨단소재": {
+      "code": 272290,
+      "detail_code": 32602
+   },
+   "이니텍": {
+      "code": 53350,
+      "detail_code": 105802
+   },
+   "이더블유케이": {
+      "code": 258610,
+      "detail_code": 32501
+   },
+   "이도바이오": {
+      "code": 336040,
+      "detail_code": 137001
+   },
+   "이디티": {
+      "code": 215090,
+      "detail_code": 32702
+   },
+   "이라이콤": {
+      "code": 41520,
+      "detail_code": 74601
+   },
+   "이랜시스": {
+      "code": 264850,
+      "detail_code": 32602
+   },
+   "이랜텍": {
+      "code": 54210,
+      "detail_code": 32602
+   },
+   "이루다": {
+      "code": 164060,
+      "detail_code": 32701
+   },
+   "이루온": {
+      "code": 65440,
+      "detail_code": 105802
+   },
+   "이리츠코크렙": {
+      "code": 88260,
+      "detail_code": 126801
+   },
+   "이마트": {
+      "code": 139480,
+      "detail_code": 74701
+   },
+   "이매진아시아": {
+      "code": 36260,
+      "detail_code": 105901
+   },
+   "이미지스": {
+      "code": 115610,
+      "detail_code": 32601
+   },
+   "이베스트스팩5호": {
+      "code": 349720,
+      "detail_code": 116601
+   },
+   "이베스트이안스팩1호": {
+      "code": 323210,
+      "detail_code": 116601
+   },
+   "이베스트투자증권": {
+      "code": 78020,
+      "detail_code": 116601
+   },
+   "이비테크": {
+      "code": 208850,
+      "detail_code": 32809
+   },
+   "이상네트웍스": {
+      "code": 80010,
+      "detail_code": 74601
+   },
+   "이수앱지스": {
+      "code": 86890,
+      "detail_code": 32103
+   },
+   "이수페타시스": {
+      "code": 7660,
+      "detail_code": 32602
+   },
+   "이수화학": {
+      "code": 5950,
+      "detail_code": 32001
+   },
+   "이스타코": {
+      "code": 15020,
+      "detail_code": 126801
+   },
+   "이스트소프트": {
+      "code": 47560,
+      "detail_code": 105802
+   },
+   "이스트아시아홀딩스": {
+      "code": 900110,
+      "detail_code": 116409
+   },
+   "이십일스토어": {
+      "code": 270020,
+      "detail_code": 32309
+   },
+   "이씨에스": {
+      "code": 67010,
+      "detail_code": 106201
+   },
+   "이아이디": {
+      "code": 93230,
+      "detail_code": 74607
+   },
+   "이앤에치": {
+      "code": 341310,
+      "detail_code": 31309
+   },
+   "이에스산업": {
+      "code": 241510,
+      "detail_code": 32901
+   },
+   "이에스에이": {
+      "code": 52190,
+      "detail_code": 189001
+   },
+   "이엑스티": {
+      "code": 226360,
+      "detail_code": 64102
+   },
+   "이엔드디": {
+      "code": 101360,
+      "detail_code": 32004
+   },
+   "이엔에프테크놀로지": {
+      "code": 102710,
+      "detail_code": 32004
+   },
+   "이엔플러스": {
+      "code": 74610,
+      "detail_code": 32901
+   },
+   "이엘피": {
+      "code": 63760,
+      "detail_code": 32702
+   },
+   "이엠네트웍스": {
+      "code": 87730,
+      "detail_code": 32002
+   },
+   "이엠넷": {
+      "code": 123570,
+      "detail_code": 137103
+   },
+   "이엠앤아이": {
+      "code": 83470,
+      "detail_code": 32202
+   },
+   "이엠코리아": {
+      "code": 95190,
+      "detail_code": 32902
+   },
+   "이엠텍": {
+      "code": 91120,
+      "detail_code": 32602
+   },
+   "이엠티": {
+      "code": 232530,
+      "detail_code": 32802
+   },
+   "이연제약": {
+      "code": 102460,
+      "detail_code": 32102
+   },
+   "이오테크닉스": {
+      "code": 39030,
+      "detail_code": 32902
+   },
+   "이오플로우": {
+      "code": 294090,
+      "detail_code": 32701
+   },
+   "이원컴포텍": {
+      "code": 88290,
+      "detail_code": 33003
+   },
+   "이월드": {
+      "code": 84680,
+      "detail_code": 189102
+   },
+   "이즈미디어": {
+      "code": 181340,
+      "detail_code": 32702
+   },
+   "이지바이오": {
+      "code": 353810,
+      "detail_code": 31008
+   },
+   "이지스레지던스리츠": {
+      "code": 350520,
+      "detail_code": 126801
+   },
+   "이지스밸류플러스리츠": {
+      "code": 334890,
+      "detail_code": 126801
+   },
+   "이지웰": {
+      "code": 90850,
+      "detail_code": 105802
+   },
+   "이지케어텍": {
+      "code": 99750,
+      "detail_code": 105802
+   },
+   "이지홀딩스": {
+      "code": 35810,
+      "detail_code": 31008
+   },
+   "이큐셀": {
+      "code": 160600,
+      "detail_code": 32902
+   },
+   "이크레더블": {
+      "code": 92130,
+      "detail_code": 106309
+   },
+   "이트론": {
+      "code": 96040,
+      "detail_code": 74607
+   },
+   "이퓨쳐": {
+      "code": 134060,
+      "detail_code": 105801
+   },
+   "이화공영": {
+      "code": 1840,
+      "detail_code": 64101
+   },
+   "이화산업": {
+      "code": 760,
+      "detail_code": 74607
+   },
+   "이화전기": {
+      "code": 24810,
+      "detail_code": 32801
+   },
+   "인디에프": {
+      "code": 14990,
+      "detail_code": 31401
+   },
+   "인바디": {
+      "code": 41830,
+      "detail_code": 32701
+   },
+   "인바이오": {
+      "code": 352940,
+      "detail_code": 32003
+   },
+   "인바이오젠": {
+      "code": 101140,
+      "detail_code": 74604
+   },
+   "인베니아": {
+      "code": 79950,
+      "detail_code": 32902
+   },
+   "인산가": {
+      "code": 277410,
+      "detail_code": 31007
+   },
+   "인선이엔티": {
+      "code": 60150,
+      "detail_code": 53802
+   },
+   "인성정보": {
+      "code": 33230,
+      "detail_code": 106201
+   },
+   "인스코비": {
+      "code": 6490,
+      "detail_code": 106102
+   },
+   "인지디스플레": {
+      "code": 37330,
+      "detail_code": 32602
+   },
+   "인지컨트롤스": {
+      "code": 23800,
+      "detail_code": 33003
+   },
+   "인천도시가스": {
+      "code": 34590,
+      "detail_code": 43502
+   },
+   "인카금융서비스": {
+      "code": 211050,
+      "detail_code": 116602
+   },
+   "인콘": {
+      "code": 83640,
+      "detail_code": 32604
+   },
+   "인크로스": {
+      "code": 216050,
+      "detail_code": 137103
+   },
+   "인탑스": {
+      "code": 49070,
+      "detail_code": 32604
+   },
+   "인터로조": {
+      "code": 119610,
+      "detail_code": 32701
+   },
+   "인터엠": {
+      "code": 17250,
+      "detail_code": 32605
+   },
+   "인터지스": {
+      "code": 129260,
+      "detail_code": 84903
+   },
+   "인터코스": {
+      "code": 240340,
+      "detail_code": 32004
+   },
+   "인터파크": {
+      "code": 35080,
+      "detail_code": 74709
+   },
+   "인터플렉스": {
+      "code": 51370,
+      "detail_code": 32602
+   },
+   "인텍플러스": {
+      "code": 64290,
+      "detail_code": 32902
+   },
+   "인텔리안테크": {
+      "code": 189300,
+      "detail_code": 32604
+   },
+   "인트로메딕": {
+      "code": 150840,
+      "detail_code": 32701
+   },
+   "인트론바이오": {
+      "code": 48530,
+      "detail_code": 32101
+   },
+   "인팩": {
+      "code": 23810,
+      "detail_code": 33003
+   },
+   "인포마크": {
+      "code": 175140,
+      "detail_code": 32604
+   },
+   "인포바인": {
+      "code": 115310,
+      "detail_code": 106102
+   },
+   "인포뱅크": {
+      "code": 39290,
+      "detail_code": 106309
+   },
+   "인프라웨어": {
+      "code": 41020,
+      "detail_code": 105802
+   },
+   "인피니트헬스케어": {
+      "code": 71200,
+      "detail_code": 105802
+   },
+   "인화정공": {
+      "code": 101930,
+      "detail_code": 33101
+   },
+   "일동제약": {
+      "code": 249420,
+      "detail_code": 32102
+   },
+   "일동홀딩스": {
+      "code": 230,
+      "detail_code": 32102
+   },
+   "일성건설": {
+      "code": 13360,
+      "detail_code": 64102
+   },
+   "일성신약": {
+      "code": 3120,
+      "detail_code": 32102
+   },
+   "일신바이오": {
+      "code": 68330,
+      "detail_code": 32901
+   },
+   "일신방직": {
+      "code": 3200,
+      "detail_code": 31301
+   },
+   "일신석재": {
+      "code": 7110,
+      "detail_code": 74606
+   },
+   "일야": {
+      "code": 58450,
+      "detail_code": 32604
+   },
+   "일양약품": {
+      "code": 7570,
+      "detail_code": 32102
+   },
+   "일정실업": {
+      "code": 8500,
+      "detail_code": 31303
+   },
+   "일지테크": {
+      "code": 19540,
+      "detail_code": 33003
+   },
+   "일진다이아": {
+      "code": 81000,
+      "detail_code": 32004
+   },
+   "일진디스플": {
+      "code": 20760,
+      "detail_code": 32601
+   },
+   "일진머티리얼즈": {
+      "code": 20150,
+      "detail_code": 32602
+   },
+   "일진전기": {
+      "code": 103590,
+      "detail_code": 32803
+   },
+   "일진파워": {
+      "code": 94820,
+      "detail_code": 64203
+   },
+   "일진홀딩스": {
+      "code": 15860,
+      "detail_code": 116409
+   },
+   "잇츠한불": {
+      "code": 226320,
+      "detail_code": 32004
+   },
+   "잉글우드랩": {
+      "code": 950140,
+      "detail_code": 32004
+   },
+   "잉크테크": {
+      "code": 49550,
+      "detail_code": 32004
+   },
+   "자비스": {
+      "code": 254120,
+      "detail_code": 32902
+   },
+   "자안": {
+      "code": 221610,
+      "detail_code": 32004
+   },
+   "자연과환경": {
+      "code": 43910,
+      "detail_code": 53901
+   },
+   "자이글": {
+      "code": 234920,
+      "detail_code": 32805
+   },
+   "자이에스앤디": {
+      "code": 317400,
+      "detail_code": 126801
+   },
+   "자화전자": {
+      "code": 33240,
+      "detail_code": 32602
+   },
+   "장원테크": {
+      "code": 174880,
+      "detail_code": 32604
+   },
+   "재영솔루텍": {
+      "code": 49630,
+      "detail_code": 32703
+   },
+   "전방": {
+      "code": 950,
+      "detail_code": 31301
+   },
+   "전우정밀": {
+      "code": 120780,
+      "detail_code": 33003
+   },
+   "전진바이오팜": {
+      "code": 110020,
+      "detail_code": 32004
+   },
+   "전파기지국": {
+      "code": 65530,
+      "detail_code": 106102
+   },
+   "정다운": {
+      "code": 208140,
+      "detail_code": 31001
+   },
+   "정산애강": {
+      "code": 22220,
+      "detail_code": 32202
+   },
+   "정상제이엘에스": {
+      "code": 40420,
+      "detail_code": 168505
+   },
+   "정원엔시스": {
+      "code": 45510,
+      "detail_code": 106201
+   },
+   "제낙스": {
+      "code": 65620,
+      "detail_code": 32401
+   },
+   "제너셈": {
+      "code": 217190,
+      "detail_code": 32902
+   },
+   "제넥신": {
+      "code": 95700,
+      "detail_code": 137001
+   },
+   "제넨바이오": {
+      "code": 72520,
+      "detail_code": 53802
+   },
+   "제노레이": {
+      "code": 122310,
+      "detail_code": 32701
+   },
+   "제노텍": {
+      "code": 66830,
+      "detail_code": 32004
+   },
+   "제노포커스": {
+      "code": 187420,
+      "detail_code": 32101
+   },
+   "제놀루션": {
+      "code": 225220,
+      "detail_code": 32101
+   },
+   "제닉": {
+      "code": 123330,
+      "detail_code": 32004
+   },
+   "제로투세븐": {
+      "code": 159580,
+      "detail_code": 74604
+   },
+   "제룡산업": {
+      "code": 147830,
+      "detail_code": 32501
+   },
+   "제룡전기": {
+      "code": 33100,
+      "detail_code": 32801
+   },
+   "제우스": {
+      "code": 79370,
+      "detail_code": 32902
+   },
+   "제이브이엠": {
+      "code": 54950,
+      "detail_code": 32901
+   },
+   "제이스텍": {
+      "code": 90470,
+      "detail_code": 32902
+   },
+   "제이씨케미칼": {
+      "code": 137950,
+      "detail_code": 32004
+   },
+   "제이씨현시스템": {
+      "code": 33320,
+      "detail_code": 74605
+   },
+   "제이알글로벌리츠": {
+      "code": 348950,
+      "detail_code": 126801
+   },
+   "제이앤티씨": {
+      "code": 204270,
+      "detail_code": 32602
+   },
+   "제이에스코퍼레이션": {
+      "code": 194370,
+      "detail_code": 31501
+   },
+   "제이에스티나": {
+      "code": 26040,
+      "detail_code": 33301
+   },
+   "제이엔케이히터": {
+      "code": 126880,
+      "detail_code": 32901
+   },
+   "제이엘케이": {
+      "code": 322510,
+      "detail_code": 105802
+   },
+   "제이엠아이": {
+      "code": 33050,
+      "detail_code": 31802
+   },
+   "제이엠티": {
+      "code": 94970,
+      "detail_code": 32602
+   },
+   "제이웨이": {
+      "code": 58420,
+      "detail_code": 105901
+   },
+   "제이준코스메틱": {
+      "code": 25620,
+      "detail_code": 32004
+   },
+   "제이콘텐트리": {
+      "code": 36420,
+      "detail_code": 105901
+   },
+   "제이티": {
+      "code": 89790,
+      "detail_code": 32902
+   },
+   "제일기획": {
+      "code": 30000,
+      "detail_code": 137103
+   },
+   "제일바이오": {
+      "code": 52670,
+      "detail_code": 32102
+   },
+   "제일약품": {
+      "code": 271980,
+      "detail_code": 32102
+   },
+   "제일연마": {
+      "code": 1560,
+      "detail_code": 32309
+   },
+   "제일전기공업": {
+      "code": 199820,
+      "detail_code": 32801
+   },
+   "제일제강": {
+      "code": 23440,
+      "detail_code": 32401
+   },
+   "제일테크노스": {
+      "code": 38010,
+      "detail_code": 32501
+   },
+   "제일파마홀딩스": {
+      "code": 2620,
+      "detail_code": 137105
+   },
+   "제주반도체": {
+      "code": 80220,
+      "detail_code": 32601
+   },
+   "제주은행": {
+      "code": 6220,
+      "detail_code": 116401
+   },
+   "제주항공": {
+      "code": 89590,
+      "detail_code": 85101
+   },
+   "제테마": {
+      "code": 216080,
+      "detail_code": 32103
+   },
+   "젠큐릭스": {
+      "code": 229000,
+      "detail_code": 32103
+   },
+   "젬백스": {
+      "code": 82270,
+      "detail_code": 32902
+   },
+   "젬백스링크": {
+      "code": 64800,
+      "detail_code": 74704
+   },
+   "젬백스지오": {
+      "code": 41590,
+      "detail_code": 64204
+   },
+   "조광ILI": {
+      "code": 44060,
+      "detail_code": 32901
+   },
+   "조광페인트": {
+      "code": 4910,
+      "detail_code": 32004
+   },
+   "조광피혁": {
+      "code": 4700,
+      "detail_code": 31501
+   },
+   "조비": {
+      "code": 1550,
+      "detail_code": 32003
+   },
+   "조선내화": {
+      "code": 480,
+      "detail_code": 32302
+   },
+   "조선선재": {
+      "code": 120030,
+      "detail_code": 32509
+   },
+   "조아제약": {
+      "code": 34940,
+      "detail_code": 32102
+   },
+   "조이맥스": {
+      "code": 101730,
+      "detail_code": 105802
+   },
+   "조이시티": {
+      "code": 67000,
+      "detail_code": 105802
+   },
+   "조일알미늄": {
+      "code": 18470,
+      "detail_code": 32402
+   },
+   "조흥": {
+      "code": 2600,
+      "detail_code": 31007
+   },
+   "종근당": {
+      "code": 185750,
+      "detail_code": 32102
+   },
+   "종근당바이오": {
+      "code": 63160,
+      "detail_code": 32102
+   },
+   "종근당홀딩스": {
+      "code": 1630,
+      "detail_code": 32102
+   },
+   "좋은사람들": {
+      "code": 33340,
+      "detail_code": 31401
+   },
+   "주성엔지니어링": {
+      "code": 36930,
+      "detail_code": 32902
+   },
+   "주연테크": {
+      "code": 44380,
+      "detail_code": 32603
+   },
+   "줌인터넷": {
+      "code": 239340,
+      "detail_code": 106301
+   },
+   "중앙백신": {
+      "code": 72020,
+      "detail_code": 32101
+   },
+   "중앙에너비스": {
+      "code": 440,
+      "detail_code": 74607
+   },
+   "지노믹트리": {
+      "code": 228760,
+      "detail_code": 32103
+   },
+   "지놈앤컴퍼니": {
+      "code": 314130,
+      "detail_code": 32101
+   },
+   "지누스": {
+      "code": 13890,
+      "detail_code": 33201
+   },
+   "지니뮤직": {
+      "code": 43610,
+      "detail_code": 106301
+   },
+   "지니언스": {
+      "code": 263860,
+      "detail_code": 105802
+   },
+   "지니틱스": {
+      "code": 303030,
+      "detail_code": 32601
+   },
+   "지란지교시큐리티": {
+      "code": 208350,
+      "detail_code": 105802
+   },
+   "지스마트글로벌": {
+      "code": 114570,
+      "detail_code": 32601
+   },
+   "지앤이헬스케어": {
+      "code": 299480,
+      "detail_code": 31309
+   },
+   "지어소프트": {
+      "code": 51160,
+      "detail_code": 105802
+   },
+   "지에스이": {
+      "code": 53050,
+      "detail_code": 43502
+   },
+   "지엔씨에너지": {
+      "code": 119850,
+      "detail_code": 32801
+   },
+   "지엔원에너지": {
+      "code": 270520,
+      "detail_code": 137201
+   },
+   "지엔코": {
+      "code": 65060,
+      "detail_code": 31401
+   },
+   "지엘팜텍": {
+      "code": 204840,
+      "detail_code": 137001
+   },
+   "지엠비코리아": {
+      "code": 13870,
+      "detail_code": 33003
+   },
+   "지역난방공사": {
+      "code": 71320,
+      "detail_code": 43503
+   },
+   "지오씨": {
+      "code": 135160,
+      "detail_code": 32803
+   },
+   "지와이커머스": {
+      "code": 111820,
+      "detail_code": 106309
+   },
+   "지코": {
+      "code": 10580,
+      "detail_code": 33003
+   },
+   "지투알": {
+      "code": 35000,
+      "detail_code": 137105
+   },
+   "지트리비앤티": {
+      "code": 115450,
+      "detail_code": 74607
+   },
+   "지티지웰니스": {
+      "code": 219750,
+      "detail_code": 32701
+   },
+   "진도": {
+      "code": 88790,
+      "detail_code": 74607
+   },
+   "진로발효": {
+      "code": 18120,
+      "detail_code": 31101
+   },
+   "진매트릭스": {
+      "code": 109820,
+      "detail_code": 137001
+   },
+   "진바이오텍": {
+      "code": 86060,
+      "detail_code": 31008
+   },
+   "진성티이씨": {
+      "code": 36890,
+      "detail_code": 32902
+   },
+   "진양산업": {
+      "code": 3780,
+      "detail_code": 32202
+   },
+   "진양제약": {
+      "code": 7370,
+      "detail_code": 32102
+   },
+   "진양폴리우레탄": {
+      "code": 10640,
+      "detail_code": 32202
+   },
+   "진양홀딩스": {
+      "code": 100250,
+      "detail_code": 32202
+   },
+   "진양화학": {
+      "code": 51630,
+      "detail_code": 32202
+   },
+   "진에어": {
+      "code": 272450,
+      "detail_code": 85101
+   },
+   "진원생명과학": {
+      "code": 11000,
+      "detail_code": 32102
+   },
+   "진코스텍": {
+      "code": 250030,
+      "detail_code": 32004
+   },
+   "진흥기업": {
+      "code": 2780,
+      "detail_code": 64102
+   },
+   "질경이": {
+      "code": 233990,
+      "detail_code": 32004
+   },
+   "차바이오텍": {
+      "code": 85660,
+      "detail_code": 32101
+   },
+   "참엔지니어링": {
+      "code": 9310,
+      "detail_code": 32902
+   },
+   "참좋은여행": {
+      "code": 94850,
+      "detail_code": 147502
+   },
+   "창해에탄올": {
+      "code": 4650,
+      "detail_code": 31101
+   },
+   "천랩": {
+      "code": 311690,
+      "detail_code": 137001
+   },
+   "천보": {
+      "code": 278280,
+      "detail_code": 32001
+   },
+   "천일고속": {
+      "code": 650,
+      "detail_code": 84902
+   },
+   "청광건설": {
+      "code": 140290,
+      "detail_code": 64102
+   },
+   "청담러닝": {
+      "code": 96240,
+      "detail_code": 168505
+   },
+   "청보산업": {
+      "code": 13720,
+      "detail_code": 33003
+   },
+   "체리부로": {
+      "code": 66360,
+      "detail_code": 31001
+   },
+   "체시스": {
+      "code": 33250,
+      "detail_code": 33003
+   },
+   "초록뱀": {
+      "code": 47820,
+      "detail_code": 105901
+   },
+   "칩스앤미디어": {
+      "code": 94360,
+      "detail_code": 105802
+   },
+   "카스": {
+      "code": 16920,
+      "detail_code": 74605
+   },
+   "카이노스메드": {
+      "code": 284620,
+      "detail_code": 137001
+   },
+   "카카오": {
+      "code": 35720,
+      "detail_code": 106301
+   },
+   "카카오게임즈": {
+      "code": 293490,
+      "detail_code": 105802
+   },
+   "카페24": {
+      "code": 42000,
+      "detail_code": 106301
+   },
+   "카프로": {
+      "code": 6380,
+      "detail_code": 32001
+   },
+   "캐리소프트": {
+      "code": 317530,
+      "detail_code": 105901
+   },
+   "캐스텍코리아": {
+      "code": 71850,
+      "detail_code": 33003
+   },
+   "캔서롭": {
+      "code": 180400,
+      "detail_code": 137209
+   },
+   "캠시스": {
+      "code": 50110,
+      "detail_code": 32602
+   },
+   "컨버즈": {
+      "code": 109070,
+      "detail_code": 31702
+   },
+   "컬러레이": {
+      "code": 900310,
+      "detail_code": 116409
+   },
+   "컴투스": {
+      "code": 78340,
+      "detail_code": 105802
+   },
+   "컴퍼니케이": {
+      "code": 307930,
+      "detail_code": 116409
+   },
+   "케어랩스": {
+      "code": 263700,
+      "detail_code": 105802
+   },
+   "케어룸의료산업": {
+      "code": 327970,
+      "detail_code": 32701
+   },
+   "케어젠": {
+      "code": 214370,
+      "detail_code": 32101
+   },
+   "케이디켐": {
+      "code": 221980,
+      "detail_code": 32004
+   },
+   "케이맥": {
+      "code": 43290,
+      "detail_code": 32902
+   },
+   "케이비17호스팩": {
+      "code": 317030,
+      "detail_code": 116601
+   },
+   "케이비아이동국실업": {
+      "code": 1620,
+      "detail_code": 33003
+   },
+   "케이비제18호스팩": {
+      "code": 323940,
+      "detail_code": 116601
+   },
+   "케이비제19호스팩": {
+      "code": 330990,
+      "detail_code": 116601
+   },
+   "케이비제20호스팩": {
+      "code": 342550,
+      "detail_code": 116601
+   },
+   "케이사인": {
+      "code": 192250,
+      "detail_code": 105802
+   },
+   "케이씨": {
+      "code": 29460,
+      "detail_code": 32702
+   },
+   "케이씨씨": {
+      "code": 2380,
+      "detail_code": 32004
+   },
+   "케이씨씨글라스": {
+      "code": 344820,
+      "detail_code": 32301
+   },
+   "케이씨에스": {
+      "code": 115500,
+      "detail_code": 106201
+   },
+   "케이씨텍": {
+      "code": 281820,
+      "detail_code": 32702
+   },
+   "케이씨티": {
+      "code": 89150,
+      "detail_code": 106201
+   },
+   "케이씨티시": {
+      "code": 9070,
+      "detail_code": 84903
+   },
+   "케이씨피드": {
+      "code": 25880,
+      "detail_code": 31008
+   },
+   "케이아이엔엑스": {
+      "code": 93320,
+      "detail_code": 106301
+   },
+   "케이에스피": {
+      "code": 73010,
+      "detail_code": 32901
+   },
+   "케이엔더블유": {
+      "code": 105330,
+      "detail_code": 32602
+   },
+   "케이엔제이": {
+      "code": 272110,
+      "detail_code": 32902
+   },
+   "케이엘넷": {
+      "code": 39420,
+      "detail_code": 106102
+   },
+   "케이엠": {
+      "code": 83550,
+      "detail_code": 31309
+   },
+   "케이엠더블유": {
+      "code": 32500,
+      "detail_code": 32604
+   },
+   "케이엠제약": {
+      "code": 225430,
+      "detail_code": 32004
+   },
+   "케이탑리츠": {
+      "code": 145270,
+      "detail_code": 126801
+   },
+   "케이티": {
+      "code": 30200,
+      "detail_code": 106102
+   },
+   "케이티스카이라이프": {
+      "code": 53210,
+      "detail_code": 106002
+   },
+   "케이티앤지": {
+      "code": 33780,
+      "detail_code": 31201
+   },
+   "케이프": {
+      "code": 64820,
+      "detail_code": 33101
+   },
+   "케이프이에스제4호": {
+      "code": 347140,
+      "detail_code": 116409
+   },
+   "케이피에스": {
+      "code": 256940,
+      "detail_code": 32902
+   },
+   "케이피에프": {
+      "code": 24880,
+      "detail_code": 32509
+   },
+   "케이피엠테크": {
+      "code": 42040,
+      "detail_code": 32004
+   },
+   "케이피티유": {
+      "code": 54410,
+      "detail_code": 32509
+   },
+   "켄코아에어로스페이스": {
+      "code": 274090,
+      "detail_code": 33103
+   },
+   "켐온": {
+      "code": 217600,
+      "detail_code": 137001
+   },
+   "켐트로닉스": {
+      "code": 89010,
+      "detail_code": 32004
+   },
+   "켐트로스": {
+      "code": 220260,
+      "detail_code": 32004
+   },
+   "코나아이": {
+      "code": 52400,
+      "detail_code": 105802
+   },
+   "코너스톤네트웍스": {
+      "code": 33110,
+      "detail_code": 74701
+   },
+   "코닉글로리": {
+      "code": 94860,
+      "detail_code": 105802
+   },
+   "코다코": {
+      "code": 46070,
+      "detail_code": 33003
+   },
+   "코데즈컴바인": {
+      "code": 47770,
+      "detail_code": 31401
+   },
+   "코드네이처": {
+      "code": 78940,
+      "detail_code": 64203
+   },
+   "코디": {
+      "code": 80530,
+      "detail_code": 32004
+   },
+   "코디엠": {
+      "code": 224060,
+      "detail_code": 32902
+   },
+   "코람코에너지리츠": {
+      "code": 357120,
+      "detail_code": 126801
+   },
+   "코렌": {
+      "code": 78650,
+      "detail_code": 32703
+   },
+   "코렌텍": {
+      "code": 104540,
+      "detail_code": 32701
+   },
+   "코리아나": {
+      "code": 27050,
+      "detail_code": 32004
+   },
+   "코리아센터": {
+      "code": 290510,
+      "detail_code": 105802
+   },
+   "코리아써키트": {
+      "code": 7810,
+      "detail_code": 32602
+   },
+   "코리아에셋투자증권": {
+      "code": 190650,
+      "detail_code": 116409
+   },
+   "코리아에스이": {
+      "code": 101670,
+      "detail_code": 32501
+   },
+   "코리아에프티": {
+      "code": 123410,
+      "detail_code": 33003
+   },
+   "코리안리": {
+      "code": 3690,
+      "detail_code": 116502
+   },
+   "코맥스": {
+      "code": 36690,
+      "detail_code": 32604
+   },
+   "코메론": {
+      "code": 49430,
+      "detail_code": 32702
+   },
+   "코미코": {
+      "code": 183300,
+      "detail_code": 32902
+   },
+   "코미팜": {
+      "code": 41960,
+      "detail_code": 32102
+   },
+   "코세스": {
+      "code": 89890,
+      "detail_code": 32902
+   },
+   "코센": {
+      "code": 9730,
+      "detail_code": 32401
+   },
+   "코셋": {
+      "code": 189350,
+      "detail_code": 32604
+   },
+   "코스나인": {
+      "code": 82660,
+      "detail_code": 32604
+   },
+   "코스맥스": {
+      "code": 192820,
+      "detail_code": 32004
+   },
+   "코스맥스비티아이": {
+      "code": 44820,
+      "detail_code": 116409
+   },
+   "코스맥스엔비티": {
+      "code": 222040,
+      "detail_code": 31007
+   },
+   "코스메카코리아": {
+      "code": 241710,
+      "detail_code": 32004
+   },
+   "코스모신소재": {
+      "code": 5070,
+      "detail_code": 32004
+   },
+   "코스모화학": {
+      "code": 5420,
+      "detail_code": 32004
+   },
+   "코스온": {
+      "code": 69110,
+      "detail_code": 32004
+   },
+   "코아스": {
+      "code": 71950,
+      "detail_code": 33201
+   },
+   "코아스템": {
+      "code": 166480,
+      "detail_code": 32102
+   },
+   "코아시아": {
+      "code": 45970,
+      "detail_code": 32601
+   },
+   "코엔텍": {
+      "code": 29960,
+      "detail_code": 53802
+   },
+   "코오롱": {
+      "code": 2020,
+      "detail_code": 116409
+   },
+   "코오롱글로벌": {
+      "code": 3070,
+      "detail_code": 64102
+   },
+   "코오롱머티리얼": {
+      "code": 144620,
+      "detail_code": 32005
+   },
+   "코오롱생명과학": {
+      "code": 102940,
+      "detail_code": 32101
+   },
+   "코오롱인더": {
+      "code": 120110,
+      "detail_code": 32005
+   },
+   "코오롱티슈진": {
+      "code": 950160,
+      "detail_code": 32101
+   },
+   "코오롱플라스틱": {
+      "code": 138490,
+      "detail_code": 32002
+   },
+   "코웨이": {
+      "code": 21240,
+      "detail_code": 199609
+   },
+   "코웰패션": {
+      "code": 33290,
+      "detail_code": 74704
+   },
+   "코위버": {
+      "code": 56360,
+      "detail_code": 32604
+   },
+   "코윈테크": {
+      "code": 282880,
+      "detail_code": 32902
+   },
+   "코이즈": {
+      "code": 121850,
+      "detail_code": 32202
+   },
+   "코콤": {
+      "code": 15710,
+      "detail_code": 32604
+   },
+   "코텍": {
+      "code": 52330,
+      "detail_code": 32605
+   },
+   "코퍼스코리아": {
+      "code": 322780,
+      "detail_code": 105901
+   },
+   "코프라": {
+      "code": 126600,
+      "detail_code": 32002
+   },
+   "콜마비앤에이치": {
+      "code": 200130,
+      "detail_code": 32101
+   },
+   "콤텍시스템": {
+      "code": 31820,
+      "detail_code": 106201
+   },
+   "쿠쿠홀딩스": {
+      "code": 192400,
+      "detail_code": 116409
+   },
+   "쿠쿠홈시스": {
+      "code": 284740,
+      "detail_code": 147602
+   },
+   "퀀타매트릭스": {
+      "code": 317690,
+      "detail_code": 32701
+   },
+   "큐렉소": {
+      "code": 60280,
+      "detail_code": 74708
+   },
+   "큐로": {
+      "code": 15590,
+      "detail_code": 32901
+   },
+   "큐로컴": {
+      "code": 40350,
+      "detail_code": 106201
+   },
+   "큐로홀딩스": {
+      "code": 51780,
+      "detail_code": 105901
+   },
+   "큐리언트": {
+      "code": 115180,
+      "detail_code": 137001
+   },
+   "큐브앤컴퍼니": {
+      "code": 43090,
+      "detail_code": 74607
+   },
+   "큐브엔터": {
+      "code": 182360,
+      "detail_code": 105902
+   },
+   "큐에스아이": {
+      "code": 66310,
+      "detail_code": 32601
+   },
+   "큐엠씨": {
+      "code": 136660,
+      "detail_code": 32902
+   },
+   "큐캐피탈": {
+      "code": 16600,
+      "detail_code": 116409
+   },
+   "크라운제과": {
+      "code": 264900,
+      "detail_code": 31007
+   },
+   "크라운해태홀딩스": {
+      "code": 5740,
+      "detail_code": 116409
+   },
+   "크로넥스": {
+      "code": 215570,
+      "detail_code": 137001
+   },
+   "크로바하이텍": {
+      "code": 43590,
+      "detail_code": 32601
+   },
+   "크루셜텍": {
+      "code": 114120,
+      "detail_code": 32602
+   },
+   "크리스에프앤씨": {
+      "code": 110790,
+      "detail_code": 31401
+   },
+   "크리스탈신소재": {
+      "code": 900250,
+      "detail_code": 116409
+   },
+   "크리스탈지노믹스": {
+      "code": 83790,
+      "detail_code": 137001
+   },
+   "크린앤사이언스": {
+      "code": 45520,
+      "detail_code": 32901
+   },
+   "클래시스": {
+      "code": 214150,
+      "detail_code": 32701
+   },
+   "클리노믹스": {
+      "code": 352770,
+      "detail_code": 32103
+   },
+   "클리오": {
+      "code": 237880,
+      "detail_code": 32004
+   },
+   "키네마스터": {
+      "code": 139670,
+      "detail_code": 105802
+   },
+   "키다리스튜디오": {
+      "code": 20120,
+      "detail_code": 106301
+   },
+   "키움제5호스팩": {
+      "code": 311270,
+      "detail_code": 116601
+   },
+   "키움증권": {
+      "code": 39490,
+      "detail_code": 116601
+   },
+   "키위미디어그룹": {
+      "code": 12170,
+      "detail_code": 105901
+   },
+   "키이스트": {
+      "code": 54780,
+      "detail_code": 105901
+   },
+   "타이거일렉": {
+      "code": 219130,
+      "detail_code": 32602
+   },
+   "탑선": {
+      "code": 180060,
+      "detail_code": 32809
+   },
+   "탑엔지니어링": {
+      "code": 65130,
+      "detail_code": 32902
+   },
+   "태경비케이": {
+      "code": 14580,
+      "detail_code": 32303
+   },
+   "태경산업": {
+      "code": 15890,
+      "detail_code": 32001
+   },
+   "태경케미컬": {
+      "code": 6890,
+      "detail_code": 32001
+   },
+   "태광": {
+      "code": 23160,
+      "detail_code": 32401
+   },
+   "태광산업": {
+      "code": 3240,
+      "detail_code": 32005
+   },
+   "태림포장": {
+      "code": 11280,
+      "detail_code": 31702
+   },
+   "태양": {
+      "code": 53620,
+      "detail_code": 32509
+   },
+   "태양금속공업": {
+      "code": 4100,
+      "detail_code": 33003
+   },
+   "태양기계": {
+      "code": 116100,
+      "detail_code": 33003
+   },
+   "태영건설": {
+      "code": 9410,
+      "detail_code": 64102
+   },
+   "태웅": {
+      "code": 44490,
+      "detail_code": 32509
+   },
+   "태웅로직스": {
+      "code": 124560,
+      "detail_code": 85209
+   },
+   "태원물산": {
+      "code": 1420,
+      "detail_code": 33003
+   },
+   "태평양물산": {
+      "code": 7980,
+      "detail_code": 31401
+   },
+   "테고사이언스": {
+      "code": 191420,
+      "detail_code": 32101
+   },
+   "테라사이언스": {
+      "code": 73640,
+      "detail_code": 32509
+   },
+   "테라셈": {
+      "code": 182690,
+      "detail_code": 32601
+   },
+   "테라젠이텍스": {
+      "code": 66700,
+      "detail_code": 32102
+   },
+   "테스": {
+      "code": 95610,
+      "detail_code": 32902
+   },
+   "테스나": {
+      "code": 131970,
+      "detail_code": 137309
+   },
+   "테이팩스": {
+      "code": 55490,
+      "detail_code": 32202
+   },
+   "테크엔": {
+      "code": 308700,
+      "detail_code": 32804
+   },
+   "테크윙": {
+      "code": 89030,
+      "detail_code": 32902
+   },
+   "테크트랜스": {
+      "code": 258050,
+      "detail_code": 32509
+   },
+   "텔레칩스": {
+      "code": 54450,
+      "detail_code": 32601
+   },
+   "텔레필드": {
+      "code": 91440,
+      "detail_code": 32604
+   },
+   "텔코웨어": {
+      "code": 78000,
+      "detail_code": 106301
+   },
+   "텔콘RF제약": {
+      "code": 200230,
+      "detail_code": 32604
+   },
+   "토니모리": {
+      "code": 214420,
+      "detail_code": 32004
+   },
+   "토박스코리아": {
+      "code": 215480,
+      "detail_code": 74704
+   },
+   "토비스": {
+      "code": 51360,
+      "detail_code": 32605
+   },
+   "토탈소프트": {
+      "code": 45340,
+      "detail_code": 105802
+   },
+   "톱텍": {
+      "code": 108230,
+      "detail_code": 32902
+   },
+   "투비소프트": {
+      "code": 79970,
+      "detail_code": 105802
+   },
+   "툴젠": {
+      "code": 199800,
+      "detail_code": 137001
+   },
+   "트루윈": {
+      "code": 105550,
+      "detail_code": 32602
+   },
+   "특수건설": {
+      "code": 26150,
+      "detail_code": 64102
+   },
+   "티라유텍": {
+      "code": 322180,
+      "detail_code": 105802
+   },
+   "티로보틱스": {
+      "code": 117730,
+      "detail_code": 32902
+   },
+   "티비씨": {
+      "code": 33830,
+      "detail_code": 106002
+   },
+   "티비에이치글로벌": {
+      "code": 84870,
+      "detail_code": 31401
+   },
+   "티사이언티픽": {
+      "code": 57680,
+      "detail_code": 105802
+   },
+   "티씨케이": {
+      "code": 64760,
+      "detail_code": 32309
+   },
+   "티앤알바이오팹": {
+      "code": 246710,
+      "detail_code": 32101
+   },
+   "티앤엘": {
+      "code": 340570,
+      "detail_code": 32103
+   },
+   "티에스아이": {
+      "code": 277880,
+      "detail_code": 32902
+   },
+   "티에스이": {
+      "code": 131290,
+      "detail_code": 32702
+   },
+   "티에이치엔": {
+      "code": 19180,
+      "detail_code": 32809
+   },
+   "티엘비": {
+      "code": 356860,
+      "detail_code": 32602
+   },
+   "티엘아이": {
+      "code": 62860,
+      "detail_code": 32601
+   },
+   "티와이홀딩스": {
+      "code": 363280,
+      "detail_code": 116409
+   },
+   "티움바이오": {
+      "code": 321550,
+      "detail_code": 137001
+   },
+   "티웨이항공": {
+      "code": 91810,
+      "detail_code": 85101
+   },
+   "티웨이홀딩스": {
+      "code": 4870,
+      "detail_code": 32303
+   },
+   "티케이씨": {
+      "code": 191600,
+      "detail_code": 32602
+   },
+   "티케이케미칼": {
+      "code": 104480,
+      "detail_code": 32005
+   },
+   "티티씨디펜스": {
+      "code": 309900,
+      "detail_code": 137309
+   },
+   "티플랙스": {
+      "code": 81150,
+      "detail_code": 32509
+   },
+   "티피씨글로벌": {
+      "code": 130740,
+      "detail_code": 33003
+   },
+   "틸론": {
+      "code": 217880,
+      "detail_code": 105802
+   },
+   "팅크웨어": {
+      "code": 84730,
+      "detail_code": 32604
+   },
+   "파나진": {
+      "code": 46210,
+      "detail_code": 32103
+   },
+   "파라다이스": {
+      "code": 34230,
+      "detail_code": 189102
+   },
+   "파라텍": {
+      "code": 33540,
+      "detail_code": 32902
+   },
+   "파루": {
+      "code": 43200,
+      "detail_code": 32801
+   },
+   "파마리서치바이오": {
+      "code": 217950,
+      "detail_code": 32102
+   },
+   "파마리서치프로덕트": {
+      "code": 214450,
+      "detail_code": 74604
+   },
+   "파멥신": {
+      "code": 208340,
+      "detail_code": 32102
+   },
+   "파미셀": {
+      "code": 5690,
+      "detail_code": 32101
+   },
+   "파버나인": {
+      "code": 177830,
+      "detail_code": 32602
+   },
+   "파세코": {
+      "code": 37070,
+      "detail_code": 32805
+   },
+   "파수": {
+      "code": 150900,
+      "detail_code": 105802
+   },
+   "파워넷": {
+      "code": 37030,
+      "detail_code": 32801
+   },
+   "파워로직스": {
+      "code": 47310,
+      "detail_code": 32801
+   },
+   "파워풀엑스": {
+      "code": 266870,
+      "detail_code": 74604
+   },
+   "파이오링크": {
+      "code": 170790,
+      "detail_code": 32604
+   },
+   "파인디앤씨": {
+      "code": 49120,
+      "detail_code": 32602
+   },
+   "파인디지털": {
+      "code": 38950,
+      "detail_code": 32604
+   },
+   "파인이엠텍": {
+      "code": 278990,
+      "detail_code": 32801
+   },
+   "파인테크닉스": {
+      "code": 106240,
+      "detail_code": 32604
+   },
+   "파인텍": {
+      "code": 131760,
+      "detail_code": 32902
+   },
+   "파커스": {
+      "code": 65690,
+      "detail_code": 32601
+   },
+   "파크시스템스": {
+      "code": 140860,
+      "detail_code": 32702
+   },
+   "파트론": {
+      "code": 91700,
+      "detail_code": 32602
+   },
+   "팍스넷": {
+      "code": 38160,
+      "detail_code": 106309
+   },
+   "판도라티비": {
+      "code": 202960,
+      "detail_code": 105802
+   },
+   "판타지오": {
+      "code": 32800,
+      "detail_code": 189001
+   },
+   "팜스빌": {
+      "code": 318010,
+      "detail_code": 31007
+   },
+   "팜스코": {
+      "code": 36580,
+      "detail_code": 31006
+   },
+   "팜스토리": {
+      "code": 27710,
+      "detail_code": 31008
+   },
+   "패션플랫폼": {
+      "code": 225590,
+      "detail_code": 31401
+   },
+   "팬스타엔터프라이즈": {
+      "code": 54300,
+      "detail_code": 32901
+   },
+   "팬엔터테인먼트": {
+      "code": 68050,
+      "detail_code": 105901
+   },
+   "팬오션": {
+      "code": 28670,
+      "detail_code": 85001
+   },
+   "팬젠": {
+      "code": 222110,
+      "detail_code": 32102
+   },
+   "퍼스텍": {
+      "code": 10820,
+      "detail_code": 32502
+   },
+   "퍼시스": {
+      "code": 16800,
+      "detail_code": 33201
+   },
+   "펄어비스": {
+      "code": 263750,
+      "detail_code": 105802
+   },
+   "펌텍코리아": {
+      "code": 251970,
+      "detail_code": 32202
+   },
+   "페이퍼코리아": {
+      "code": 1020,
+      "detail_code": 31701
+   },
+   "펨토바이오메드": {
+      "code": 327610,
+      "detail_code": 137001
+   },
+   "펩트론": {
+      "code": 87010,
+      "detail_code": 32101
+   },
+   "평화산업": {
+      "code": 90080,
+      "detail_code": 33003
+   },
+   "평화정공": {
+      "code": 43370,
+      "detail_code": 33003
+   },
+   "평화홀딩스": {
+      "code": 10770,
+      "detail_code": 33003
+   },
+   "포메탈": {
+      "code": 119500,
+      "detail_code": 32509
+   },
+   "포비스티앤씨": {
+      "code": 16670,
+      "detail_code": 74607
+   },
+   "포스링크": {
+      "code": 56730,
+      "detail_code": 74607
+   },
+   "포스코": {
+      "code": 5490,
+      "detail_code": 32401
+   },
+   "포스코 ICT": {
+      "code": 22100,
+      "detail_code": 137201
+   },
+   "포스코강판": {
+      "code": 58430,
+      "detail_code": 32401
+   },
+   "포스코엠텍": {
+      "code": 9520,
+      "detail_code": 32401
+   },
+   "포스코인터내셔널": {
+      "code": 47050,
+      "detail_code": 74601
+   },
+   "포스코케미칼": {
+      "code": 3670,
+      "detail_code": 32302
+   },
+   "포시에스": {
+      "code": 189690,
+      "detail_code": 105802
+   },
+   "포인트모바일": {
+      "code": 318020,
+      "detail_code": 32603
+   },
+   "포인트엔지니어링": {
+      "code": 256630,
+      "detail_code": 32509
+   },
+   "포티스": {
+      "code": 141020,
+      "detail_code": 74709
+   },
+   "폭스소프트": {
+      "code": 354230,
+      "detail_code": 105802
+   },
+   "폴루스바이오팜": {
+      "code": 7630,
+      "detail_code": 74601
+   },
+   "푸드나무": {
+      "code": 290720,
+      "detail_code": 74709
+   },
+   "푸드웰": {
+      "code": 5670,
+      "detail_code": 31003
+   },
+   "푸른기술": {
+      "code": 94940,
+      "detail_code": 32603
+   },
+   "푸른저축은행": {
+      "code": 7330,
+      "detail_code": 116401
+   },
+   "풀무원": {
+      "code": 17810,
+      "detail_code": 31007
+   },
+   "풍강": {
+      "code": 93380,
+      "detail_code": 32509
+   },
+   "풍국주정": {
+      "code": 23900,
+      "detail_code": 31101
+   },
+   "풍산": {
+      "code": 103140,
+      "detail_code": 32402
+   },
+   "풍산홀딩스": {
+      "code": 5810,
+      "detail_code": 116409
+   },
+   "퓨전": {
+      "code": 195440,
+      "detail_code": 105802
+   },
+   "퓨쳐스트림네트웍스": {
+      "code": 214270,
+      "detail_code": 105802
+   },
+   "퓨쳐켐": {
+      "code": 220100,
+      "detail_code": 32102
+   },
+   "프럼파스트": {
+      "code": 35200,
+      "detail_code": 32202
+   },
+   "프로스테믹스": {
+      "code": 203690,
+      "detail_code": 32101
+   },
+   "프로테옴텍": {
+      "code": 303360,
+      "detail_code": 32103
+   },
+   "프로텍": {
+      "code": 53610,
+      "detail_code": 32902
+   },
+   "프리시젼바이오": {
+      "code": 335810,
+      "detail_code": 32701
+   },
+   "프리엠스": {
+      "code": 53160,
+      "detail_code": 32801
+   },
+   "플랜티넷": {
+      "code": 75130,
+      "detail_code": 106201
+   },
+   "플럼라인생명과학": {
+      "code": 222670,
+      "detail_code": 137001
+   },
+   "플레이디": {
+      "code": 237820,
+      "detail_code": 137103
+   },
+   "플레이위드": {
+      "code": 23770,
+      "detail_code": 105802
+   },
+   "플리토": {
+      "code": 300080,
+      "detail_code": 106301
+   },
+   "피노텍": {
+      "code": 150440,
+      "detail_code": 105802
+   },
+   "피델릭스": {
+      "code": 32580,
+      "detail_code": 32601
+   },
+   "피씨디렉트": {
+      "code": 51380,
+      "detail_code": 74605
+   },
+   "피씨엘": {
+      "code": 241820,
+      "detail_code": 32103
+   },
+   "피앤씨테크": {
+      "code": 237750,
+      "detail_code": 32801
+   },
+   "피앤이솔루션": {
+      "code": 131390,
+      "detail_code": 32801
+   },
+   "피에스엠씨": {
+      "code": 24850,
+      "detail_code": 32602
+   },
+   "피에스케이": {
+      "code": 319660,
+      "detail_code": 32902
+   },
+   "피에스케이홀딩스": {
+      "code": 31980,
+      "detail_code": 32902
+   },
+   "피에스텍": {
+      "code": 2230,
+      "detail_code": 32702
+   },
+   "피엔아이컴퍼니": {
+      "code": 242350,
+      "detail_code": 105901
+   },
+   "피엔에이치테크": {
+      "code": 239890,
+      "detail_code": 32001
+   },
+   "피엔케이피부임상연구센타": {
+      "code": 347740,
+      "detail_code": 137309
+   },
+   "피엔티": {
+      "code": 137400,
+      "detail_code": 32902
+   },
+   "피제이메탈": {
+      "code": 128660,
+      "detail_code": 32402
+   },
+   "피제이전자": {
+      "code": 6140,
+      "detail_code": 32701
+   },
+   "피플바이오": {
+      "code": 304840,
+      "detail_code": 32103
+   },
+   "피피아이": {
+      "code": 62970,
+      "detail_code": 32604
+   },
+   "픽셀플러스": {
+      "code": 87600,
+      "detail_code": 32602
+   },
+   "필로시스헬스케어": {
+      "code": 57880,
+      "detail_code": 74704
+   },
+   "필룩스": {
+      "code": 33180,
+      "detail_code": 32602
+   },
+   "필옵틱스": {
+      "code": 161580,
+      "detail_code": 32902
+   },
+   "핌스": {
+      "code": 347770,
+      "detail_code": 32602
+   },
+   "하나금융14호스팩": {
+      "code": 332710,
+      "detail_code": 116601
+   },
+   "하나금융15호스팩": {
+      "code": 341160,
+      "detail_code": 116601
+   },
+   "하나금융16호스팩": {
+      "code": 343510,
+      "detail_code": 116601
+   },
+   "하나금융지주": {
+      "code": 86790,
+      "detail_code": 116409
+   },
+   "하나기술": {
+      "code": 299030,
+      "detail_code": 32902
+   },
+   "하나마이크론": {
+      "code": 67310,
+      "detail_code": 32601
+   },
+   "하나머스트제6호스팩": {
+      "code": 307160,
+      "detail_code": 116601
+   },
+   "하나머티리얼즈": {
+      "code": 166090,
+      "detail_code": 32601
+   },
+   "하나제약": {
+      "code": 293480,
+      "detail_code": 32102
+   },
+   "하나투어": {
+      "code": 39130,
+      "detail_code": 147502
+   },
+   "하림": {
+      "code": 136480,
+      "detail_code": 31001
+   },
+   "하림지주": {
+      "code": 3380,
+      "detail_code": 116409
+   },
+   "하이골드12호": {
+      "code": 172580,
+      "detail_code": 147601
+   },
+   "하이골드3호": {
+      "code": 153360,
+      "detail_code": 147601
+   },
+   "하이로닉": {
+      "code": 149980,
+      "detail_code": 32701
+   },
+   "하이록코리아": {
+      "code": 13030,
+      "detail_code": 32401
+   },
+   "하이비젼시스템": {
+      "code": 126700,
+      "detail_code": 32703
+   },
+   "하이소닉": {
+      "code": 106080,
+      "detail_code": 32602
+   },
+   "하이스틸": {
+      "code": 71090,
+      "detail_code": 32401
+   },
+   "하이제5호스팩": {
+      "code": 340120,
+      "detail_code": 116601
+   },
+   "하이즈항공": {
+      "code": 221840,
+      "detail_code": 33103
+   },
+   "하이텍팜": {
+      "code": 106190,
+      "detail_code": 74607
+   },
+   "하이트론씨스템즈": {
+      "code": 19490,
+      "detail_code": 32605
+   },
+   "하이트진로": {
+      "code": 80,
+      "detail_code": 31101
+   },
+   "하이트진로홀딩스": {
+      "code": 140,
+      "detail_code": 116409
+   },
+   "하츠": {
+      "code": 66130,
+      "detail_code": 32805
+   },
+   "한국ANKOR유전": {
+      "code": 152550,
+      "detail_code": 116402
+   },
+   "한국가구": {
+      "code": 4590,
+      "detail_code": 74604
+   },
+   "한국가스공사": {
+      "code": 36460,
+      "detail_code": 43502
+   },
+   "한국경제TV": {
+      "code": 39340,
+      "detail_code": 106002
+   },
+   "한국공항": {
+      "code": 5430,
+      "detail_code": 85209
+   },
+   "한국금융지주": {
+      "code": 71050,
+      "detail_code": 116409
+   },
+   "한국기업평가": {
+      "code": 34950,
+      "detail_code": 147509
+   },
+   "한국내화": {
+      "code": 10040,
+      "detail_code": 32302
+   },
+   "한국단자공업": {
+      "code": 25540,
+      "detail_code": 32801
+   },
+   "한국맥널티": {
+      "code": 222980,
+      "detail_code": 31007
+   },
+   "한국미라클피플사": {
+      "code": 331660,
+      "detail_code": 32004
+   },
+   "한국바이오젠": {
+      "code": 318000,
+      "detail_code": 32002
+   },
+   "한국비엔씨": {
+      "code": 256840,
+      "detail_code": 32101
+   },
+   "한국석유공업": {
+      "code": 4090,
+      "detail_code": 32309
+   },
+   "한국선재": {
+      "code": 25550,
+      "detail_code": 32401
+   },
+   "한국수출포장공업": {
+      "code": 2200,
+      "detail_code": 31702
+   },
+   "한국쉘석유": {
+      "code": 2960,
+      "detail_code": 31902
+   },
+   "한국아트라스비엑스": {
+      "code": 23890,
+      "detail_code": 32802
+   },
+   "한국알콜": {
+      "code": 17890,
+      "detail_code": 32004
+   },
+   "한국유니온제약": {
+      "code": 80720,
+      "detail_code": 32102
+   },
+   "한국자산신탁": {
+      "code": 123890,
+      "detail_code": 116402
+   },
+   "한국전력공사": {
+      "code": 15760,
+      "detail_code": 43501
+   },
+   "한국전자금융": {
+      "code": 63570,
+      "detail_code": 116601
+   },
+   "한국전자인증": {
+      "code": 41460,
+      "detail_code": 105802
+   },
+   "한국전자홀딩스": {
+      "code": 6200,
+      "detail_code": 116409
+   },
+   "한국정밀기계": {
+      "code": 101680,
+      "detail_code": 32902
+   },
+   "한국정보공학": {
+      "code": 39740,
+      "detail_code": 74607
+   },
+   "한국정보인증": {
+      "code": 53300,
+      "detail_code": 105802
+   },
+   "한국정보통신": {
+      "code": 25770,
+      "detail_code": 106102
+   },
+   "한국제7호스팩": {
+      "code": 291210,
+      "detail_code": 116601
+   },
+   "한국제8호스팩": {
+      "code": 310870,
+      "detail_code": 116601
+   },
+   "한국조선해양": {
+      "code": 9540,
+      "detail_code": 33101
+   },
+   "한국종합기술": {
+      "code": 23350,
+      "detail_code": 137201
+   },
+   "한국주강": {
+      "code": 25890,
+      "detail_code": 32902
+   },
+   "한국주철관공업": {
+      "code": 970,
+      "detail_code": 32401
+   },
+   "한국철강": {
+      "code": 104700,
+      "detail_code": 32401
+   },
+   "한국카본": {
+      "code": 17960,
+      "detail_code": 32501
+   },
+   "한국캐피탈": {
+      "code": 23760,
+      "detail_code": 116409
+   },
+   "한국컴퓨터": {
+      "code": 54040,
+      "detail_code": 32602
+   },
+   "한국코퍼레이션": {
+      "code": 50540,
+      "detail_code": 147509
+   },
+   "한국콜마": {
+      "code": 161890,
+      "detail_code": 32004
+   },
+   "한국콜마홀딩스": {
+      "code": 24720,
+      "detail_code": 116409
+   },
+   "한국큐빅": {
+      "code": 21650,
+      "detail_code": 32202
+   },
+   "한국타이어앤테크놀로지": {
+      "code": 161390,
+      "detail_code": 32201
+   },
+   "한국테크놀로지": {
+      "code": 53590,
+      "detail_code": 33003
+   },
+   "한국테크놀로지그룹": {
+      "code": 240,
+      "detail_code": 116409
+   },
+   "한국토지신탁": {
+      "code": 34830,
+      "detail_code": 116402
+   },
+   "한국특수형강": {
+      "code": 7280,
+      "detail_code": 32401
+   },
+   "한국파마": {
+      "code": 32300,
+      "detail_code": 32102
+   },
+   "한국패러랠": {
+      "code": 168490,
+      "detail_code": 116402
+   },
+   "한국팩키지": {
+      "code": 37230,
+      "detail_code": 31702
+   },
+   "한국프랜지공업": {
+      "code": 10100,
+      "detail_code": 33003
+   },
+   "한국항공우주": {
+      "code": 47810,
+      "detail_code": 33103
+   },
+   "한국화장품": {
+      "code": 123690,
+      "detail_code": 74604
+   },
+   "한국화장품제조": {
+      "code": 3350,
+      "detail_code": 32004
+   },
+   "한글과컴퓨터": {
+      "code": 30520,
+      "detail_code": 105802
+   },
+   "한네트": {
+      "code": 52600,
+      "detail_code": 106102
+   },
+   "한농화성": {
+      "code": 11500,
+      "detail_code": 32004
+   },
+   "한독": {
+      "code": 2390,
+      "detail_code": 32102
+   },
+   "한독크린텍": {
+      "code": 256150,
+      "detail_code": 32901
+   },
+   "한라": {
+      "code": 14790,
+      "detail_code": 64102
+   },
+   "한라IMS": {
+      "code": 92460,
+      "detail_code": 33101
+   },
+   "한라홀딩스": {
+      "code": 60980,
+      "detail_code": 116409
+   },
+   "한류타임즈": {
+      "code": 39670,
+      "detail_code": 105801
+   },
+   "한미글로벌": {
+      "code": 53690,
+      "detail_code": 137201
+   },
+   "한미반도체": {
+      "code": 42700,
+      "detail_code": 32902
+   },
+   "한미사이언스": {
+      "code": 8930,
+      "detail_code": 116409
+   },
+   "한미약품": {
+      "code": 128940,
+      "detail_code": 32102
+   },
+   "한빛소프트": {
+      "code": 47080,
+      "detail_code": 105802
+   },
+   "한샘": {
+      "code": 9240,
+      "detail_code": 74604
+   },
+   "한섬": {
+      "code": 20000,
+      "detail_code": 31401
+   },
+   "한성기업": {
+      "code": 3680,
+      "detail_code": 31002
+   },
+   "한세실업": {
+      "code": 105630,
+      "detail_code": 31401
+   },
+   "한세엠케이": {
+      "code": 69640,
+      "detail_code": 74704
+   },
+   "한세예스24홀딩스": {
+      "code": 16450,
+      "detail_code": 31401
+   },
+   "한솔로지스틱스": {
+      "code": 9180,
+      "detail_code": 85209
+   },
+   "한솔인티큐브": {
+      "code": 70590,
+      "detail_code": 106201
+   },
+   "한솔제지": {
+      "code": 213500,
+      "detail_code": 31701
+   },
+   "한솔케미칼": {
+      "code": 14680,
+      "detail_code": 32001
+   },
+   "한솔테크닉스": {
+      "code": 4710,
+      "detail_code": 32602
+   },
+   "한솔피엔에스": {
+      "code": 10420,
+      "detail_code": 74607
+   },
+   "한솔홀딩스": {
+      "code": 4150,
+      "detail_code": 116409
+   },
+   "한솔홈데코": {
+      "code": 25750,
+      "detail_code": 31601
+   },
+   "한송네오텍": {
+      "code": 226440,
+      "detail_code": 32902
+   },
+   "한스바이오메드": {
+      "code": 42520,
+      "detail_code": 32103
+   },
+   "한신공영": {
+      "code": 4960,
+      "detail_code": 64101
+   },
+   "한신기계공업": {
+      "code": 11700,
+      "detail_code": 32901
+   },
+   "한양디지텍": {
+      "code": 78350,
+      "detail_code": 32601
+   },
+   "한양이엔지": {
+      "code": 45100,
+      "detail_code": 137201
+   },
+   "한양증권": {
+      "code": 1750,
+      "detail_code": 116601
+   },
+   "한온시스템": {
+      "code": 18880,
+      "detail_code": 32901
+   },
+   "한올바이오파마": {
+      "code": 9420,
+      "detail_code": 32102
+   },
+   "한익스프레스": {
+      "code": 14130,
+      "detail_code": 84903
+   },
+   "한일네트웍스": {
+      "code": 46110,
+      "detail_code": 106301
+   },
+   "한일단조": {
+      "code": 24740,
+      "detail_code": 33003
+   },
+   "한일사료": {
+      "code": 5860,
+      "detail_code": 31008
+   },
+   "한일시멘트": {
+      "code": 300720,
+      "detail_code": 32303
+   },
+   "한일진공": {
+      "code": 123840,
+      "detail_code": 32902
+   },
+   "한일철강": {
+      "code": 2220,
+      "detail_code": 32401
+   },
+   "한일현대시멘트": {
+      "code": 6390,
+      "detail_code": 32303
+   },
+   "한일홀딩스": {
+      "code": 3300,
+      "detail_code": 32303
+   },
+   "한일화학": {
+      "code": 7770,
+      "detail_code": 32001
+   },
+   "한전KPS": {
+      "code": 51600,
+      "detail_code": 64203
+   },
+   "한전기술": {
+      "code": 52690,
+      "detail_code": 137201
+   },
+   "한전산업": {
+      "code": 130660,
+      "detail_code": 137201
+   },
+   "한중엔시에스": {
+      "code": 107640,
+      "detail_code": 33003
+   },
+   "한진": {
+      "code": 2320,
+      "detail_code": 84903
+   },
+   "한진중공업": {
+      "code": 97230,
+      "detail_code": 64102
+   },
+   "한진중공업홀딩스": {
+      "code": 3480,
+      "detail_code": 43502
+   },
+   "한진칼": {
+      "code": 180640,
+      "detail_code": 85101
+   },
+   "한창": {
+      "code": 5110,
+      "detail_code": 74605
+   },
+   "한창산업": {
+      "code": 79170,
+      "detail_code": 32402
+   },
+   "한창제지": {
+      "code": 9460,
+      "detail_code": 31701
+   },
+   "한컴MDS": {
+      "code": 86960,
+      "detail_code": 105802
+   },
+   "한컴위드": {
+      "code": 54920,
+      "detail_code": 105802
+   },
+   "한탑": {
+      "code": 2680,
+      "detail_code": 31006
+   },
+   "한프": {
+      "code": 66110,
+      "detail_code": 32603
+   },
+   "한화": {
+      "code": 880,
+      "detail_code": 32004
+   },
+   "한화생명": {
+      "code": 88350,
+      "detail_code": 116501
+   },
+   "한화손해보험": {
+      "code": 370,
+      "detail_code": 116501
+   },
+   "한화솔루션": {
+      "code": 9830,
+      "detail_code": 32001
+   },
+   "한화시스템": {
+      "code": 272210,
+      "detail_code": 32602
+   },
+   "한화에스비아이스팩": {
+      "code": 317320,
+      "detail_code": 116601
+   },
+   "한화에어로스페이스": {
+      "code": 12450,
+      "detail_code": 33103
+   },
+   "한화투자증권": {
+      "code": 3530,
+      "detail_code": 116601
+   },
+   "한화플러스제1호스팩": {
+      "code": 340440,
+      "detail_code": 116601
+   },
+   "해덕파워웨이": {
+      "code": 102210,
+      "detail_code": 33101
+   },
+   "해마로푸드서비스": {
+      "code": 220630,
+      "detail_code": 74603
+   },
+   "해성디에스": {
+      "code": 195870,
+      "detail_code": 32602
+   },
+   "해성산업": {
+      "code": 34810,
+      "detail_code": 126801
+   },
+   "해성옵틱스": {
+      "code": 76610,
+      "detail_code": 32703
+   },
+   "해태제과식품": {
+      "code": 101530,
+      "detail_code": 31007
+   },
+   "핸디소프트": {
+      "code": 220180,
+      "detail_code": 105802
+   },
+   "핸즈코퍼레이션": {
+      "code": 143210,
+      "detail_code": 33003
+   },
+   "행남사": {
+      "code": 8800,
+      "detail_code": 31007
+   },
+   "헝셩그룹": {
+      "code": 900270,
+      "detail_code": 116409
+   },
+   "헬릭스미스": {
+      "code": 84990,
+      "detail_code": 137001
+   },
+   "현대건설": {
+      "code": 720,
+      "detail_code": 64102
+   },
+   "현대건설기계": {
+      "code": 267270,
+      "detail_code": 32901
+   },
+   "현대공업": {
+      "code": 170030,
+      "detail_code": 33003
+   },
+   "현대그린푸드": {
+      "code": 5440,
+      "detail_code": 74701
+   },
+   "현대글로비스": {
+      "code": 86280,
+      "detail_code": 85209
+   },
+   "현대로템": {
+      "code": 64350,
+      "detail_code": 33102
+   },
+   "현대리바트": {
+      "code": 79430,
+      "detail_code": 33201
+   },
+   "현대모비스": {
+      "code": 12330,
+      "detail_code": 33003
+   },
+   "현대미포조선": {
+      "code": 10620,
+      "detail_code": 33101
+   },
+   "현대바이오": {
+      "code": 48410,
+      "detail_code": 32004
+   },
+   "현대바이오랜드": {
+      "code": 52260,
+      "detail_code": 32004
+   },
+   "현대백화점": {
+      "code": 69960,
+      "detail_code": 74701
+   },
+   "현대비앤지스틸": {
+      "code": 4560,
+      "detail_code": 32401
+   },
+   "현대사료": {
+      "code": 16790,
+      "detail_code": 31008
+   },
+   "현대약품": {
+      "code": 4310,
+      "detail_code": 32102
+   },
+   "현대에너지솔루션": {
+      "code": 322000,
+      "detail_code": 32601
+   },
+   "현대엘리베이터": {
+      "code": 17800,
+      "detail_code": 32901
+   },
+   "현대오토에버": {
+      "code": 307950,
+      "detail_code": 105802
+   },
+   "현대위아": {
+      "code": 11210,
+      "detail_code": 33003
+   },
+   "현대일렉트릭": {
+      "code": 267260,
+      "detail_code": 32801
+   },
+   "현대자동차": {
+      "code": 5380,
+      "detail_code": 33001
+   },
+   "현대제철": {
+      "code": 4020,
+      "detail_code": 32401
+   },
+   "현대종합상사": {
+      "code": 11760,
+      "detail_code": 74608
+   },
+   "현대중공업지주": {
+      "code": 267250,
+      "detail_code": 31902
+   },
+   "현대차증권": {
+      "code": 1500,
+      "detail_code": 116601
+   },
+   "현대코퍼레이션홀딩스": {
+      "code": 227840,
+      "detail_code": 74603
+   },
+   "현대통신": {
+      "code": 39010,
+      "detail_code": 32604
+   },
+   "현대퓨처넷": {
+      "code": 126560,
+      "detail_code": 106002
+   },
+   "현대해상": {
+      "code": 1450,
+      "detail_code": 116501
+   },
+   "현대홈쇼핑": {
+      "code": 57050,
+      "detail_code": 74709
+   },
+   "현우산업": {
+      "code": 92300,
+      "detail_code": 32602
+   },
+   "현진소재": {
+      "code": 53660,
+      "detail_code": 32509
+   },
+   "형지I&C": {
+      "code": 11080,
+      "detail_code": 31401
+   },
+   "형지엘리트": {
+      "code": 93240,
+      "detail_code": 31401
+   },
+   "혜인": {
+      "code": 3010,
+      "detail_code": 74605
+   },
+   "호전실업": {
+      "code": 111110,
+      "detail_code": 31401
+   },
+   "호텔신라": {
+      "code": 8770,
+      "detail_code": 74708
+   },
+   "홈센타홀딩스": {
+      "code": 60560,
+      "detail_code": 74607
+   },
+   "홈캐스트": {
+      "code": 64240,
+      "detail_code": 32605
+   },
+   "화성밸브": {
+      "code": 39610,
+      "detail_code": 32901
+   },
+   "화성산업": {
+      "code": 2460,
+      "detail_code": 64101
+   },
+   "화승알앤에이": {
+      "code": 13520,
+      "detail_code": 33003
+   },
+   "화승엔터프라이즈": {
+      "code": 241590,
+      "detail_code": 31502
+   },
+   "화승인더스트리": {
+      "code": 6060,
+      "detail_code": 32202
+   },
+   "화신": {
+      "code": 10690,
+      "detail_code": 33003
+   },
+   "화신정공": {
+      "code": 126640,
+      "detail_code": 33003
+   },
+   "화인베스틸": {
+      "code": 133820,
+      "detail_code": 32401
+   },
+   "화일약품": {
+      "code": 61250,
+      "detail_code": 32102
+   },
+   "화천기계": {
+      "code": 10660,
+      "detail_code": 32902
+   },
+   "화천기공": {
+      "code": 850,
+      "detail_code": 32902
+   },
+   "환인제약": {
+      "code": 16580,
+      "detail_code": 32102
+   },
+   "황금에스티": {
+      "code": 32560,
+      "detail_code": 32402
+   },
+   "효성": {
+      "code": 4800,
+      "detail_code": 116409
+   },
+   "효성 ITX": {
+      "code": 94280,
+      "detail_code": 147509
+   },
+   "효성오앤비": {
+      "code": 97870,
+      "detail_code": 32003
+   },
+   "효성중공업": {
+      "code": 298040,
+      "detail_code": 32801
+   },
+   "효성첨단소재": {
+      "code": 298050,
+      "detail_code": 32005
+   },
+   "효성티앤씨": {
+      "code": 298020,
+      "detail_code": 32005
+   },
+   "효성화학": {
+      "code": 298000,
+      "detail_code": 32001
+   },
+   "후성": {
+      "code": 93370,
+      "detail_code": 32001
+   },
+   "휘닉스소재": {
+      "code": 50090,
+      "detail_code": 32602
+   },
+   "휠라홀딩스": {
+      "code": 81660,
+      "detail_code": 74604
+   },
+   "휴네시온": {
+      "code": 290270,
+      "detail_code": 105802
+   },
+   "휴니드테크놀러지스": {
+      "code": 5870,
+      "detail_code": 32604
+   },
+   "휴럼": {
+      "code": 284420,
+      "detail_code": 31007
+   },
+   "휴림로봇": {
+      "code": 90710,
+      "detail_code": 32902
+   },
+   "휴마시스": {
+      "code": 205470,
+      "detail_code": 32103
+   },
+   "휴맥스": {
+      "code": 115160,
+      "detail_code": 32605
+   },
+   "휴맥스홀딩스": {
+      "code": 28080,
+      "detail_code": 116409
+   },
+   "휴메딕스": {
+      "code": 200670,
+      "detail_code": 32102
+   },
+   "휴벡셀": {
+      "code": 212310,
+      "detail_code": 32701
+   },
+   "휴비스": {
+      "code": 79980,
+      "detail_code": 32005
+   },
+   "휴비츠": {
+      "code": 65510,
+      "detail_code": 32701
+   },
+   "휴스틸": {
+      "code": 5010,
+      "detail_code": 32401
+   },
+   "휴온스": {
+      "code": 243070,
+      "detail_code": 32102
+   },
+   "휴온스글로벌": {
+      "code": 84110,
+      "detail_code": 32102
+   },
+   "휴젤": {
+      "code": 145020,
+      "detail_code": 32101
+   },
+   "휴켐스": {
+      "code": 69260,
+      "detail_code": 32004
+   },
+   "흥구석유": {
+      "code": 24060,
+      "detail_code": 74607
+   },
+   "흥국": {
+      "code": 10240,
+      "detail_code": 32902
+   },
+   "흥국에프엔비": {
+      "code": 189980,
+      "detail_code": 31102
+   },
+   "흥국화재": {
+      "code": 540,
+      "detail_code": 116501
+   },
+   "흥아해운": {
+      "code": 3280,
+      "detail_code": 85001
+   },
+   "희림": {
+      "code": 37440,
+      "detail_code": 137201
+   },
+   "힘스": {
+      "code": 238490,
+      "detail_code": 32902
+   }
+}

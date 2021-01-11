@@ -6,34 +6,22 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class User implements Parcelable {
-    private String id; // ID
-    private String pwd; // Password
     private ArrayList interestedStocks; // 관심종목
 
     // -------------- 생성자 --------------
     /**
      * 유저에 대한 기본 정보
-     * @param id
-     * @param pwd
      * @param interestedStocks
      */
-    public User(String id, String pwd, ArrayList<String> interestedStocks) {
-        this.id = id;
-        this.pwd = pwd;
+    public User(ArrayList<String> interestedStocks) {
         this.interestedStocks = interestedStocks;
     }
     
-    // 로그인 및 회원가입용 생성자
-    public User(String id, String pwd) {
-        this.id = id;
-        this.pwd = pwd;
-    }
+    // 기본 생성자
+    public User() { }
 
     // Parcelable 사용을 위한 생성자
     protected User(Parcel source) {
-        id = source.readString();
-        pwd = source.readString();
-
         String stock = source.readString();
         while(stock != null) {
             interestedStocks.add(stock);
@@ -42,9 +30,8 @@ public class User implements Parcelable {
     }
 
     // -------------- Getter --------------
-    public String getId() { return id; }
-    public String getPwd() { return pwd; }
     public ArrayList getInterestedStocks() { return interestedStocks; }
+    public void setInterestedStocks(ArrayList interestedStocks) { this.interestedStocks = interestedStocks; }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성
@@ -61,11 +48,7 @@ public class User implements Parcelable {
     };
 
     @Override
-    public void writeToParcel(Parcel parcel, int flags) {
-        parcel.writeString(id);
-        parcel.writeString(pwd);
-        parcel.writeTypedList(interestedStocks);
-    }
+    public void writeToParcel(Parcel parcel, int flags) { parcel.writeTypedList(interestedStocks); }
 
     @Override
     public int describeContents() {

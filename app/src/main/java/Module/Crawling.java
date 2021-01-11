@@ -2,6 +2,9 @@ package Module;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -32,21 +35,21 @@ public class Crawling {
                     doc = Jsoup.connect(url).get();
                 } catch (IOException e) {
                     e.printStackTrace();
+                    return;
                 }
             }
         };
         try {
             docTh.start();
             docTh.join();
+            docTh.interrupt();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     // Stock 객체로 들어왔을 때의 생성자
-    public Crawling(Stock stock) {
-        this(stock.getStockCode());
-    }
+    public Crawling(Stock stock) { this(stock.getStockCode()); }
 
     // -------------- 기타 메서드 --------------
     // 현재가 크롤링 메서드

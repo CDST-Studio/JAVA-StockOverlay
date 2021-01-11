@@ -46,6 +46,10 @@ public class Stock implements Parcelable {
         this.detailCode = detailCode;
     }
 
+    public Stock(String name) {
+        this.name = name;
+    }
+
     // Parcelable 사용을 위한 생성자
     protected Stock(Parcel source) {
         name = source.readString();
