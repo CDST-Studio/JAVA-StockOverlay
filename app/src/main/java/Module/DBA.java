@@ -10,8 +10,10 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 
 import Model.Stock;
+import Model.User;
 
 public class DBA {
+    // -------------- Stock 모델 관련 메서드 --------------
     /**
      * DB: getDatabasePath("~"), name: StockName
      * @param DB
@@ -93,6 +95,8 @@ public class DBA {
                 for(String stock : stocks) result.add(stock);
             }
 
+            if(result.size() == 0) result.add("-");
+
             br.close();
             fr.close();
         } catch (Exception e) {
@@ -138,5 +142,61 @@ public class DBA {
         stock.setChangePrice(crawer.changePrice());
 
         return stock;
+    }
+
+    // -------------- User 모델 관련 메서드 --------------
+    // 닉네임이 있는지 없는지 체크하는 메서드
+    public boolean checkInitNickname(File DB) {
+        boolean result = true;
+
+        try {
+            FileReader fr = new FileReader(DB + "/Nickname.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            if ((line = br.readLine()) != null) result = false;
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return result;
+    }
+
+    // 닉네임 초기 설정 메서드
+    public void initNickname(File DB, User user, String name) {
+        try {
+            FileWriter fw = new FileWriter(new File(DB + "/Nickname.txt"), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write(name);
+            bw.newLine();
+            bw.flush();
+
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        user.setNickName(name);
+    }
+
+    // 닉네임 불러오는 메서드
+    public String getNickname(File DB) {
+        String nickname = "";
+        try {
+            FileReader fr = new FileReader(DB + "/Nickname.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            nickname = br.readLine();
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+        return nickname;
     }
 }

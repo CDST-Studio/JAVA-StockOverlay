@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +28,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.needfor.stockoverlay.R;
+
+import Model.User;
+import Module.DBA;
+import View.Dialog.NicknameDialog;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private SignInButton Google_Login;
@@ -104,9 +109,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             if (result.isSuccess()) {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-            }
-            else{
-            }
+            } else Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -116,12 +119,21 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
+                        if(!task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(), "인증 실패", Toast.LENGTH_SHORT).show();
-                        }else{
+                        } else {
                             Toast.makeText(getApplicationContext(), "구글 로그인 인증 성공", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
+
+                            User user = new User(new DBA().getInterestedStocks(getDatabasePath("Stock")));
+                            if(new DBA().checkInitNickname(getDatabasePath("User"))) {
+                                NicknameDialog nicknameDialog = new NicknameDialog(LoginActivity.this);
+                                nicknameDialog.callFunction(user, LoginActivity.this);
+                            } else {
+                                user.setNickName(new DBA().getNickname(getDatabasePath("User")));
+                                Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
+                            }
                         }
                     }
                 });

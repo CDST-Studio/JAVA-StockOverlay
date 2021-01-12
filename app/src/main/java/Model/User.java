@@ -34,7 +34,10 @@ public class User implements Parcelable {
         }
     }
 
-    // -------------- Getter --------------
+    // -------------- Getter, Setter --------------
+    public String getNickName() { return nickName; }
+    public void setNickName(String nickName) { this.nickName = nickName; }
+
     public ArrayList getInterestedStocks() { return interestedStocks; }
     public void setInterestedStocks(ArrayList interestedStocks) { this.interestedStocks = interestedStocks; }
 
