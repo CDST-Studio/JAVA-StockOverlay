@@ -29,66 +29,10 @@ import com.needfor.stockoverlay.R;
 import Model.User;
 import Module.DBA;
 
-public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
-    private SignInButton Google_Login;
-    private static final int RC_SIGN_IN = 100;
-    private FirebaseAuth mAuth;
-    private GoogleApiClient mGoogleApiClient;
-
+public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
-                .build();
-        mAuth = FirebaseAuth.getInstance();
-
-        Google_Login = findViewById(R.id.Google_Login);
-        Google_Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
-                startActivityForResult(signInIntent,RC_SIGN_IN);
-            }
-        });
     }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_SIGN_IN) {
-            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
-            if (result.isSuccess()) {
-                GoogleSignInAccount account = result.getSignInAccount();
-                firebaseAuthWithGoogle(account);
-            }
-            else{
-            }
-        }
-    }
-
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(),null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(!task.isSuccessful()){
-                            Toast.makeText(getApplicationContext(), "인증 실패", Toast.LENGTH_SHORT).show();
-                        }else{
-                            Toast.makeText(getApplicationContext(), "구글 로그인 인증 성공", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    @Override
-    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) { }
 }
