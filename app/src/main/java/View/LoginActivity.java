@@ -33,6 +33,8 @@ import Model.User;
 import Module.DBA;
 import View.Dialog.NicknameDialog;
 
+import ViewModel.stockViewModel;
+
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private SignInButton Google_Login;
     private static final int RC_SIGN_IN = 100;
@@ -110,6 +112,13 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
+
+                Log.v("init",new stockViewModel().getStockList().getValue().toString());
+                new stockViewModel().initStockList(getResources().getAssets() ,getDatabasePath("Stock"));
+                Log.v("init",new stockViewModel().getStockList().getValue().toString());
+            }
+            else{
+            }
         }
     }
 
