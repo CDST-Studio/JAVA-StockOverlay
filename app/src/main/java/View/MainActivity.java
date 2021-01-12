@@ -6,9 +6,17 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
 import com.needfor.stockoverlay.databinding.ActivityMainBinding;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import Model.Stock;
+import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +28,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater()); //데이터 바인딩
         //createStock();
         setContentView(R.layout.activity_main);
+
+        //Observer
+        stockViewModel model = new ViewModelProvider.of(this).get(stockViewModel.class);
+
+        ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
+
+        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
+            @Override
+            public void onChanged(ArrayList<Stock> stockArray) {
+                //여기에서 값 업데이트
+            }
+        };
+
+        model.getStockList().observe(this, stockObserver);
+        //Observer
 
         Button Button_search = binding.ButtonSearch;
         Button_search.setOnClickListener(new View.OnClickListener(){

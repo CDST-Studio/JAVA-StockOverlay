@@ -2,7 +2,6 @@ package ViewModel;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-//import androidx.lifecycle.ViewModelProviders;
 
 import java.util.ArrayList;
 
@@ -48,5 +47,4 @@ public class PriceThread extends stockViewModel implements Runnable {
         }
         if(changeFlag == 1) mModel.getStockList().setValue(stockList);
     }
-
 }
