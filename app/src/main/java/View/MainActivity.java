@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Observer
-        stockViewModel model = new ViewModelProvider.of(this).get(stockViewModel.class);
+        stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class);
 
         ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
 
