@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 public class User implements Parcelable {
+    @SuppressWarnings("unchecked")
     private ArrayList interestedStocks; // 관심종목
 
     // -------------- 생성자 --------------
