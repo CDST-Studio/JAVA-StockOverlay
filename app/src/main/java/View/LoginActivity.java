@@ -46,21 +46,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        createActionBar();
         connectGoogleLogin();
     }
 
-    //  -------------- 커스텀 액션바 메뉴 생성 메서드 --------------
-    public void createActionBar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowCustomEnabled(true);
-        actionBar.setDisplayShowTitleEnabled(false);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-    }
-
+    //  -------------- 앱바(액션바) 메뉴 생성 메서드 --------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
@@ -111,14 +100,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             if (result.isSuccess()) {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
-            } else Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
 
                 Log.v("init",new stockViewModel().getStockList().getValue().toString());
                 new stockViewModel().initStockList(getResources().getAssets() ,getDatabasePath("Stock"));
                 Log.v("init",new stockViewModel().getStockList().getValue().toString());
             }
-            else{
-            }
+        }else{
         }
     }
 
@@ -133,13 +122,15 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                         } else {
                             Toast.makeText(getApplicationContext(), "구글 로그인 인증 성공", Toast.LENGTH_SHORT).show();
 
-                            User user = new User(new DBA().getInterestedStocks(getDatabasePath("Stock")));
-                            if(new DBA().checkInitNickname(getDatabasePath("User"))) {
+                            User user = new User();
+                            if(new DBA().isInitNickname(getDatabasePath("User"))) {
                                 NicknameDialog nicknameDialog = new NicknameDialog(LoginActivity.this);
                                 nicknameDialog.callFunction(user, LoginActivity.this);
                             } else {
-                                user.setNickName(new DBA().getNickname(getDatabasePath("User")));
+                                new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
+                                new DBA().initInterestedStocks(getDatabasePath("User"), user);
                                 Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
+
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
                             }

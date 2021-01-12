@@ -3,7 +3,9 @@ package View.Dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import View.MainActivity;
 
 public class NicknameDialog {
     private Context context;
+    private int checkFlag = 0;
 
     public NicknameDialog(Context context) {
         this.context = context;
@@ -44,29 +47,52 @@ public class NicknameDialog {
         final Button checkNickname = (Button) dlg.findViewById(R.id.checkNickname);
         final Button okButton = (Button) dlg.findViewById(R.id.okButton);
 
+        message.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                switch (keyCode) {
+                    case KeyEvent.KEYCODE_DEL :
+                        checkFlag = 0;
+                        break;
+                }
+
+                return false;
+            }
+        });
+
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // '확인' 버튼 클릭시 메인 액티비티에서 설정한 main_label에
-                // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
-                new DBA().initNickname(context.getDatabasePath("User"), user, message.getText().toString());
-                Toast.makeText(context, "\"" +  message.getText().toString() + "\" 을 입력하였습니다.", Toast.LENGTH_SHORT).show();
+                if(checkFlag == 1) {
+                    // '확인' 버튼 클릭시 메인 액티비티에서 설정한 main_label에
+                    // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
+                    new DBA().initNickname(context.getDatabasePath("User"), user, message.getText().toString());
+                    new DBA().initInterestedStocks(context.getDatabasePath("User"), user);
+                    Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
 
-                // 커스텀 다이얼로그를 종료한다.
-                dlg.dismiss();
-                Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
-                ((LoginActivity)context).startActivity(new Intent(loginActivity, MainActivity.class));
-                ((LoginActivity)context).finish();
+                    // 커스텀 다이얼로그를 종료한다.
+                    dlg.dismiss();
+                    ((LoginActivity) context).startActivity(new Intent(loginActivity, MainActivity.class));
+                    ((LoginActivity) context).finish();
+                }else {
+                    Toast.makeText(context, "닉네임 중복체크를 해주세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         checkNickname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "취소 했습니다.", Toast.LENGTH_SHORT).show();
-
-                // 커스텀 다이얼로그를 종료한다.
-                dlg.dismiss();
+                if(TextUtils.isEmpty(message.getText())) {
+                    Toast.makeText(context, "닉네임을 입력해주세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    if (new DBA().isExistNickname(message.getText().toString())) {
+                        checkFlag = 1;
+                        Toast.makeText(context, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(context, "이미 사용 중인 닉네임입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }

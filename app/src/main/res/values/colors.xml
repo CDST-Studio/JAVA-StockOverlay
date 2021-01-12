@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="stockoverlay_yellow">#FEE715</color>
-    <color name="stockoverlay_black">#101820</color>
+    <color name="stockoverlay_brown">#BD8F4D</color>
+    <color name="stockoverlay_black">#191919</color>
 </resources>

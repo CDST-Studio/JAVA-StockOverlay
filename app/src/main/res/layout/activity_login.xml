@@ -7,24 +7,6 @@
     android:background="#101820"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FEE715"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/ActionBarText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="StockOverlay"
-            android:textColor="#101820"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-    </androidx.appcompat.widget.Toolbar>
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"

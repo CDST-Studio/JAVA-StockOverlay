@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">StockOverlay</string>
+    <string name="app_name">업주식</string>
+    <string name="sub_name">Up Stock</string>
 </resources>
