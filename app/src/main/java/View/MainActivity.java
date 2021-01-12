@@ -3,17 +3,14 @@ package View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.needfor.stockoverlay.MainActivity;
+
 import com.needfor.stockoverlay.R;
 import com.needfor.stockoverlay.databinding.ActivityMainBinding;
 
-public class Main  extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 

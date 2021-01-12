@@ -7,16 +7,20 @@ import java.util.ArrayList;
 
 public class User implements Parcelable {
     @SuppressWarnings("unchecked")
+    private String nickName;
     private ArrayList interestedStocks; // 관심종목
 
     // -------------- 생성자 --------------
     /**
      * 유저에 대한 기본 정보
+     * @param nickName
      * @param interestedStocks
      */
-    public User(ArrayList<String> interestedStocks) {
+    public User(String nickName, ArrayList<String> interestedStocks) {
+        this.nickName = nickName;
         this.interestedStocks = interestedStocks;
     }
+    public User(ArrayList<String> interestedStocks) { this.interestedStocks = interestedStocks; }
     
     // 기본 생성자
     public User() { }
