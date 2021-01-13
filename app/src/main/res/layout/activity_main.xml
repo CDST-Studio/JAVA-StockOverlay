@@ -1,126 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".StartActivity"
-    android:orientation="vertical">
+    tools:context=".StartActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:text="StockOveray"
-        tools:ignore="MissingConstraints" />
+    <data>
+        <variable
+            name="user"
+            type="Model.User" />
+    </data>
 
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         tools:ignore="MissingConstraints"
-        android:orientation="horizontal" >
-
-        <Button
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:text="StockOveray"
+            tools:ignore="MissingConstraints" />
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="47dp"
-            android:drawableLeft="@drawable/ic_flag_southkorea"
-            android:text="한국"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="16dp" >
-        </Button>
+            android:layout_height="wrap_content" >
 
-        <Button
-            android:layout_width="wrap_content"
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="47dp"
+                android:drawableLeft="@drawable/ic_flag_southkorea"
+                android:text="한국"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="16dp" >
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_star"
+                android:text="즐겨찾기"
+                android:layout_marginBottom="16dp"
+                android:layout_marginRight="110dp"
+                android:id="@+id/Button_Bookmark">
+            </Button>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_search"
+                android:background="#00ff0000"
+                android:gravity="right"
+                android:layout_marginBottom="16dp"
+                android:id="@+id/Button_search">
+            </Button>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_star"
-            android:text="즐겨찾기"
-            android:layout_marginBottom="16dp"
-            android:layout_marginRight="110dp"
-            android:id="@+id/Button_Bookmark">
-        </Button>
+            android:background="#ababab">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="종목"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="310dp">
+            </TextView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_search"
-            android:background="#00ff0000"
-            android:gravity="right"
-            android:layout_marginBottom="16dp"
-            android:id="@+id/Button_search">
-        </Button>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00ff0000"
+                android:drawableLeft="@drawable/ic_viewmore"
+                android:id="@+id/Button_viewmore">
+            </Button>
+        </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ListStock">
+        </ListView>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:background="#ababab"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="종목"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="310dp"
-            >
-        </TextView>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#00ff0000"
-            android:drawableLeft="@drawable/ic_viewmore"
-            android:id="@+id/Button_viewmore"
-            >
-
-        </Button>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목1"
-            ></TextView>
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목2"
-            ></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목3"
-            ></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목4"
-            ></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목5"
-            ></TextView>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="종목6"
-            ></TextView>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</layout>
