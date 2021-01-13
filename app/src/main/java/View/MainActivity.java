@@ -3,46 +3,48 @@ package View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
 import com.needfor.stockoverlay.databinding.ActivityMainBinding;
-
-import java.lang.reflect.Array;
+import View.ListViewAdapter;
 import java.util.ArrayList;
-
-import Model.Stock;
-import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private ListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater()); //데이터 바인딩
-        //createStock();
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
 
-        //Observer
-        stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class);
 
-        ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
+        //stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class); // Observer
+        //ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
 
-        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
+        ListView listview = (ListView)findViewById(R.id.ListStock);
+        adapter = new ListViewAdapter();
+        for (int i = 0; i < 50; i++) {
+            adapter.addItem("주식이름"+i ,"주식코드"+i,"현재가격"+i,
+                    "변동가격"+i,"변동률"+i,"▲");
+        }
+        listview.setAdapter(adapter);
+
+        /*final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
                 //여기에서 값 업데이트
             }
         };
 
-        model.getStockList().observe(this, stockObserver);
-        //Observer
+        model.getStockList().observe(this, stockObserver); //Observer */
 
         Button Button_search = binding.ButtonSearch;
         Button_search.setOnClickListener(new View.OnClickListener(){
@@ -52,26 +54,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button Button_Bookmark = binding.ButtonBookmark;
-        Button_Bookmark.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-
-                callBookmarkActivity();
-            }
-        });
-
 
 
     }
     private void callSearchStockActivity(){ //main에서 상세 검색 창으로 이동
-        Intent search_stockIntent = new Intent(this, Search_Stock.class);
+        Intent search_stockIntent = new Intent(this, SearchStockActivity.class);
         startActivity(search_stockIntent);
-    }
-
-    private void callBookmarkActivity(){ //main에서 bookmark로 이동
-        Intent search_BookmarkIntent = new Intent(this, Bookmark.class);
-        startActivity(search_BookmarkIntent);
     }
 
     /*private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력

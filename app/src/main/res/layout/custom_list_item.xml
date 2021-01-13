@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Stockname"
+                android:id="@+id/stockname"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:gravity="center_vertical"
+                android:layout_weight="2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="24dp"
+                android:textColor="#000000"
+                android:text="currentprice"
+                android:id="@+id/currentprice"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="stockcode"
+                android:id="@+id/stockcode"
+                android:textSize="16dp"
+                android:textColor="#666666"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="change"
+                android:id="@+id/change"
+                android:layout_marginRight="3dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="changeprice"
+                android:id="@+id/changeprice"
+                android:layout_marginRight="3dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="changerate"
+                android:id="@+id/changerate"
+                android:layout_marginRight="3dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

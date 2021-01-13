@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 import View.LoginActivity;
+import View.MainActivity;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
