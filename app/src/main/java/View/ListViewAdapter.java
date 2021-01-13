@@ -56,6 +56,8 @@ public class ListViewAdapter extends BaseAdapter {
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
 
+        // 텍스트 색상 변경
+
         return convertView;
     }
 
