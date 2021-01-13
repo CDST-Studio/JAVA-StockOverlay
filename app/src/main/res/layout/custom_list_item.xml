@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="stock"
+            type="Model.Stock">
+        </variable>
+    </data>
+
+<LinearLayout
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_width="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -17,7 +29,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stockname"
+                android:text="@{stock.name}"
                 android:id="@+id/stockname"
                 android:textSize="24dp"
                 android:textColor="#000000"
@@ -28,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="24dp"
                 android:textColor="#000000"
-                android:text="currentprice"
+                android:text="@{stock.currentPrice}"
                 android:id="@+id/currentprice"
                 />
         </LinearLayout>
@@ -39,8 +51,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="stockcode"
                 android:id="@+id/stockcode"
+                android:text="@{stock.stockCode}"
                 android:textSize="16dp"
                 android:textColor="#666666"
                 android:layout_weight="1" />
@@ -48,22 +60,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="change"
+                android:text="@{stock.change}"
                 android:id="@+id/change"
                 android:layout_marginRight="3dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="changeprice"
+                android:text="@{stock.changePrice}"
                 android:id="@+id/changeprice"
                 android:layout_marginRight="3dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="changerate"
+                android:text="@{stock.changeRate}"
                 android:id="@+id/changerate"
                 android:layout_marginRight="3dp"/>
         </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
+</layout>
