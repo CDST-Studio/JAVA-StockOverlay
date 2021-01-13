@@ -60,9 +60,10 @@ public class Crawling {
         String cFlag = "-";
 
         String crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[0];
+        Log.d("Change check", "result = "+crawlingResult);
         if(crawlingResult.equals("상승")) {
             cFlag = "▲";
-        }else if (crawlingResult.equals("하향")) {
+        }else if (crawlingResult.equals("하락")) {
             cFlag = "▼";
         }else {
             cFlag = "-";
@@ -74,12 +75,14 @@ public class Crawling {
     // 전일 종가 대비 등락률 계산 메서드
     public String changeRate() {
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
+        Log.d("ChangeRate check", "result = "+crawlingResult);
         String rate = crawlingResult[3] + crawlingResult[4] + crawlingResult[6];
         return rate;
     }
 
     // 전일 종가 대비 등락 가격 계산 메서드
     public String changePrice() {
+        Log.d("ChangePrice check", "result = "+doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[1]);
         return doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ")[1];
     }
 

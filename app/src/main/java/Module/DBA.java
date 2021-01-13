@@ -223,13 +223,14 @@ public class DBA {
      * @param stock
      */
     public void initStock(AssetManager assetManager, Stock stock) {
-        Crawling crawer = new Crawling(stock);
         if(stock.getStockCode() == null) stock.setStockCode(new Parsing().getCode(assetManager, stock.getName(), "code"));
         if(stock.getDetailCode() == null) stock.setDetailCode(new Parsing().getCode(assetManager, stock.getName(), "detail_code"));
+
+        Crawling crawer = new Crawling(stock);
         if(stock.getCurrentPrice() == null) stock.setCurrentPrice(crawer.currentPrice());
         if(stock.getChange() == null) stock.setChange(crawer.change());
         if(stock.getChangeRate() == null) stock.setChangeRate(crawer.changeRate());
-        if(stock.getCurrentPrice() == null) stock.setCurrentPrice(crawer.currentPrice());
+        if(stock.getChangePrice() == null) stock.setChangePrice(crawer.changePrice());
     }
 
     // ---------------------------- Get, 모델 객체 생성 후 또는 이름으로만 주식 종목 찾을 때 사용하는 메서드 목록 ----------------------------

@@ -23,6 +23,7 @@ import com.needfor.stockoverlay.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 import Model.Stock;
+import Module.DBA;
 import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         ListView listview = (ListView)findViewById(R.id.ListStock);
         adapter = new ListViewAdapter();
         for (int i = 0; i < 50; i++) {
+            if(i==0) {
+                Stock stock = new Stock("삼성전자");
+                new DBA().initStock(getResources().getAssets(), stock);
+                adapter.addItem(stock.getName(), stock.getStockCode(), stock.getCurrentPrice(), stock.getChangePrice(), stock.getChangeRate(), stock.getChange());
+            }
             adapter.addItem("주식이름"+i ,"주식코드"+i,"현재가격"+i,
                     "변동가격"+i,"변동률"+i,"▲");
         }
