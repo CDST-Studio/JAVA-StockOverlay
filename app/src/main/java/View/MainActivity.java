@@ -2,29 +2,45 @@ package View;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.needfor.stockoverlay.R;
 import com.needfor.stockoverlay.databinding.ActivityMainBinding;
-import View.ListViewAdapter;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+import Model.Stock;
+import ViewModel.stockViewModel;
 
+public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ListViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_main);
+        createToolbar();
 
+        //createStock();
+        binding = ActivityMainBinding.inflate(getLayoutInflater()); //데이터 바인딩
+
+        //Observer
+        stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class);
+        ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
 
         //stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class); // Observer
         //ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
@@ -37,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         }
         listview.setAdapter(adapter);
 
+        Button search = findViewById(R.id.Button_search);
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SearchActivity.class));
+            }
+        });
+
         /*final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
@@ -44,21 +68,41 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        model.getStockList().observe(this, stockObserver); //Observer */
-
-        Button Button_search = binding.ButtonSearch;
-        Button_search.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                callSearchStockActivity();
-            }
-        });
-
-
-
+        model.getStockList().observe(this, stockObserver); //Observer
+        */
     }
+
+    //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
+    public void createToolbar() {
+        Toolbar toolbar = findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+        actionBar.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout :
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    //  -------------- 기타 메서드 --------------
     private void callSearchStockActivity(){ //main에서 상세 검색 창으로 이동
-        Intent search_stockIntent = new Intent(this, SearchStockActivity.class);
+        Intent search_stockIntent = new Intent(this, SearchActivity.class);
         startActivity(search_stockIntent);
     }
 

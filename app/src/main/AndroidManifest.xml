@@ -18,6 +18,7 @@
         </activity>
         <activity android:name="View.LoginActivity"/>
         <activity android:name="View.MainActivity"/>
+        <activity android:name="View.SearchActivity"/>
     </application>
 
 </manifest>

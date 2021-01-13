@@ -4,50 +4,74 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".StartActivity">
 
-    <data>
-        <variable
-            name="stock"
-            type="Model.Stock" />
-    </data>
-
     <LinearLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         tools:ignore="MissingConstraints"
         android:orientation="vertical" >
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/stockoverlay_brown"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Button
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_search"
+                android:layout_gravity="center"
+                android:text="관심종목"
+                android:textSize="22dp"
+                android:textStyle="bold"></TextView>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right">
+
+            <Button
+                android:id="@+id/Button_search"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
                 android:background="#00ff0000"
-                android:id="@+id/Button_search">
-            </Button>
-        </RelativeLayout>
+                android:drawableLeft="@drawable/ic_search"></Button>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ababab">
+            android:background="#000000">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="355dp"
+                android:layout_marginRight="355dp"
+                android:gravity="center"
                 android:text="종목"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="310dp">
-            </TextView>
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="동향"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
         <ListView
+            android:id="@+id/ListStock"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/ListStock"
-            >
-      </ListView>
+            android:background="@color/stockoverlay_black"></ListView>
     </LinearLayout>
 
 </layout>

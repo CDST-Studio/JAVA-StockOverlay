@@ -1,16 +1,11 @@
 package View;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,7 +27,6 @@ import com.needfor.stockoverlay.R;
 import Model.User;
 import Module.DBA;
 import View.Dialog.NicknameDialog;
-
 import ViewModel.stockViewModel;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
@@ -47,26 +41,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         setContentView(R.layout.activity_login);
 
         connectGoogleLogin();
-    }
-
-    //  -------------- 앱바(액션바) 메뉴 생성 메서드 --------------
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.actionbar_menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout :
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT).show();
-                break;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     // -------------- 구글 로그인 메서드 --------------
@@ -102,12 +76,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 firebaseAuthWithGoogle(account);
             } else {
                 Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
-
-                Log.v("init",new stockViewModel().getStockList().getValue().toString());
-                new stockViewModel().initStockList(getResources().getAssets() ,getDatabasePath("Stock"));
-                Log.v("init",new stockViewModel().getStockList().getValue().toString());
             }
         }else{
+            Toast.makeText(getApplicationContext(), "Login Error: 구글계정 연동 실패.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -129,6 +100,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             } else {
                                 new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
                                 new DBA().initInterestedStocks(getDatabasePath("User"), user);
+                                if(user.getInterestedStocks().size() != 0) new stockViewModel().initStockList(getResources().getAssets() ,getDatabasePath("User"));
                                 Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
