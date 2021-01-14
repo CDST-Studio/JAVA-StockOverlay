@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".StartActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_height="wrap_content"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        tools:ignore="MissingConstraints"
-        android:orientation="vertical" >
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/main_toolbar"
@@ -24,55 +23,27 @@
                 android:text="관심종목"
                 android:textSize="22dp"
                 android:textStyle="bold"></TextView>
-
         </androidx.appcompat.widget.Toolbar>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right">
-
-            <Button
-                android:id="@+id/Button_search"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
-                android:background="#00ff0000"
-                android:drawableLeft="@drawable/ic_search"></Button>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#000000">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="355dp"
-                android:layout_marginRight="355dp"
-                android:gravity="center"
-                android:text="종목"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"></TextView>
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="center"
-                android:text="동향"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <ListView
-            android:id="@+id/ListStock"
+        <FrameLayout
+            android:id="@+id/fragment_zone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/stockoverlay_black"
-            ></ListView>
-    </LinearLayout>
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="?attr/actionBarSize" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            app:itemBackground="@color/black"
+            app:labelVisibilityMode="labeled"
+            app:itemIconTint="@drawable/bottom_menu_color"
+            app:itemTextColor="@drawable/bottom_menu_color"
+            app:menu="@menu/bottom_menu" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>
