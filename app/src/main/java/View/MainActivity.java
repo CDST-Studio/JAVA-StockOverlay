@@ -2,6 +2,8 @@ package View;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.net.Uri;
@@ -63,8 +65,6 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ResourceType")
     public void createBottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView); // 하단 액션바(네비게이션 바, 툴바)
-        bottomNavigationView.setItemIconTintList(getResources().getColorStateList(R.color.white));
-        bottomNavigationView.setItemTextColor(getResources().getColorStateList(R.color.white));
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() { 
             @Override public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { 
                 switch (menuItem.getItemId()) { 
@@ -77,7 +77,16 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.tab3:
                          return true;
                     case R.id.tab4:
-                        checkPermission();
+                        ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+
+                        int flag = 0;
+                        for (ActivityManager.RunningServiceInfo rsi : am.getRunningServices(Integer.MAX_VALUE)) {
+                            if (OverlayService.class.getName().equals(rsi.service.getClassName())) {
+                                stopService(new Intent(getApplicationContext(), OverlayService.class));
+                                flag = 1;
+                            }
+                        }
+                        if(flag == 0) checkPermission();
                         return true;
                     default: return false; 
                 } 
@@ -120,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(new Intent(this, OverlayService.class));
         } else {
-            startService(new Intent(this, OverlayService.class));
+            startService(new Intent(getApplicationContext(), OverlayService.class));
         }
     }
 
