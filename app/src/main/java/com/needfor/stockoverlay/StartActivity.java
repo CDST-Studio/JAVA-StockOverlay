@@ -8,8 +8,10 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import Module.Search;
 import View.LoginActivity;
 import View.MainActivity;
+import View.SearchActivity;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -22,7 +24,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         checkPermission();
 
-        startActivity(new Intent(StartActivity.this, LoginActivity.class));
+        startActivity(new Intent(StartActivity.this, SearchActivity.class));
         finish();
     }
 
