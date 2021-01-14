@@ -2,6 +2,7 @@ package View.Fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,11 +35,20 @@ public class MainFragment extends Fragment {
     private ActivityMainBinding binding;
     private ListViewAdapter adapter;
     private ViewGroup viewGroup;
+    
+    private ArrayList<Stock> stocks = new ArrayList<>();
 
-    @Nullable 
+    @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_main, container,false);
+
+        //RequestActivity에서 전달한 번들 저장 
+        Bundle bundle = getArguments(); 
+        //번들 안의 텍스트 불러오기 
+        ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks"); 
+        //fragment1의 TextView에 전달 받은 text 띄우기
+        for(int i=0; i<text.size(); i++) stocks.add((Stock)text.get(i));
 
         //createStock();
         binding = ActivityMainBinding.inflate(getLayoutInflater()); //데이터 바인딩
@@ -49,12 +59,8 @@ public class MainFragment extends Fragment {
 
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
-        String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
-        for (int i = 0; i < exStocks.length; i++) {
-            Stock stock = new Stock(exStocks[i]);
-            new DBA().initStock(getResources().getAssets(), stock);
-            adapter.addItem(stock.getName(), stock.getStockCode(), stock.getCurrentPrice(), stock.getChangePrice(), stock.getChangeRate(), stock.getChange());
-        }
+
+        for (int i = 0; i < stocks.size(); i++) adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
         listview.setAdapter(adapter);
 
         Button search = viewGroup.findViewById(R.id.Button_search);

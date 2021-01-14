@@ -1,5 +1,6 @@
 package View.Service;
 
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -14,9 +15,11 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
@@ -29,6 +32,7 @@ public class OverlayService extends Service {
     @Nullable @Override
     public IBinder onBind(Intent intent) { return null; }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onCreate() {
         super.onCreate();
@@ -65,14 +69,14 @@ public class OverlayService extends Service {
                 PixelFormat.TRANSLUCENT);
 
 
-        params.gravity = Gravity.LEFT|Gravity.CENTER_VERTICAL;
+        params.gravity = Gravity.CENTER;
         // 위치 지정
 
         mView = inflate.inflate(R.layout.overlay_view, null);
-        // view_in_service.xml layout 불러오기
-        // mView.setOnTouchListener(onTouchListener);
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. ( TYPE_APPLICATION_OVERLAY 터치 미지원)
 
+        /*
+        // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
         btn_img.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,24 +86,35 @@ public class OverlayService extends Service {
             }
         });
 
+        페이스북 메세지처럼 쳇헤드 형식으로 만들 때 필요한 코드
         // btn_img 에 android:filterTouchesWhenObscured="true" 속성 추가하면 터치리스너가 동작한다.
         btn_img.setOnTouchListener(new View.OnTouchListener() {
+            private float mTouchX, mTouchY;
+
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        Log.d("test","touch DOWN ");
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        Log.d("test","touch UP");
-                        break;
-                    case MotionEvent.ACTION_MOVE:
-                        Log.d("test","touch move ");
-                        break;
+            public boolean onTouch(View view, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN){
+                    mTouchX = event.getRawX();
+                    mTouchY = event.getRawY();
+                    Log.d("Init X, Y", "X = " + mTouchX + ", Y = " + mTouchY);
+                    Log.d("Init parms X, Y", "X = " + params.x + ", Y = " + params.y);
+                }else if(event.getAction() == MotionEvent.ACTION_MOVE){
+                    int x = (int) (event.getRawX() - mTouchX);
+                    int y = (int) (event.getRawY() - mTouchY);
+                    Log.d("Move X, Y", "X = " + event.getRawX() + ", Y = " + event.getRawY());
+                    Log.d("Move sub", x + " / " + y);
+
+                    params.x = (int)mTouchX + x;
+                    params.y = (int)mTouchY + y;
+
+                    wm.updateViewLayout(mView, params);
+                }else if(event.getAction() == MotionEvent.ACTION_UP){
+
                 }
                 return false;
             }
         });
+         */
         wm.addView(mView, params); // 윈도우에 layout 을 추가 한다.
     }
 
