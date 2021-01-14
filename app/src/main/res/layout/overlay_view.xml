@@ -7,12 +7,12 @@
 
     <ImageButton
         android:id="@+id/btn_overlay"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:background="@null"
         android:filterTouchesWhenObscured="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_stock"
+        android:src="@drawable/ic_upstock"
         android:text="click"
         android:textColor="#ffffff"
         tools:ignore="MissingConstraints" />

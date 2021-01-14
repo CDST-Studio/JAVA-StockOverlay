@@ -16,7 +16,6 @@ import View.MainActivity;
 import View.Service.OverlayService;
 
 public class StartActivity extends AppCompatActivity {
-    public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
     private String [] permission_list = {
             Manifest.permission.SYSTEM_ALERT_WINDOW,
             Manifest.permission.FOREGROUND_SERVICE,
@@ -47,39 +46,6 @@ public class StartActivity extends AppCompatActivity {
                     requestPermissions(permission_list, 0);
                 }
             }
-            
-            // 다른앱 위에 그리기 체크
-            if (!Settings.canDrawOverlays(this)) {
-                Uri uri = Uri.fromParts("package" , getPackageName(), null);
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, uri);
-                startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
-            } else {
-                startOverlay();
-            }
-        } else {
-            startOverlay();
-        }
-    }
-
-    @TargetApi(Build.VERSION_CODES.M)
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE) {
-            if (!Settings.canDrawOverlays(this)) {
-                finish();
-            } else {
-                startOverlay();
-            }
-        }
-    }
-
-
-    void startOverlay(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(new Intent(this, OverlayService.class));
-        } else {
-            startService(new Intent(this, OverlayService.class));
         }
     }
 }

@@ -1,21 +1,26 @@
 package View;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.needfor.stockoverlay.R;
 import com.needfor.stockoverlay.databinding.ActivityMainBinding;
@@ -23,95 +28,103 @@ import com.needfor.stockoverlay.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 import Model.Stock;
-import Module.DBA;
+import View.Fragment.MainFragment;
 import View.Service.OverlayService;
 import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
-    private ListViewAdapter adapter;
+    public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        createToolbar();
-        //createStock();
-        binding = ActivityMainBinding.inflate(getLayoutInflater()); //데이터 바인딩
+        createToolbar(); // 상단 네비게이션 바 생성
+        createBottomNavigation(); // 하단 네비게이션 바 생성
 
-        //Observer
-        stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class);
-        ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
+        MainFragment mainFragment = new MainFragment();
 
-        //stockViewModel model = new ViewModelProvider(this).get(stockViewModel.class); // Observer
-        //ArrayList<Stock> noLiveStockList = model.getStockList().getValue(); // 이거 시현이가 쓰면 된다.
-
-        ListView listview = (ListView)findViewById(R.id.ListStock);
-        adapter = new ListViewAdapter();
-        for (int i = 0; i < 50; i++) {
-            if(i==0) {
-                Stock stock = new Stock("삼성전자");
-                new DBA().initStock(getResources().getAssets(), stock);
-                adapter.addItem(stock.getName(), stock.getStockCode(), stock.getCurrentPrice(), stock.getChangePrice(), stock.getChangeRate(), stock.getChange());
-            }
-            adapter.addItem("주식이름"+i ,"주식코드"+i,"현재가격"+i,
-                    "변동가격"+i,"변동률"+i,"▲");
-        }
-        listview.setAdapter(adapter);
-
-        Button search = findViewById(R.id.Button_search);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, SearchActivity.class));
-            }
-        });
-
-        /*final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
-            @Override
-            public void onChanged(ArrayList<Stock> stockArray) {
-                //여기에서 값 업데이트
-            }
-        };
-
-        model.getStockList().observe(this, stockObserver); //Observer
-        */
+        //제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
     }
 
     //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
     public void createToolbar() {
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.main_menu, menu);
-        return super.onCreateOptionsMenu(menu);
+    @SuppressLint("ResourceType")
+    public void createBottomNavigation() {
+        bottomNavigationView = findViewById(R.id.bottomNavigationView); // 하단 액션바(네비게이션 바, 툴바)
+        bottomNavigationView.setItemIconTintList(getResources().getColorStateList(R.color.white));
+        bottomNavigationView.setItemTextColor(getResources().getColorStateList(R.color.white));
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() { 
+            @Override public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { 
+                switch (menuItem.getItemId()) { 
+                    case R.id.tab1:
+
+                        return true;
+                    case R.id.tab2:
+                         startActivity(new Intent(MainActivity.this, SearchActivity.class));
+                         return true;
+                    case R.id.tab3:
+                         return true;
+                    case R.id.tab4:
+                        checkPermission();
+                        return true;
+                    default: return false; 
+                } 
+            } 
+        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.logout :
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(getApplicationContext(), "로그아웃", Toast.LENGTH_SHORT).show();
-                break;
+    //  -------------- 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 소스 코드 --------------
+    public void checkPermission() {
+        // 마시멜로우 이상일 경우
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            // 다른앱 위에 그리기 체크
+            if (!Settings.canDrawOverlays(this)) {
+                Uri uri = Uri.fromParts("package" , getPackageName(), null);
+                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, uri);
+                startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
+            } else {
+                startOverlay();
+            }
+        } else {
+            startOverlay();
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE) {
+            if (!Settings.canDrawOverlays(this)) {
+                finish();
+            } else {
+                startOverlay();
+            }
+        }
+    }
+
+
+    void startOverlay(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(new Intent(this, OverlayService.class));
+        } else {
+            startService(new Intent(this, OverlayService.class));
+        }
     }
 
     //  -------------- 기타 메서드 --------------
-    private void callSearchStockActivity(){ //main에서 상세 검색 창으로 이동
-        Intent search_stockIntent = new Intent(this, SearchActivity.class);
-        startActivity(search_stockIntent);
-    }
-
     /*private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력
         LinearLayout Layout_stock = new LinearLayout(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
