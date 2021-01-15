@@ -40,10 +40,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 dependencies {
     // Google 계정 연동 로그인 용
-    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation platform('com.google.firebase:firebase-bom:26.2.0')
+    implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
-    implementation 'com.google.firebase:firebase-firestore:22.0.1'
 
     // 웹 크롤링용 jsoup
     implementation 'org.jsoup:jsoup:1.11.3'

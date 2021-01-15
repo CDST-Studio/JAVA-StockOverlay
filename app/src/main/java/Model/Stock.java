@@ -45,6 +45,10 @@ public class Stock implements Parcelable {
         name = source.readString();
         stockCode = source.readString();
         detailCode = source.readString();
+        currentPrice = source.readString();
+        change = source.readString();
+        changeRate = source.readString();
+        changePrice = source.readString();
     }
 
     // -------------- Getter, Setter --------------
@@ -88,6 +92,10 @@ public class Stock implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(stockCode);
         parcel.writeString(detailCode);
+        parcel.writeString(currentPrice);
+        parcel.writeString(change);
+        parcel.writeString(changeRate);
+        parcel.writeString(changePrice);
     }
 
     @Override

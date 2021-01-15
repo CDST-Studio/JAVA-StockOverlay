@@ -3,13 +3,21 @@ package View;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -30,6 +38,7 @@ import com.needfor.stockoverlay.databinding.ActivityMainBinding;
 import java.util.ArrayList;
 
 import Model.Stock;
+import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Service.OverlayService;
 import ViewModel.stockViewModel;
@@ -37,6 +46,11 @@ import ViewModel.stockViewModel;
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
     private BottomNavigationView bottomNavigationView;
+    private Messenger mServiceMessenger = null;
+    private boolean mIsBound;
+
+    private String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
+    private ArrayList<Stock> stocks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
         MainFragment mainFragment = new MainFragment();
 
-        //제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
+        // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
+
+        // 종목 초기화 및 관심종목 프래그먼트로 전달
+        for(int i=0; i<exStocks.length; i++)  stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
+        // 번들객체 생성, text값 저장
+        Bundle bundle = new Bundle();
+        bundle.putParcelableArrayList("stocks",stocks);
+        // mainFragment로 번들 전달
+        mainFragment.setArguments(bundle);
     }
 
     //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
@@ -82,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         int flag = 0;
                         for (ActivityManager.RunningServiceInfo rsi : am.getRunningServices(Integer.MAX_VALUE)) {
                             if (OverlayService.class.getName().equals(rsi.service.getClassName())) {
+                                OverlayService.stockBoardTh.interrupt();
                                 stopService(new Intent(getApplicationContext(), OverlayService.class));
                                 flag = 1;
                             }
@@ -124,12 +147,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     void startOverlay(){
+        Intent intent = new Intent(getApplicationContext(), OverlayService.class);
+        intent.putExtra("stocks", stocks);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(new Intent(this, OverlayService.class));
+            startForegroundService(intent);
         } else {
-            startService(new Intent(getApplicationContext(), OverlayService.class));
+            startService(intent);
         }
     }
 
