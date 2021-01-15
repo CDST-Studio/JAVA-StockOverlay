@@ -7,30 +7,100 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageButton;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import com.needfor.stockoverlay.R;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import Model.Stock;
+
 public class OverlayService extends Service {
+    private ArrayList<Stock> stocks = new ArrayList<>();
+    private Iterator<Stock> iteratorStock;
+    private Stock stock;
+
     private WindowManager wm;
     private View mView;
 
+    public static Thread stockBoardTh;
+    private TextView stockName;
+    private TextView currentPrice;
+    private TextView change;
+    private TextView changePrice;
+    private TextView changeRate;
+
+    @SuppressLint("HandlerLeak")
+    final Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            if(iteratorStock.hasNext() == false) iteratorStock = stocks.iterator();
+            Stock stock = iteratorStock.next();
+
+            // 텍스트 설정
+            stockName.setText(stock.getName());
+            currentPrice.setText(stock.getCurrentPrice());
+            change.setText(stock.getChange());
+            changePrice.setText(stock.getChangePrice());
+            changeRate.setText(stock.getChangeRate());
+
+            // 텍스트 색상 변경
+            stockName.setTextColor(Color.parseColor("#80000000"));
+            if (change.getText().equals("▲")) {
+                currentPrice.setTextColor(Color.parseColor("#80FF0000"));
+                change.setTextColor(Color.parseColor("#80FF0000"));
+                changePrice.setTextColor(Color.parseColor("#80FF0000"));
+                changeRate.setTextColor(Color.parseColor("#80FF0000"));
+            } else if (change.getText().equals("▼")) {
+                currentPrice.setTextColor(Color.parseColor("#800000FF"));
+                change.setTextColor(Color.parseColor("#800000FF"));
+                changePrice.setTextColor(Color.parseColor("#800000FF"));
+                changeRate.setTextColor(Color.parseColor("#800000FF"));
+            } else {
+                currentPrice.setTextColor(Color.parseColor("#80808080"));
+                change.setTextColor(Color.parseColor("#80808080"));
+                changePrice.setTextColor(Color.parseColor("#80808080"));
+                changeRate.setTextColor(Color.parseColor("#80808080"));
+            }
+        }
+    };
+
     @Nullable @Override
     public IBinder onBind(Intent intent) { return null; }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if(intent != null) {
+            stocks = intent.getParcelableArrayListExtra("stocks");
+            iteratorStock = stocks.iterator();
+        }
+
+        stockBoardTh = new Thread() {
+            @Override
+            public void run() {
+                Message msg = handler.obtainMessage();
+                handler.postDelayed(this, 3000);
+                handler.sendMessage(msg);
+            }
+        };
+        stockBoardTh.start();
+
+        return super.onStartCommand(intent, flags, startId);
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -53,28 +123,35 @@ public class OverlayService extends Service {
             startForeground(1, notification);
         }
 
-        LayoutInflater inflate = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // inflater 를 사용하여 layout 을 가져오자
-        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        LayoutInflater inflate = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // 윈도우매니저 설정
+        wm = (WindowManager) getSystemService(WINDOW_SERVICE);
+        // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
+        mView = inflate.inflate(R.layout.overlay_view, null);
+
+        // TextView 초기화
+        stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
+        currentPrice = (TextView)mView.findViewById(R.id.stockboard_currentprice);
+        change = (TextView)mView.findViewById(R.id.stockboard_change);
+        changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
+        changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
 
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
+                // Android O 이상인 경우 TYPE_APPLICATION_OVERLAY 로 설정
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O?
                         WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY : WindowManager.LayoutParams.TYPE_SYSTEM_ALERT,
-                // Android O 이상인 경우 TYPE_APPLICATION_OVERLAY 로 설정
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                         |WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL|WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                 PixelFormat.TRANSLUCENT);
 
-
-        params.gravity = Gravity.CENTER;
         // 위치 지정
+        params.gravity = Gravity.CENTER | Gravity.TOP;
 
-        mView = inflate.inflate(R.layout.overlay_view, null);
-        // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. ( TYPE_APPLICATION_OVERLAY 터치 미지원)
-
+        // 윈도우에 layout 을 추가 한다.
+        wm.addView(mView, params);
         /*
         // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
@@ -115,7 +192,6 @@ public class OverlayService extends Service {
             }
         });
          */
-        wm.addView(mView, params); // 윈도우에 layout 을 추가 한다.
     }
 
     @Override

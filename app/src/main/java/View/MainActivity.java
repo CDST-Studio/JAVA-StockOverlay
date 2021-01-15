@@ -11,6 +11,7 @@ import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         int flag = 0;
                         for (ActivityManager.RunningServiceInfo rsi : am.getRunningServices(Integer.MAX_VALUE)) {
                             if (OverlayService.class.getName().equals(rsi.service.getClassName())) {
+                                OverlayService.stockBoardTh.interrupt();
                                 stopService(new Intent(getApplicationContext(), OverlayService.class));
                                 flag = 1;
                             }
@@ -144,7 +146,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
 
     void startOverlay(){
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
