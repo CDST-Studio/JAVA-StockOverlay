@@ -18,6 +18,9 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import Model.Stock;
+import View.MainActivity;
 
 public class OverlayService extends Service {
     private ArrayList<Stock> stocks = new ArrayList<>();
@@ -38,13 +42,15 @@ public class OverlayService extends Service {
     private WindowManager wm;
     private View mView;
 
-    public static Thread stockBoardTh;
+    private Thread stockBoardTh;
     private TextView stockName;
     private TextView currentPrice;
     private TextView change;
     private TextView changePrice;
     private TextView changeRate;
+    private Button overlayCancle;
 
+    /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -57,6 +63,14 @@ public class OverlayService extends Service {
             change.setText(stock.getChange());
             changePrice.setText(stock.getChangePrice());
             changeRate.setText(stock.getChangeRate());
+
+            // 텍스트 애니매이션 설정
+            Animation translate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.stockboard_text);
+            stockName.startAnimation(translate);
+            currentPrice.startAnimation(translate);
+            change.startAnimation(translate);
+            changePrice.startAnimation(translate);
+            changeRate.startAnimation(translate);
 
             // 텍스트 색상 변경
             stockName.setTextColor(Color.parseColor("#80000000"));
@@ -78,29 +92,6 @@ public class OverlayService extends Service {
             }
         }
     };
-
-    @Nullable @Override
-    public IBinder onBind(Intent intent) { return null; }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        if(intent != null) {
-            stocks = intent.getParcelableArrayListExtra("stocks");
-            iteratorStock = stocks.iterator();
-        }
-
-        stockBoardTh = new Thread() {
-            @Override
-            public void run() {
-                Message msg = handler.obtainMessage();
-                handler.postDelayed(this, 3000);
-                handler.sendMessage(msg);
-            }
-        };
-        stockBoardTh.start();
-
-        return super.onStartCommand(intent, flags, startId);
-    }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -130,15 +121,8 @@ public class OverlayService extends Service {
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
         mView = inflate.inflate(R.layout.overlay_view, null);
 
-        // TextView 초기화
-        stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
-        currentPrice = (TextView)mView.findViewById(R.id.stockboard_currentprice);
-        change = (TextView)mView.findViewById(R.id.stockboard_change);
-        changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
-        changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
-
         WindowManager.LayoutParams params = new WindowManager.LayoutParams(
-                WindowManager.LayoutParams.WRAP_CONTENT,
+                WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 // Android O 이상인 경우 TYPE_APPLICATION_OVERLAY 로 설정
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.O?
@@ -152,6 +136,15 @@ public class OverlayService extends Service {
 
         // 윈도우에 layout 을 추가 한다.
         wm.addView(mView, params);
+
+        // TextView 및 Button 초기화
+        stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
+        currentPrice = (TextView)mView.findViewById(R.id.stockboard_currentprice);
+        change = (TextView)mView.findViewById(R.id.stockboard_change);
+        changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
+        changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
+        overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
+
         /*
         // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
@@ -194,6 +187,42 @@ public class OverlayService extends Service {
          */
     }
 
+    /** onCreate 이후에 실행되는 메서드 */
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if(intent != null) {
+            stocks = intent.getParcelableArrayListExtra("stocks");
+            iteratorStock = stocks.iterator();
+        }
+
+        overlayCancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("종료 테스트", "stockboard 종료");
+                stopStockBoard();
+            }
+        });
+
+        stockBoardTh = new Thread() {
+            @Override
+            public void run() {
+                Log.d("실행 테스트", "stockboard 실행 중");
+                Message msg = handler.obtainMessage();
+                handler.postDelayed(this, 4000);
+                handler.sendMessage(msg);
+            }
+        };
+        stockBoardTh.start();
+
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    //  -------------- 스톡보드 스레드 및 서비스 종료에 필요한 메서드 --------------
+    public void stopStockBoard() {
+        handler.removeMessages(0);
+        stopService(new Intent(mView.getContext(), OverlayService.class));
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -210,4 +239,8 @@ public class OverlayService extends Service {
             wm = null;
         }
     }
+
+    //  -------------- 기타 메서드 --------------
+    @Nullable @Override
+    public IBinder onBind(Intent intent) { return null; }
 }

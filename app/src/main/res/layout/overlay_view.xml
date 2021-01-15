@@ -17,10 +17,10 @@
             android:id="@+id/stockboard_stockname"
             android:layout_width="match_parent"
             android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
             android:layout_weight="1"
-            android:gravity="center|right"
-            android:text="TextView"
-            android:textSize="14sp"
+            android:gravity="right"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -29,8 +29,7 @@
             android:layout_height="20dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="TextView"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -39,8 +38,7 @@
             android:layout_height="20dp"
             android:layout_weight="1"
             android:gravity="right"
-            android:text="TextView"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -50,8 +48,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="TextView"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,10 +57,16 @@
             android:layout_height="20dp"
             android:layout_weight="1"
             android:gravity="left"
-            android:text="TextView"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/overlay_cancle"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_close" />
     </LinearLayout>
 
 </GridLayout>
