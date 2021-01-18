@@ -26,7 +26,7 @@
     <item
         android:id="@+id/tab4"
         android:enabled="true"
-        android:title="매니저"
+        android:title="스톡보드"
         android:visible="true"
         app:showAsAction="always"
         android:icon="@drawable/ic_up"/>

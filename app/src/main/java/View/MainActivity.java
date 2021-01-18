@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
+    //  -------------- 하단 네비게이션 바 생성 메서드 --------------
     @SuppressLint("ResourceType")
     public void createBottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView); // 하단 액션바(네비게이션 바, 툴바)
@@ -101,15 +103,14 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.tab4:
                         ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
 
-                        int flag = 0;
+                        int overlayServiceFlag = 0;
                         for (ActivityManager.RunningServiceInfo rsi : am.getRunningServices(Integer.MAX_VALUE)) {
                             if (OverlayService.class.getName().equals(rsi.service.getClassName())) {
-                                OverlayService.stockBoardTh.interrupt();
-                                stopService(new Intent(getApplicationContext(), OverlayService.class));
-                                flag = 1;
+                                overlayServiceFlag = 1;
+                                Toast.makeText(getApplicationContext(), "스톡보드가 이미 실행 중입니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if(flag == 0) checkPermission();
+                        if(overlayServiceFlag == 0) checkPermission();
                         return true;
                     default: return false; 
                 } 
@@ -117,7 +118,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //  -------------- 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 소스 코드 --------------
+    //  -------------- 스톡보드 실행용 메서드 모음 --------------
+    /** 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 메서드 */
     public void checkPermission() {
         // 마시멜로우 이상일 경우
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
