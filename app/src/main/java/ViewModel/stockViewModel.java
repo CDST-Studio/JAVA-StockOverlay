@@ -15,19 +15,24 @@ import Module.DBA;
 
 
 public class stockViewModel extends ViewModel {
-    private MutableLiveData<ArrayList<Stock>> stockList;
+    static private MutableLiveData<ArrayList<Stock>> stockList;
     private DBA dbAccess;
     private ArrayList<Stock> eStockList;
 
     public stockViewModel(){
-        this.stockList = new MutableLiveData<>();
-        stockList.setValue(new ArrayList<Stock>());
-
+        //this.stockList = new MutableLiveData<ArrayList<Stock>>();
+        //stockList.postValue();
         ArrayList<Stock> eStockList = new ArrayList<Stock>();
+
+    }
+    public  stockViewModel(stockViewModel s){
+        Log.v("threada","s.get : " + s.getStockList().getValue().size());
+        stockList = s.getStockList();
     }
 
     public void initStockList(AssetManager assetManager, File DB){
         stockList = new MutableLiveData<>();
+        eStockList = new ArrayList<Stock>();
 
         ArrayList<String> getStockNameList = new DBA().getInterestedStocks(DB);
 
@@ -39,11 +44,20 @@ public class stockViewModel extends ViewModel {
     }
 
 
+
+    public void addStockList(Stock stock){
+        if(stockList == null) stockList = new MutableLiveData<>();//테스트를 위한 코드입니다.
+        eStockList = stockList.getValue();
+        if(eStockList == null) eStockList = new ArrayList<Stock>();
+        eStockList.add(stock);
+
+        stockList.setValue(this.eStockList);
+    }
+
     public MutableLiveData<ArrayList<Stock>> getStockList(){
         if(stockList == null){
-            stockList = new MutableLiveData<>();//ArrayList<Stock>
+            stockList = new MutableLiveData<ArrayList<Stock>>();//ArrayList<Stock>
         }
         return stockList;
     }
-    
 }

@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,12 +29,12 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.needfor.stockoverlay.R;
-import com.needfor.stockoverlay.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,10 @@ import Model.Stock;
 import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Service.OverlayService;
+import ViewModel.PriceThread;
 import ViewModel.stockViewModel;
+
+import static android.os.SystemClock.sleep;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
@@ -65,6 +69,13 @@ public class MainActivity extends AppCompatActivity {
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
+        //Runnable pricethread = new PriceThread();
+        //Thread thread = new Thread(pricethread);
+        //thread.start();
+
+        /*Observer*/
+
+
         // 종목 초기화 및 관심종목 프래그먼트로 전달
         for(int i=0; i<exStocks.length; i++)  stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
         // 번들객체 생성, text값 저장
@@ -72,7 +83,11 @@ public class MainActivity extends AppCompatActivity {
         bundle.putParcelableArrayList("stocks",stocks);
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
+        Runnable pricethread = new PriceThread();
+        Thread thread = new Thread(pricethread);
+        thread.start();
     }
+
 
     //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
     public void createToolbar() {

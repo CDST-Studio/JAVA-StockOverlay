@@ -28,7 +28,8 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         checkPermission();
 
-        startActivity(new Intent(StartActivity.this, LoginActivity.class));
+        //startActivity(new Intent(StartActivity.this, LoginActivity.class));
+        startActivity(new Intent(StartActivity.this, MainActivity.class));
         finish();
     }
 
