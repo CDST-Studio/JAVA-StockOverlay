@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -39,6 +40,7 @@ public class OverlayService extends Service {
     private WindowManager wm;
     private View mView;
 
+    public static int delayTime;
     private ArrayList<Stock> stocks = new ArrayList<>();
     private Iterator<Stock> iteratorStock;
     private Stock stock;
@@ -49,6 +51,7 @@ public class OverlayService extends Service {
     private TextView change;
     private TextView changePrice;
     private TextView changeRate;
+    private EditText delay;
     private Button overlayCancle;
 
     /** 스톡보드 스레드 실행용 핸들러 */
@@ -138,6 +141,9 @@ public class OverlayService extends Service {
         // 윈도우에 layout 을 추가 한다.
         wm.addView(mView, params);
 
+        // delay 시간 가져오기
+        delayTime = 4000;
+
         // TextView 및 Button 초기화
         stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
         currentPrice = (TextView)mView.findViewById(R.id.stockboard_currentprice);
@@ -209,7 +215,7 @@ public class OverlayService extends Service {
             public void run() {
                 Log.d("실행 테스트", "stockboard 실행 중");
                 Message msg = handler.obtainMessage();
-                handler.postDelayed(this, 4000);
+                handler.postDelayed(this, delayTime);
                 handler.sendMessage(msg);
             }
         };
