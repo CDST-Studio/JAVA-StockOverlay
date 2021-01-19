@@ -2,11 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/tab1"
-        app:showAsAction="always"
-        android:icon="@drawable/bottom_ic_setting"
+    <item
+        android:id="@+id/tab3"
+        android:checked="true"
         android:enabled="true"
-        android:title="설정"/>
+        android:icon="@drawable/bottom_ic_bookmarkstock"
+        android:title="관심종목"
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/tab2"
@@ -15,13 +17,11 @@
         app:showAsAction="always"
         android:icon="@drawable/bottom_ic_search"/>
 
-    <item
-        android:id="@+id/tab3"
-        android:checked="true"
-        android:enabled="true"
-        android:title="관심종목"
+    <item android:id="@+id/tab1"
         app:showAsAction="always"
-        android:icon="@drawable/bottom_ic_bookmarkstock"/>
+        android:icon="@drawable/bottom_ic_setting"
+        android:enabled="true"
+        android:title="설정"/>
 
     <item
         android:id="@+id/tab4"

@@ -51,7 +51,8 @@ public class Crawling {
     // -------------- 기타 메서드 --------------
     // 현재가 크롤링 메서드
     public String currentPrice() {
-        return doc.select("#chart_area > div.rate_info > div.today > p.no_today > em").text().split(" ")[0];
+        String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today > em").text().split(" ");
+        return crawlingResult[crawlingResult.length - 1];
     }
 
     // 전일 종가 대비 등락 동향(▲ 또는 - 또는 ▼) 메서드
