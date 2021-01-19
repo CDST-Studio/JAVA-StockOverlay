@@ -32,15 +32,16 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import Model.Stock;
-import View.MainActivity;
 
 public class OverlayService extends Service {
+    private WindowManager.LayoutParams params;
+    private LayoutInflater inflate;
+    private WindowManager wm;
+    private View mView;
+
     private ArrayList<Stock> stocks = new ArrayList<>();
     private Iterator<Stock> iteratorStock;
     private Stock stock;
-
-    private WindowManager wm;
-    private View mView;
 
     private Thread stockBoardTh;
     private TextView stockName;
@@ -115,13 +116,13 @@ public class OverlayService extends Service {
         }
 
         // inflater 를 사용하여 layout 을 가져오자
-        LayoutInflater inflate = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        inflate = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // 윈도우매니저 설정
         wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
         mView = inflate.inflate(R.layout.overlay_view, null);
 
-        WindowManager.LayoutParams params = new WindowManager.LayoutParams(
+        params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 // Android O 이상인 경우 TYPE_APPLICATION_OVERLAY 로 설정

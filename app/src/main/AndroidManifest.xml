@@ -17,6 +17,7 @@
             android:name="View.Service.OverlayService"
             android:enabled="true"
             android:permission="android.permission.SYSTEM_ALERT_WINDOW"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             tools:ignore="WrongManifestParent">
         </service>
 
@@ -28,7 +29,9 @@
             </intent-filter>
         </activity>
         <activity android:name="View.LoginActivity"/>
-        <activity android:name="View.MainActivity"/>
+        <activity
+            android:name="View.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
         <activity android:name="View.SearchActivity"/>
     </application>
 

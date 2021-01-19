@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#80FFFFFF"
-    android:columnCount="1"
-    android:orientation="vertical"
-    android:rowCount="1">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +14,7 @@
         <TextView
             android:id="@+id/stockboard_stockname"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="1"
             android:gravity="right"
@@ -26,7 +24,7 @@
         <TextView
             android:id="@+id/stockboard_currentprice"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
             android:textSize="16sp"
@@ -35,7 +33,7 @@
         <TextView
             android:id="@+id/stockboard_change"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
             android:textSize="16sp"
@@ -44,7 +42,7 @@
         <TextView
             android:id="@+id/stockboard_changeprice"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:gravity="left"
@@ -54,7 +52,7 @@
         <TextView
             android:id="@+id/stockboard_changerate"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
             android:textSize="16sp"
@@ -69,4 +67,4 @@
             android:background="@drawable/ic_close" />
     </LinearLayout>
 
-</GridLayout>
+</LinearLayout>

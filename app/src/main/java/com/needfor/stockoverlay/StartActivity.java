@@ -3,17 +3,12 @@ package com.needfor.stockoverlay;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 
-import View.LoginActivity;
 import View.MainActivity;
-import View.Service.OverlayService;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {

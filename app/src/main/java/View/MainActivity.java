@@ -3,37 +3,22 @@ package View;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
-import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
 import android.os.Messenger;
-import android.os.RemoteException;
 import android.provider.Settings;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 import com.needfor.stockoverlay.R;
 
 import java.util.ArrayList;
@@ -41,11 +26,9 @@ import java.util.ArrayList;
 import Model.Stock;
 import Module.DBA;
 import View.Fragment.MainFragment;
+import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.PriceThread;
-import ViewModel.stockViewModel;
-
-import static android.os.SystemClock.sleep;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
@@ -53,9 +36,11 @@ public class MainActivity extends AppCompatActivity {
     private Messenger mServiceMessenger = null;
     private boolean mIsBound;
 
+    private MainFragment mainFragment = new MainFragment();
+    private SettingFragment settingFragment = new SettingFragment();
+
     private String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,17 +49,12 @@ public class MainActivity extends AppCompatActivity {
         createToolbar(); // 상단 네비게이션 바 생성
         createBottomNavigation(); // 하단 네비게이션 바 생성
 
-        MainFragment mainFragment = new MainFragment();
-
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
         //Runnable pricethread = new PriceThread();
         //Thread thread = new Thread(pricethread);
         //thread.start();
-
-        /*Observer*/
-
 
         // 종목 초기화 및 관심종목 프래그먼트로 전달
         for(int i=0; i<exStocks.length; i++)  stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
@@ -108,13 +88,16 @@ public class MainActivity extends AppCompatActivity {
             @Override public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { 
                 switch (menuItem.getItemId()) { 
                     case R.id.tab1:
-
+                        // Setting 프래그먼트로 교채
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, settingFragment).commitAllowingStateLoss();
                         return true;
                     case R.id.tab2:
-                         startActivity(new Intent(MainActivity.this, SearchActivity.class));
-                         return true;
+                        startActivity(new Intent(MainActivity.this, SearchActivity.class));
+                        return true;
                     case R.id.tab3:
-                         return true;
+                        // Main 프래그먼트로 교채
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
+                        return true;
                     case R.id.tab4:
                         ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
 
@@ -144,38 +127,35 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, uri);
                 startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
             } else {
-                startOverlay();
+                startLandOverlay();
             }
         } else {
-            startOverlay();
+            startLandOverlay();
         }
     }
 
     @TargetApi(Build.VERSION_CODES.M)
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE) {
-            if (!Settings.canDrawOverlays(this)) {
-                finish();
-            } else {
-                startOverlay();
-            }
+            if (!Settings.canDrawOverlays(this)) finish();
+            else startLandOverlay();
         }
     }
 
-    void startOverlay(){
+    // 가로모드 스톡보드 실행
+    public void startLandOverlay() {
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
         intent.putExtra("stocks", stocks);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(intent);
-        } else {
-            startService(intent);
-        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
+        else startService(intent);
     }
 
     //  -------------- 기타 메서드 --------------
-    /*private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력
+    /*
+    private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력
         LinearLayout Layout_stock = new LinearLayout(this);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         Layout_stock.setLayoutParams(params);
@@ -189,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(Layout_stock);
         //TextView textstock = new TextView(getApplication());
     }
-     */
+    */
 
 }
 
