@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                                 new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
                                 new DBA().initInterestedStocks(getDatabasePath("User"), user);
                                 if(user.getInterestedStocks().size() != 0) new stockViewModel().initStockList(getResources().getAssets() ,getDatabasePath("User"));
-                                Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
+                                Log.d("User init TestActivity", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
