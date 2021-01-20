@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Messenger;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -17,9 +18,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.needfor.stockoverlay.R;
+import com.needfor.stockoverlay.databinding.CustomListItemBinding;
 
 import java.util.ArrayList;
 
@@ -29,6 +34,7 @@ import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.PriceThread;
+import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 5469;
@@ -42,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,10 +58,6 @@ public class MainActivity extends AppCompatActivity {
 
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
-
-        //Runnable pricethread = new PriceThread();
-        //Thread thread = new Thread(pricethread);
-        //thread.start();
 
         // 종목 초기화 및 관심종목 프래그먼트로 전달
         for(int i=0; i<exStocks.length; i++)  stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));

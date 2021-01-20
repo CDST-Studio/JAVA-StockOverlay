@@ -2,6 +2,7 @@ package View;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +16,8 @@ import com.needfor.stockoverlay.R;
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
-
+    //private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
+    final private ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
     // ListViewAdapter의 생성자
     public ListViewAdapter() { }
 
@@ -105,4 +106,17 @@ public class ListViewAdapter extends BaseAdapter {
 
         listViewItemList.add(item);
     }
+
+    public void setItem(ArrayList<Stock> stocks){
+        for(int i = 0; i < listViewItemList.size(); i++){
+            Log.v("databind", "adapter : " + stocks.get(i).getName() + "/" + stocks.get(i).getCurrentPrice());
+            listViewItemList.get(i).setChange(stocks.get(i).getChange());
+            listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
+            listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());
+            listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
+            this.notifyDataSetChanged();
+        }
+    }//경및대 김경호는 아직 롤토체스를 포기하지 않았다.
+    /*다된 코드에 데이터 바인딩 뿌리기*/
+
 }
