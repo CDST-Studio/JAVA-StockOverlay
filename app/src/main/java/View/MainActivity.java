@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.needfor.stockoverlay.R;
@@ -147,10 +148,16 @@ public class MainActivity extends AppCompatActivity {
 
     // 가로모드 스톡보드 실행
     public void startLandOverlay() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(new Intent(getApplicationContext(), OverlayService.class));
+        else startService(new Intent(getApplicationContext(), OverlayService.class));
+        sendStocks();
+    }
+
+    // 오버레이 뷰 서비스로 관심종목 전달
+    public void sendStocks() {
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
         intent.putExtra("stocks", stocks);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
-        else startService(intent);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     //  -------------- 기타 메서드 --------------

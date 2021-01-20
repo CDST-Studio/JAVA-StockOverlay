@@ -5,6 +5,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -53,6 +54,13 @@ public class OverlayService extends Service {
     private TextView changeRate;
     private EditText delay;
     private Button overlayCancle;
+
+    private BroadcastReceiver mMsgReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            stocks = intent.getParcelableArrayListExtra("stocks");
+        }
+    };
 
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
@@ -141,7 +149,7 @@ public class OverlayService extends Service {
         // 윈도우에 layout 을 추가 한다.
         wm.addView(mView, params);
 
-        // delay 시간 가져오기
+        // delay 시간 세팅
         delayTime = 4000;
 
         // TextView 및 Button 초기화

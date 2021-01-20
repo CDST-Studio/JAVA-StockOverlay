@@ -32,12 +32,12 @@
             tools:text="유저 닉네임" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/stock_size"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="관심종목 : n개"
+            android:text="관심종목 : 0개"
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold" />
