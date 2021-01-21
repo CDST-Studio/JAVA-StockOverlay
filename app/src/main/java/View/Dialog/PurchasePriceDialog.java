@@ -19,11 +19,11 @@ import Module.DBA;
 import View.LoginActivity;
 import View.MainActivity;
 
-public class NicknameDialog {
+public class PurchasePriceDialog {
     private Context context;
     private int checkFlag = 0;
 
-    public NicknameDialog(Context context) {
+    public PurchasePriceDialog(Context context) {
         this.context = context;
     }
 

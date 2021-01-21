@@ -203,7 +203,7 @@ public class OverlayService extends Service {
                 return false;
             }
         });
-         */
+        */
     }
 
     /** onCreate 이후에 실행되는 메서드 */
@@ -225,7 +225,7 @@ public class OverlayService extends Service {
         stockBoardTh = new Thread() {
             @Override
             public void run() {
-                Log.d("실행 테스트", "stockboard 실행 중");
+                Log.d("실행 테스트", "딜레이= " + String.valueOf(delayTime));
                 Message msg = handler.obtainMessage();
                 handler.postDelayed(this, delayTime);
                 handler.sendMessage(msg);

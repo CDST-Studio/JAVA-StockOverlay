@@ -142,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // 가로모드 스톡보드 실행
     public void startOverlay() {
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
         intent.putExtra("stocks", stocks);
