@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment = new MainFragment();
     private SettingFragment settingFragment = new SettingFragment();
 
-    private String[] exStocks = {"삼성전자", "NAVER", "카카오", "셀트리온"};
+    private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
 
     @Override
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
         // 종목 초기화 및 관심종목 프래그먼트로 전달
-        for(int i=0; i<exStocks.length; i++)  stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
+        for(int i=0; i<exStocks.length; i++) stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
         // 번들객체 생성, text값 저장
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("stocks",stocks);
@@ -124,10 +124,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, uri);
                 startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
             } else {
-                startLandOverlay();
+                startOverlay();
             }
         } else {
-            startLandOverlay();
+            startOverlay();
         }
     }
 
@@ -138,22 +138,16 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE) {
             if (!Settings.canDrawOverlays(this)) finish();
-            else startLandOverlay();
+            else startOverlay();
         }
     }
 
     // 가로모드 스톡보드 실행
-    public void startLandOverlay() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(new Intent(getApplicationContext(), OverlayService.class));
-        else startService(new Intent(getApplicationContext(), OverlayService.class));
-        sendStocks();
-    }
-
-    // 오버레이 뷰 서비스로 관심종목 전달
-    public void sendStocks() {
+    public void startOverlay() {
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
         intent.putExtra("stocks", stocks);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
+        else startService(intent);
     }
 
     //  -------------- 기타 메서드 --------------

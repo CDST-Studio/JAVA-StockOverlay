@@ -186,7 +186,6 @@ public class DBA {
             BufferedWriter bw = new BufferedWriter(fw);
 
             bw.write(nickname);
-            bw.newLine();
             bw.flush();
 
             bw.close();
@@ -233,7 +232,7 @@ public class DBA {
         if(stock.getChangePrice() == null) stock.setChangePrice(crawer.changePrice());
     }
 
-    // ---------------------------- Get, 모델 객체 생성 후 또는 이름으로만 주식 종목 찾을 때 사용하는 메서드 목록 ----------------------------
+    // ---------------------------- Get, Search 모델 객체 생성 후 또는 이름으로만 주식 종목 찾을 때 사용하는 메서드 목록 ----------------------------
 
     /**
      * 관심 종목 불러오기 메서드
@@ -301,6 +300,20 @@ public class DBA {
         stock.setChange(crawer.change());
         stock.setChangeRate(crawer.changeRate());
         stock.setChangePrice(crawer.changePrice());
+
+        return stock;
+    }
+
+    /**
+     * 종목명에 맞는 종목코드 포함된 Stock 모델 리턴
+     * @param assetManager
+     * @param name
+     * @return
+     */
+    public Stock searchStock(AssetManager assetManager, String name) {
+        Stock stock = new Stock();
+        stock.setName(name);
+        stock.setStockCode(new Parsing().getCode(assetManager, stock.getName(), "code"));
 
         return stock;
     }

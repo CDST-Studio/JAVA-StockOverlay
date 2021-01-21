@@ -66,7 +66,10 @@ public class OverlayService extends Service {
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
-            if(mMsgReceiver.isInitialStickyBroadcast()) iteratorStock = stocks.iterator();
+            if(mMsgReceiver.isInitialStickyBroadcast()) {
+                iteratorStock = stocks.iterator();
+                while(iteratorStock.next() != stock) Log.d("값 조정 중", "갱신 중");
+            }
             if(iteratorStock.hasNext() == false) iteratorStock = stocks.iterator();
             Stock stock = iteratorStock.next();
 

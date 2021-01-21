@@ -5,6 +5,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.ArrayList;
 
+import Module.DBA;
 import View.Service.OverlayService;
 
 public class SettingFragment extends Fragment {
@@ -45,14 +48,18 @@ public class SettingFragment extends Fragment {
         mView = inflater.inflate(R.layout.fragment_setting, null);
 
         // 관심종목 개수 세기 및 닉네임 가져오기
-        initInterestedStockSize();
-        initUserNickname();
+        ArrayList<String> interestedStocks = new DBA().getInterestedStocks(getActivity().getDatabasePath("User"));
+        if(interestedStocks.get(0).equals("-")) interestedStockSize = 0;
+        else interestedStockSize = interestedStocks.size();
+        nickname = new DBA().getNickname(getActivity().getDatabasePath("User"));
+        Log.d("stocksize", String.valueOf(interestedStockSize));
+        Log.d("nickname", nickname);
 
         // 텍스트 지정
-        nick = (TextView)mView.findViewById(R.id.nickname);
         stockSize = (TextView)mView.findViewById(R.id.stock_size);
-        nick.setText(nickname);
+        nick = (TextView)mView.findViewById(R.id.setting_nickname);
         stockSize.setText("관심종목 : " + String.valueOf(interestedStockSize) + "개");
+        nick.setText(nickname);
         
         // delay 시간
         delay = (EditText)mView.findViewById(R.id.stockboard_delaytime);
@@ -69,33 +76,5 @@ public class SettingFragment extends Fragment {
         });
 
         return viewGroup;
-    }
-    
-    public void initInterestedStockSize() {
-        try {
-            FileReader fr = new FileReader(getActivity().getDatabasePath("User") + "/InterestedStocks.txt"); // 파일 스트림 생성
-            BufferedReader br = new BufferedReader(fr);
-
-            while(br.readLine() != null) interestedStockSize++;
-            
-            br.close();
-            fr.close();
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-    }
-
-    public void initUserNickname() {
-        try {
-            FileReader fr = new FileReader(getActivity().getDatabasePath("User") + "/Nickname.txt"); // 파일 스트림 생성
-            BufferedReader br = new BufferedReader(fr);
-
-            nickname = br.readLine();
-
-            br.close();
-            fr.close();
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
     }
 }

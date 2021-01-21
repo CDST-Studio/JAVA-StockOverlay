@@ -25,9 +25,9 @@ public class Search {
 
             Crawling crawling = new Crawling(target);
             String name = crawling.codeToName();
-            result = new DBA().getStock(assetManager, name);
+            result = new DBA().searchStock(assetManager, name);
         }catch (NumberFormatException e) {
-            result = new DBA().getStock(assetManager, target);
+            result = new DBA().searchStock(assetManager, target);
         }
         return result;
     }

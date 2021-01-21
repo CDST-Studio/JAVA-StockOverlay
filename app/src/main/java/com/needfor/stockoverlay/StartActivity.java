@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 
+import View.LoginActivity;
 import View.MainActivity;
 
 public class StartActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class StartActivity extends AppCompatActivity {
         checkPermission();
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
-        startActivity(new Intent(StartActivity.this, MainActivity.class));
+        startActivity(new Intent(StartActivity.this, LoginActivity.class));
         finish();
     }
 
