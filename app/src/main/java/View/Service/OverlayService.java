@@ -66,6 +66,7 @@ public class OverlayService extends Service {
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
         public void handleMessage(Message msg) {
+            if(mMsgReceiver.isInitialStickyBroadcast()) iteratorStock = stocks.iterator();
             if(iteratorStock.hasNext() == false) iteratorStock = stocks.iterator();
             Stock stock = iteratorStock.next();
 
