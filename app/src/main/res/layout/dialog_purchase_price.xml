@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dialog_price_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/stockoverlay_brown"
+        android:gravity="center"
+        android:text="매입가 입력"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/dialog_purchase_price"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="#EDE8E8"
+        android:gravity="center"
+        android:hint="해당 종목의 매입가를 입력해주세요"
+        android:textColor="#101820"
+        android:textSize="16dp" />
+
+    <Button
+        android:id="@+id/dialog_price_okButton"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/button_color"
+        android:gravity="center"
+        android:text="확인"
+        android:textColor="@color/stockoverlay_brown"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

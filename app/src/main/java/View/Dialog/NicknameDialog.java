@@ -37,15 +37,18 @@ public class NicknameDialog {
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         // 커스텀 다이얼로그의 레이아웃을 설정한다.
-        dlg.setContentView(R.layout.nickname_dialog);
+        dlg.setContentView(R.layout.dialog_nickname);
 
         // 커스텀 다이얼로그를 노출한다.
         dlg.show();
 
+        // 밖에 클릭해도 종료 안 되게
+        dlg.setCancelable(false);
+
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.
-        final EditText message = (EditText) dlg.findViewById(R.id.nickname);
+        final EditText message = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
         final Button checkNickname = (Button) dlg.findViewById(R.id.checkNickname);
-        final Button okButton = (Button) dlg.findViewById(R.id.okButton);
+        final Button okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
 
         message.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -86,10 +89,10 @@ public class NicknameDialog {
                     Toast.makeText(context, "닉네임을 입력해주세요", Toast.LENGTH_SHORT).show();
                 }else {
                     if (new DBA().isExistNickname(message.getText().toString())) {
+                        Toast.makeText(context, "이미 사용 중인 닉네임입니다.", Toast.LENGTH_SHORT).show();
+                    } else {
                         checkFlag = 1;
                         Toast.makeText(context, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "이미 사용 중인 닉네임입니다.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

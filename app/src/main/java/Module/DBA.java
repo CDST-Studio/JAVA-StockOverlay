@@ -355,7 +355,7 @@ public class DBA {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         final DocumentReference docRef = db.collection("User").document(nickname);
 
-        return !docRef.get().isSuccessful();
+        return docRef.get().isSuccessful();
     }
 
     // ---------------------------- isInit ----------------------------
