@@ -37,13 +37,11 @@ public class PriceThread extends stockViewModel implements Runnable {
         tStockList = new ArrayList<Stock>();
         tStockList = mModel.getStockList().getValue();//LiveData Get
 
-
         int changeFlag = 0;
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
         //Log.v("threada","쓰레드 동작중");
         if(mModel.getStockList().getValue().size() != 0) {
-            int tt = 0;//테스트를 위한 코드
             for (int i = 0; i < tStockList.size(); i++) {
                 crawling = new Crawling(mModel.getStockList().getValue().get(i));
                 if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
