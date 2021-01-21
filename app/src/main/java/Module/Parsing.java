@@ -1,12 +1,15 @@
 package Module;
 
 import android.content.res.AssetManager;
+import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class Parsing {
     /**
@@ -38,5 +41,34 @@ public class Parsing {
         }
 
         return result;
+    }
+
+    public ArrayList<String> searchName(AssetManager assetManager, String name) {
+        ArrayList<String> names = new ArrayList<>();
+        try {
+            InputStream is = assetManager.open("StockData.json");
+            int fileSize = is.available();
+
+            byte[] buffer = new byte[fileSize];
+            is.read(buffer);
+            is.close();
+
+            String json = new String(buffer, "UTF-8");
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray namelist = jsonObject.names();
+
+            for(int i=0; i<namelist.length(); i++) {
+                try{
+                    if((namelist.getString(i)).substring(0,name.length()).equals(name)) {
+                        names.add(namelist.getString(i));
+                    }
+                }catch (Exception e) { }
+            }
+
+        } catch (IOException | JSONException ex) {
+            ex.printStackTrace();
+        }
+
+        return names;
     }
 }

@@ -7,7 +7,14 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import Model.Stock;
+import Module.Parsing;
+import Module.Search;
 import View.LoginActivity;
 import View.MainActivity;
 
@@ -23,6 +30,10 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         checkPermission();
+
+        //테스트
+        ArrayList<Stock> test = new Search().searchStock(getAssets(), "삼성");
+        for(int i=0; i<test.size(); i++) Log.d("서치 테스트", "종목명: " + test.get(i).getName() + ", 종목코드: " + test.get(i).getStockCode());
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         startActivity(new Intent(StartActivity.this, LoginActivity.class));

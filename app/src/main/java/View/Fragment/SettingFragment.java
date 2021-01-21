@@ -37,7 +37,6 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_setting, container,false);
-        mView = inflater.inflate(R.layout.fragment_setting, null);
 
         // 관심종목 개수 세기 및 닉네임 가져오기
         ArrayList<String> interestedStocks = new DBA().getInterestedStocks(getActivity().getDatabasePath("User"));
@@ -46,22 +45,21 @@ public class SettingFragment extends Fragment {
         nickname = new DBA().getNickname(getActivity().getDatabasePath("User"));
 
         // 텍스트 지정
-        stockSize = (TextView)mView.findViewById(R.id.stock_size);
-        nick = (TextView)mView.findViewById(R.id.setting_nickname);
+        stockSize = (TextView)viewGroup.findViewById(R.id.stock_size);
+        nick = (TextView)viewGroup.findViewById(R.id.setting_nickname);
         stockSize.setText("관심종목 : " + String.valueOf(interestedStockSize) + "개");
         nick.setText(nickname);
 
         // delay 시간
-        delay = (EditText)mView.findViewById(R.id.stockboard_delaytime);
+        delay = (EditText)viewGroup.findViewById(R.id.stockboard_delaytime);
         delay.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { Log.d("Test before", s.toString() + "000"); }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { Log.d("Test onText", s.toString() + "000"); }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
             @Override
             public void afterTextChanged(Editable s) {
-                Log.d("Test after", s.toString() + "000");
                 OverlayService.delayTime = Integer.parseInt(s.toString() + "000");
             }
         });

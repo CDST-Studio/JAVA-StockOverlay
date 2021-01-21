@@ -134,6 +134,29 @@ public class DBA {
     // 관심 종목 삭제 메서드(복수)
     public void subInterestedStocks(File DB, User user, String[] names) { for(int i=0; i<names.length; i++) this.subInterestedStocks(DB, user, names[i]); };
 
+    // ---------------------------- Search ----------------------------
+
+    /**
+     * DB: getDatabasePath("~"), name: 종목명
+     * @param assetManager
+     * @param name
+     * @return
+     */
+    public ArrayList<Stock> searchStocks(AssetManager assetManager, String name) {
+        ArrayList<Stock> stocks = new ArrayList<>();
+        Parsing parsing = new Parsing();
+
+        ArrayList<String> names = parsing.searchName(assetManager,name);
+        for(int i=0; i<names.size(); i++) {
+            Stock stock = new Stock();
+            stock.setName(names.get(i));
+            stock.setStockCode(parsing.getCode(assetManager, names.get(i), "code"));
+            stocks.add(stock);
+        }
+
+        return stocks;
+    }
+
     // ---------------------------- Init, 처음 객체(모델) 생성할 때(Ex. LoginActivity에서 User나 Stock 객체 생성) 무조건 Init 메서드 사용하는 메서드 목록 ----------------------------
 
     /**
@@ -232,7 +255,7 @@ public class DBA {
         if(stock.getChangePrice() == null) stock.setChangePrice(crawer.changePrice());
     }
 
-    // ---------------------------- Get, Search 모델 객체 생성 후 또는 이름으로만 주식 종목 찾을 때 사용하는 메서드 목록 ----------------------------
+    // ---------------------------- Get 모델 객체 생성 후 또는 이름으로만 주식 종목 찾을 때 사용하는 메서드 목록 ----------------------------
 
     /**
      * 관심 종목 불러오기 메서드
@@ -300,20 +323,6 @@ public class DBA {
         stock.setChange(crawer.change());
         stock.setChangeRate(crawer.changeRate());
         stock.setChangePrice(crawer.changePrice());
-
-        return stock;
-    }
-
-    /**
-     * 종목명에 맞는 종목코드 포함된 Stock 모델 리턴
-     * @param assetManager
-     * @param name
-     * @return
-     */
-    public Stock searchStock(AssetManager assetManager, String name) {
-        Stock stock = new Stock();
-        stock.setName(name);
-        stock.setStockCode(new Parsing().getCode(assetManager, stock.getName(), "code"));
 
         return stock;
     }

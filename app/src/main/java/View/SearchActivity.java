@@ -47,7 +47,7 @@ public class SearchActivity extends AppCompatActivity {
                    query = query.toUpperCase();
                }
 
-                stock = search.searchStock(assetManager, query);
+                //stock = search.searchStock(assetManager, query);
                 String name= stock.getName();
                 String code= stock.getStockCode();
 
@@ -58,7 +58,7 @@ public class SearchActivity extends AppCompatActivity {
                         bundle.putString("name", name);
                         bundle.putString("code", code);
                         searchableFragment.setArguments(bundle);
-                        stock = search.searchStock(assetManager, query);
+                        //stock = search.searchStock(assetManager, query);
                         getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
                         Toast.makeText(SearchActivity.this, "검색완료", Toast.LENGTH_SHORT).show();
                         return true; }
