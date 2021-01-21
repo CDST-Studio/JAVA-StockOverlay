@@ -55,7 +55,7 @@ public class MainFragment extends Fragment{
 
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
-
+/*
         Stock stock = new Stock();
         String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
         for (int i = 0; i < exStocks.length; i++) {
@@ -64,7 +64,7 @@ public class MainFragment extends Fragment{
             adapter.addItem(pstock.getName(), pstock.getStockCode(), pstock.getCurrentPrice(), pstock.getChangePrice(), pstock.getChangeRate(), pstock.getChange());
 
             model.addStockList(pstock);
-        }
+        }*/
         listview.setAdapter(adapter);
 
         /*테스트*/
