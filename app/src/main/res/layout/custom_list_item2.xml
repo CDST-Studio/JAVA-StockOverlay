@@ -24,7 +24,14 @@
                     android:textColor="#FFFFFF"
                     android:gravity="center_vertical"
                     android:layout_weight="2" />
-
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/search_code"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16dp"
+                    android:layout_weight="1"
+                    android:layout_below="@id/search_name" />
                <Button
                     android:id="@+id/Button_bookmark"
                     android:layout_width="wrap_content"
@@ -35,15 +42,6 @@
                     android:layout_marginBottom="5dp">
                 </Button>
 
-                <TextView
-                    android:layout_width="350dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/search_code"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16dp"
-                    android:layout_weight="1"
-                    android:layout_below="@id/search_name"
-                    />
 
     </RelativeLayout>
 </layout>

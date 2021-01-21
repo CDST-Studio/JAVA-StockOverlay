@@ -41,11 +41,6 @@ public class SearchableFragment  extends Fragment  {
             ListView listview = SearchalbeView.findViewById(R.id.search_list);
             adapter = new ListSearchAdapter();
             adapter.addItem(name, code);
-
-
-
-
-            
             listview.setAdapter(adapter);
         }
 

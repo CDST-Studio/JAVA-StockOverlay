@@ -58,14 +58,6 @@ public class ListSearchAdapter extends BaseAdapter  {
                         check=1;
                         break;
                 }
-
-                /*if(check=false) {
-                bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
-                check=true; }
-                if(check=true){
-                bookmark.setBackgroundResource(R.drawable.ic_bookmark);
-                check=false;
-                }*/
         }
         });
 
