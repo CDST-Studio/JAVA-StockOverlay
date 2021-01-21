@@ -45,25 +45,18 @@ public class MainFragment extends Fragment{
         //RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
 
-        //번들 안의 텍스트 불러오기
-        ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
-
-        //fragment1의 TextView에 전달 받은 text 띄우기
-        for(int i=0; i<text.size(); i++) stocks.add((Stock)text.get(i));
-
         model = new ViewModelProvider(this).get(stockViewModel.class);
 
+        //번들 안의 텍스트 불러오기
+        ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
 
-        Stock stock = new Stock();
-        String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
-        for (int i = 0; i < exStocks.length; i++) {
-            Stock pstock = new Stock(exStocks[i]);
-            new DBA().initStock(getResources().getAssets(), pstock);
-            adapter.addItem(pstock.getName(), pstock.getStockCode(), pstock.getCurrentPrice(), pstock.getChangePrice(), pstock.getChangeRate(), pstock.getChange());
-
-            model.addStockList(pstock);
+        //fragment1의 TextView에 전달 받은 text 띄우기
+        for(int i=0; i<text.size(); i++) {
+            stocks.add((Stock)text.get(i));
+            adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
+            model.addStockList(stocks.get(i));
         }
         listview.setAdapter(adapter);
 
@@ -81,7 +74,7 @@ public class MainFragment extends Fragment{
             public void onChanged(ArrayList<Stock> stockArray) {
                 Log.v("threada", "Observer발동");
                 adapter.setItem(model.getStockList().getValue());
-                sendStocks();
+                sendStocks(model.getStockList().getValue());
                 for(int i = 0; i < model.getStockList().getValue().size(); i++){
                     Log.v("databind","LiveDataList : " + model.getStockList().getValue().get(i).getName());
                 }
@@ -93,9 +86,9 @@ public class MainFragment extends Fragment{
     }
 
     // 오버레이 뷰 서비스로 관심종목 전달
-    public void sendStocks() {
+    public void sendStocks(ArrayList<Stock> stocklist) {
         Intent intent = new Intent(getContext(), OverlayService.class);
-        intent.putExtra("stocks", stocks);
+        intent.putExtra("stocks", stocklist);
         LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
     }
 }

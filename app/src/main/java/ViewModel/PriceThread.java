@@ -37,7 +37,6 @@ public class PriceThread extends stockViewModel implements Runnable {
         tStockList = new ArrayList<Stock>();
         tStockList = mModel.getStockList().getValue();//LiveData Get
 
-
         int changeFlag = 0;
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input

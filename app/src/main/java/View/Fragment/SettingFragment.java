@@ -1,7 +1,6 @@
 package View.Fragment;
 
 import android.annotation.SuppressLint;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,9 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,11 +17,6 @@ import androidx.fragment.app.Fragment;
 
 import com.needfor.stockoverlay.R;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
 
 import Module.DBA;
@@ -37,8 +29,8 @@ public class SettingFragment extends Fragment {
     private int interestedStockSize;
     private String nickname;
 
-    private TextView nick;
     private TextView stockSize;
+    private TextView nick;
     private EditText delay;
 
     @Nullable
@@ -52,25 +44,24 @@ public class SettingFragment extends Fragment {
         if(interestedStocks.get(0).equals("-")) interestedStockSize = 0;
         else interestedStockSize = interestedStocks.size();
         nickname = new DBA().getNickname(getActivity().getDatabasePath("User"));
-        Log.d("stocksize", String.valueOf(interestedStockSize));
-        Log.d("nickname", nickname);
 
         // 텍스트 지정
         stockSize = (TextView)mView.findViewById(R.id.stock_size);
         nick = (TextView)mView.findViewById(R.id.setting_nickname);
         stockSize.setText("관심종목 : " + String.valueOf(interestedStockSize) + "개");
         nick.setText(nickname);
-        
+
         // delay 시간
         delay = (EditText)mView.findViewById(R.id.stockboard_delaytime);
         delay.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { Log.d("Test before", s.toString() + "000"); }
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { Log.d("Test onText", s.toString() + "000"); }
 
             @Override
             public void afterTextChanged(Editable s) {
+                Log.d("Test after", s.toString() + "000");
                 OverlayService.delayTime = Integer.parseInt(s.toString() + "000");
             }
         });
