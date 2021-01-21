@@ -24,7 +24,6 @@ public class PriceThread extends stockViewModel implements Runnable {
         try {
             while(true) {
                 Thread.sleep(10000);
-                Log.v("threada", "Price Update");
                 priceCompare();
             }
         } catch (InterruptedException e) {
@@ -36,7 +35,6 @@ public class PriceThread extends stockViewModel implements Runnable {
     private void priceCompare(){
         mModel = new stockViewModel();
         tStockList = new ArrayList<Stock>();
-        if(mModel.getStockList() == null) Log.v("threada","null 값");
         tStockList = mModel.getStockList().getValue();//LiveData Get
 
 
@@ -49,6 +47,8 @@ public class PriceThread extends stockViewModel implements Runnable {
             for (int i = 0; i < tStockList.size(); i++) {
                 crawling = new Crawling(mModel.getStockList().getValue().get(i));
                 if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
+                    Log.v("threada","값 변화 감지");
+                    Log.v("threada",  "종목 명 : " + tStockList.get(i).getName() + "/" + "현재 값 : " + tStockList.get(i).getCurrentPrice() + "/" + "변경 값 : " + crawling.currentPrice());
                     tStockList.get(i).setCurrentPrice(crawling.currentPrice());//
                     tStockList.get(i).setChangeRate(crawling.changeRate());
                     tStockList.get(i).setChange(crawling.change());
@@ -56,12 +56,8 @@ public class PriceThread extends stockViewModel implements Runnable {
 
                     changeFlag = 1;
 
-                    Log.v("threada","값 변화 감지");
-                    Log.v("threada",  "종목 명 : " + tStockList.get(i).getName() + "/" + "현재 값 : " + tStockList.get(i).getCurrentPrice() + "/" + "변경 값 : " + crawling.currentPrice());
                 }
-                tt = i;
             }
-            Log.v("threada", tStockList.get(tt).getName() + "값 : " + crawling.currentPrice());
 
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);

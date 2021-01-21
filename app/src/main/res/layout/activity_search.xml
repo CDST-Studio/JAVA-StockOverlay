@@ -22,7 +22,7 @@
             android:textStyle="bold"></TextView>
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.appcompat.widget.SearchView
+    <SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         app:queryHint="종목명 또는 종목코드 검색"
         tools:ignore="MissingConstraints" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/search_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

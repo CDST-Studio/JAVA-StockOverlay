@@ -1,0 +1,24 @@
+package View;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.needfor.stockoverlay.R;
+
+public class SearchableFragment  extends Fragment {
+
+    private View SearchalbeView;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        SearchalbeView = inflater.inflate(R.layout.fragment_searchable, container, false);
+        return SearchalbeView;
+    }
+
+}

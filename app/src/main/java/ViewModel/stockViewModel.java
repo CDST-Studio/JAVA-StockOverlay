@@ -26,7 +26,6 @@ public class stockViewModel extends ViewModel {
 
     }
     public  stockViewModel(stockViewModel s){
-        Log.v("threada","s.get : " + s.getStockList().getValue().size());
         stockList = s.getStockList();
     }
 
@@ -36,7 +35,6 @@ public class stockViewModel extends ViewModel {
 
         ArrayList<String> getStockNameList = new DBA().getInterestedStocks(DB);
 
-        for(String s : getStockNameList) Log.d("DB read test", s);
 
         for(String getStockName : getStockNameList) eStockList.add(new DBA().getStock(assetManager, getStockName));
 
