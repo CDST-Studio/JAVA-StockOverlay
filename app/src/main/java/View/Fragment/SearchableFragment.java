@@ -23,6 +23,7 @@ import View.SearchActivity;
 import android.view.View.OnClickListener;
 
 import View.ListSearchAdapter;
+import ViewModel.stockViewModel;
 
 public class SearchableFragment  extends Fragment  {
 
@@ -40,6 +41,11 @@ public class SearchableFragment  extends Fragment  {
             ListView listview = SearchalbeView.findViewById(R.id.search_list);
             adapter = new ListSearchAdapter();
             adapter.addItem(name, code);
+
+
+
+
+            
             listview.setAdapter(adapter);
         }
 

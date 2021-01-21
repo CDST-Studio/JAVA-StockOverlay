@@ -29,6 +29,7 @@ public class stockViewModel extends ViewModel {
         stockList = s.getStockList();
     }
 
+    /*
     public void initStockList(AssetManager assetManager, File DB){
         stockList = new MutableLiveData<>();
         eStockList = new ArrayList<Stock>();
@@ -38,6 +39,10 @@ public class stockViewModel extends ViewModel {
 
         for(String getStockName : getStockNameList) eStockList.add(new DBA().getStock(assetManager, getStockName));
 
+        stockList.setValue(eStockList);
+    }*/
+    public void initStockList(ArrayList eStockList){
+        stockList = new MutableLiveData<>();
         stockList.setValue(eStockList);
     }
 
