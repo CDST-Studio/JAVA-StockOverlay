@@ -23,7 +23,7 @@ public class PriceThread extends stockViewModel implements Runnable {
 
         try {
             while(true) {
-                Thread.sleep(10000);
+                Thread.sleep(4000);
                 priceCompare();
             }
         } catch (InterruptedException e) {

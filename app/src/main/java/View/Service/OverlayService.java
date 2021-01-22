@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -42,7 +43,6 @@ public class OverlayService extends Service {
     private View mView;
 
     public static int delayTime;
-    private ArrayList<Stock> stocks = new ArrayList<>();
     private Iterator<Stock> iteratorStock;
     private Stock stock;
 
@@ -55,9 +55,11 @@ public class OverlayService extends Service {
     private EditText delay;
     private Button overlayCancle;
 
-    private BroadcastReceiver mMsgReceiver = new BroadcastReceiver() {
+    private static ArrayList<Stock> stocks = new ArrayList<>();
+    public static BroadcastReceiver mMsgReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.d("메세지 수신", "OverlayService");
             stocks = intent.getParcelableArrayListExtra("stocks");
         }
     };

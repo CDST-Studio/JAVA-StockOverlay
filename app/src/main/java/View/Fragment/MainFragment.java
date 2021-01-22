@@ -1,6 +1,7 @@
 package View.Fragment;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -42,6 +43,11 @@ public class MainFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
 
+        // LocalBroadcast 등록
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.parkho.broadcat.local");
+        LocalBroadcastManager.getInstance(getContext()).registerReceiver(OverlayService.mMsgReceiver, intentFilter);
+
         //RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
 
@@ -75,9 +81,11 @@ public class MainFragment extends Fragment{
                 Log.v("threada", "Observer발동");
                 adapter.setItem(model.getStockList().getValue());
                 sendStocks(model.getStockList().getValue());
+                /*
                 for(int i = 0; i < model.getStockList().getValue().size(); i++){
                     Log.v("databind","LiveDataList : " + model.getStockList().getValue().get(i).getName());
                 }
+                */
             }
         };
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
@@ -90,5 +98,14 @@ public class MainFragment extends Fragment{
         Intent intent = new Intent(getContext(), OverlayService.class);
         intent.putExtra("stocks", stocklist);
         LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
+        Log.d("메세지 전달", "MainFragment");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        // LocalBroadcast 등록 해제
+        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(OverlayService.mMsgReceiver);
     }
 }

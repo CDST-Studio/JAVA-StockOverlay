@@ -41,30 +41,27 @@ public class PurchasePriceDialog {
         dlg.show();
 
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.
-        final EditText purchasePrice = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
+        final EditText price = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
         final Button okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
+        final String[] purchasePrice = {""};
 
-        purchasePrice.addTextChangedListener(new TextWatcher() {
+        price.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                purchasePrice[0] = s.toString();
             }
         });
 
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                dlg.dismiss();
             }
         });
     }

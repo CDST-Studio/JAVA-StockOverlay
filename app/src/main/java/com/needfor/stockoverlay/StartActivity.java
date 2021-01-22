@@ -31,10 +31,6 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         checkPermission();
 
-        //테스트
-        ArrayList<Stock> test = new Search().searchStock(getAssets(), "삼성");
-        for(int i=0; i<test.size(); i++) Log.d("서치 테스트", "종목명: " + test.get(i).getName() + ", 종목코드: " + test.get(i).getStockCode());
-
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         startActivity(new Intent(StartActivity.this, LoginActivity.class));
         finish();

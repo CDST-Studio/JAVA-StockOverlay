@@ -22,7 +22,6 @@ public class Crawling {
     public Crawling(String code) {
         // URL 정보 초기화
         url = "https://finance.naver.com/item/main.nhn?code=" + code;
-        Log.d("crawling", "URL: " + url);
 
         // URL의 HTML 정보 가져오기, android.os.NetworkOnMainThreadException 오류 해결을 위한 개별 스레드에서 작업 진행
         Thread docTh = new Thread() {
@@ -51,7 +50,9 @@ public class Crawling {
     // -------------- 기타 메서드 --------------
     // 현재가 크롤링 메서드
     public String currentPrice() {
-        String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today > em").text().split(" ");
+        String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today").text().split(" ");
+        for(int i=0; i<crawlingResult.length; i++) Log.d("현재가 크롤링 테스트", String.valueOf(i) + "번째: " + crawlingResult[i]);
+        Log.d("현재가 크롤링 테스트", "ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         return crawlingResult[crawlingResult.length - 1];
     }
 
