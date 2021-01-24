@@ -80,7 +80,6 @@ public class MainFragment extends Fragment{
             public void onChanged(ArrayList<Stock> stockArray) {
                 Log.v("threada", "Observer발동");
                 adapter.setItem(model.getStockList().getValue());
-                sendStocks(model.getStockList().getValue());
                 /*
                 for(int i = 0; i < model.getStockList().getValue().size(); i++){
                     Log.v("databind","LiveDataList : " + model.getStockList().getValue().get(i).getName());
@@ -91,14 +90,6 @@ public class MainFragment extends Fragment{
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
 
         return viewGroup;
-    }
-
-    // 오버레이 뷰 서비스로 관심종목 전달
-    public void sendStocks(ArrayList<Stock> stocklist) {
-        Intent intent = new Intent(getContext(), OverlayService.class);
-        intent.putExtra("stocks", stocklist);
-        LocalBroadcastManager.getInstance(getContext()).sendBroadcast(intent);
-        Log.d("메세지 전달", "MainFragment");
     }
 
     @Override

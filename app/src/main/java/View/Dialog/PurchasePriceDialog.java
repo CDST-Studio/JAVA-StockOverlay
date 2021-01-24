@@ -8,16 +8,22 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import com.needfor.stockoverlay.R;
+
+import java.util.ArrayList;
 
 import Model.Stock;
 import Model.User;
 import Module.DBA;
 import View.LoginActivity;
+import View.Service.OverlayService;
 
 public class PurchasePriceDialog {
     private Context context;
@@ -30,6 +36,10 @@ public class PurchasePriceDialog {
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
         final Dialog dlg = new Dialog(context);
 
+        // 다이얼로그 크기 조정
+        Window window = dlg.getWindow();
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        
         // 액티비티의 타이틀바를 숨긴다.
         dlg.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -60,8 +70,17 @@ public class PurchasePriceDialog {
             @Override
             public void onClick(View view) {
                 stock.setPurchasePrice(purchasePrice[0]);
+                sendStock(stock);
                 dlg.dismiss();
             }
         });
+    }
+
+    // 오버레이 뷰 서비스로 관심종목 전달
+    public void sendStock(Stock stock) {
+        Intent intent = new Intent(context, OverlayService.class);
+        intent.putExtra("stock", stock);
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        Log.d("메세지 전달", "MainFragment");
     }
 }

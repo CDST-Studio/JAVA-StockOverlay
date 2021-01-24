@@ -14,7 +14,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -35,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import Model.Stock;
+import View.MainActivity;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -52,6 +52,7 @@ public class OverlayService extends Service {
     private TextView change;
     private TextView changePrice;
     private TextView changeRate;
+    private TextView purchasePrice;
     private EditText delay;
     private Button overlayCancle;
 
@@ -60,27 +61,46 @@ public class OverlayService extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d("메세지 수신", "OverlayService");
-            stocks = intent.getParcelableArrayListExtra("stocks");
+            Stock stock = intent.getParcelableExtra("stock");
+            for(Stock s : stocks) {
+                if(s.getName().equals(stock.getName())) {
+                    int idx = stocks.indexOf(s);
+                    stocks.remove(idx);
+                    stocks.add(idx, stock);
+                }
+            }
         }
     };
 
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
+        @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
             if(mMsgReceiver.isInitialStickyBroadcast()) {
                 iteratorStock = stocks.iterator();
                 while(iteratorStock.next() != stock) Log.d("값 조정 중", "갱신 중");
             }
-            if(iteratorStock.hasNext() == false) iteratorStock = stocks.iterator();
+            if(!iteratorStock.hasNext()) iteratorStock = stocks.iterator();
             Stock stock = iteratorStock.next();
 
             // 텍스트 설정
-            stockName.setText(stock.getName());
-            currentPrice.setText(stock.getCurrentPrice());
+            if(stock.getName().length() <= 4) stockName.setText(stock.getName());
+            else stockName.setText(stock.getName().substring(0, 4) + "…");
+            if(stock.getCurrentPrice().length() <= 6) currentPrice.setText(stock.getCurrentPrice());
+            else currentPrice.setText(stock.getCurrentPrice().substring(0, 6) + "…");
             change.setText(stock.getChange());
             changePrice.setText(stock.getChangePrice());
             changeRate.setText(stock.getChangeRate());
+            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+                if (stock.getPurchasePrice() == null) {
+                    purchasePrice.setText("매입가");
+                }else {
+                    int purchase = Integer.parseInt(stock.getPurchasePrice());
+                    int current = Integer.parseInt(stock.getCurrentPrice());
+                    purchasePrice.setText(Integer.toString(current - purchase));
+                }
+            }
 
             // 텍스트 애니매이션 설정
             Animation translate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.stockboard_text);
@@ -89,6 +109,7 @@ public class OverlayService extends Service {
             change.startAnimation(translate);
             changePrice.startAnimation(translate);
             changeRate.startAnimation(translate);
+            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice.startAnimation(translate);
 
             // 텍스트 색상 변경
             stockName.setTextColor(Color.parseColor("#80000000"));
@@ -107,6 +128,15 @@ public class OverlayService extends Service {
                 change.setTextColor(Color.parseColor("#80808080"));
                 changePrice.setTextColor(Color.parseColor("#80808080"));
                 changeRate.setTextColor(Color.parseColor("#80808080"));
+            }
+            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+                if (purchasePrice.getText().charAt(0) == '-') {
+                    purchasePrice.setTextColor(Color.parseColor("#800000FF"));
+                } else if (purchasePrice.getText().charAt(0) != '0' && !purchasePrice.getText().equals("매입가")) {
+                    purchasePrice.setTextColor(Color.parseColor("#80FF0000"));
+                } else {
+                    purchasePrice.setTextColor(Color.parseColor("#80808080"));
+                }
             }
         }
     };
@@ -165,6 +195,7 @@ public class OverlayService extends Service {
         changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
         changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
         /*
         // Down → (Move) → Up → onClick 순서로 작동

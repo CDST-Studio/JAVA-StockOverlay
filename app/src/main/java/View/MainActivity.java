@@ -33,7 +33,7 @@ import ViewModel.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
-    public static int PURCHASE_PRICE_INPUT_FLAG = 0;
+    public static int PURCHASE_PRICE_INPUT_FLAG = 1;
 
     private BottomNavigationView bottomNavigationView;
     private Messenger mServiceMessenger = null;
