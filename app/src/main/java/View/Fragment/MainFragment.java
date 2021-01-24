@@ -24,8 +24,8 @@ import com.needfor.stockoverlay.databinding.CustomListItemBinding;
 import java.util.ArrayList;
 
 import Model.Stock;
-import Module.DBA;
 import View.ListViewAdapter;
+import View.MainActivity;
 import View.Service.OverlayService;
 import ViewModel.stockViewModel;
 
@@ -45,7 +45,7 @@ public class MainFragment extends Fragment{
 
         // LocalBroadcast 등록
         IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.parkho.broadcat.local");
+        //intentFilter.addAction(Intent.ACTION_SCREEN_ON);
         LocalBroadcastManager.getInstance(getContext()).registerReceiver(OverlayService.mMsgReceiver, intentFilter);
 
         //RequestActivity에서 전달한 번들 저장

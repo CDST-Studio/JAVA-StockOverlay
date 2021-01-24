@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import Model.Stock;
@@ -79,6 +80,16 @@ public class ListViewAdapter extends BaseAdapter {
             ChangePrice.setTextColor(Color.LTGRAY);
         }
 
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            LinearLayout stockArea = (LinearLayout) convertView.findViewById(R.id.listview_stockarea);
+            stockArea.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        }
+
         return convertView;
     }
 
@@ -116,7 +127,5 @@ public class ListViewAdapter extends BaseAdapter {
             listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
             this.notifyDataSetChanged();
         }
-    }//경및대 김경호는 아직 롤토체스를 포기하지 않았다.
-    /*다된 코드에 데이터 바인딩 뿌리기*/
-
+    }
 }

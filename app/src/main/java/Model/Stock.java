@@ -11,6 +11,7 @@ public class Stock implements Parcelable {
     private String change; // 등락 동향
     private String changeRate; // 등락율
     private String changePrice; // 등락 가격
+    private String purchasePrice; // 매입가
 
     // -------------- 생성자 --------------
     /**
@@ -49,6 +50,7 @@ public class Stock implements Parcelable {
         change = source.readString();
         changeRate = source.readString();
         changePrice = source.readString();
+        purchasePrice = source.readString();
     }
 
     // -------------- Getter, Setter --------------
@@ -73,6 +75,9 @@ public class Stock implements Parcelable {
     public String getChangePrice() { return changePrice; }
     public void setChangePrice(String changePrice) { this.changePrice = changePrice; }
 
+    public String getPurchasePrice() { return purchasePrice; }
+    public void setPurchasePrice(String purchasePrice) { this.purchasePrice = purchasePrice; }
+
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성
     public static final Parcelable.Creator<Stock> CREATOR = new Parcelable.Creator<Stock>() {
@@ -96,6 +101,7 @@ public class Stock implements Parcelable {
         parcel.writeString(change);
         parcel.writeString(changeRate);
         parcel.writeString(changePrice);
+        parcel.writeString(purchasePrice);
     }
 
     @Override

@@ -14,15 +14,18 @@ import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
+import Model.Stock;
 import Model.User;
 import Module.DBA;
 import View.LoginActivity;
 
 public class PurchasePriceDialog {
     private Context context;
+    private Stock stock;
 
-    public PurchasePriceDialog(Context context) {
+    public PurchasePriceDialog(Context context, Stock stock) {
         this.context = context;
+        this.stock = stock;
     }
 
     // 호출할 다이얼로그 함수를 정의한다.
@@ -48,7 +51,6 @@ public class PurchasePriceDialog {
         price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) { }
 
@@ -61,6 +63,7 @@ public class PurchasePriceDialog {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                stock.setPurchasePrice(purchasePrice[0]);
                 dlg.dismiss();
             }
         });

@@ -1,14 +1,14 @@
 package View.Fragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 import Module.DBA;
 import View.Service.OverlayService;
+import View.MainActivity;
 
 public class SettingFragment extends Fragment {
     private ViewGroup viewGroup;
@@ -32,6 +33,7 @@ public class SettingFragment extends Fragment {
     private TextView stockSize;
     private TextView nick;
     private EditText delay;
+    private Switch purchaseSwich;
 
     @Nullable
     @Override
@@ -61,6 +63,16 @@ public class SettingFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 OverlayService.delayTime = Integer.parseInt(s.toString() + "000");
+            }
+        });
+
+        // 매입가 입력 스위치
+        purchaseSwich = (Switch)viewGroup.findViewById(R.id.setting_purcahse);
+        purchaseSwich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) { MainActivity.PURCHASE_PRICE_INPUT_FLAG = 1; }
+                else { MainActivity.PURCHASE_PRICE_INPUT_FLAG = 0; }
             }
         });
 
