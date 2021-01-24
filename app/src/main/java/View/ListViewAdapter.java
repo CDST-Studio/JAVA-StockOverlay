@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import Model.Stock;
+import View.Dialog.PurchasePriceDialog;
+
 import com.needfor.stockoverlay.R;
 
 
@@ -85,7 +87,8 @@ public class ListViewAdapter extends BaseAdapter {
             stockArea.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    PurchasePriceDialog purchasePriceDialog = new PurchasePriceDialog(context);
+                    purchasePriceDialog.callFunction(listViewItem);
                 }
             });
         }
