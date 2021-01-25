@@ -62,6 +62,7 @@ public class OverlayService extends Service {
     private OverlayViewModel overlayViewModel;
     private static ArrayList<Stock> stocks = new ArrayList<>();
 
+
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
@@ -132,6 +133,7 @@ public class OverlayService extends Service {
     public void onCreate() {
         super.onCreate();
 
+        overlayViewModel = new OverlayViewModel();
         // Android O 이상일 경우 Foreground 서비스를 실행
         // Notification channel 설정.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -184,7 +186,7 @@ public class OverlayService extends Service {
 
         // 윈도우에 layout 을 추가 한다.
         wm.addView(mView, params);
-
+        //경밑시
         // delay 시간 세팅
         delayTime = 4000;
 
@@ -197,6 +199,7 @@ public class OverlayService extends Service {
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
+        //음메에에에
         /*
         // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
