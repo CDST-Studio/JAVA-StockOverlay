@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment = new MainFragment();
     private SettingFragment settingFragment = new SettingFragment();
 
-    private String[] exStocks = {"삼성전자"};
+    private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
 
     @Override
