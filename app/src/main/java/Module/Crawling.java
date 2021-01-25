@@ -51,8 +51,6 @@ public class Crawling {
     // 현재가 크롤링 메서드
     public String currentPrice() {
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today").text().split(" ");
-        for(int i=0; i<crawlingResult.length; i++) Log.d("현재가 크롤링 테스트", String.valueOf(i) + "번째: " + crawlingResult[i]);
-        Log.d("현재가 크롤링 테스트", "ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
         return crawlingResult[crawlingResult.length - 1];
     }
 

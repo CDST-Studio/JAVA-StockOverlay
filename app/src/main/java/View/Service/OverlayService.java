@@ -5,7 +5,6 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -27,6 +26,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
 
@@ -35,6 +36,7 @@ import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
+import ViewModel.stockViewModel;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -44,7 +46,6 @@ public class OverlayService extends Service {
 
     public static int delayTime;
     private Iterator<Stock> iteratorStock;
-    private Stock stock;
 
     private Thread stockBoardTh;
     private TextView stockName;
@@ -53,34 +54,15 @@ public class OverlayService extends Service {
     private TextView changePrice;
     private TextView changeRate;
     private TextView purchasePrice;
-    private EditText delay;
     private Button overlayCancle;
 
     private static ArrayList<Stock> stocks = new ArrayList<>();
-    public static BroadcastReceiver mMsgReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            Log.d("메세지 수신", "OverlayService");
-            Stock stock = intent.getParcelableExtra("stock");
-            for(Stock s : stocks) {
-                if(s.getName().equals(stock.getName())) {
-                    int idx = stocks.indexOf(s);
-                    stocks.remove(idx);
-                    stocks.add(idx, stock);
-                }
-            }
-        }
-    };
 
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
     final Handler handler = new Handler() {
         @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
-            if(mMsgReceiver.isInitialStickyBroadcast()) {
-                iteratorStock = stocks.iterator();
-                while(iteratorStock.next() != stock) Log.d("값 조정 중", "갱신 중");
-            }
             if(!iteratorStock.hasNext()) iteratorStock = stocks.iterator();
             Stock stock = iteratorStock.next();
 
@@ -292,7 +274,7 @@ public class OverlayService extends Service {
         }
     }
 
-    //  -------------- 기타 메서드 --------------
+    // -------------- 기타 메서드 --------------
     @Nullable @Override
     public IBinder onBind(Intent intent) { return null; }
 }

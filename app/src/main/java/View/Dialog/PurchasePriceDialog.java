@@ -3,6 +3,7 @@ package View.Dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -70,17 +71,8 @@ public class PurchasePriceDialog {
             @Override
             public void onClick(View view) {
                 stock.setPurchasePrice(purchasePrice[0]);
-                sendStock(stock);
                 dlg.dismiss();
             }
         });
-    }
-
-    // 오버레이 뷰 서비스로 관심종목 전달
-    public void sendStock(Stock stock) {
-        Intent intent = new Intent(context, OverlayService.class);
-        intent.putExtra("stock", stock);
-        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-        Log.d("메세지 전달", "MainFragment");
     }
 }

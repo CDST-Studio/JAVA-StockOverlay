@@ -34,23 +34,18 @@ public class MainFragment extends Fragment{
 
     private ListViewAdapter adapter;
     private View viewGroup;
-    //private ViewGroup viewGroup;
     private ArrayList<Stock> stocks = new ArrayList<>();
-    public stockViewModel model;
+    private stockViewModel model;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
 
-        // LocalBroadcast 등록
-        IntentFilter intentFilter = new IntentFilter();
-        //intentFilter.addAction(Intent.ACTION_SCREEN_ON);
-        LocalBroadcastManager.getInstance(getContext()).registerReceiver(OverlayService.mMsgReceiver, intentFilter);
-
         //RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
 
+        // viewmodel 초기화
         model = new ViewModelProvider(this).get(stockViewModel.class);
 
         //번들 안의 텍스트 불러오기
@@ -66,25 +61,11 @@ public class MainFragment extends Fragment{
         }
         listview.setAdapter(adapter);
 
-        /*테스트*/
-        Button search = viewGroup.findViewById(R.id.Button_search);
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
         final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
                 Log.v("threada", "Observer발동");
                 adapter.setItem(model.getStockList().getValue());
-                /*
-                for(int i = 0; i < model.getStockList().getValue().size(); i++){
-                    Log.v("databind","LiveDataList : " + model.getStockList().getValue().get(i).getName());
-                }
-                */
             }
         };
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
@@ -95,8 +76,5 @@ public class MainFragment extends Fragment{
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        // LocalBroadcast 등록 해제
-        LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(OverlayService.mMsgReceiver);
     }
 }

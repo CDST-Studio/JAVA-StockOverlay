@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -30,6 +31,7 @@ import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.PriceThread;
+import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
@@ -57,9 +59,11 @@ public class MainActivity extends AppCompatActivity {
 
         // 종목 초기화 및 관심종목 프래그먼트로 전달
         for(int i=0; i<exStocks.length; i++) stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
+
         // 번들객체 생성, text값 저장
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("stocks",stocks);
+
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
         Runnable pricethread = new PriceThread();

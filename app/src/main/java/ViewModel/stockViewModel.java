@@ -1,12 +1,14 @@
 package ViewModel;
 
 import android.content.res.AssetManager;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import Model.Stock;
@@ -14,7 +16,7 @@ import Model.User;
 import Module.DBA;
 
 
-public class stockViewModel extends ViewModel {
+public class stockViewModel extends ViewModel implements Serializable {
     static private MutableLiveData<ArrayList<Stock>> stockList;
     private DBA dbAccess;
     private ArrayList<Stock> eStockList;
@@ -41,12 +43,11 @@ public class stockViewModel extends ViewModel {
 
         stockList.setValue(eStockList);
     }*/
+
     public void initStockList(ArrayList eStockList){
         stockList = new MutableLiveData<>();
         stockList.setValue(eStockList);
     }
-
-
 
     public void addStockList(Stock stock){
         if(stockList == null) stockList = new MutableLiveData<>();//테스트를 위한 코드입니다.
