@@ -27,7 +27,7 @@ import com.needfor.stockoverlay.R;
 import Model.User;
 import Module.DBA;
 import View.Dialog.NicknameDialog;
-import ViewModel.stockViewModel;
+import ViewModel.MainViewModel;
 
 public class LoginActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private SignInButton Google_Login;
@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             } else {
                                 new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
                                 new DBA().initInterestedStocks(getDatabasePath("User"), user);
-                                if(user.getInterestedStocks().size() != 0) new stockViewModel().initStockList(user.getInterestedStocks());
+                                if(user.getInterestedStocks().size() != 0) new MainViewModel().initStockList(user.getInterestedStocks());
                                 Log.d("User init TestActivity", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));

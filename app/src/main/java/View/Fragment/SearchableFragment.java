@@ -1,29 +1,19 @@
 package View.Fragment;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.se.omapi.SEService;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import com.needfor.stockoverlay.R;
-import View.SearchActivity;
-import android.view.View.OnClickListener;
 
 import View.ListSearchAdapter;
-import ViewModel.stockViewModel;
 
 public class SearchableFragment  extends Fragment  {
 

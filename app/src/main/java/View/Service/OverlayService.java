@@ -21,13 +21,10 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
 
@@ -36,7 +33,6 @@ import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
-import ViewModel.stockViewModel;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;

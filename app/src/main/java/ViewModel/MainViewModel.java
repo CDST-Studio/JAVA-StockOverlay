@@ -1,33 +1,27 @@
 package ViewModel;
 
-import android.content.res.AssetManager;
-import android.os.Parcelable;
-import android.util.Log;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
 import Model.Stock;
-import Model.User;
 import Module.DBA;
 
 
-public class stockViewModel extends ViewModel implements Serializable {
+public class MainViewModel extends ViewModel implements Serializable {
     static private MutableLiveData<ArrayList<Stock>> stockList;
     private DBA dbAccess;
     private ArrayList<Stock> eStockList;
 
-    public stockViewModel(){
+    public MainViewModel(){
         //this.stockList = new MutableLiveData<ArrayList<Stock>>();
         //stockList.postValue();
         ArrayList<Stock> eStockList = new ArrayList<Stock>();
 
     }
-    public  stockViewModel(stockViewModel s){
+    public MainViewModel(MainViewModel s){
         stockList = s.getStockList();
     }
 

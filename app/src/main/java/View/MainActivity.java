@@ -17,8 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.needfor.stockoverlay.R;
@@ -31,7 +29,6 @@ import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.PriceThread;
-import ViewModel.stockViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
@@ -66,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
+        /*쓰레드 스타트*/
         Runnable pricethread = new PriceThread();
         Thread thread = new Thread(pricethread);
         thread.start();
