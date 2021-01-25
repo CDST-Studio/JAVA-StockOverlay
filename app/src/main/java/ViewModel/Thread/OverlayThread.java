@@ -10,7 +10,6 @@ import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
 
 public class OverlayThread extends OverlayViewModel implements Runnable {
-
     private OverlayViewModel mModel;
     private ArrayList<Stock> tStockList;
 
@@ -26,8 +25,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             e.printStackTrace();
         }
     }
-
-
 
     private void priceCompare(){
         mModel = new OverlayViewModel();
@@ -50,10 +47,8 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
                     tStockList.get(i).setChangePrice(crawling.changePrice());
 
                     changeFlag = 1;
-
                 }
             }
-
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
     }

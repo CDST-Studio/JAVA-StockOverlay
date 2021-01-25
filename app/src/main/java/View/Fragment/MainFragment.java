@@ -47,6 +47,7 @@ public class MainFragment extends Fragment{
         ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
+        adapter.setMainViewModel(model);
 
         // fragment1의 TextView에 전달 받은 text 띄우기
         for(int i=0; i<text.size(); i++) {

@@ -133,7 +133,6 @@ public class OverlayService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        overlayViewModel = new OverlayViewModel();
         // Android O 이상일 경우 Foreground 서비스를 실행
         // Notification channel 설정.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -156,7 +155,9 @@ public class OverlayService extends Service {
         wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
         mView = inflate.inflate(R.layout.overlay_view, null);
+
         // ViewModel 초기화
+        overlayViewModel = new OverlayViewModel();
 
         // 옵저버
         final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {

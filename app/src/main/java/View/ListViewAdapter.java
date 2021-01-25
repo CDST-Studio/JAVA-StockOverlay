@@ -13,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import Model.Stock;
 import View.Dialog.PurchasePriceDialog;
+import ViewModel.MainViewModel;
 
 import com.needfor.stockoverlay.R;
 
@@ -25,6 +26,12 @@ public class ListViewAdapter extends BaseAdapter {
     public ListViewAdapter() { }
 
     private TextView purchasePrice;
+    private MainViewModel mainViewModel;
+
+    // Setter
+    public void setMainViewModel(MainViewModel mainViewModel) {
+        this.mainViewModel = mainViewModel;
+    }
 
     // Adapter에 사용되는 데이터의 개수를 리턴.
     @Override
@@ -95,11 +102,11 @@ public class ListViewAdapter extends BaseAdapter {
         }
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             if (purchasePrice.getText().charAt(0) == '-') {
-                purchasePrice.setTextColor(Color.parseColor("#0000FF"));
+                purchasePrice.setTextColor(Color.parseColor("#87CEFA"));
             } else if (purchasePrice.getText().charAt(0) != '0' && !purchasePrice.getText().equals("매입가")) {
-                purchasePrice.setTextColor(Color.parseColor("#FF0000"));
+                purchasePrice.setTextColor(Color.parseColor("#F84747"));
             } else {
-                purchasePrice.setTextColor(Color.parseColor("#808080"));
+                purchasePrice.setTextColor(Color.LTGRAY);
             }
         }
 
@@ -109,11 +116,10 @@ public class ListViewAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     PurchasePriceDialog purchasePriceDialog = new PurchasePriceDialog(context);
-                    purchasePriceDialog.callFunction(listViewItem);
+                    purchasePriceDialog.callFunction(mainViewModel, listViewItem);
                 }
             });
         }
-
         return convertView;
     }
 

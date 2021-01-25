@@ -9,15 +9,11 @@ import Module.Crawling;
 import ViewModel.MainViewModel;
 
 public class PriceThread extends MainViewModel implements Runnable {
-
     private MainViewModel mModel;
-    //private Crawling crawling;
     private ArrayList<Stock> tStockList;
-
 
     @Override
     public void run() {
-
         try {
             while(true) {
                 Thread.sleep(4000);
@@ -26,7 +22,6 @@ public class PriceThread extends MainViewModel implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     private void priceCompare(){
@@ -50,10 +45,8 @@ public class PriceThread extends MainViewModel implements Runnable {
                     tStockList.get(i).setChangePrice(crawling.changePrice());
 
                     changeFlag = 1;
-
                 }
             }
-
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
         Log.v("thread","쓰레드 작동중");
