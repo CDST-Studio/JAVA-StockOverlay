@@ -1,4 +1,4 @@
-package ViewModel;
+package ViewModel.Thread;
 
 import android.util.Log;
 
@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import Module.Crawling;
+import ViewModel.MainViewModel;
 
 public class PriceThread extends MainViewModel implements Runnable {
 

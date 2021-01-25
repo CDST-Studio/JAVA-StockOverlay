@@ -8,7 +8,7 @@ import Model.Stock;
 
 public class OverlayViewModel {
 
-    private MutableLiveData<ArrayList<Stock>> stockList;
+    private static MutableLiveData<ArrayList<Stock>> stockList;
     private ArrayList<Stock> templeStockList;
 
     public OverlayViewModel(){

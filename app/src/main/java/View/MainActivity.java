@@ -29,7 +29,7 @@ import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.OverlayViewModel;
-import ViewModel.PriceThread;
+import ViewModel.Thread.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
