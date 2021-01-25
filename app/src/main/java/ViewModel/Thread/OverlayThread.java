@@ -19,6 +19,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         try {
             while(true) {
                 Thread.sleep(4000);
+                Log.v("thread","쓰레드 작동중 Overlay");
                 priceCompare();
             }
         } catch (InterruptedException e) {

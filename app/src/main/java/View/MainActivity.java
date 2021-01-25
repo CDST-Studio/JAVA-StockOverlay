@@ -63,9 +63,6 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
-
-        // 쓰레드 스타트
-        new Thread(new PriceThread()).start();
     }
 
 

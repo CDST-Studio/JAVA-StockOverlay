@@ -16,6 +16,8 @@ public class OverlayViewModel extends ViewModel {
         if(stockList == null){
             stockList = new MutableLiveData<ArrayList<Stock>>();
             templeStockList = new ArrayList<Stock>();
+
+            stockList = new MainViewModel().getStockList();
         }
     }
 

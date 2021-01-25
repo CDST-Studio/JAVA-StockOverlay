@@ -56,5 +56,6 @@ public class PriceThread extends MainViewModel implements Runnable {
 
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
+        Log.v("thread","쓰레드 작동중");
     }
 }

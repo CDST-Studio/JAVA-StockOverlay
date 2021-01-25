@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import Model.Stock;
 import View.ListViewAdapter;
 import ViewModel.MainViewModel;
+import ViewModel.Thread.PriceThread;
 
 public class MainFragment extends Fragment{
     private CustomListItemBinding binding;
@@ -63,6 +64,10 @@ public class MainFragment extends Fragment{
             }
         };
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
+
+
+        // 쓰레드 스타트
+        new Thread(new PriceThread()).start();
 
         return viewGroup;
     }

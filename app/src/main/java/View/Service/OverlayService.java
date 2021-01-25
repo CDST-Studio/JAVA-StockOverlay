@@ -38,6 +38,8 @@ import Model.Stock;
 import View.MainActivity;
 import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
+import ViewModel.Thread.OverlayThread;
+import ViewModel.Thread.PriceThread;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -235,6 +237,9 @@ public class OverlayService extends Service {
             }
         });
         */
+
+        // 쓰레드 스타트
+        new Thread(new OverlayThread()).start();
     }
 
     /** onCreate 이후에 실행되는 메서드 */
