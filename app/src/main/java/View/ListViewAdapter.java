@@ -24,6 +24,8 @@ public class ListViewAdapter extends BaseAdapter {
     // ListViewAdapter의 생성자
     public ListViewAdapter() { }
 
+    private TextView purchasePrice;
+
     // Adapter에 사용되는 데이터의 개수를 리턴.
     @Override
     public int getCount() {
@@ -44,12 +46,15 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView StockName = (TextView) convertView.findViewById(R.id.stockname) ;
-        TextView StockCode = (TextView) convertView.findViewById(R.id.stockcode) ;
+        TextView StockName = (TextView) convertView.findViewById(R.id.stockname);
+        TextView StockCode = (TextView) convertView.findViewById(R.id.stockcode);
         TextView CurrentPrice = (TextView) convertView.findViewById(R.id.currentprice);
         TextView ChangePrice = (TextView) convertView.findViewById(R.id.changeprice);
         TextView ChangeRate = (TextView) convertView.findViewById(R.id.changerate);
-        TextView Change = (TextView) convertView.findViewById(R.id.change) ;
+        TextView Change = (TextView) convertView.findViewById(R.id.change);
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
+        }
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Stock listViewItem = listViewItemList.get(position);
@@ -61,6 +66,13 @@ public class ListViewAdapter extends BaseAdapter {
         ChangePrice.setText(listViewItem.getChangePrice());
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            if(listViewItem.getPurchasePrice() != null) {
+                purchasePrice.setText(listViewItem.getPurchasePrice());
+            }else {
+                purchasePrice.setText("매입가");
+            }
+        }
 
         // 텍스트 색상 변경
         StockName.setTextColor(Color.WHITE);
@@ -80,6 +92,15 @@ public class ListViewAdapter extends BaseAdapter {
             Change.setTextColor(Color.LTGRAY);
             ChangeRate.setTextColor(Color.LTGRAY);
             ChangePrice.setTextColor(Color.LTGRAY);
+        }
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            if (purchasePrice.getText().charAt(0) == '-') {
+                purchasePrice.setTextColor(Color.parseColor("#0000FF"));
+            } else if (purchasePrice.getText().charAt(0) != '0' && !purchasePrice.getText().equals("매입가")) {
+                purchasePrice.setTextColor(Color.parseColor("#FF0000"));
+            } else {
+                purchasePrice.setTextColor(Color.parseColor("#808080"));
+            }
         }
 
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {

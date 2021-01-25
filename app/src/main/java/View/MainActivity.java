@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.needfor.stockoverlay.R;
@@ -36,16 +37,12 @@ public class MainActivity extends AppCompatActivity {
     public static int PURCHASE_PRICE_INPUT_FLAG = 1;
 
     private BottomNavigationView bottomNavigationView;
-    private Messenger mServiceMessenger = null;
-    private boolean mIsBound;
 
     private MainFragment mainFragment = new MainFragment();
     private SettingFragment settingFragment = new SettingFragment();
 
     private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
-
-    private OverlayViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
-        /*쓰레드 스타트*/
-        Runnable pricethread = new PriceThread();
-        Thread thread = new Thread(pricethread);
-        thread.start();
+
+        // 쓰레드 스타트
+        new Thread(new PriceThread()).start();
     }
 
 

@@ -25,6 +25,9 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 
 import com.needfor.stockoverlay.R;
 
@@ -33,6 +36,8 @@ import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
+import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -52,6 +57,7 @@ public class OverlayService extends Service {
     private TextView purchasePrice;
     private Button overlayCancle;
 
+    private OverlayViewModel overlayViewModel;
     private static ArrayList<Stock> stocks = new ArrayList<>();
 
     /** 스톡보드 스레드 실행용 핸들러 */
@@ -146,6 +152,20 @@ public class OverlayService extends Service {
         wm = (WindowManager) getSystemService(WINDOW_SERVICE);
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
         mView = inflate.inflate(R.layout.overlay_view, null);
+        // ViewModel 초기화
+
+        // 옵저버
+        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
+            @Override
+            public void onChanged(ArrayList<Stock> stockArray) {
+                Stock s = iteratorStock.next();
+
+                stocks = overlayViewModel.getStockList().getValue();
+                iteratorStock = stocks.iterator();
+
+                while(!iteratorStock.next().getName().equals(s.getName())) Log.d("값 갱신 중", s.getName());
+            }
+        };
 
         params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,

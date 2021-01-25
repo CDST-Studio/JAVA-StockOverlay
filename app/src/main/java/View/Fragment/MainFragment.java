@@ -36,18 +36,18 @@ public class MainFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
 
-        //RequestActivity에서 전달한 번들 저장
+        // RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
 
         // viewmodel 초기화
         model = new ViewModelProvider(this).get(MainViewModel.class);
 
-        //번들 안의 텍스트 불러오기
+        // 번들 안의 텍스트 불러오기
         ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
 
-        //fragment1의 TextView에 전달 받은 text 띄우기
+        // fragment1의 TextView에 전달 받은 text 띄우기
         for(int i=0; i<text.size(); i++) {
             stocks.add((Stock)text.get(i));
             adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
@@ -55,11 +55,10 @@ public class MainFragment extends Fragment{
         }
         listview.setAdapter(adapter);
 
-        /*옵저버*/
+        // 옵저버
         final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
-                Log.v("threada", "Observer발동");
                 adapter.setItem(model.getStockList().getValue());
             }
         };

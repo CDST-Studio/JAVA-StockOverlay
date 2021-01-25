@@ -1,12 +1,13 @@
 package ViewModel;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
 import Model.Stock;
 
-public class OverlayViewModel {
+public class OverlayViewModel extends ViewModel {
 
     private static MutableLiveData<ArrayList<Stock>> stockList;
     private ArrayList<Stock> templeStockList;
@@ -16,7 +17,6 @@ public class OverlayViewModel {
             stockList = new MutableLiveData<ArrayList<Stock>>();
             templeStockList = new ArrayList<Stock>();
         }
-
     }
 
     public OverlayViewModel(ArrayList<Stock> s) {
@@ -24,9 +24,6 @@ public class OverlayViewModel {
         templeStockList = new ArrayList<Stock>();
         templeStockList = stockList.getValue();
     }
-
-
-
 
     public void addStockList(Stock stock){
         if(templeStockList == null){
