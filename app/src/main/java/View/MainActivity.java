@@ -28,6 +28,7 @@ import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
+import ViewModel.OverlayViewModel;
 import ViewModel.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
+
+    private OverlayViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
