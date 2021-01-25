@@ -143,10 +143,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startOverlay() {
-        Intent intent = new Intent(getApplicationContext(), OverlayService.class);
-        intent.putExtra("stocks", stocks);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
-        else startService(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(new Intent(getApplicationContext(), OverlayService.class));
+        else startService(new Intent(getApplicationContext(), OverlayService.class));
     }
 
     //  -------------- 기타 메서드 --------------

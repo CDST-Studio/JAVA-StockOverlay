@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import Model.Stock;
 
 public class OverlayViewModel extends ViewModel {
-
     private static MutableLiveData<ArrayList<Stock>> stockList;
     private ArrayList<Stock> templeStockList;
 
@@ -37,4 +36,5 @@ public class OverlayViewModel extends ViewModel {
     }
 
     public MutableLiveData<ArrayList<Stock>> getStockList(){ return stockList; }
+    public static void setStockList(MutableLiveData<ArrayList<Stock>> stockList) { OverlayViewModel.stockList = stockList; }
 }

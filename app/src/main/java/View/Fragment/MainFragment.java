@@ -15,7 +15,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
-import com.needfor.stockoverlay.databinding.CustomListItemBinding;
 
 import java.util.ArrayList;
 
@@ -25,17 +24,21 @@ import ViewModel.MainViewModel;
 import ViewModel.Thread.PriceThread;
 
 public class MainFragment extends Fragment{
-    private CustomListItemBinding binding;
+    public static int MAINFRAGMENT_ON_ACTIVITY = 0;
 
     private ListViewAdapter adapter;
     private View viewGroup;
     private ArrayList<Stock> stocks = new ArrayList<>();
     private MainViewModel model;
+    private Thread priceTh = new Thread(new PriceThread());
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
+
+        // 실행중으로 변경
+        MAINFRAGMENT_ON_ACTIVITY = 1;
 
         // RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
@@ -68,7 +71,7 @@ public class MainFragment extends Fragment{
 
 
         // 쓰레드 스타트
-        new Thread(new PriceThread()).start();
+        priceTh.start();
 
         return viewGroup;
     }
@@ -76,5 +79,8 @@ public class MainFragment extends Fragment{
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        MAINFRAGMENT_ON_ACTIVITY = 0;
+        priceTh.interrupt();
     }
 }

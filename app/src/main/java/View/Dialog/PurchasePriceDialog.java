@@ -62,12 +62,8 @@ public class PurchasePriceDialog {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int profitLoss = Integer.parseInt(stock.getCurrentPrice().replaceAll(",","")) - Integer.parseInt(purchasePrice[0]);
-                StringBuffer price = new StringBuffer(Integer.toString(profitLoss));
-                for(int i=2; i<price.length()-1; i = i+2+(i/2 + 1)) {
-                    price.insert((price.length()-1)-i, ",");
-                }
-                stock.setPurchasePrice(price.toString());
+                stock.setPurchasePrice(purchasePrice[0]);
+                stock.setProfitAndLoss();
 
                 int idx = 0;
                 for(Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {

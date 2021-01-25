@@ -1,4 +1,5 @@
 package View;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -41,6 +42,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     // pos
     // ition에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴. : 필수 구현
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
@@ -75,7 +77,7 @@ public class ListViewAdapter extends BaseAdapter {
         Change.setText(listViewItem.getChange());
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             if(listViewItem.getPurchasePrice() != null) {
-                purchasePrice.setText(listViewItem.getPurchasePrice());
+                purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
             }else {
                 purchasePrice.setText("매입가");
             }
@@ -101,12 +103,12 @@ public class ListViewAdapter extends BaseAdapter {
             ChangePrice.setTextColor(Color.LTGRAY);
         }
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            if (purchasePrice.getText().charAt(0) == '-') {
-                purchasePrice.setTextColor(Color.parseColor("#87CEFA"));
-            } else if (purchasePrice.getText().charAt(0) != '0' && !purchasePrice.getText().equals("매입가")) {
+            if (listViewItem.getProfitChange() == null) {
+                purchasePrice.setTextColor(Color.LTGRAY);
+            } else if (listViewItem.getProfitChange().equals("▲")) {
                 purchasePrice.setTextColor(Color.parseColor("#F84747"));
             } else {
-                purchasePrice.setTextColor(Color.LTGRAY);
+                purchasePrice.setTextColor(Color.parseColor("#87CEFA"));
             }
         }
 
