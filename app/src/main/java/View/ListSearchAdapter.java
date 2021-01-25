@@ -1,6 +1,8 @@
 package View;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +15,14 @@ import com.needfor.stockoverlay.R;
 import java.util.ArrayList;
 
 import Model.Stock;
+import Module.DBA;
 
 public class ListSearchAdapter extends BaseAdapter  {
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
     private int check = 1;
+    private Bundle bundle;
+    private DBA dba;
+    private String name;
 
     public ListSearchAdapter() {
     }
@@ -28,6 +34,7 @@ public class ListSearchAdapter extends BaseAdapter  {
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
         final Context context = parent.getContext();
+        dba = new DBA();
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -44,16 +51,23 @@ public class ListSearchAdapter extends BaseAdapter  {
 
         Button bookmark  = convertView.findViewById(R.id.Button_bookmark);
 
+        bundle = ((Activity)context).getIntent().getExtras();
+
         bookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                if(bundle!=null){
+                    name = bundle.getString("bookmark");
+                }
                 switch(check){
                     case 1:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
+                        //dba.addInterestedStocks(("/data/data/com.needfor.stockoverlay/databases"), user, name);
                         check=0;
                         break;
                     case 0:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark);
+                        //dba.subInterestedStocks("/data/data/com.needfor.stockoverlay/databases",user,name);
                         check=1;
                         break;
                 }

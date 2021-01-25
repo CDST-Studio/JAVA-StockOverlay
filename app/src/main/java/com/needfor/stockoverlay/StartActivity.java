@@ -17,6 +17,7 @@ import Module.Parsing;
 import Module.Search;
 import View.LoginActivity;
 import View.MainActivity;
+import View.SearchActivity;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -32,7 +33,7 @@ public class StartActivity extends AppCompatActivity {
         checkPermission();
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
-        startActivity(new Intent(StartActivity.this, MainActivity.class));
+        startActivity(new Intent(StartActivity.this, SearchActivity.class));
         finish();
     }
 

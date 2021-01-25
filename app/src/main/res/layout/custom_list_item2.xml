@@ -17,7 +17,7 @@
         android:id="@+id/search_body">
 
                 <TextView
-                    android:layout_width="350dp"
+                    android:layout_width="360dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/search_name"
                     android:textSize="24dp"
@@ -34,14 +34,20 @@
                     android:layout_below="@id/search_name" />
                <Button
                     android:id="@+id/Button_bookmark"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_toRightOf="@id/search_name"
                     android:background="@drawable/ic_bookmark"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="5dp">
                 </Button>
-
-
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@id/search_code"
+                    android:background="#FFFFFF" />
     </RelativeLayout>
 </layout>

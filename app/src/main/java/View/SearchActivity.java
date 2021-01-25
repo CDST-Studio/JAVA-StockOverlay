@@ -1,5 +1,6 @@
 package View;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.widget.SearchView;
@@ -10,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.needfor.stockoverlay.R;
+
+import java.util.ArrayList;
+
 import Model.Stock;
 import Module.Search;
 import Module.Parsing;
@@ -21,7 +25,9 @@ public class SearchActivity extends AppCompatActivity {
     private AssetManager assetManager;
     private Parsing parsing;
     private SearchableFragment searchableFragment;
-    private Stock stock;
+    private Intent intent;
+    private ArrayList<Stock> stock;
+    private String name, code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +38,13 @@ public class SearchActivity extends AppCompatActivity {
         assetManager = getResources().getAssets();
         parsing = new Parsing();
         search = new Search();
+        intent = new Intent(SearchActivity.this, ListSearchAdapter.class);
 
         SearchView searchView = (SearchView) findViewById(R.id.search_bar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) { //입력결과
-
+                query = query.trim();
                 query = query.replaceAll("(^\\p{Z}+|\\p{Z}+$)",""); // 문자열 공백 제거
 
                try{ // 검색어가 숫자가 아니면, 대문자로 변환
@@ -47,18 +54,30 @@ public class SearchActivity extends AppCompatActivity {
                    query = query.toUpperCase();
                }
 
-                //stock = search.searchStock(assetManager, query);
-                String name= stock.getName();
-                String code= stock.getStockCode();
+               try {
+                   stock = search.searchStock(assetManager, query);
+                   name = stock.get(0).getName();
+                   code = stock.get(0).getName();
+               }
+               catch (NumberFormatException e) {
+                   Toast.makeText(SearchActivity.this, "검색어를 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+                   return false;
+               }
 
                 try {
-                    if(name != null && code != null) {
-                        searchableFragment = new SearchableFragment(); //검색할 때 마다 프래그먼트 초기화
+                    if(name != null && code != null) { //검색할 때 마다 프래그먼트 초기화
+                        searchableFragment = new SearchableFragment();
                         Bundle bundle = new Bundle();
-                        bundle.putString("name", name);
-                        bundle.putString("code", code);
-                        searchableFragment.setArguments(bundle);
-                        //stock = search.searchStock(assetManager, query);
+                        bundle.putParcelableArrayList("stock",stock);
+
+                        for(int i=0; i<stock.size(); i++) { // SearchableFragment로 값 전달
+                            name= stock.get(i).getName();
+                            code= stock.get(i).getStockCode();
+                            bundle.putString("name"+i, name);
+                            bundle.putString("code"+i, code);
+                            searchableFragment.setArguments(bundle);
+                        }
+                        intent.putExtra("bookmark", name); // ListSearchAdapter 로 값 전달
                         getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
                         Toast.makeText(SearchActivity.this, "검색완료", Toast.LENGTH_SHORT).show();
                         return true; }

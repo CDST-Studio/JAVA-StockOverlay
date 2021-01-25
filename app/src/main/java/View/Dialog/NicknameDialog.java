@@ -75,7 +75,7 @@ public class NicknameDialog {
                     // 커스텀 다이얼로그에서 입력한 메시지를 대입한다.
                     new DBA().initNickname(context.getDatabasePath("User"), user, message.getText().toString());
                     new DBA().initInterestedStocks(context.getDatabasePath("User"), user);
-                    Log.d("User init test", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
+                    Log.d("User init TestActivity", "닉네임: " + user.getNickName() + ", 관심종목 개수: " + user.getInterestedStocks().size());
 
                     // 커스텀 다이얼로그를 종료한다.
                     dlg.dismiss();
