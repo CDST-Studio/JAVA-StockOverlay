@@ -2,8 +2,6 @@ package View.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -12,19 +10,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.needfor.stockoverlay.R;
 
-import java.util.ArrayList;
+import java.util.Objects;
 
 import Model.Stock;
-import Model.User;
-import Module.DBA;
-import View.LoginActivity;
-import View.Service.OverlayService;
+import ViewModel.MainViewModel;
 
 public class PurchasePriceDialog {
     private Context context;
@@ -32,7 +24,7 @@ public class PurchasePriceDialog {
     public PurchasePriceDialog(Context context) { this.context = context; }
 
     // 호출할 다이얼로그 함수를 정의한다.
-    public void callFunction(Stock stock) {
+    public void callFunction(MainViewModel mainViewModel, Stock stock) {
 
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
         final Dialog dlg = new Dialog(context);
@@ -71,6 +63,16 @@ public class PurchasePriceDialog {
             @Override
             public void onClick(View view) {
                 stock.setPurchasePrice(purchasePrice[0]);
+                stock.setProfitAndLoss();
+
+                int idx = 0;
+                for(Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
+                    if(s.getName().equals(stock.getName())) break;
+                    if(mainViewModel.getStockList().getValue().size() != idx +1 ) idx++;
+                }
+                mainViewModel.getStockList().getValue().remove(idx);
+                mainViewModel.getStockList().getValue().add(idx, stock);
+
                 dlg.dismiss();
             }
         });

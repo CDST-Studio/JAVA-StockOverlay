@@ -15,8 +15,7 @@
             android:id="@+id/stockboard_stockname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="0.95"
+            android:layout_weight="0.9"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -25,17 +24,8 @@
             android:id="@+id/stockboard_currentprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.95"
+            android:layout_weight="0.9"
             android:gravity="center"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/stockboard_change"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.1"
-            android:gravity="right"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -43,8 +33,8 @@
             android:id="@+id/stockboard_changeprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
+            android:layout_weight="0.95"
+            android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -52,8 +42,8 @@
             android:id="@+id/stockboard_changerate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
+            android:layout_weight="0.95"
+            android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -61,8 +51,8 @@
             android:id="@+id/stockboard_purchaseprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="left"
+            android:layout_weight="0.9"
+            android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
 

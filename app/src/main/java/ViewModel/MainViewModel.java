@@ -11,7 +11,7 @@ import Module.DBA;
 
 
 public class MainViewModel extends ViewModel implements Serializable {
-    static private MutableLiveData<ArrayList<Stock>> stockList;
+    private static MutableLiveData<ArrayList<Stock>> stockList;
     private DBA dbAccess;
     private ArrayList<Stock> eStockList;
 

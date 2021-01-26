@@ -1,4 +1,5 @@
 package View;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import Model.Stock;
 import View.Dialog.PurchasePriceDialog;
+import ViewModel.MainViewModel;
 
 import com.needfor.stockoverlay.R;
 
@@ -24,6 +26,14 @@ public class ListViewAdapter extends BaseAdapter {
     // ListViewAdapter의 생성자
     public ListViewAdapter() { }
 
+    private TextView purchasePrice;
+    private MainViewModel mainViewModel;
+
+    // Setter
+    public void setMainViewModel(MainViewModel mainViewModel) {
+        this.mainViewModel = mainViewModel;
+    }
+
     // Adapter에 사용되는 데이터의 개수를 리턴.
     @Override
     public int getCount() {
@@ -32,6 +42,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     // pos
     // ition에 위치한 데이터를 화면에 출력하는데 사용될 View를 리턴. : 필수 구현
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final int pos = position;
@@ -44,12 +55,15 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView StockName = (TextView) convertView.findViewById(R.id.stockname) ;
-        TextView StockCode = (TextView) convertView.findViewById(R.id.stockcode) ;
+        TextView StockName = (TextView) convertView.findViewById(R.id.stockname);
+        TextView StockCode = (TextView) convertView.findViewById(R.id.stockcode);
         TextView CurrentPrice = (TextView) convertView.findViewById(R.id.currentprice);
         TextView ChangePrice = (TextView) convertView.findViewById(R.id.changeprice);
         TextView ChangeRate = (TextView) convertView.findViewById(R.id.changerate);
-        TextView Change = (TextView) convertView.findViewById(R.id.change) ;
+        TextView Change = (TextView) convertView.findViewById(R.id.change);
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
+        }
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Stock listViewItem = listViewItemList.get(position);
@@ -61,6 +75,13 @@ public class ListViewAdapter extends BaseAdapter {
         ChangePrice.setText(listViewItem.getChangePrice());
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            if(listViewItem.getPurchasePrice() != null) {
+                purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
+            }else {
+                purchasePrice.setText("매입가");
+            }
+        }
 
         // 텍스트 색상 변경
         StockName.setTextColor(Color.WHITE);
@@ -81,6 +102,15 @@ public class ListViewAdapter extends BaseAdapter {
             ChangeRate.setTextColor(Color.LTGRAY);
             ChangePrice.setTextColor(Color.LTGRAY);
         }
+        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+            if (listViewItem.getProfitChange() == null) {
+                purchasePrice.setTextColor(Color.LTGRAY);
+            } else if (listViewItem.getProfitChange().equals("▲")) {
+                purchasePrice.setTextColor(Color.parseColor("#F84747"));
+            } else {
+                purchasePrice.setTextColor(Color.parseColor("#87CEFA"));
+            }
+        }
 
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             LinearLayout stockArea = (LinearLayout) convertView.findViewById(R.id.listview_stockarea);
@@ -88,11 +118,10 @@ public class ListViewAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     PurchasePriceDialog purchasePriceDialog = new PurchasePriceDialog(context);
-                    purchasePriceDialog.callFunction(listViewItem);
+                    purchasePriceDialog.callFunction(mainViewModel, listViewItem);
                 }
             });
         }
-
         return convertView;
     }
 

@@ -12,6 +12,8 @@ public class Stock implements Parcelable {
     private String changeRate; // 등락율
     private String changePrice; // 등락 가격
     private String purchasePrice; // 매입가
+    private String profitAndLoss; // 손익가
+    private String profitChange; // 손익 동향
 
     // -------------- 생성자 --------------
     /**
@@ -76,7 +78,36 @@ public class Stock implements Parcelable {
     public void setChangePrice(String changePrice) { this.changePrice = changePrice; }
 
     public String getPurchasePrice() { return purchasePrice; }
-    public void setPurchasePrice(String purchasePrice) { this.purchasePrice = purchasePrice; }
+    public void setPurchasePrice(String purchasePrice) {
+        StringBuffer price = new StringBuffer(purchasePrice);
+        for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
+            price.insert((price.length() - 1) - i, ",");
+        }
+
+        this.purchasePrice = price.toString();
+    }
+
+    public String getProfitAndLoss() { return profitAndLoss; }
+    public void setProfitAndLoss() {
+        int profitLoss = Integer.parseInt(this.currentPrice.replaceAll(",","")) - Integer.parseInt(this.purchasePrice.replaceAll(",",""));
+        StringBuffer price = new StringBuffer(Integer.toString(profitLoss));
+        if(profitLoss > 0) {
+            this.profitChange = "▲";
+            for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
+                price.insert((price.length() - 1) - i, ",");
+            }
+        }else if(profitLoss < 0) {
+            this.profitChange = "▼";
+            for (int i=2; i<price.length() - 2; i = i+2+(i/2 + 1)) {
+                price.insert((price.length() - 1) - i, ",");
+            }
+            price.deleteCharAt(0);
+        }
+
+        this.profitAndLoss = price.toString();
+    }
+
+    public String getProfitChange() { return profitChange; }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성

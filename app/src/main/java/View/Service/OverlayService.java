@@ -25,6 +25,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.Observer;
 
 import com.needfor.stockoverlay.R;
 
@@ -33,6 +34,8 @@ import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
+import ViewModel.OverlayViewModel;
+import ViewModel.Thread.OverlayThread;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -46,12 +49,13 @@ public class OverlayService extends Service {
     private Thread stockBoardTh;
     private TextView stockName;
     private TextView currentPrice;
-    private TextView change;
     private TextView changePrice;
     private TextView changeRate;
     private TextView purchasePrice;
     private Button overlayCancle;
 
+    private OverlayViewModel overlayViewModel;
+    private Thread priceTh = new Thread(new OverlayThread());
     private static ArrayList<Stock> stocks = new ArrayList<>();
 
     /** 스톡보드 스레드 실행용 핸들러 */
@@ -63,20 +67,18 @@ public class OverlayService extends Service {
             Stock stock = iteratorStock.next();
 
             // 텍스트 설정
-            if(stock.getName().length() <= 4) stockName.setText(stock.getName());
-            else stockName.setText(stock.getName().substring(0, 4) + "…");
-            if(stock.getCurrentPrice().length() <= 6) currentPrice.setText(stock.getCurrentPrice());
-            else currentPrice.setText(stock.getCurrentPrice().substring(0, 6) + "…");
-            change.setText(stock.getChange());
-            changePrice.setText(stock.getChangePrice());
-            changeRate.setText(stock.getChangeRate());
+            if(stock.getName().length() <= 5) stockName.setText(stock.getName());
+            else stockName.setText(stock.getName().substring(0, 5) + "…");
+            if(stock.getCurrentPrice().length() <= 7) currentPrice.setText(stock.getCurrentPrice());
+            else currentPrice.setText(stock.getCurrentPrice().substring(0, 7) + "…");
+            changePrice.setText(stock.getChange() + stock.getChangePrice());
+            changeRate.setText(stock.getChange() + stock.getChangeRate());
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
                 if (stock.getPurchasePrice() == null) {
                     purchasePrice.setText("매입가");
                 }else {
-                    int purchase = Integer.parseInt(stock.getPurchasePrice());
-                    int current = Integer.parseInt(stock.getCurrentPrice());
-                    purchasePrice.setText(Integer.toString(current - purchase));
+                    if(stock.getProfitAndLoss().length() > 7) purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().substring(0,7) + "…");
+                    else purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().toString());
                 }
             }
 
@@ -84,36 +86,32 @@ public class OverlayService extends Service {
             Animation translate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.stockboard_text);
             stockName.startAnimation(translate);
             currentPrice.startAnimation(translate);
-            change.startAnimation(translate);
             changePrice.startAnimation(translate);
             changeRate.startAnimation(translate);
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice.startAnimation(translate);
 
             // 텍스트 색상 변경
             stockName.setTextColor(Color.parseColor("#80000000"));
-            if (change.getText().equals("▲")) {
+            if (stock.getChange().equals("▲")) {
                 currentPrice.setTextColor(Color.parseColor("#80FF0000"));
-                change.setTextColor(Color.parseColor("#80FF0000"));
                 changePrice.setTextColor(Color.parseColor("#80FF0000"));
                 changeRate.setTextColor(Color.parseColor("#80FF0000"));
-            } else if (change.getText().equals("▼")) {
+            } else if (stock.getChange().equals("▼")) {
                 currentPrice.setTextColor(Color.parseColor("#800000FF"));
-                change.setTextColor(Color.parseColor("#800000FF"));
                 changePrice.setTextColor(Color.parseColor("#800000FF"));
                 changeRate.setTextColor(Color.parseColor("#800000FF"));
             } else {
                 currentPrice.setTextColor(Color.parseColor("#80808080"));
-                change.setTextColor(Color.parseColor("#80808080"));
                 changePrice.setTextColor(Color.parseColor("#80808080"));
                 changeRate.setTextColor(Color.parseColor("#80808080"));
             }
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-                if (purchasePrice.getText().charAt(0) == '-') {
-                    purchasePrice.setTextColor(Color.parseColor("#800000FF"));
-                } else if (purchasePrice.getText().charAt(0) != '0' && !purchasePrice.getText().equals("매입가")) {
+                if (stock.getProfitChange() == null) {
+                    purchasePrice.setTextColor(Color.parseColor("#80808080"));
+                } else if (stock.getProfitChange().equals("▲")) {
                     purchasePrice.setTextColor(Color.parseColor("#80FF0000"));
                 } else {
-                    purchasePrice.setTextColor(Color.parseColor("#80808080"));
+                    purchasePrice.setTextColor(Color.parseColor("#800000FF"));
                 }
             }
         }
@@ -147,6 +145,25 @@ public class OverlayService extends Service {
         // Android O 이상의 버전에서는 터치리스너가 동작하지 않는다. (TYPE_APPLICATION_OVERLAY 터치 미지원)
         mView = inflate.inflate(R.layout.overlay_view, null);
 
+        // ViewModel 초기화
+        overlayViewModel = new OverlayViewModel();
+
+        // 옵저버
+        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
+            @Override
+            public void onChanged(ArrayList<Stock> stockArray) {
+                Log.d("onChanged 1-1", "OverlayService 옵저버의 onChanged 진입");
+                Stock s = iteratorStock.next();
+                Log.d("onChanged 1-2", s.getName());
+
+                stocks = overlayViewModel.getStockList().getValue();
+                Log.d("onChanged 1-3", Integer.toString(stocks.size()));
+                iteratorStock = stocks.iterator();
+
+                while(!iteratorStock.next().getName().equals(s.getName())) Log.d("onChanged 1-4", s.getName());
+            }
+        };
+
         params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
@@ -169,12 +186,12 @@ public class OverlayService extends Service {
         // TextView 및 Button 초기화
         stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
         currentPrice = (TextView)mView.findViewById(R.id.stockboard_currentprice);
-        change = (TextView)mView.findViewById(R.id.stockboard_change);
         changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
         changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
+        //음메에에에
         /*
         // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
@@ -215,20 +232,20 @@ public class OverlayService extends Service {
             }
         });
         */
+
+        // 쓰레드 스타트
+        priceTh.start();
     }
 
     /** onCreate 이후에 실행되는 메서드 */
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if(intent != null) {
-            stocks = intent.getParcelableArrayListExtra("stocks");
-            iteratorStock = stocks.iterator();
-        }
+        stocks = overlayViewModel.getStockList().getValue();
+        iteratorStock = stocks.iterator();
 
         overlayCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("종료 테스트", "stockboard 종료");
                 stopStockBoard();
             }
         });
@@ -236,7 +253,6 @@ public class OverlayService extends Service {
         stockBoardTh = new Thread() {
             @Override
             public void run() {
-                Log.d("실행 테스트", "딜레이= " + String.valueOf(delayTime));
                 Message msg = handler.obtainMessage();
                 handler.postDelayed(this, delayTime);
                 handler.sendMessage(msg);
@@ -249,6 +265,7 @@ public class OverlayService extends Service {
 
     //  -------------- 스톡보드 스레드 및 서비스 종료에 필요한 메서드 --------------
     public void stopStockBoard() {
+        priceTh.interrupt();
         handler.removeMessages(0);
         stopService(new Intent(mView.getContext(), OverlayService.class));
     }

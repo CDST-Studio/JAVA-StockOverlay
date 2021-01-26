@@ -45,6 +45,7 @@
                     android:text="@{stock.currentPrice}"
                     android:textColor="#000000"
                     android:textSize="24dp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -56,10 +57,16 @@
                     android:id="@+id/stockcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:text="@{stock.stockCode}"
                     android:textColor="#666666"
                     android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/list_purchaseprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
 
                 <TextView
                     android:id="@+id/change"
