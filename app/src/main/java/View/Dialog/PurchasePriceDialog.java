@@ -3,6 +3,7 @@ package View.Dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
@@ -10,12 +11,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
 import java.util.Objects;
 
 import Model.Stock;
+import Module.DBA;
 import ViewModel.MainViewModel;
 
 public class PurchasePriceDialog {
@@ -62,18 +65,25 @@ public class PurchasePriceDialog {
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stock.setPurchasePrice(purchasePrice[0]);
-                stock.setProfitAndLoss();
+                if(TextUtils.isEmpty(purchasePrice[0])) {
+                    Toast.makeText(context, "매입가를 입력해주세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    stock.setPurchasePrice(purchasePrice[0]);
+                    stock.setProfitAndLoss();
 
-                int idx = 0;
-                for(Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
-                    if(s.getName().equals(stock.getName())) break;
-                    if(mainViewModel.getStockList().getValue().size() != idx +1 ) idx++;
+                    int idx = 0;
+                    for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
+                        if (s.getName().equals(stock.getName())) break;
+                        if (mainViewModel.getStockList().getValue().size() != idx + 1) idx++;
+                    }
+                    mainViewModel.getStockList().getValue().remove(idx);
+                    mainViewModel.getStockList().getValue().add(idx, stock);
+
+                    String nickname = new DBA().getNickname(context.getDatabasePath("User"));
+                    new DBA().addPurchasePrice(context.getDatabasePath("User"), nickname, stock.getName(), stock.getPurchasePrice());
+
+                    dlg.dismiss();
                 }
-                mainViewModel.getStockList().getValue().remove(idx);
-                mainViewModel.getStockList().getValue().add(idx, stock);
-
-                dlg.dismiss();
             }
         });
     }

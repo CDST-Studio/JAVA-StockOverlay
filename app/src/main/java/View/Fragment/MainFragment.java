@@ -26,7 +26,7 @@ import View.ListViewAdapter;
 import ViewModel.MainViewModel;
 import ViewModel.Thread.PriceThread;
 
-public class MainFragment extends Fragment{
+public class MainFragment extends Fragment {
     public static int MAINFRAGMENT_ON_ACTIVITY = 0;
 
     private ListViewAdapter adapter;

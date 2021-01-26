@@ -57,7 +57,10 @@ public class SettingFragment extends Fragment {
 
         // delay 시간
         delay = (EditText)viewGroup.findViewById(R.id.stockboard_delaytime);
-        if(getConfigValue(getContext(), "delayTime") != null) delay.setText(getConfigValue(getContext(), "delayTime"));
+        if(getConfigValue(getContext(), "delayTime") != null) {
+            String time = getConfigValue(getContext(), "delayTime");
+            delay.setText(time.substring(0, time.length()-3));
+        }
         delay.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }

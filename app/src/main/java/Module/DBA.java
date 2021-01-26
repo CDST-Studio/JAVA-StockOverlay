@@ -34,7 +34,7 @@ public class DBA {
 
     /**
      * 관심 종목 추가 메서드(단수)
-     * DB: getDatabasePath("~"), user: User, name: StockName
+     * DB: getDatabasePath("User"), user: User, name: StockName
      * @param DB
      * @param user
      * @param name
@@ -54,12 +54,9 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName());
-        List<String> savedInterestedStocks = user.getInterestedStocks();
-        savedInterestedStocks.add(name);
-
+        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
         washingtonRef
-                .update("interestedStocks", savedInterestedStocks)
+                .update("매입가", null)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -76,11 +73,67 @@ public class DBA {
     // 관심 종목 추가 메서드(복수)
     public void addInterestedStocks(File DB, User user, String[] names) { for(int i=0; i<names.length; i++) this.addInterestedStocks(DB, user, names[i]); }
 
+    /**
+     * DB: getDatabasePath("User"), user: User, name: StockName, price: PurchasePrice
+     * @param DB
+     * @param user
+     * @param name
+     * @param price
+     */
+    public void addPurchasePrice(File DB, String user, String name, String price) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) { stockList.add(line); }
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i=0; i<stockList.size(); i++) {
+                if(stockList.get(i).split(":")[0].equals(name)) {
+                    bw.write(stockList.get(i) + ":" + price);
+                    bw.newLine();
+                }else {
+                    bw.write(stockList.get(i));
+                    bw.newLine();
+                }
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        final DocumentReference washingtonRef = db.collection("User").document(user).collection("interestedStocks").document(name);
+        washingtonRef
+                .update("매입가", price)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Updata Success", "매입가 추가 성공");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Update Failed", "매입가 추가 실패, ", e);
+                    }
+                });
+    }
+
     // ---------------------------- Sub ----------------------------
 
     /**
      * 관심 종목 삭제 메서드(단수)
-     * DB: getDatabasePath("~"), name: stockName
+     * DB: getDatabasePath("User"), name: stockName
      * @param DB
      * @param name
      */
@@ -101,8 +154,8 @@ public class DBA {
             for(int i=0; i<stockList.size(); i++) {
                 bw.write(stockList.get(i));
                 bw.newLine();
-                bw.flush();
             }
+            bw.flush();
 
             br.close();
             fr.close();
@@ -112,32 +165,84 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName());
-        List<String> savedInterestedStocks = user.getInterestedStocks();
-        savedInterestedStocks.remove(name);
-
+        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
         washingtonRef
-                .update("interestedStocks", savedInterestedStocks)
+                .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "관심종목 추가 성공");
+                        Log.d("Updata Success", "관심종목 삭제 성공");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "관심종목 추가 실패, ", e);
+                        Log.w("Update Failed", "관심종목 삭제 실패, ", e);
                     }
                 });
     }
     // 관심 종목 삭제 메서드(복수)
     public void subInterestedStocks(File DB, User user, String[] names) { for(int i=0; i<names.length; i++) this.subInterestedStocks(DB, user, names[i]); };
 
+    /**
+     * DB: getDatabasePath("User"), user: User, name: StockName
+     * @param DB
+     * @param user
+     * @param name
+     */
+    public void subPurchasePrice(File DB, User user, String name) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) { stockList.add(line); }
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i=0; i<stockList.size(); i++) {
+                if(stockList.get(i).split(":")[0].equals(name)) {
+                    bw.write(stockList.get(i).split(":")[0]);
+                    bw.newLine();
+                }else {
+                    bw.write(stockList.get(i));
+                    bw.newLine();
+                }
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
+        washingtonRef
+                .update("매입가", null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Updata Success", "매입가 삭제 성공");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Update Failed", "매입가 삭제 실패, ", e);
+                    }
+                });
+    }
+
     // ---------------------------- Search ----------------------------
 
     /**
-     * DB: getDatabasePath("~"), name: 종목명
+     * DB: getDatabasePath("User"), name: 종목명
      * @param assetManager
      * @param name
      * @return
@@ -161,7 +266,7 @@ public class DBA {
 
     /**
      * 관심 종목 초기화 메서드
-     * DB: getDatabasePath("~"), user: new User()
+     * DB: getDatabasePath("User"), user: new User()
      * @param DB
      * @param user
      */
@@ -179,7 +284,7 @@ public class DBA {
             BufferedReader br = new BufferedReader(fr);
 
             String line;
-            while((line = br.readLine()) != null) { result.add(line); }
+            while((line = br.readLine()) != null) { result.add(line.split(":")[0]); }
 
             br.close();
             fr.close();
@@ -191,7 +296,7 @@ public class DBA {
 
     /**
      * 닉네임 초기 설정 메서드
-     * DB: getDatabasePath("~"), user: new User(), nickname: user.getNickname()
+     * DB: getDatabasePath("User"), user: new User(), nickname: user.getNickname()
      * @param DB
      * @param user
      * @param nickname
@@ -259,7 +364,7 @@ public class DBA {
 
     /**
      * 관심 종목 불러오기 메서드
-     * DB: getDatabasePath("~"), nickname: user.getNickname()
+     * DB: getDatabasePath("User")
      * @param DB
      */
     public ArrayList<String> getInterestedStocks(File DB) {
@@ -270,7 +375,7 @@ public class DBA {
             BufferedReader br = new BufferedReader(fr);
 
             String line;
-            while((line = br.readLine()) != null) { result.add(line); }
+            while((line = br.readLine()) != null) { result.add(line.split(":")[0]); }
 
             if(result.size() == 0) result.add("-");
 
@@ -285,7 +390,7 @@ public class DBA {
 
     /**
      * 닉네임 불러오는 메서드
-     * DB: getDatabasePath("~")
+     * DB: getDatabasePath("User")
      * @param DB
      * @return
      */
@@ -325,6 +430,37 @@ public class DBA {
         stock.setChangePrice(crawer.changePrice());
 
         return stock;
+    }
+
+    /**
+     * 관심 종목 불러오기 메서드
+     * DB: getDatabasePath("User")
+     * @param DB
+     */
+    public ArrayList<String> getPurchasePrice(File DB) {
+        ArrayList<String> result = new ArrayList<>();
+
+        try {
+            FileReader fr = new FileReader(DB + "/InterestedStocks.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) {
+                String[] split = line.split(":");
+
+                if(split.length == 1) result.add("-");
+                else result.add(split[1]);
+            }
+
+            if(result.size() == 0) result.add("-");
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return result;
     }
 
     // ---------------------------- isExist ----------------------------
@@ -371,7 +507,7 @@ public class DBA {
 
     /**
      * 닉네임이 있는지 없는지 체크하는 메서드
-     * DB: getDatabasePath("~")
+     * DB: getDatabasePath("User")
      * @param DB
      * @return
      */

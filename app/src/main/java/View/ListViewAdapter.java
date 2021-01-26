@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
 import Model.Stock;
+import Module.DBA;
 import View.Dialog.PurchasePriceDialog;
 import ViewModel.MainViewModel;
 
@@ -76,9 +77,14 @@ public class ListViewAdapter extends BaseAdapter {
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            if(listViewItem.getPurchasePrice() != null) {
+            ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
+            if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
+                listViewItem.setPurchasePrice(purchasePrices.get(position));
+                listViewItem.setProfitAndLoss();
+            }
+            if (listViewItem.getPurchasePrice() != null) {
                 purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
-            }else {
+            } else {
                 purchasePrice.setText("매입가");
             }
         }
