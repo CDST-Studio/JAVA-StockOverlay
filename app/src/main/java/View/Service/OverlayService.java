@@ -265,6 +265,7 @@ public class OverlayService extends Service {
 
     //  -------------- 스톡보드 스레드 및 서비스 종료에 필요한 메서드 --------------
     public void stopStockBoard() {
+        priceTh.interrupt();
         handler.removeMessages(0);
         stopService(new Intent(mView.getContext(), OverlayService.class));
     }
@@ -272,8 +273,6 @@ public class OverlayService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        priceTh.interrupt();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             stopForeground(true); // Foreground service 종료

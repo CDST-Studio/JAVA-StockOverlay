@@ -20,7 +20,7 @@ public class PriceThread extends MainViewModel implements Runnable {
                 priceCompare();
             }
         } catch (InterruptedException e) {
-            return;
+            Log.d("MainTh", "종료");
         }
     }
 

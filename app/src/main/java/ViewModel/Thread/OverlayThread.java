@@ -23,9 +23,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
                 Thread.sleep(4000);
                 priceCompare();
             }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        } catch (InterruptedException e) { }
     }
 
     private void priceCompare(){

@@ -27,9 +27,10 @@ public class MainFragment extends Fragment{
     public static int MAINFRAGMENT_ON_ACTIVITY = 0;
 
     private ListViewAdapter adapter;
-    private View viewGroup;
-    private ArrayList<Stock> stocks = new ArrayList<>();
     private MainViewModel model;
+    private View viewGroup;
+
+    private ArrayList<Stock> stocks = new ArrayList<>();
     private Thread priceTh = new Thread(new PriceThread());
 
     @Nullable
@@ -77,8 +78,8 @@ public class MainFragment extends Fragment{
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
+    public void onStop() {
+        super.onStop();
 
         MAINFRAGMENT_ON_ACTIVITY = 0;
         priceTh.interrupt();
