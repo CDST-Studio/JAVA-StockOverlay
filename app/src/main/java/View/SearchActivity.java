@@ -3,6 +3,7 @@ package View;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class SearchActivity extends AppCompatActivity {
     private Intent intent;
     private ArrayList<Stock> stock;
     private String name, code;
+    private Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class SearchActivity extends AppCompatActivity {
         parsing = new Parsing();
         search = new Search();
         intent = new Intent(SearchActivity.this, ListSearchAdapter.class);
+        bundle = new Bundle();
 
         SearchView searchView = (SearchView) findViewById(R.id.search_bar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -54,40 +57,28 @@ public class SearchActivity extends AppCompatActivity {
                    query = query.toUpperCase();
                }
 
-               try {
-                   stock = search.searchStock(assetManager, query);
-                   name = stock.get(0).getName();
-                   code = stock.get(0).getName();
-               }
-               catch (NumberFormatException e) {
-                   Toast.makeText(SearchActivity.this, "검색어를 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
-                   return false;
-               }
+               stock = search.searchStock(assetManager, query);
 
-                try {
-                    if(name != null && code != null) { //검색할 때 마다 프래그먼트 초기화
-                        searchableFragment = new SearchableFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelableArrayList("stock",stock);
+               if(stock != null && stock.size() > 0) { //검색할 때 마다 프래그먼트 초기화
+                   searchableFragment = new SearchableFragment();
+                   bundle.putParcelableArrayList("stock",stock);
 
-                        for(int i=0; i<stock.size(); i++) { // SearchableFragment로 값 전달
-                            name= stock.get(i).getName();
-                            code= stock.get(i).getStockCode();
-                            bundle.putString("name"+i, name);
-                            bundle.putString("code"+i, code);
-                            searchableFragment.setArguments(bundle);
-                        }
-                        intent.putExtra("bookmark", name); // ListSearchAdapter 로 값 전달
-                        getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
-                        Toast.makeText(SearchActivity.this, "검색완료", Toast.LENGTH_SHORT).show();
-                        return true; }
-                }catch (NumberFormatException e) {
-                    return false; }
+                   for(int i=0; i<stock.size(); i++) { // SearchableFragment로 값 전달
+                       name= stock.get(i).getName();
+                       code= stock.get(i).getStockCode();
+                       bundle.putString("name"+i, name);
+                       bundle.putString("code"+i, code);
+                       searchableFragment.setArguments(bundle);
+                   }
+
+                   intent.putExtra("bookmark", name); // ListSearchAdapter 로 값 전달
+                   getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
+                   Toast.makeText(SearchActivity.this, "검색완료"+stock, Toast.LENGTH_SHORT).show();
+                   return true; }
 
                 Toast.makeText(SearchActivity.this, "검색어를 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return false;
             }
-
 
             @Override
             public boolean onQueryTextChange(String newText) { //입력중

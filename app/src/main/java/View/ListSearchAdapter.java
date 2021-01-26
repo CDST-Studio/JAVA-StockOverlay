@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
@@ -16,8 +17,9 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import Module.DBA;
+import View.SearchActivity;
 
-public class ListSearchAdapter extends BaseAdapter  {
+public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
     private int check = 1;
     private Bundle bundle;
