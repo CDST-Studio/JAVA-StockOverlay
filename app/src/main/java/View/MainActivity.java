@@ -5,10 +5,11 @@ import android.annotation.TargetApi;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Messenger;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -28,16 +29,12 @@ import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
-import ViewModel.OverlayViewModel;
-import ViewModel.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
     public static int PURCHASE_PRICE_INPUT_FLAG = 1;
 
     private BottomNavigationView bottomNavigationView;
-    private Messenger mServiceMessenger = null;
-    private boolean mIsBound;
 
     private MainFragment mainFragment = new MainFragment();
     private SettingFragment settingFragment = new SettingFragment();
@@ -45,14 +42,21 @@ public class MainActivity extends AppCompatActivity {
     private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
 
-    private OverlayViewModel viewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         createToolbar(); // 상단 네비게이션 바 생성
         createBottomNavigation(); // 하단 네비게이션 바 생성
+
+        // 매입가 입력여부 체크
+        if(getConfigValue(getApplicationContext(), "purchaseSwitch") != null) {
+            if(getConfigValue(getApplicationContext(), "purchaseSwitch").equals("ON")) {
+                PURCHASE_PRICE_INPUT_FLAG = 1;
+            }else {
+                PURCHASE_PRICE_INPUT_FLAG = 0;
+            }
+        }
 
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
@@ -66,10 +70,6 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
-        /*쓰레드 스타트*/
-        Runnable pricethread = new PriceThread();
-        Thread thread = new Thread(pricethread);
-        thread.start();
     }
 
 
@@ -157,6 +157,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //  -------------- 기타 메서드 --------------
+    // Preference 읽기
+    public static String getConfigValue(Context context, String key) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        return pref.getString(key, null);
+    }
+
     /*
     private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력
         LinearLayout Layout_stock = new LinearLayout(this);

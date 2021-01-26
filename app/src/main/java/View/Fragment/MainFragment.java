@@ -1,7 +1,10 @@
 package View.Fragment;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,7 +72,6 @@ public class MainFragment extends Fragment{
             }
         };
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
-
 
         // 쓰레드 스타트
         priceTh.start();

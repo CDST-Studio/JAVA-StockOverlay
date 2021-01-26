@@ -7,12 +7,14 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -181,7 +183,8 @@ public class OverlayService extends Service {
         wm.addView(mView, params);
 
         // delay 시간 세팅
-        delayTime = 4000;
+        if(getConfigValue(getApplicationContext(), "delayTime") != null) delayTime = Integer.parseInt(getConfigValue(getApplicationContext(), "delayTime"));
+        else delayTime = 4000;
 
         // TextView 및 Button 초기화
         stockName = (TextView)mView.findViewById(R.id.stockboard_stockname);
@@ -191,7 +194,6 @@ public class OverlayService extends Service {
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
-        //음메에에에
         /*
         // Down → (Move) → Up → onClick 순서로 작동
         ImageButton btn_img = (ImageButton) mView.findViewById(R.id.btn_overlay);
@@ -253,6 +255,7 @@ public class OverlayService extends Service {
         stockBoardTh = new Thread() {
             @Override
             public void run() {
+                Log.d("스톡보드 실행 중", "딜레이 타임: " + Integer.toString(delayTime));
                 Message msg = handler.obtainMessage();
                 handler.postDelayed(this, delayTime);
                 handler.sendMessage(msg);
@@ -290,4 +293,10 @@ public class OverlayService extends Service {
     // -------------- 기타 메서드 --------------
     @Nullable @Override
     public IBinder onBind(Intent intent) { return null; }
+
+    // Preference 읽기
+    public static String getConfigValue(Context context, String key) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        return pref.getString(key, null);
+    }
 }

@@ -89,7 +89,7 @@
                 android:ems="10"
                 android:gravity="center"
                 android:hint="단위: 초"
-                android:inputType="time"
+                android:inputType="numberSigned"
                 android:text="4"
                 android:textColor="@color/white"
                 android:textStyle="bold" />
