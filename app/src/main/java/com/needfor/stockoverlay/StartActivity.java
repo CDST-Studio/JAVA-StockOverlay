@@ -39,8 +39,7 @@ public class StartActivity extends AppCompatActivity {
         // 애드몹 초기화
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {
-            }
+            public void onInitializationComplete(InitializationStatus initializationStatus) { }
         });
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));

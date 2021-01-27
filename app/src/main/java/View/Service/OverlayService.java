@@ -136,8 +136,6 @@ public class OverlayService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        //model = new ViewModelProvider(new LifecycleOwner.getLifecycle()).get(OverlayViewModel.class);
-
         // Android O 이상일 경우 Foreground 서비스를 실행
         // Notification channel 설정.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -163,8 +161,6 @@ public class OverlayService extends Service {
 
         // ViewModel 초기화
         overlayViewModel = new OverlayViewModel();
-        //overlayViewModel = new ViewModelProvider(this:getLifecycle).get(OverlayViewModel.class);
-
 
         params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
@@ -235,9 +231,6 @@ public class OverlayService extends Service {
         });
         */
 
-        // 쓰레드 스타트
-        //overlayViewModel.getStockList().observe(this::getLifecycle,stockObserver);
-
         priceTh.start();
     }
 
@@ -299,17 +292,13 @@ public class OverlayService extends Service {
     }
 
     public void overServiceObserver(){
-        Log.d("onChanged 1-1", "OverlayService 옵저버의 onChanged 진입");
         if(this.iteratorStock != null) {
             Stock s = this.iteratorStock.next();
-            Log.d("onChanged 1-2", s.getName());
 
             this.stocks = overlayViewModel.getStockList().getValue();
-            Log.d("onChanged 1-3", Integer.toString(this.stocks.size()));
             this.iteratorStock = this.stocks.iterator();
 
-            while (!this.iteratorStock.next().getName().equals(s.getName()))
-                Log.d("onChanged 1-4", s.getName());
+            while (!this.iteratorStock.next().getName().equals(s.getName()));
         }
     }
 

@@ -49,9 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Stock> stocks = new ArrayList<>();
 
     private OverlayViewModel viewModel;
-
     private Observer<ArrayList<Stock>> overlayObserver;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
         //라이브데이터에 observer를 add하기 위해서는 라이브데이터는 항상 Provider를 통해 생성해 줘야한다.
         //하지만 백그라운드에서 돌아갈 방법이 없으므로 Main에서 set 한 후 스톡보드 실행 지점에서 observer를 activty하고 스톡보드 종류 지점에서 removeObserver를 해준다.
         //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
-        //경밑시 까지 앞으로 1승
         viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
 
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
@@ -91,12 +88,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(ArrayList<Stock> stocks) {
                 new OverlayService().overServiceObserver();
-                Log.v("song","씨빠");
             }
         };
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
+
         /*쓰레드 스타트*/
         Runnable pricethread = new PriceThread();
         Thread thread = new Thread(pricethread);
