@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.needfor.stockoverlay.R;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import Model.Stock;
@@ -24,13 +25,12 @@ import View.Fragment.SearchableFragment;
 
 public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
-    private ArrayList<Stock> stock;
     private int check = 1;
-    private Bundle bundle;
     private DBA dba;
-    private String name;
-    private Intent inten;
-    private SearchableFragment fragment;
+    private String user, name;
+    private File file;
+    private TextView StockName, StockCode;
+    private Stock listViewItem;
 
     public ListSearchAdapter() {
     }
@@ -49,48 +49,40 @@ public class ListSearchAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.custom_list_item2, parent, false);
         }
 
-        TextView StockName = (TextView) convertView.findViewById(R.id.search_name) ;
-        TextView StockCode = (TextView) convertView.findViewById(R.id.search_code) ;
+        StockName = (TextView) convertView.findViewById(R.id.search_name) ;
+        StockCode = (TextView) convertView.findViewById(R.id.search_code) ;
 
-        Stock listViewItem = listViewItemList.get(position);
+        listViewItem = listViewItemList.get(pos);
 
         StockName.setText(listViewItem.getName());
         StockCode.setText(listViewItem.getStockCode());
 
-        Button bookmark  = convertView.findViewById(R.id.Button_bookmark);
+        file = context.getDatabasePath("User");
+        user = dba.getNickname(file);
 
-        bundle = new Bundle();
-        fragment = new SearchableFragment();
-        //stock = fragment.getArguments().getParcelableArrayList("stock");
-
-        if(fragment.getArguments()!=null){
-            name = fragment.getArguments().getString("name"+pos);
-        }
-
-
-
+        Button bookmark = convertView.findViewById(R.id.Button_bookmark);
         bookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                name = listViewItemList.get(pos).getName();
                 switch(check){
                     case 1:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
-                        //dba.addInterestedStocks(("/data/data/com.needfor.stockoverlay/databases"), user, name);
-                        Toast.makeText(context, name+"Test"+pos, Toast.LENGTH_SHORT).show();
+                        try { dba.addInterestedStocks(file, user, name); }
+                        catch (Exception e){ Toast.makeText(context, name+" 북마크 추가 실패", Toast.LENGTH_SHORT).show(); }
                         check=0;
                         break;
                     case 0:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark);
-                        //dba.subInterestedStocks("/data/data/com.needfor.stockoverlay/databases",user,name);
+                        try{ dba.subInterestedStocks(file, user, name); }
+                        catch (Exception e){ Toast.makeText(context, name+ " 북마크 해제 실패", Toast.LENGTH_SHORT).show(); }
                         check=1;
                         break;
                 }
         }
         });
-
         return convertView;
     }
-
 
     @Override
     public Object getItem(int position) {
@@ -102,13 +94,10 @@ public class ListSearchAdapter extends BaseAdapter{
         return position;
     }
 
-
     public void addItem(String searchname, String searchcode) {
         Stock item = new Stock();
-
         item.setName(searchname);
         item.setStockCode(searchcode);
-
         listViewItemList.add(item);
     }
 
