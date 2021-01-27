@@ -13,18 +13,10 @@ public class PriceThread extends MainViewModel implements Runnable {
     private MainViewModel mModel;
     private ArrayList<Stock> tStockList;
 
-    private AtomicBoolean runbool = new AtomicBoolean(false);
-
-    public void stop(){
-            runbool.set(false);
-    }
-
     @Override
     public void run() {
-        runbool.set(true);
-
         try {
-            while(runbool.get()) {
+            while(true) {
                 Thread.sleep(4000);
                 priceCompare();
             }
