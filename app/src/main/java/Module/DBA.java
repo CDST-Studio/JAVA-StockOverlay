@@ -252,6 +252,7 @@ public class DBA {
         Parsing parsing = new Parsing();
 
         ArrayList<String> names = parsing.searchName(assetManager,name);
+
         for(int i=0; i<names.size(); i++) {
             Stock stock = new Stock();
             stock.setName(names.get(i));
