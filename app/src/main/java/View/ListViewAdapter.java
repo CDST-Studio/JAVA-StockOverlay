@@ -23,13 +23,14 @@ import com.needfor.stockoverlay.R;
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     //private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
-    final private ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
+    private final ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
     // ListViewAdapter의 생성자
     public ListViewAdapter() { }
 
     private TextView purchasePrice;
     private MainViewModel mainViewModel;
 
+    private static int POWER_ON_FLAG = 0;
     // Setter
     public void setMainViewModel(MainViewModel mainViewModel) {
         this.mainViewModel = mainViewModel;
@@ -77,14 +78,20 @@ public class ListViewAdapter extends BaseAdapter {
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
-            if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
-                listViewItem.setPurchasePrice(purchasePrices.get(position));
-                listViewItem.setProfitAndLoss();
+            if (POWER_ON_FLAG == 0) {
+                ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
+                if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
+                    listViewItem.setPurchasePrice(purchasePrices.get(position));
+                    listViewItem.setProfitAndLoss();
+                }
+                POWER_ON_FLAG = 1;
             }
+            Log.d("값 테스트",listViewItem.getName());
             if (listViewItem.getPurchasePrice() != null) {
+                Log.d("값 테스트",listViewItem.getPurchasePrice());
                 purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
             } else {
+                Log.d("값 테스트","Null");
                 purchasePrice.setText("매입가");
             }
         }

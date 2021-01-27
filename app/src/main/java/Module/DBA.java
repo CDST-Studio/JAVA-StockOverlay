@@ -30,8 +30,8 @@ import Model.User;
 public class DBA {
     // FireStore(Firebase) 접속용 Instance
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    // ---------------------------- Add ----------------------------
 
+    // ---------------------------- Add ----------------------------
     /**
      * 관심 종목 추가 메서드(단수)
      * DB: getDatabasePath("User"), user: User, name: StockName
@@ -39,7 +39,7 @@ public class DBA {
      * @param user
      * @param name
      */
-    public void addInterestedStocks(File DB, User user, String name) {
+    public void addInterestedStocks(File DB, String user, String name) {
         try {
             FileWriter fw = new FileWriter(new File(DB + "/InterestedStocks.txt"), true);
             BufferedWriter bw = new BufferedWriter(fw);
@@ -54,9 +54,10 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
-        washingtonRef
-                .update("매입가", null)
+        HashMap<String, String> setData = new HashMap<>();
+        setData.put("매입가", null);
+        db.collection("User").document(user).collection("interestedStocks").document(name)
+                .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -71,7 +72,7 @@ public class DBA {
                 });
     }
     // 관심 종목 추가 메서드(복수)
-    public void addInterestedStocks(File DB, User user, String[] names) { for(int i=0; i<names.length; i++) this.addInterestedStocks(DB, user, names[i]); }
+    public void addInterestedStocks(File DB, String user, String[] names) { for(int i=0; i<names.length; i++) this.addInterestedStocks(DB, user, names[i]); }
 
     /**
      * DB: getDatabasePath("User"), user: User, name: StockName, price: PurchasePrice
@@ -112,9 +113,10 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user).collection("interestedStocks").document(name);
-        washingtonRef
-                .update("매입가", price)
+        HashMap<String, String> setData = new HashMap<>();
+        setData.put("매입가", price);
+        db.collection("User").document(user).collection("interestedStocks").document(name)
+                .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -137,7 +139,7 @@ public class DBA {
      * @param DB
      * @param name
      */
-    public void subInterestedStocks(File DB, User user, String name) {
+    public void subInterestedStocks(File DB, String user, String name) {
         ArrayList<String> stockList = new ArrayList<>();
         String fileDir = DB + "/InterestedStocks.txt";
 
@@ -165,8 +167,7 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
-        washingtonRef
+        db.collection("User").document(user).collection("interestedStocks").document(name)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -182,7 +183,7 @@ public class DBA {
                 });
     }
     // 관심 종목 삭제 메서드(복수)
-    public void subInterestedStocks(File DB, User user, String[] names) { for(int i=0; i<names.length; i++) this.subInterestedStocks(DB, user, names[i]); };
+    public void subInterestedStocks(File DB, String user, String[] names) { for(int i=0; i<names.length; i++) this.subInterestedStocks(DB, user, names[i]); };
 
     /**
      * DB: getDatabasePath("User"), user: User, name: StockName
@@ -222,8 +223,7 @@ public class DBA {
             e.getStackTrace();
         }
 
-        final DocumentReference washingtonRef = db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name);
-        washingtonRef
+        db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name)
                 .update("매입가", null)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

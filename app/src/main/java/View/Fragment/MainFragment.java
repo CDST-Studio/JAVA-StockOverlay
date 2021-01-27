@@ -68,6 +68,7 @@ public class MainFragment extends Fragment {
         final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
+                Log.d("값 변화 감지", "옵저버 실행");
                 adapter.setItem(model.getStockList().getValue());
             }
         };
