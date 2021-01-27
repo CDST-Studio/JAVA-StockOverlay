@@ -93,11 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
-
-        /*쓰레드 스타트*/
-        Runnable pricethread = new PriceThread();
-        Thread thread = new Thread(pricethread);
-        thread.start();
     }
 
 
@@ -192,12 +187,6 @@ public class MainActivity extends AppCompatActivity {
     public static String getConfigValue(Context context, String key) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         return pref.getString(key, null);
-    }
-
-
-    protected void onStop() {
-        new PriceThread().stop();
-        super.onStop();
     }
 }
 
