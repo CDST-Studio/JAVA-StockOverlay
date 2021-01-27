@@ -43,7 +43,6 @@ public class SearchActivity extends AppCompatActivity {
         bundle = new Bundle();
 
         SearchView searchView = (SearchView) findViewById(R.id.search_bar);
-        //searchView.setIconified(f   alse);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
             @Override
@@ -90,7 +89,7 @@ public class SearchActivity extends AppCompatActivity {
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) { // 뒤로가기 이벤트
         switch (item.getItemId()){
             case android.R.id.home:
                 onBackPressed();
