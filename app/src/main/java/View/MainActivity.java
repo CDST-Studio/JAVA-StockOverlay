@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -18,6 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.needfor.stockoverlay.R;
@@ -29,6 +33,8 @@ import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
+import ViewModel.OverlayViewModel;
+import ViewModel.Thread.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
@@ -41,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
 
     private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
+
+    private OverlayViewModel viewModel;
+    private Observer<ArrayList<Stock>> overlayObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        //오버레이 observer를 여기에 set
+        //라이브데이터에 observer를 add하기 위해서는 라이브데이터는 항상 Provider를 통해 생성해 줘야한다.
+        //하지만 백그라운드에서 돌아갈 방법이 없으므로 Main에서 set 한 후 스톡보드 실행 지점에서 observer를 activty하고 스톡보드 종류 지점에서 removeObserver를 해준다.
+        //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
+        viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
+
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
@@ -68,8 +83,21 @@ public class MainActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("stocks",stocks);
 
+        //Observer 정의
+        overlayObserver = new Observer<ArrayList<Stock>>() {
+            @Override
+            public void onChanged(ArrayList<Stock> stocks) {
+                new OverlayService().overServiceObserver();
+            }
+        };
+
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
+
+        /*쓰레드 스타트*/
+        Runnable pricethread = new PriceThread();
+        Thread thread = new Thread(pricethread);
+        thread.start();
     }
 
 
@@ -152,6 +180,9 @@ public class MainActivity extends AppCompatActivity {
     public void startOverlay() {
         Intent intent = new Intent(getApplicationContext(), OverlayService.class);
         intent.putExtra("stocks", stocks);
+
+        viewModel.getStockList().observeForever(overlayObserver);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
         else startService(intent);
     }
@@ -163,23 +194,11 @@ public class MainActivity extends AppCompatActivity {
         return pref.getString(key, null);
     }
 
-    /*
-    private void createStock() { // 주식 레이아웃 동적 생성 크롤링한 Array 출력
-        LinearLayout Layout_stock = new LinearLayout(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        Layout_stock.setLayoutParams(params);
-        Button btn = new Button(this);
-        ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams
-                (ViewGroup.LayoutParams.WRAP_CONTENT,
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-        btn.setLayoutParams(lp);
-        btn.setText("test");
-        Layout_stock.addView(btn);
-        setContentView(Layout_stock);
-        //TextView textstock = new TextView(getApplication());
-    }
-    */
 
+    protected void onStop() {
+        new PriceThread().stop();
+        super.onStop();
+    }
 }
 
 

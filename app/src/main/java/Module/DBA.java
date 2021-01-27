@@ -115,7 +115,7 @@ public class DBA {
 
         HashMap<String, String> setData = new HashMap<>();
         setData.put("매입가", price);
-        db.collection("User").document(user).collection("interestedStocks").document(name)
+        /*db.collection("User").document(user).collection("interestedStocks").document(name)
                 .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -128,7 +128,7 @@ public class DBA {
                     public void onFailure(@NonNull Exception e) {
                         Log.w("Update Failed", "매입가 추가 실패, ", e);
                     }
-                });
+                });*/
     }
 
     // ---------------------------- Sub ----------------------------
@@ -385,7 +385,7 @@ public class DBA {
         } catch (Exception e) {
             e.getStackTrace();
         }
-        
+
         return result;
     }
 
@@ -410,7 +410,7 @@ public class DBA {
         }
         return nickname;
     }
-    
+
     /**
      * 종목명에 맞는 종목 정보 반환 메서드
      * assetManager: getApplicationContext().getAssets(), name: stockName

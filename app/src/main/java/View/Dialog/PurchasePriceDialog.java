@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import Model.Stock;
@@ -72,13 +73,16 @@ public class PurchasePriceDialog {
 
                     stock.setPurchasePrice(purchasePrice[0]);
                     stock.setProfitAndLoss();
+
                     int idx = 0;
                     for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
                         if (s.getName().equals(stock.getName())) break;
                         if (mainViewModel.getStockList().getValue().size() != idx + 1) idx++;
                     }
-                    mainViewModel.getStockList().getValue().get(idx).setPurchasePrice(stock.getPurchasePrice());
-                    mainViewModel.getStockList().getValue().get(idx).setProfitAndLoss();
+
+                    ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
+                    stocklist.set(idx, stock);
+                    mainViewModel.getStockList().setValue(stocklist);
 
                     dlg.dismiss();
                 }

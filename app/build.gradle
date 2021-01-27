@@ -45,6 +45,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation 'com.google.firebase:firebase-firestore'
     implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    // 애드몹
+    implementation 'com.google.android.gms:play-services-ads:19.6.0'
 
     // 웹 크롤링용 jsoup
     implementation 'org.jsoup:jsoup:1.11.3'
