@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
 import android.view.MenuItem;
@@ -18,7 +17,6 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import Module.Search;
-import Module.Parsing;
 import View.Fragment.SearchableFragment;
 
 public class SearchActivity extends AppCompatActivity {
@@ -30,6 +28,7 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<Stock> stock;
     private String name, code;
     private Bundle bundle;
+    private ListSearchAdapter listSearchAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class SearchActivity extends AppCompatActivity {
         search = new Search();
         intent = new Intent(SearchActivity.this, ListSearchAdapter.class);
         bundle = new Bundle();
+        listSearchAdapter = new ListSearchAdapter();
 
         SearchView searchView = (SearchView) findViewById(R.id.search_bar);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -69,9 +69,8 @@ public class SearchActivity extends AppCompatActivity {
                         bundle.putString("name"+i, name);
                         bundle.putString("code"+i, code);
                         searchableFragment.setArguments(bundle);
+                        intent.putExtra("bookmark"+i, name); // ListSearchAdapter 로 값 전달
                     }
-
-                    intent.putExtra("bookmark", name); // ListSearchAdapter 로 값 전달
                     getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
                     Toast.makeText(SearchActivity.this, "검색완료", Toast.LENGTH_SHORT).show();
                     return true; }

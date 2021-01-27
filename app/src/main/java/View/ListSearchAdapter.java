@@ -2,6 +2,7 @@ package View;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,20 +12,25 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
 import com.needfor.stockoverlay.R;
 
 import java.util.ArrayList;
 
 import Model.Stock;
 import Module.DBA;
-import View.SearchActivity;
+import View.Fragment.SearchableFragment;
 
 public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
+    private ArrayList<Stock> stock;
     private int check = 1;
     private Bundle bundle;
     private DBA dba;
     private String name;
+    private Intent inten;
+    private SearchableFragment fragment;
 
     public ListSearchAdapter() {
     }
@@ -53,18 +59,24 @@ public class ListSearchAdapter extends BaseAdapter{
 
         Button bookmark  = convertView.findViewById(R.id.Button_bookmark);
 
-        bundle = ((Activity)context).getIntent().getExtras();
+        bundle = new Bundle();
+        fragment = new SearchableFragment();
+        //stock = fragment.getArguments().getParcelableArrayList("stock");
+
+        if(fragment.getArguments()!=null){
+            name = fragment.getArguments().getString("name"+pos);
+        }
+
+
 
         bookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(bundle!=null){
-                    name = bundle.getString("bookmark");
-                }
                 switch(check){
                     case 1:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
                         //dba.addInterestedStocks(("/data/data/com.needfor.stockoverlay/databases"), user, name);
+                        Toast.makeText(context, name+"Test"+pos, Toast.LENGTH_SHORT).show();
                         check=0;
                         break;
                     case 0:
