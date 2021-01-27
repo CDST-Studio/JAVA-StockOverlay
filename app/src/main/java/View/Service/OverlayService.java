@@ -66,8 +66,8 @@ public class OverlayService extends Service {
     private TextView purchasePrice;
     private Button overlayCancle;
 
+    private Thread priceTh;
     private OverlayViewModel overlayViewModel;
-    private Thread priceTh = new Thread(new OverlayThread());
     private static ArrayList<Stock> stocks = new ArrayList<>();
 
 
@@ -231,6 +231,8 @@ public class OverlayService extends Service {
         });
         */
 
+        // 쓰레드 시작
+        priceTh = new Thread(new OverlayThread());
         priceTh.start();
     }
 
@@ -263,8 +265,9 @@ public class OverlayService extends Service {
 
     //  -------------- 스톡보드 스레드 및 서비스 종료에 필요한 메서드 --------------
     public void stopStockBoard() {
-        priceTh.interrupt();
         handler.removeMessages(0);
+        priceTh.interrupt();
+        setConfigValue(getApplicationContext(),"stockBoardStart", "stop");
         stopService(new Intent(mView.getContext(), OverlayService.class));
     }
 
@@ -302,10 +305,17 @@ public class OverlayService extends Service {
         }
     }
 
-
     // Preference 읽기
     public static String getConfigValue(Context context, String key) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         return pref.getString(key, null);
+    }
+
+    // Preference 쓰기
+    public static void setConfigValue(Context context, String key, String value) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.commit();
     }
 }

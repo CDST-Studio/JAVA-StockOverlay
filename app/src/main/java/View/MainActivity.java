@@ -76,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
+        // 스톡보드 상태 초기화
+        setConfigValue(getApplicationContext(), "stockBoardStart", "stop");
+
         // 종목 초기화 및 관심종목 프래그먼트로 전달
         for(int i=0; i<exStocks.length; i++) stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
 
@@ -128,14 +131,12 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.tab4:
                         ActivityManager am = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
 
-                        int overlayServiceFlag = 0;
                         for (ActivityManager.RunningServiceInfo rsi : am.getRunningServices(Integer.MAX_VALUE)) {
                             if (OverlayService.class.getName().equals(rsi.service.getClassName())) {
-                                overlayServiceFlag = 1;
                                 Toast.makeText(getApplicationContext(), "스톡보드가 이미 실행 중입니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if(overlayServiceFlag == 0) checkPermission();
+                        if(getConfigValue(getApplicationContext(),"stockBoardStart").equals("stop")) checkPermission();
                         return true;
                     default: return false; 
                 } 
@@ -177,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("stocks", stocks);
 
         viewModel.getStockList().observeForever(overlayObserver);
+        setConfigValue(getApplicationContext(),"stockBoardStart", "start");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) startForegroundService(intent);
         else startService(intent);
@@ -187,6 +189,14 @@ public class MainActivity extends AppCompatActivity {
     public static String getConfigValue(Context context, String key) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         return pref.getString(key, null);
+    }
+
+    // Preference 쓰기
+    public static void setConfigValue(Context context, String key, String value) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.commit();
     }
 }
 

@@ -39,9 +39,7 @@ public class Crawling {
             docTh.start();
             docTh.join();
             docTh.interrupt();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        } catch (InterruptedException e) { }
     }
 
     // Stock 객체로 들어왔을 때의 생성자
@@ -50,6 +48,7 @@ public class Crawling {
     // -------------- 기타 메서드 --------------
     // 현재가 크롤링 메서드
     public String currentPrice() {
+        Log.d("크롤링 에러 테스트", doc.text());
         String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today").text().split(" ");
         return crawlingResult[crawlingResult.length - 1];
     }

@@ -43,7 +43,7 @@ public class StartActivity extends AppCompatActivity {
         });
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
-        startActivity(new Intent(StartActivity.this, SearchActivity.class));
+        startActivity(new Intent(StartActivity.this, MainActivity.class));
         finish();
     }
 

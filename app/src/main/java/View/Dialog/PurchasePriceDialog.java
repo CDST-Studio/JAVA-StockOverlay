@@ -68,10 +68,10 @@ public class PurchasePriceDialog {
                 if(TextUtils.isEmpty(purchasePrice[0])) {
                     Toast.makeText(context, "매입가를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }else {
-                    new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
-
                     stock.setPurchasePrice(purchasePrice[0]);
                     stock.setProfitAndLoss();
+
+                    new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
 
                     int idx = 0;
                     for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
