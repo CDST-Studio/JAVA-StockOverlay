@@ -80,6 +80,10 @@ public class PurchasePriceDialog {
                     mainViewModel.getStockList().getValue().get(idx).setPurchasePrice(stock.getPurchasePrice());
                     mainViewModel.getStockList().getValue().get(idx).setProfitAndLoss();
 
+
+                    String nickname = new DBA().getNickname(context.getDatabasePath("User"));
+                    new DBA().addPurchasePrice(context.getDatabasePath("User"), nickname, stock.getName(), stock.getPurchasePrice());
+
                     dlg.dismiss();
                 }
             }
