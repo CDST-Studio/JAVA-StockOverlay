@@ -25,9 +25,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.LifecycleRegistryOwner;
+import androidx.lifecycle.LifecycleService;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.needfor.stockoverlay.R;
 
@@ -36,8 +43,11 @@ import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
+import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
 import ViewModel.Thread.OverlayThread;
+
+import static com.google.gson.reflect.TypeToken.get;
 
 public class OverlayService extends Service {
     private WindowManager.LayoutParams params;
@@ -59,6 +69,7 @@ public class OverlayService extends Service {
     private OverlayViewModel overlayViewModel;
     private Thread priceTh = new Thread(new OverlayThread());
     private static ArrayList<Stock> stocks = new ArrayList<>();
+
 
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
@@ -116,6 +127,7 @@ public class OverlayService extends Service {
                     purchasePrice.setTextColor(Color.parseColor("#800000FF"));
                 }
             }
+
         }
     };
 
@@ -123,6 +135,8 @@ public class OverlayService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        //model = new ViewModelProvider(new LifecycleOwner.getLifecycle()).get(OverlayViewModel.class);
 
         // Android O 이상일 경우 Foreground 서비스를 실행
         // Notification channel 설정.
@@ -149,22 +163,8 @@ public class OverlayService extends Service {
 
         // ViewModel 초기화
         overlayViewModel = new OverlayViewModel();
+        //overlayViewModel = new ViewModelProvider(this:getLifecycle).get(OverlayViewModel.class);
 
-        // 옵저버
-        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
-            @Override
-            public void onChanged(ArrayList<Stock> stockArray) {
-                Log.d("onChanged 1-1", "OverlayService 옵저버의 onChanged 진입");
-                Stock s = iteratorStock.next();
-                Log.d("onChanged 1-2", s.getName());
-
-                stocks = overlayViewModel.getStockList().getValue();
-                Log.d("onChanged 1-3", Integer.toString(stocks.size()));
-                iteratorStock = stocks.iterator();
-
-                while(!iteratorStock.next().getName().equals(s.getName())) Log.d("onChanged 1-4", s.getName());
-            }
-        };
 
         params = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.MATCH_PARENT,
@@ -236,6 +236,8 @@ public class OverlayService extends Service {
         */
 
         // 쓰레드 스타트
+        //overlayViewModel.getStockList().observe(this::getLifecycle,stockObserver);
+
         priceTh.start();
     }
 
@@ -261,6 +263,7 @@ public class OverlayService extends Service {
             }
         };
         stockBoardTh.start();
+
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -289,9 +292,27 @@ public class OverlayService extends Service {
         }
     }
 
-    // -------------- 기타 메서드 --------------
-    @Nullable @Override
-    public IBinder onBind(Intent intent) { return null; }
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    public void overServiceObserver(){
+        Log.d("onChanged 1-1", "OverlayService 옵저버의 onChanged 진입");
+        if(this.iteratorStock != null) {
+            Stock s = this.iteratorStock.next();
+            Log.d("onChanged 1-2", s.getName());
+
+            this.stocks = overlayViewModel.getStockList().getValue();
+            Log.d("onChanged 1-3", Integer.toString(this.stocks.size()));
+            this.iteratorStock = this.stocks.iterator();
+
+            while (!this.iteratorStock.next().getName().equals(s.getName()))
+                Log.d("onChanged 1-4", s.getName());
+        }
+    }
+
 
     // Preference 읽기
     public static String getConfigValue(Context context, String key) {
