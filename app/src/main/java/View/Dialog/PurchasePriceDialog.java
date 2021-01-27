@@ -77,8 +77,7 @@ public class PurchasePriceDialog {
                         if (s.getName().equals(stock.getName())) break;
                         if (mainViewModel.getStockList().getValue().size() != idx + 1) idx++;
                     }
-                    mainViewModel.getStockList().getValue().get(idx).setPurchasePrice(stock.getPurchasePrice());
-                    mainViewModel.getStockList().getValue().get(idx).setProfitAndLoss();
+                    mainViewModel.getStockList().getValue().set(idx, stock);
 
                     dlg.dismiss();
                 }

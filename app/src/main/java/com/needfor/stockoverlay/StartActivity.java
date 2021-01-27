@@ -9,6 +9,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -31,6 +35,13 @@ public class StartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         checkPermission();
+
+        // 애드몹 초기화
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
 
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         startActivity(new Intent(StartActivity.this, MainActivity.class));

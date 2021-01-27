@@ -1,11 +1,7 @@
 package View.Fragment;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +13,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.needfor.stockoverlay.R;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import ViewModel.Thread.PriceThread;
 public class MainFragment extends Fragment {
     public static int MAINFRAGMENT_ON_ACTIVITY = 0;
 
+    private AdView mAdView;
     private ListViewAdapter adapter;
     private MainViewModel model;
     private View viewGroup;
@@ -40,6 +42,11 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
+
+        // 애드몹 광고창
+        mAdView = viewGroup.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         // 실행중으로 변경
         MAINFRAGMENT_ON_ACTIVITY = 1;
@@ -68,7 +75,6 @@ public class MainFragment extends Fragment {
         final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
             public void onChanged(ArrayList<Stock> stockArray) {
-                Log.d("값 변화 감지", "옵저버 실행");
                 adapter.setItem(model.getStockList().getValue());
             }
         };

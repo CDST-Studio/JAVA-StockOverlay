@@ -255,7 +255,6 @@ public class OverlayService extends Service {
         stockBoardTh = new Thread() {
             @Override
             public void run() {
-                Log.d("스톡보드 실행 중", "딜레이 타임: " + Integer.toString(delayTime));
                 Message msg = handler.obtainMessage();
                 handler.postDelayed(this, delayTime);
                 handler.sendMessage(msg);

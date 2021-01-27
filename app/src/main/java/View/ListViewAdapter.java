@@ -86,12 +86,9 @@ public class ListViewAdapter extends BaseAdapter {
                 }
                 POWER_ON_FLAG = 1;
             }
-            Log.d("값 테스트",listViewItem.getName());
             if (listViewItem.getPurchasePrice() != null) {
-                Log.d("값 테스트",listViewItem.getPurchasePrice());
                 purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
             } else {
-                Log.d("값 테스트","Null");
                 purchasePrice.setText("매입가");
             }
         }
