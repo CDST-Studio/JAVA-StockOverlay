@@ -93,6 +93,8 @@ public class OverlayService extends Service {
                     if(stock.getProfitAndLoss().length() > 7) purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().substring(0,7) + "…");
                     else purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().toString());
                 }
+            }else {
+                purchasePrice.setText("");
             }
 
             // 텍스트 애니매이션 설정
@@ -188,7 +190,7 @@ public class OverlayService extends Service {
         changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
         changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
-        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
+        purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
         /*
         // Down → (Move) → Up → onClick 순서로 작동
@@ -295,13 +297,14 @@ public class OverlayService extends Service {
     }
 
     public void overServiceObserver(){
-        if(this.iteratorStock != null) {
-            Stock s = this.iteratorStock.next();
+        if(iteratorStock != null) {
+            if(!iteratorStock.hasNext()) stocks.iterator();
+            Stock s = iteratorStock.next();
 
-            this.stocks = overlayViewModel.getStockList().getValue();
-            this.iteratorStock = this.stocks.iterator();
+            stocks = overlayViewModel.getStockList().getValue();
+            iteratorStock = stocks.iterator();
 
-            while (!this.iteratorStock.next().getName().equals(s.getName()));
+            while (!iteratorStock.next().getName().equals(s.getName()));
         }
     }
 

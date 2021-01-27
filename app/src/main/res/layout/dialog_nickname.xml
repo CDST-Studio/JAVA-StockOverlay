@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
     android:background="#FFFFFF"
     android:orientation="vertical">
 
@@ -22,39 +23,28 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/dialog_purchase_price"
+            android:id="@+id/dialog_nickname"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="10dp"
-            android:layout_weight="0.5"
+            android:layout_weight="0.4"
             android:background="#EDE8E8"
             android:gravity="center"
             android:hint="닉네임을 입력하세요."
             android:textColor="#101820"
             android:textSize="16dp" />
 
-        <Button
-            android:id="@+id/checkNickname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_color"
-            android:text="중복확인"
-            android:textColor="@color/stockoverlay_brown"
-            android:textSize="12sp"
-            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/dialog_price_okButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_color"

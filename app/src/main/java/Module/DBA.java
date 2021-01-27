@@ -19,10 +19,12 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import Model.Stock;
 import Model.User;
@@ -306,9 +308,13 @@ public class DBA {
         String fileName = DB + "/Nickname.txt";
 
         try {
-            File saveFile = new File(fileName); // 저장 경로
-            if(!saveFile.exists()){ // 폴더 없을 경우
-                saveFile.createNewFile(); // 폴더 생성
+            File saveDir = new File(DB.toString());
+            File saveFile = new File(fileName);
+            if(!saveDir.exists()) {
+                saveDir.mkdir();
+            }
+            if(!saveFile.exists()){
+                saveFile.createNewFile();
             }
 
             FileWriter fw = new FileWriter(new File(fileName), false);
@@ -323,11 +329,17 @@ public class DBA {
             e.getStackTrace();
         }
 
-        HashMap<String, Object> userData = new HashMap<>();
-        userData.put("interestedStocks", user.getInterestedStocks());
+        // 현재 시스템 시간 구하기
+        long systemTime = System.currentTimeMillis();
+        // 출력 형태를 위한 formmater
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.KOREA);
+        // format에 맞게 출력하기 위한 문자열 변환
+        String dTime = formatter.format(systemTime);
 
+        HashMap<String, Object> setDate = new HashMap<>();
+        setDate.put("생성일", dTime);
         db.collection("User").document(nickname)
-                .set(userData)
+                .set(setDate)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -462,46 +474,6 @@ public class DBA {
         }
 
         return result;
-    }
-
-    // ---------------------------- isExist ----------------------------
-
-    public boolean isExistInterestedStock(File DB, String name) {
-        boolean result = false;
-
-        try {
-            FileReader fr = new FileReader(DB + "/InterestedStocks.txt"); // 파일 스트림 생성
-            BufferedReader br = new BufferedReader(fr);
-
-            String line;
-            while((line = br.readLine()) != null) {
-                if(line.equals(name)) {
-                    result = true;
-                    break;
-                }
-            }
-
-            br.close();
-            fr.close();
-        } catch (Exception e) {
-            e.getStackTrace();
-        }
-
-        return result;
-    }
-
-    /**
-     * 닉네임 중복체크
-     * nickname: user.getNickname()
-     * @param nickname
-     * @return
-     */
-    public boolean isExistNickname(String nickname) {
-        // FireStore(Firebase) 접속용 Instance
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        final DocumentReference docRef = db.collection("User").document(nickname);
-
-        return docRef.get().isSuccessful();
     }
 
     // ---------------------------- isInit ----------------------------

@@ -29,6 +29,7 @@ import com.needfor.stockoverlay.R;
 import java.util.ArrayList;
 
 import Model.Stock;
+import Model.User;
 import Module.DBA;
 import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
@@ -45,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment = new MainFragment();
     private SettingFragment settingFragment = new SettingFragment();
 
-    private String[] exStocks = {"삼성전자", "NAVER", "동일제강", "셀트리온"};
     private ArrayList<Stock> stocks = new ArrayList<>();
+    private User user = new User();
 
     private OverlayViewModel viewModel;
     private Observer<ArrayList<Stock>> overlayObserver;
@@ -73,18 +74,27 @@ public class MainActivity extends AppCompatActivity {
         //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
         viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
 
-        // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
+        // 유저 초기화
+        user.setNickName(new DBA().getNickname(getDatabasePath("User")));
+        new DBA().initInterestedStocks(getDatabasePath("User"), user);
+
+        // 종목 초기화 및 관심종목 프래그먼트로 전달
+        for(int i=0; i<user.getInterestedStocks().size(); i++) {
+            stocks.add(new DBA().getStock(getAssets(), user.getInterestedStocks().get(i).toString()));
+        }
 
         // 스톡보드 상태 초기화
         setConfigValue(getApplicationContext(), "stockBoardStart", "stop");
 
-        // 종목 초기화 및 관심종목 프래그먼트로 전달
-        for(int i=0; i<exStocks.length; i++) stocks.add(new DBA().getStock(getResources().getAssets(), exStocks[i]));
+        // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
         // 번들객체 생성, text값 저장
         Bundle bundle = new Bundle();
         bundle.putParcelableArrayList("stocks",stocks);
+
+        // mainFragment로 번들 전달
+        mainFragment.setArguments(bundle);
 
         //Observer 정의
         overlayObserver = new Observer<ArrayList<Stock>>() {
@@ -93,9 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 new OverlayService().overServiceObserver();
             }
         };
-
-        // mainFragment로 번들 전달
-        mainFragment.setArguments(bundle);
     }
 
 

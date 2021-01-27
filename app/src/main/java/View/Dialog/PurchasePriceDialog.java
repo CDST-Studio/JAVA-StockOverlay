@@ -30,7 +30,7 @@ public class PurchasePriceDialog {
     public void callFunction(MainViewModel mainViewModel, Stock stock) {
 
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
-        final Dialog dlg = new Dialog(context);
+        final Dialog dlg = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
 
         // 다이얼로그 크기 조정
         Window window = dlg.getWindow();

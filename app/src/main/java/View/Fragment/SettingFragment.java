@@ -84,20 +84,11 @@ public class SettingFragment extends Fragment {
                 purchaseSwich.setChecked(false);
             }
         }
-        if(getConfigValue(getContext(),"stockBoardStart").equals("start")) purchaseSwich.setEnabled(false);
 
-        purchaseSwich.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(getConfigValue(getContext(),"stockBoardStart").equals("start")) {
-                    Toast.makeText(getContext(), "스톡보드 종료 후 시도해주세요", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
         purchaseSwich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
+                if (isChecked) {
                     setConfigValue(getContext(), "purchaseSwitch", "ON");
                     MainActivity.PURCHASE_PRICE_INPUT_FLAG = 1;
                 } else {
