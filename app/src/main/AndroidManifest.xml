@@ -32,7 +32,9 @@
         <activity
             android:name="View.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
-        <activity android:name="View.SearchActivity"/>
+        <activity
+            android:name="View.SearchActivity"
+            android:parentActivityName="View.MainActivity"/>
     </application>
 
 </manifest>

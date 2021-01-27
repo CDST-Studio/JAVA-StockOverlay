@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.Toast;
-
+import android.view.MenuItem;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -92,6 +92,16 @@ public class SearchActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
