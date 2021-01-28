@@ -92,11 +92,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                             Toast.makeText(getApplicationContext(), "인증 실패", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(), "구글 로그인 인증 성공", Toast.LENGTH_SHORT).show();
-
+/*
                             User user = new User();
                             if(new DBA().isInitNickname(getDatabasePath("User"))) {
                                 NicknameDialog nicknameDialog = new NicknameDialog(LoginActivity.this);
-                                nicknameDialog.callFunction(user, LoginActivity.this);
+                                nicknameDialog.callFunction(user);
                             } else {
                                 new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
                                 new DBA().initInterestedStocks(getDatabasePath("User"), user);
@@ -104,7 +104,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
-                            }
+                            }*/
+
                         }
                     }
                 });

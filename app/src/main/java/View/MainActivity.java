@@ -31,10 +31,13 @@ import java.util.ArrayList;
 import Model.Stock;
 import Model.User;
 import Module.DBA;
+import View.Dialog.NicknameDialog;
 import View.Fragment.MainFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.OverlayViewModel;
+import ViewModel.MainViewModel;
+import View.LoginActivity;
 import ViewModel.Thread.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
@@ -58,6 +61,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createToolbar(); // 상단 네비게이션 바 생성
         createBottomNavigation(); // 하단 네비게이션 바 생성
+//테스트
+        User user = new User();
+        if(new DBA().isInitNickname(getDatabasePath("User"))) {
+            NicknameDialog nicknameDialog = new NicknameDialog(MainActivity.this);
+            nicknameDialog.callFunction(user);
+        } else {
+            new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
+            new DBA().initInterestedStocks(getDatabasePath("User"), user);
+            if(user.getInterestedStocks().size() != 0) new MainViewModel().initStockList(getAssets(), user.getInterestedStocks());
+
+            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            //finish();
+        }
+//테스트
 
         // 매입가 입력여부 체크
         if(getConfigValue(getApplicationContext(), "purchaseSwitch") != null) {

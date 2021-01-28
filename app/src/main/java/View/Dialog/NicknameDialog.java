@@ -28,7 +28,7 @@ public class NicknameDialog {
     }
 
     // 호출할 다이얼로그 함수를 정의한다.
-    public void callFunction(User user, LoginActivity loginActivity) {
+    public void callFunction(User user) {
 
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
         final Dialog dlg = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
@@ -78,8 +78,6 @@ public class NicknameDialog {
 
                     // 커스텀 다이얼로그를 종료한다.
                     dlg.dismiss();
-                    ((LoginActivity) context).startActivity(new Intent(loginActivity, MainActivity.class));
-                    ((LoginActivity) context).finish();
                 }
             }
         });
