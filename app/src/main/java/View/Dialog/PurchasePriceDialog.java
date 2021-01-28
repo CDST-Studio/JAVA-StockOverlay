@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -68,7 +69,7 @@ public class PurchasePriceDialog {
                 if(TextUtils.isEmpty(purchasePrice[0])) {
                     Toast.makeText(context, "매입가를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }else {
-                    stock.setPurchasePrice(purchasePrice[0]);
+                    stock.setPurchasePrice(purchasePrice[0]);//요기!
                     stock.setProfitAndLoss();
 
                     new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
@@ -82,7 +83,6 @@ public class PurchasePriceDialog {
                     ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
                     stocklist.set(idx, stock);
                     mainViewModel.getStockList().setValue(stocklist);
-
                     dlg.dismiss();
                 }
             }

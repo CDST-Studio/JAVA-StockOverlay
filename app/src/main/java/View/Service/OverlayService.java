@@ -78,7 +78,6 @@ public class OverlayService extends Service {
         public void handleMessage(Message msg) {
             if(!iteratorStock.hasNext()) iteratorStock = stocks.iterator();
             Stock stock = iteratorStock.next();
-
             // 텍스트 설정
             if(stock.getName().length() <= 5) stockName.setText(stock.getName());
             else stockName.setText(stock.getName().substring(0, 5) + "…");
@@ -87,11 +86,13 @@ public class OverlayService extends Service {
             changePrice.setText(stock.getChange() + stock.getChangePrice());
             changeRate.setText(stock.getChange() + stock.getChangeRate());
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+                Log.v("dubae", "Overlay : " + stock.getName() + "/" + stock.getPurchasePrice());
                 if (stock.getPurchasePrice() == null) {
                     purchasePrice.setText("매입가");
                 }else {
                     if(stock.getProfitAndLoss().length() > 7) purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().substring(0,7) + "…");
                     else purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().toString());
+
                 }
             }else {
                 purchasePrice.setText("");
@@ -242,7 +243,7 @@ public class OverlayService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         stocks = overlayViewModel.getStockList().getValue();
-        iteratorStock = stocks.iterator();
+        iteratorStock = stocks.iterator();//에러
 
         overlayCancle.setOnClickListener(new View.OnClickListener() {
             @Override

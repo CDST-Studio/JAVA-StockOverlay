@@ -1,5 +1,7 @@
 package ViewModel;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -36,5 +38,4 @@ public class OverlayViewModel extends ViewModel {
     }
 
     public MutableLiveData<ArrayList<Stock>> getStockList(){ return stockList; }
-    public static void setStockList(MutableLiveData<ArrayList<Stock>> stockList) { OverlayViewModel.stockList = stockList; }
 }

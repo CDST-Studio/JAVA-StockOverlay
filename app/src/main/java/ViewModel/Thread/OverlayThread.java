@@ -37,6 +37,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         if(mModel.getStockList().getValue() != null) {
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
+                //아래줄도 에러의 주 범
                 if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
                     tStockList.get(i).setCurrentPrice(crawling.currentPrice());//
                     tStockList.get(i).setChangeRate(crawling.changeRate());

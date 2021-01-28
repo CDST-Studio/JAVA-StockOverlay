@@ -75,7 +75,6 @@ public class MainFragment extends Fragment {
         for(int i=0; i<text.size(); i++) {
             stocks.add((Stock)text.get(i));
             adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
-            model.addStockList(stocks.get(i));
         }
         listview.setAdapter(adapter);
 
