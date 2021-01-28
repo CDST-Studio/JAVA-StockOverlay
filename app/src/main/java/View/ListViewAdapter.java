@@ -78,13 +78,10 @@ public class ListViewAdapter extends BaseAdapter {
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            if (POWER_ON_FLAG == 0) {
-                ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
-                if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
-                    listViewItem.setPurchasePrice(purchasePrices.get(position));
-                    listViewItem.setProfitAndLoss();
-                }
-                POWER_ON_FLAG = 1;
+            ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
+            if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
+                listViewItem.setPurchasePrice(purchasePrices.get(position));
+                listViewItem.setProfitAndLoss();
             }
             if (listViewItem.getPurchasePrice() != null) {
                 purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());

@@ -88,7 +88,14 @@ public class ListSearchAdapter extends BaseAdapter{
                         break;
                     case 0:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark);
-                        try{ dba.subInterestedStocks(file, user, name); }
+                        try{
+                            dba.subInterestedStocks(file, user, name);
+
+                            stocks = mainViewModel.getStockList().getValue();
+                            stocks.remove(new DBA().getStock(context.getAssets(), name));
+
+                            mainViewModel.getStockList().setValue(stocks);
+                        }
                         catch (Exception e){ Toast.makeText(context, name+ " 북마크 해제 실패", Toast.LENGTH_SHORT).show(); }
                         check=1;
                         break;
