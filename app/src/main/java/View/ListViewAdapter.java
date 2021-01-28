@@ -162,7 +162,6 @@ public class ListViewAdapter extends BaseAdapter {
 
     public void setItem(ArrayList<Stock> stocks){
         for(int i = 0; i < listViewItemList.size(); i++){
-            Log.v("databind", "adapter : " + stocks.get(i).getName() + "/" + stocks.get(i).getCurrentPrice());
             listViewItemList.get(i).setChange(stocks.get(i).getChange());
             listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
             listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());

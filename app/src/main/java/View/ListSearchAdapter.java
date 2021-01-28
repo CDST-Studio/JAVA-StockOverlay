@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import Model.Stock;
 import Module.DBA;
 import View.Fragment.SearchableFragment;
+import ViewModel.MainViewModel;
 
 public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
@@ -32,7 +33,14 @@ public class ListSearchAdapter extends BaseAdapter{
     private TextView StockName, StockCode;
     private Stock listViewItem;
 
+    private ArrayList<Stock> stocks;
+    private MainViewModel mainViewModel;
+
     public ListSearchAdapter() {
+    }
+
+    public void setMainViewModel(MainViewModel mainViewModel) {
+        this.mainViewModel = mainViewModel;
     }
 
     @Override
@@ -68,8 +76,14 @@ public class ListSearchAdapter extends BaseAdapter{
                 switch(check){
                     case 1:
                         bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
-                        try { dba.addInterestedStocks(file, user, name); }
-                        catch (Exception e){ Toast.makeText(context, name+" 북마크 추가 실패", Toast.LENGTH_SHORT).show(); }
+                        try {
+                            dba.addInterestedStocks(file, user, name);
+
+                            stocks = mainViewModel.getStockList().getValue();
+                            stocks.add(new DBA().getStock(context.getAssets(), name));
+
+                            mainViewModel.getStockList().setValue(stocks);
+                        } catch (Exception e){ Toast.makeText(context, name+" 북마크 추가 실패", Toast.LENGTH_SHORT).show(); }
                         check=0;
                         break;
                     case 0:

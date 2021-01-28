@@ -86,6 +86,7 @@ public class MainFragment extends Fragment {
                 adapter.setItem(model.getStockList().getValue());
             }
         };
+
         //옵저버 스타트
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
 
