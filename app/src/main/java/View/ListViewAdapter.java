@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
+import java.util.Objects;
+
 import Model.Stock;
 import Module.DBA;
 import View.Dialog.PurchasePriceDialog;
@@ -82,7 +84,18 @@ public class ListViewAdapter extends BaseAdapter {
             if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
                 listViewItem.setPurchasePrice(purchasePrices.get(position));
                 listViewItem.setProfitAndLoss();
+
+                int idx = 0;
+                for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
+                    if (s.getName().equals(listViewItem.getName())) break;
+                    if (mainViewModel.getStockList().getValue().size() != idx + 1) idx++;
+                }
+
+                ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
+                stocklist.set(idx, listViewItem);
+                mainViewModel.getStockList().setValue(stocklist);
             }
+
             if (listViewItem.getPurchasePrice() != null) {
                 purchasePrice.setText(listViewItem.getProfitChange() + listViewItem.getProfitAndLoss());
             } else {
@@ -157,7 +170,27 @@ public class ListViewAdapter extends BaseAdapter {
         listViewItemList.add(item);
     }
 
-    public void setItem(ArrayList<Stock> stocks){
+    public void setItem(ArrayList<Stock> stocks) {
+        if(stocks.size() < listViewItemList.size()) {
+            int flag = 0;
+            for(int i=0; i<listViewItemList.size(); i++) {
+                for(int k=0; k<stocks.size(); k++) {
+                    if(listViewItemList.get(i).getName().equals(stocks.get(k).getName())) break;
+                    if(k == stocks.size()-1) flag = 1;
+                }
+                if(flag == 1) {
+                    Log.d("수정된 종목 삭제", listViewItemList.get(i).getName());
+                    listViewItemList.remove(i);
+                    flag = 0;
+                }
+            }
+        }else if(stocks.size() > listViewItemList.size()) {
+            for(int i=listViewItemList.size(); i<stocks.size(); i++) {
+                Log.d("수정된 종목 추가", stocks.get(i).getName());
+                listViewItemList.add(stocks.get(i));
+            }
+        }
+
         for(int i = 0; i < listViewItemList.size(); i++){
             listViewItemList.get(i).setChange(stocks.get(i).getChange());
             listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());

@@ -1,6 +1,7 @@
 package ViewModel;
 
 import android.content.res.AssetManager;
+import android.util.Log;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -44,7 +45,10 @@ public class MainViewModel extends ViewModel implements Serializable {
         stockList = new MutableLiveData<>();
 
         ArrayList<Stock> stockArrayList = new ArrayList<>();
-        for(int i=0; i<eStockList.size(); i++) stockArrayList.add(new DBA().getStock(assetManager, eStockList.get(i)));
+        for(int i=0; i<eStockList.size(); i++) {
+            Log.d("중복체크", eStockList.get(i));
+            stockArrayList.add(new DBA().getStock(assetManager, eStockList.get(i)));
+        }
         stockList.setValue(stockArrayList);
     }
 

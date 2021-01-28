@@ -149,10 +149,14 @@ public class DBA {
             FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
             BufferedReader br = new BufferedReader(fr);
 
+            int idx = 0;
             String line;
-            while((line = br.readLine()) != null) { stockList.add(line); }
+            while((line = br.readLine()) != null) {
+                stockList.add(line);
+                if(line.split(":")[0].equals(name)) idx = stockList.indexOf(line);
+            }
 
-            stockList.remove(name);
+            stockList.remove(idx);
             FileWriter fw = new FileWriter(new File(fileDir), false);
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i=0; i<stockList.size(); i++) {

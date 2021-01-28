@@ -24,7 +24,6 @@ public class SearchActivity extends AppCompatActivity {
     private Search search;
     private AssetManager assetManager;
     private SearchableFragment searchableFragment;
-    private Intent intent;
     private ArrayList<Stock> stock;
     private String name, code;
     private Bundle bundle;
@@ -38,7 +37,6 @@ public class SearchActivity extends AppCompatActivity {
 
         assetManager = getResources().getAssets();
         search = new Search();
-        intent = new Intent(SearchActivity.this, ListSearchAdapter.class);
         bundle = new Bundle();
         listSearchAdapter = new ListSearchAdapter();
 
@@ -68,12 +66,11 @@ public class SearchActivity extends AppCompatActivity {
                         code= stock.get(i).getStockCode();
                         bundle.putString("name"+i, name);
                         bundle.putString("code"+i, code);
-                        searchableFragment.setArguments(bundle);
-                        intent.putExtra("bookmark"+i, name); // ListSearchAdapter 로 값 전달
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.search_result, searchableFragment).commitAllowingStateLoss();
-                    Toast.makeText(SearchActivity.this, "검색완료", Toast.LENGTH_SHORT).show();
-                    return true; }
+                    searchableFragment.setArguments(bundle);
+                    return true;
+                }
 
                 Toast.makeText(SearchActivity.this, "검색어를 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return false;

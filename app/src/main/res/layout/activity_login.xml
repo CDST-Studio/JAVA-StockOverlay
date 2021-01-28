@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="흑 우상향"
+        android:text="흑우상향"
         android:textColor="@color/stockoverlay_brown"
         android:textSize="24sp"
         android:textStyle="bold" />

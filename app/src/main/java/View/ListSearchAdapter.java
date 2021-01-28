@@ -3,7 +3,10 @@ package View;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,12 +29,11 @@ import ViewModel.MainViewModel;
 
 public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
-    private int check = 1;
-    private DBA dba;
-    private String user, name;
+
+    private DBA DBA;
     private File file;
+    private String user;
     private TextView StockName, StockCode;
-    private Stock listViewItem;
 
     private ArrayList<Stock> stocks;
     private MainViewModel mainViewModel;
@@ -48,9 +50,8 @@ public class ListSearchAdapter extends BaseAdapter{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        final int pos = position;
-        final Context context = parent.getContext();
-        dba = new DBA();
+        Context context = parent.getContext();
+        DBA = new DBA();
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -60,47 +61,75 @@ public class ListSearchAdapter extends BaseAdapter{
         StockName = (TextView) convertView.findViewById(R.id.search_name) ;
         StockCode = (TextView) convertView.findViewById(R.id.search_code) ;
 
-        listViewItem = listViewItemList.get(pos);
+        Stock listViewItem = listViewItemList.get(position);
 
         StockName.setText(listViewItem.getName());
         StockCode.setText(listViewItem.getStockCode());
 
+        stocks = mainViewModel.getStockList().getValue();
         file = context.getDatabasePath("User");
-        user = dba.getNickname(file);
+        user = DBA.getNickname(file);
 
         Button bookmark = convertView.findViewById(R.id.Button_bookmark);
+        ArrayList<String> interestedStocks = new DBA().getInterestedStocks(context.getDatabasePath("User"));
+        int flag = 0;
+        for(int i=0; i<interestedStocks.size(); i++) {
+            if(listViewItem.getName().equals(interestedStocks.get(i))) {
+                flag = 1;
+                break;
+            }
+        }
+
+        if(flag == 1) bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
+        else bookmark.setBackgroundResource(R.drawable.ic_bookmark);
+
+        int finalFlag = flag;
         bookmark.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){
-                name = listViewItemList.get(pos).getName();
-                switch(check){
-                    case 1:
-                        bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
-                        try {
-                            dba.addInterestedStocks(file, user, name);
+            public void onClick(View v) {
+                if(getConfigValue(context,"stockBoardStart").equals("start")) {
+                    bookmark.setEnabled(false);
+                    Toast.makeText(context, "스톡보드 종료 후 관심종목을 추가해주세요", Toast.LENGTH_SHORT).show();
+                }else {
+                    String stockName = listViewItem.getName();
+                    Log.d("수정 대상", stockName);
+                    switch (finalFlag) {
+                        case 1:
+                            try {
+                                bookmark.setBackgroundResource(R.drawable.ic_bookmark);
+                                DBA.subInterestedStocks(file, user, stockName);
 
-                            stocks = mainViewModel.getStockList().getValue();
-                            stocks.add(new DBA().getStock(context.getAssets(), name));
+                                int idx = 0;
+                                Log.d("수정 전 크기", Integer.toString(stocks.size()));
+                                for (int i = 0; i < stocks.size(); i++) {
+                                    Log.d("수정전 관심종목", "stock: " + stocks.get(i).getName());
+                                    if (stocks.get(i).getName().equals(stockName)) idx = i;
+                                }
+                                stocks.remove(idx);
 
-                            mainViewModel.getStockList().setValue(stocks);
-                        } catch (Exception e){ Toast.makeText(context, name+" 북마크 추가 실패", Toast.LENGTH_SHORT).show(); }
-                        check=0;
-                        break;
-                    case 0:
-                        bookmark.setBackgroundResource(R.drawable.ic_bookmark);
-                        try{
-                            dba.subInterestedStocks(file, user, name);
+                                mainViewModel.getStockList().setValue(stocks);
+                                Log.d("수정 인덱스", Integer.toString(idx));
+                                Log.d("수정 후 크기", Integer.toString(stocks.size()));
+                                for (int i = 0; i < stocks.size(); i++)
+                                    Log.d("수정된 관심종목", "stock: " + stocks.get(i).getName());
+                            } catch (Exception e) {
+                                Log.d("ERROR", "검색 후 관심종목 삭제 실패");
+                            }
+                            break;
+                        case 0:
+                            try {
+                                bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
+                                DBA.addInterestedStocks(file, user, stockName);
 
-                            stocks = mainViewModel.getStockList().getValue();
-                            stocks.remove(new DBA().getStock(context.getAssets(), name));
-
-                            mainViewModel.getStockList().setValue(stocks);
-                        }
-                        catch (Exception e){ Toast.makeText(context, name+ " 북마크 해제 실패", Toast.LENGTH_SHORT).show(); }
-                        check=1;
-                        break;
+                                stocks.add(DBA.getStock(context.getAssets(), stockName));
+                                mainViewModel.getStockList().setValue(stocks);
+                            } catch (Exception e) {
+                                Log.d("ERROR", "검색 후 관심종목 추가 실패");
+                            }
+                            break;
+                    }
                 }
-        }
+            }
         });
         return convertView;
     }
@@ -120,6 +149,12 @@ public class ListSearchAdapter extends BaseAdapter{
         item.setName(searchname);
         item.setStockCode(searchcode);
         listViewItemList.add(item);
+    }
+
+    // Preference 읽기
+    public static String getConfigValue(Context context, String key) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        return pref.getString(key, null);
     }
 
 }
