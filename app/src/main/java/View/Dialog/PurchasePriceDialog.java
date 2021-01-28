@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 import Model.Stock;
@@ -29,7 +30,7 @@ public class PurchasePriceDialog {
     public void callFunction(MainViewModel mainViewModel, Stock stock) {
 
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
-        final Dialog dlg = new Dialog(context);
+        final Dialog dlg = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
 
         // 다이얼로그 크기 조정
         Window window = dlg.getWindow();
@@ -67,20 +68,20 @@ public class PurchasePriceDialog {
                 if(TextUtils.isEmpty(purchasePrice[0])) {
                     Toast.makeText(context, "매입가를 입력해주세요", Toast.LENGTH_SHORT).show();
                 }else {
-                    new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
-
                     stock.setPurchasePrice(purchasePrice[0]);
                     stock.setProfitAndLoss();
+
+                    new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
+
                     int idx = 0;
                     for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
                         if (s.getName().equals(stock.getName())) break;
                         if (mainViewModel.getStockList().getValue().size() != idx + 1) idx++;
                     }
-                    mainViewModel.getStockList().getValue().get(idx).setPurchasePrice(stock.getPurchasePrice());
-                    mainViewModel.getStockList().getValue().get(idx).setProfitAndLoss();
 
-                    String nickname = new DBA().getNickname(context.getDatabasePath("User"));
-                    new DBA().addPurchasePrice(context.getDatabasePath("User"), nickname, stock.getName(), stock.getPurchasePrice());
+                    ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
+                    stocklist.set(idx, stock);
+                    mainViewModel.getStockList().setValue(stocklist);
 
                     dlg.dismiss();
                 }

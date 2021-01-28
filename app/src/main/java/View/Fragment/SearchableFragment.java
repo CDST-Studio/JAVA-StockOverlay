@@ -27,6 +27,8 @@ import android.view.View.OnClickListener;
 import java.util.ArrayList;
 
 import View.ListSearchAdapter;
+import ViewModel.MainViewModel;
+
 public class SearchableFragment  extends Fragment  {
 
     private Button bookmark;
@@ -35,13 +37,16 @@ public class SearchableFragment  extends Fragment  {
     private ArrayList<Stock> stock;
     private String name, code;
     private ListView listview;
+    private MainViewModel mainViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         SearchalbeView = (View)inflater.inflate(R.layout.fragment_searchable, container, false);
         listview = SearchalbeView.findViewById(R.id.search_list);
+        mainViewModel = new MainViewModel();
         adapter = new ListSearchAdapter();
+        adapter.setMainViewModel(mainViewModel);
 
         if (getArguments() != null) {
             stock = getArguments().getParcelableArrayList("stock");

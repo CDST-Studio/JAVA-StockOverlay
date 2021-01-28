@@ -34,7 +34,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         int changeFlag = 0;
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
-        if(mModel.getStockList().getValue().size() != 0) {
+        if(mModel.getStockList().getValue() != null) {
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
                 if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교

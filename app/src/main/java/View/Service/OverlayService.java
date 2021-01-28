@@ -66,8 +66,8 @@ public class OverlayService extends Service {
     private TextView purchasePrice;
     private Button overlayCancle;
 
+    private Thread priceTh;
     private OverlayViewModel overlayViewModel;
-    private Thread priceTh = new Thread(new OverlayThread());
     private static ArrayList<Stock> stocks = new ArrayList<>();
 
 
@@ -93,6 +93,8 @@ public class OverlayService extends Service {
                     if(stock.getProfitAndLoss().length() > 7) purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().substring(0,7) + "…");
                     else purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().toString());
                 }
+            }else {
+                purchasePrice.setText("");
             }
 
             // 텍스트 애니매이션 설정
@@ -188,7 +190,7 @@ public class OverlayService extends Service {
         changePrice = (TextView)mView.findViewById(R.id.stockboard_changeprice);
         changeRate = (TextView)mView.findViewById(R.id.stockboard_changerate);
         overlayCancle = (Button)mView.findViewById(R.id.overlay_cancle);
-        if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
+        purchasePrice = (TextView)mView.findViewById(R.id.stockboard_purchaseprice);
 
         /*
         // Down → (Move) → Up → onClick 순서로 작동
@@ -231,6 +233,8 @@ public class OverlayService extends Service {
         });
         */
 
+        // 쓰레드 시작
+        priceTh = new Thread(new OverlayThread());
         priceTh.start();
     }
 
@@ -263,8 +267,9 @@ public class OverlayService extends Service {
 
     //  -------------- 스톡보드 스레드 및 서비스 종료에 필요한 메서드 --------------
     public void stopStockBoard() {
-        priceTh.interrupt();
         handler.removeMessages(0);
+        priceTh.interrupt();
+        setConfigValue(getApplicationContext(),"stockBoardStart", "stop");
         stopService(new Intent(mView.getContext(), OverlayService.class));
     }
 
@@ -292,20 +297,28 @@ public class OverlayService extends Service {
     }
 
     public void overServiceObserver(){
-        if(this.iteratorStock != null) {
-            Stock s = this.iteratorStock.next();
+        if(iteratorStock != null) {
+            if(!iteratorStock.hasNext()) stocks.iterator();
+            Stock s = iteratorStock.next();
 
-            this.stocks = overlayViewModel.getStockList().getValue();
-            this.iteratorStock = this.stocks.iterator();
+            stocks = overlayViewModel.getStockList().getValue();
+            iteratorStock = stocks.iterator();
 
-            while (!this.iteratorStock.next().getName().equals(s.getName()));
+            while (!iteratorStock.next().getName().equals(s.getName()));
         }
     }
-
 
     // Preference 읽기
     public static String getConfigValue(Context context, String key) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         return pref.getString(key, null);
+    }
+
+    // Preference 쓰기
+    public static void setConfigValue(Context context, String key, String value) {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.commit();
     }
 }

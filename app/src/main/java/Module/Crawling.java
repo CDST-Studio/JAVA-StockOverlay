@@ -39,9 +39,7 @@ public class Crawling {
             docTh.start();
             docTh.join();
             docTh.interrupt();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        } catch (InterruptedException e) { }
     }
 
     // Stock 객체로 들어왔을 때의 생성자

@@ -1,5 +1,6 @@
 package View.Fragment;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,7 +30,6 @@ import View.MainActivity;
 
 public class SettingFragment extends Fragment {
     private ViewGroup viewGroup;
-    private View mView;
 
     private int interestedStockSize;
     private String nickname;
@@ -83,10 +84,11 @@ public class SettingFragment extends Fragment {
                 purchaseSwich.setChecked(false);
             }
         }
+
         purchaseSwich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked) {
+                if (isChecked) {
                     setConfigValue(getContext(), "purchaseSwitch", "ON");
                     MainActivity.PURCHASE_PRICE_INPUT_FLAG = 1;
                 } else {
