@@ -41,8 +41,8 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) { }
         });
-
-        startActivity(new Intent(StartActivity.this, LoginActivity.class));
+        startActivity(new Intent(StartActivity.this, MainActivity.class));
+        //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         finish();
     }
 
