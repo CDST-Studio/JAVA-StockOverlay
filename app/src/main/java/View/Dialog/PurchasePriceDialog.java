@@ -83,7 +83,8 @@ public class PurchasePriceDialog {
                     ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
                     stocklist.set(idx, stock);
                     mainViewModel.getStockList().setValue(stocklist);
-
+                    Log.v("song","값 변동 발생!");
+                    Log.v("song", mainViewModel.getStockList().getValue().get(idx).getPurchasePrice());
                     dlg.dismiss();
                 }
             }
