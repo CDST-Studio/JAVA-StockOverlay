@@ -179,14 +179,12 @@ public class ListViewAdapter extends BaseAdapter {
                     if(k == stocks.size()-1) flag = 1;
                 }
                 if(flag == 1) {
-                    Log.d("수정된 종목 삭제", listViewItemList.get(i).getName());
                     listViewItemList.remove(i);
                     flag = 0;
                 }
             }
         }else if(stocks.size() > listViewItemList.size()) {
             for(int i=listViewItemList.size(); i<stocks.size(); i++) {
-                Log.d("수정된 종목 추가", stocks.get(i).getName());
                 listViewItemList.add(stocks.get(i));
             }
         }
