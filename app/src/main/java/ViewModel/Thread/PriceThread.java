@@ -16,14 +16,17 @@ public class PriceThread extends MainViewModel implements Runnable {
     @Override
     public void run() {
         try {
-            while(true) {
+            Log.v("subal","쓰레드 시작!");
+            while(!Thread.currentThread().isInterrupted()) {
                 Thread.sleep(1000);
                 priceCompare();
             }
         } catch (InterruptedException e) { }
+        finally{Log.v("subal","요렇게도 종료되넹");}
     }
 
     private void priceCompare(){
+        Log.v("subal", "돌아가는중");
         mModel = new MainViewModel();
         tStockList = new ArrayList<Stock>();
         tStockList = mModel.getStockList().getValue();//LiveData Get
@@ -33,9 +36,8 @@ public class PriceThread extends MainViewModel implements Runnable {
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
         if(mModel.getStockList().getValue() != null) {
             for (int i = 0; i < tStockList.size(); i++) {
-                Log.v("dubae",mModel.getStockList().toString());
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
-                if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
+                if (!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
                     tStockList.get(i).setCurrentPrice(crawling.currentPrice());//
                     tStockList.get(i).setChangeRate(crawling.changeRate());
                     tStockList.get(i).setChange(crawling.change());

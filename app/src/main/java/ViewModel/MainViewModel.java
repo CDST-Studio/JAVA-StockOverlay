@@ -20,9 +20,9 @@ public class MainViewModel extends ViewModel implements Serializable {
 
     public MainViewModel(){
         ArrayList<Stock> eStockList = new ArrayList<Stock>();
-
     }
     public MainViewModel(MainViewModel s){
+        Log.v("subal","MainViewModel Init!");
         stockList = s.getStockList();
     }
 

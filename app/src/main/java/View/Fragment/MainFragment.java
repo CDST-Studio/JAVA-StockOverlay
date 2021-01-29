@@ -2,6 +2,7 @@ package View.Fragment;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +89,7 @@ public class MainFragment extends Fragment {
         //옵저버 스타트
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
 
+
         // 쓰레드 스타트
         priceTh = new Thread(new PriceThread());
         priceTh.start();
@@ -98,8 +100,15 @@ public class MainFragment extends Fragment {
     @Override
     public void onStop() {
         super.onStop();
-
-        MAINFRAGMENT_ON_ACTIVITY = 0;
         priceTh.interrupt();
+        MAINFRAGMENT_ON_ACTIVITY = 0;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.v("subal","멈추기는 하니?");
+        if(priceTh.isAlive()) priceTh.interrupt();
+        if(priceTh.isInterrupted()) Log.v("subal", "인터럽트 걸림");
     }
 }
