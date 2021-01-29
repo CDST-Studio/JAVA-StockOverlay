@@ -3,7 +3,6 @@ package ViewModel.Thread;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import Model.Stock;
 import Module.Crawling;
@@ -15,12 +14,14 @@ public class PriceThread extends MainViewModel implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while(true) {
+        while(!Thread.currentThread().isInterrupted()) {
+            try {
                 Thread.sleep(4000);
                 priceCompare();
+            }catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
-        } catch (InterruptedException e) { }
+        }
     }
 
     private void priceCompare(){

@@ -14,6 +14,7 @@ public class Stock implements Parcelable {
     private String purchasePrice; // 매입가
     private String profitAndLoss; // 손익가
     private String profitChange; // 손익 동향
+    private String targetProfit; // 목표수익
 
     // -------------- 생성자 --------------
     /**
@@ -112,6 +113,9 @@ public class Stock implements Parcelable {
     }
 
     public String getProfitChange() { return profitChange; }
+
+    public String getTargetProfit() { return targetProfit; }
+    public void setTargetProfit(String targetProfit) { this.targetProfit = targetProfit; }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성

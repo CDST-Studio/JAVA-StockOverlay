@@ -102,4 +102,10 @@ public class MainFragment extends Fragment {
         MAINFRAGMENT_ON_ACTIVITY = 0;
         priceTh.interrupt();
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(!priceTh.isInterrupted()) priceTh.interrupt();
+    }
 }

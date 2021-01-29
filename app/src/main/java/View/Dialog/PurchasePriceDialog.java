@@ -25,6 +25,10 @@ import ViewModel.MainViewModel;
 public class PurchasePriceDialog {
     private Context context;
 
+    private EditText price;
+    private EditText target_price;
+    private Button okButton;
+
     public PurchasePriceDialog(Context context) { this.context = context; }
 
     // 호출할 다이얼로그 함수를 정의한다.
@@ -47,10 +51,21 @@ public class PurchasePriceDialog {
         dlg.show();
 
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.
-        final EditText price = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
-        final Button okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
-        final String[] purchasePrice = {""};
+        target_price = (EditText) dlg.findViewById(R.id.dialog_target_price);
+        price = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
+        okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
 
+        final String[] targetPrice = {""};
+        final String[] purchasePrice = {""};
+        target_price.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) { targetPrice[0] = s.toString(); }
+        });
         price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -67,10 +82,11 @@ public class PurchasePriceDialog {
             @Override
             public void onClick(View view) {
                 if(TextUtils.isEmpty(purchasePrice[0])) {
-                    Toast.makeText(context, "매입가를 입력해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "매입가 입력은 필수입니다.", Toast.LENGTH_SHORT).show();
                 }else {
                     stock.setPurchasePrice(purchasePrice[0]);
                     stock.setProfitAndLoss();
+                    if(!targetPrice[0].equals("")) stock.setTargetProfit(targetPrice[0]);
 
                     new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
 

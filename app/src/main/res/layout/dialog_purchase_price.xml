@@ -12,7 +12,7 @@
         android:layout_height="60dp"
         android:background="@color/stockoverlay_brown"
         android:gravity="center"
-        android:text="매입가 입력"
+        android:text="매입가 및 목표수익"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -25,6 +25,18 @@
         android:background="#EDE8E8"
         android:gravity="center"
         android:hint="해당 종목의 매입가를 입력해주세요"
+        android:inputType="numberSigned"
+        android:textColor="#101820"
+        android:textSize="16dp" />
+
+    <EditText
+        android:id="@+id/dialog_target_price"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:background="#EDE8E8"
+        android:gravity="center"
+        android:hint="해당 종목의 목표수익을 입력해주세요"
         android:inputType="numberSigned"
         android:textColor="#101820"
         android:textSize="16dp" />
