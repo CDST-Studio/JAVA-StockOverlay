@@ -1,14 +1,13 @@
-package View;
+package View.Adapter;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -16,6 +15,7 @@ import java.util.Objects;
 
 import Model.Stock;
 import Module.DBA;
+import View.MainActivity;
 import View.Dialog.PurchasePriceDialog;
 import ViewModel.MainViewModel;
 
@@ -187,6 +187,8 @@ public class ListViewAdapter extends BaseAdapter {
             for(int i=listViewItemList.size(); i<stocks.size(); i++) {
                 listViewItemList.add(stocks.get(i));
             }
+        }else {
+            for(int i=0; i<stocks.size(); i++) listViewItemList.set(i, stocks.get(i));
         }
 
         for(int i = 0; i < listViewItemList.size(); i++){

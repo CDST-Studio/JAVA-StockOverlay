@@ -98,7 +98,11 @@ public class DBA {
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i=0; i<stockList.size(); i++) {
                 if(stockList.get(i).split(":")[0].equals(name)) {
-                    bw.write(stockList.get(i) + ":" + price);
+                    if(stockList.get(i).split(":").length > 1) {
+                        bw.write(stockList.get(i).split(":")[0] + ":" + price);
+                    }else {
+                        bw.write(stockList.get(i) + ":" + price);
+                    }
                     bw.newLine();
                 }else {
                     bw.write(stockList.get(i));

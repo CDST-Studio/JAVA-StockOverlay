@@ -2,7 +2,6 @@ package View.Fragment;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import View.MainActivity;
-import View.ListViewAdapter;
+import View.Adapter.ListViewAdapter;
 import ViewModel.MainViewModel;
 import ViewModel.Thread.PriceThread;
 

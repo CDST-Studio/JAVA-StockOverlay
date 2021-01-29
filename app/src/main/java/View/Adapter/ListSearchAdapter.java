@@ -1,10 +1,7 @@
-package View;
+package View.Adapter;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-
 import com.needfor.stockoverlay.R;
 
 import java.io.File;
@@ -24,7 +19,6 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import Module.DBA;
-import View.Fragment.SearchableFragment;
 import ViewModel.MainViewModel;
 
 public class ListSearchAdapter extends BaseAdapter{
