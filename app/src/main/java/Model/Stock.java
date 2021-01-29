@@ -89,7 +89,7 @@ public class Stock implements Parcelable {
 
     public String getProfitAndLoss() { return profitAndLoss; }
     public void setProfitAndLoss() {
-        if(purchasePrice.equals("로딩중")) {
+        if(purchasePrice.equals("로딩중") || currentPrice.equals("로딩중")) {
             this.profitAndLoss = "";
         }else {
             int profitLoss = Integer.parseInt(this.currentPrice.replaceAll(",", "")) - Integer.parseInt(this.purchasePrice.replaceAll(",", ""));
