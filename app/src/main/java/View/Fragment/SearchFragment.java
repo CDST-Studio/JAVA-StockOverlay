@@ -1,10 +1,14 @@
 package View.Fragment;
 
+import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -52,6 +56,10 @@ public class SearchFragment extends Fragment {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) { //입력결과
+                // 키보드 내리기
+                InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                
                 query = query.trim();
                 query = query.replaceAll("(^\\p{Z}+|\\p{Z}+$)",""); // 문자열 공백 제거
 
@@ -61,8 +69,9 @@ public class SearchFragment extends Fragment {
                 catch (NumberFormatException e) {
                     query = query.toUpperCase();
                 }
-                stock = search.searchStock(assetManager, query);
 
+                stock = search.searchStock(assetManager, query);
+                adapter.resetItems();
                 if(stock != null && stock.size() > 0) { //검색할 때 마다 프래그먼트 초기화
                     for(int i=0; i<stock.size(); i++) { // SearchableFragment로 값 전달
                         name = stock.get(i).getName();

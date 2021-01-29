@@ -111,4 +111,10 @@ public class MainFragment extends Fragment {
         if(priceTh.isAlive()) priceTh.interrupt();
         if(priceTh.isInterrupted()) Log.v("subal", "인터럽트 걸림");
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(!priceTh.isInterrupted()) priceTh.interrupt();
+    }
 }

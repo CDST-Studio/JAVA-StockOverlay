@@ -1,15 +1,9 @@
 package ViewModel.Thread;
 
-import android.util.Log;
-
-import androidx.lifecycle.MutableLiveData;
-
 import java.util.ArrayList;
 
 import Model.Stock;
 import Module.Crawling;
-import View.Fragment.MainFragment;
-import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
 
 public class OverlayThread extends OverlayViewModel implements Runnable {
@@ -18,12 +12,14 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
     @Override
     public void run() {
-        try {
-            while(true) {
+        while(!Thread.currentThread().isInterrupted()) {
+            try {
                 Thread.sleep(4000);
                 priceCompare();
+            }catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
-        } catch (InterruptedException e) { }
+        }
     }
 
     private void priceCompare(){

@@ -22,7 +22,7 @@ import Module.DBA;
 import ViewModel.MainViewModel;
 
 public class ListSearchAdapter extends BaseAdapter{
-    private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
+    private ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
 
     private DBA DBA;
     private File file;
@@ -60,7 +60,9 @@ public class ListSearchAdapter extends BaseAdapter{
         StockName.setText(listViewItem.getName());
         StockCode.setText(listViewItem.getStockCode());
 
-        stocks = mainViewModel.getStockList().getValue();
+        if(mainViewModel.getStockList().getValue() == null) stocks = new ArrayList<>();
+        else stocks = mainViewModel.getStockList().getValue();
+
         file = context.getDatabasePath("User");
         user = DBA.getNickname(file);
 
@@ -82,10 +84,10 @@ public class ListSearchAdapter extends BaseAdapter{
             @Override
             public void onClick(View v) {
                 if(getConfigValue(context,"stockBoardStart").equals("start")) {
-                    bookmark.setEnabled(false);
                     Toast.makeText(context, "스톡보드 종료 후 관심종목을 추가해주세요", Toast.LENGTH_SHORT).show();
                 }else {
                     String stockName = listViewItem.getName();
+                    Log.d("수정 대상", stockName);
                     switch (finalFlag) {
                         case 1:
                             try {
@@ -93,12 +95,17 @@ public class ListSearchAdapter extends BaseAdapter{
                                 DBA.subInterestedStocks(file, user, stockName);
 
                                 int idx = 0;
+                                Log.d("수정 전 크기", Integer.toString(stocks.size()));
                                 for (int i = 0; i < stocks.size(); i++) {
+                                    Log.d("수정전 관심종목", "stock: " + stocks.get(i).getName());
                                     if (stocks.get(i).getName().equals(stockName)) idx = i;
                                 }
                                 stocks.remove(idx);
 
                                 mainViewModel.getStockList().setValue(stocks);
+                                Log.d("수정 인덱스", Integer.toString(idx));
+                                Log.d("수정 후 크기", Integer.toString(stocks.size()));
+                                for (int i = 0; i < stocks.size(); i++) Log.d("수정된 관심종목", "stock: " + stocks.get(i).getName());
                             } catch (Exception e) {
                                 Log.d("ERROR", "검색 후 관심종목 삭제 실패");
                             }
@@ -108,8 +115,13 @@ public class ListSearchAdapter extends BaseAdapter{
                                 bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
                                 DBA.addInterestedStocks(file, user, stockName);
 
+                                Log.d("수정 전 크기", Integer.toString(stocks.size()));
+                                for (int i = 0; i < stocks.size(); i++) Log.d("수정전 관심종목", "stock: " + stocks.get(i).getName());
+
                                 stocks.add(DBA.getStock(context.getAssets(), stockName));
                                 mainViewModel.getStockList().setValue(stocks);
+                                Log.d("수정 후 크기", Integer.toString(stocks.size()));
+                                for (int i = 0; i < stocks.size(); i++) Log.d("수정된 관심종목", "stock: " + stocks.get(i).getName());
                             } catch (Exception e) {
                                 Log.d("ERROR", "검색 후 관심종목 추가 실패");
                             }
@@ -136,6 +148,10 @@ public class ListSearchAdapter extends BaseAdapter{
         item.setName(searchname);
         item.setStockCode(searchcode);
         listViewItemList.add(item);
+    }
+
+    public void resetItems() {
+        listViewItemList = new ArrayList<Stock>();
     }
 
     // Preference 읽기

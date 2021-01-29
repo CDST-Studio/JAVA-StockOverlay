@@ -15,14 +15,14 @@ public class PriceThread extends MainViewModel implements Runnable {
 
     @Override
     public void run() {
-        try {
-            Log.v("subal","쓰레드 시작!");
-            while(!Thread.currentThread().isInterrupted()) {
-                Thread.sleep(1000);
+        while(!Thread.currentThread().isInterrupted()) {
+            try {
+                Thread.sleep(4000);
                 priceCompare();
+            }catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
             }
-        } catch (InterruptedException e) { }
-        finally{Log.v("subal","요렇게도 종료되넹");}
+        }
     }
 
     private void priceCompare(){
@@ -37,7 +37,7 @@ public class PriceThread extends MainViewModel implements Runnable {
         if(mModel.getStockList().getValue() != null) {
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
-                if (!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
+                if(!(tStockList.get(i).getCurrentPrice().equals(crawling.currentPrice()))) {//새 값을 가져와서 현재값 비교
                     tStockList.get(i).setCurrentPrice(crawling.currentPrice());//
                     tStockList.get(i).setChangeRate(crawling.changeRate());
                     tStockList.get(i).setChange(crawling.change());
