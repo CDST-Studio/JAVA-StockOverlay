@@ -17,7 +17,7 @@ public class PriceThread extends MainViewModel implements Runnable {
     public void run() {
         try {
             while(true) {
-                Thread.sleep(4000);
+                Thread.sleep(1000);
                 priceCompare();
             }
         } catch (InterruptedException e) { }
