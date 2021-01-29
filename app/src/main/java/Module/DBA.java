@@ -347,7 +347,6 @@ public class DBA {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("Success save", "환영합니다.");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

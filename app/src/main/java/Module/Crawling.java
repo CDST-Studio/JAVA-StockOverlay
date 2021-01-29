@@ -51,7 +51,7 @@ public class Crawling {
             String[] crawlingResult = crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_today").text().split(" ");
             return crawlingResult[crawlingResult.length - 1];
         }catch (Exception e) {
-            return "ERROR 404";
+            return "로딩중";
         }
     }
 
@@ -72,7 +72,7 @@ public class Crawling {
 
             return cFlag;
         }catch (Exception e) {
-            return "ERROR 404";
+            return "로딩중";
         }
     }
 
@@ -83,7 +83,7 @@ public class Crawling {
             String rate = crawlingResult[crawlingResult.length - 2] + crawlingResult[crawlingResult.length - 1];
             return rate;
         }catch (Exception e) {
-            return "ERROR 404";
+            return "로딩중";
         }
     }
 
@@ -93,7 +93,7 @@ public class Crawling {
             String[] crawlingResult = doc.select("#chart_area > div.rate_info > div.today > p.no_exday > em").text().split(" ");
             return crawlingResult[1];
         }catch (Exception e) {
-            return "ERROR 404";
+            return "로딩중";
         }
     }
 
