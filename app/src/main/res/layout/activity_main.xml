@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="관심종목"
+                android:text="흑우상향 ↗"
                 android:textSize="22dp"
                 android:textStyle="bold"></TextView>
         </androidx.appcompat.widget.Toolbar>
