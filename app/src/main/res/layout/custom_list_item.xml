@@ -57,7 +57,7 @@
                     android:id="@+id/stockcode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.12"
+                    android:layout_weight="2.05"
                     android:text="@{stock.stockCode}"
                     android:textColor="#666666"
                     android:textSize="16dp" />
@@ -66,14 +66,21 @@
                     android:id="@+id/list_purchaseprice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.9"
                     android:gravity="left" />
+
+                <TextView
+                    android:id="@+id/list_targetprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="테스트" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
-                    android:layout_weight="1"
+                    android:layout_weight="1.75"
                     android:gravity="right"
                     android:orientation="horizontal">
 

@@ -68,18 +68,17 @@ public class ListSearchAdapter extends BaseAdapter{
 
         Button bookmark = convertView.findViewById(R.id.Button_bookmark);
         ArrayList<String> interestedStocks = new DBA().getInterestedStocks(context.getDatabasePath("User"));
-        int flag = 0;
+        final int[] flag = {0};
         for(int i=0; i<interestedStocks.size(); i++) {
             if(listViewItem.getName().equals(interestedStocks.get(i))) {
-                flag = 1;
+                flag[0] = 1;
                 break;
             }
         }
 
-        if(flag == 1) bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
+        if(flag[0] == 1) bookmark.setBackgroundResource(R.drawable.ic_bookmark_click);
         else bookmark.setBackgroundResource(R.drawable.ic_bookmark);
 
-        int finalFlag = flag;
         bookmark.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -88,7 +87,7 @@ public class ListSearchAdapter extends BaseAdapter{
                 }else {
                     String stockName = listViewItem.getName();
                     Log.d("수정 대상", stockName);
-                    switch (finalFlag) {
+                    switch (flag[0]) {
                         case 1:
                             try {
                                 bookmark.setBackgroundResource(R.drawable.ic_bookmark);
@@ -103,6 +102,8 @@ public class ListSearchAdapter extends BaseAdapter{
                                 stocks.remove(idx);
 
                                 mainViewModel.getStockList().setValue(stocks);
+                                flag[0] = 0;
+
                                 Log.d("수정 인덱스", Integer.toString(idx));
                                 Log.d("수정 후 크기", Integer.toString(stocks.size()));
                                 for (int i = 0; i < stocks.size(); i++) Log.d("수정된 관심종목", "stock: " + stocks.get(i).getName());
@@ -120,6 +121,8 @@ public class ListSearchAdapter extends BaseAdapter{
 
                                 stocks.add(DBA.getStock(context.getAssets(), stockName));
                                 mainViewModel.getStockList().setValue(stocks);
+                                flag[0] = 1;
+
                                 Log.d("수정 후 크기", Integer.toString(stocks.size()));
                                 for (int i = 0; i < stocks.size(); i++) Log.d("수정된 관심종목", "stock: " + stocks.get(i).getName());
                             } catch (Exception e) {

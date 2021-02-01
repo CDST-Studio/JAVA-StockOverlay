@@ -29,6 +29,7 @@ public class ListViewAdapter extends BaseAdapter {
     // ListViewAdapter의 생성자
     public ListViewAdapter() { }
 
+    private TextView targetProfit;
     private TextView purchasePrice;
     private MainViewModel mainViewModel;
 
@@ -67,6 +68,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView Change = (TextView) convertView.findViewById(R.id.change);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
+            targetProfit = (TextView) convertView.findViewById(R.id.list_targetprice);
         }
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
@@ -101,6 +103,13 @@ public class ListViewAdapter extends BaseAdapter {
             } else {
                 purchasePrice.setText("매입가");
             }
+            
+            if (listViewItem.getTargetProfit() != null) {
+                targetProfit.setText(listViewItem.getTargetProfit());
+            } else {
+                targetProfit.setText("목표수익");
+            }
+            targetProfit.setTextColor(Color.parseColor("#BD8F4D"));
         }
 
         // 텍스트 색상 변경
