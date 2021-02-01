@@ -80,12 +80,14 @@ public class Stock implements Parcelable {
 
     public String getPurchasePrice() { return purchasePrice; }
     public void setPurchasePrice(String purchasePrice) {
-        StringBuffer price = new StringBuffer(purchasePrice);
-        for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
-            price.insert((price.length() - 1) - i, ",");
-        }
+        if(!purchasePrice.equals("로딩중")) {
+            StringBuffer price = new StringBuffer(purchasePrice);
+            for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
+                price.insert((price.length() - 1) - i, ",");
+            }
 
-        this.purchasePrice = price.toString();
+            this.purchasePrice = price.toString();
+        }
     }
 
     public String getProfitAndLoss() { return profitAndLoss; }
@@ -97,12 +99,12 @@ public class Stock implements Parcelable {
             StringBuffer price = new StringBuffer(Integer.toString(profitLoss));
             if (profitLoss > 0) {
                 this.profitChange = "▲";
-                for (int i = 2; i < price.length() - 1; i = i + 2 + (i / 2 + 1)) {
+                for (int i = 2; i < price.length() - 1; i = i+2 + (i/2 + 1)) {
                     price.insert((price.length() - 1) - i, ",");
                 }
             } else if (profitLoss < 0) {
                 this.profitChange = "▼";
-                for (int i = 2; i < price.length() - 2; i = i + 2 + (i / 2 + 1)) {
+                for (int i = 2; i < price.length() - 2; i = i+2 + (i/2 + 1)) {
                     price.insert((price.length() - 1) - i, ",");
                 }
                 price.deleteCharAt(0);
@@ -115,7 +117,14 @@ public class Stock implements Parcelable {
     public String getProfitChange() { return profitChange; }
 
     public String getTargetProfit() { return targetProfit; }
-    public void setTargetProfit(String targetProfit) { this.targetProfit = targetProfit; }
+    public void setTargetProfit(String targetProfit) {
+        StringBuffer price = new StringBuffer(targetProfit);
+        for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
+            price.insert((price.length() - 1) - i, ",");
+        }
+
+        this.targetProfit = price.toString();
+    }
 
     // -------------- Parcelable --------------
     // Parcelable 사용을 위한 creator 객체 생성

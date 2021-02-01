@@ -234,7 +234,9 @@ public class OverlayService extends Service {
         */
 
         // 쓰레드 시작
-        priceTh = new Thread(new OverlayThread());
+        OverlayThread overlayThread = new OverlayThread();
+        overlayThread.setContext(getApplicationContext());
+        priceTh = new Thread(overlayThread);
         priceTh.start();
     }
 

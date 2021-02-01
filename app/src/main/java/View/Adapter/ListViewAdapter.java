@@ -24,16 +24,19 @@ import com.needfor.stockoverlay.R;
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    //private ArrayList<Stock> listViewItemList = new ArrayList<Stock>() ;
     private final ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
-    // ListViewAdapter의 생성자
-    public ListViewAdapter() { }
 
     private TextView targetProfit;
     private TextView purchasePrice;
     private MainViewModel mainViewModel;
 
-    private static int POWER_ON_FLAG = 0;
+    private int DB_LOADED_FLAG;
+
+    // ListViewAdapter의 생성자
+    public ListViewAdapter() {
+        DB_LOADED_FLAG = 0;
+    }
+
     // Setter
     public void setMainViewModel(MainViewModel mainViewModel) {
         this.mainViewModel = mainViewModel;
@@ -82,11 +85,22 @@ public class ListViewAdapter extends BaseAdapter {
         ChangeRate.setText(listViewItem.getChangeRate());
         Change.setText(listViewItem.getChange());
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            ArrayList<String> purchasePrices = new DBA().getPurchasePrice(parent.getContext().getDatabasePath("User"));
+            // 저장된 매입가 불러오기
+            ArrayList<String> purchasePrices = new DBA().getPurchasePrices(parent.getContext().getDatabasePath("User"));
             if (purchasePrices.size() > position && !purchasePrices.get(position).equals("-")) {
-                listViewItem.setPurchasePrice(purchasePrices.get(position));
+                listViewItem.setPurchasePrice(purchasePrices.get(position).replace(",", ""));
                 listViewItem.setProfitAndLoss();
+                DB_LOADED_FLAG++;
+            }
 
+            // 저장된 목표수익 불러오기
+            ArrayList<String> targetProfits = new DBA().getTargetProfits(parent.getContext().getDatabasePath("User"));
+            if (targetProfits.size() > position && !targetProfits.get(position).equals("-")) {
+                listViewItem.setTargetProfit(targetProfits.get(position).replace(",", ""));
+                DB_LOADED_FLAG++;
+            }
+
+            if (DB_LOADED_FLAG > 0) {
                 int idx = 0;
                 for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
                     if (s.getName().equals(listViewItem.getName())) break;
@@ -103,7 +117,7 @@ public class ListViewAdapter extends BaseAdapter {
             } else {
                 purchasePrice.setText("매입가");
             }
-            
+
             if (listViewItem.getTargetProfit() != null) {
                 targetProfit.setText(listViewItem.getTargetProfit());
             } else {

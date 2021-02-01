@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.needfor.stockoverlay.R;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -24,12 +25,20 @@ import ViewModel.MainViewModel;
 
 public class PurchasePriceDialog {
     private Context context;
+    private static File DATABASE_PATH;
+    private static String NICKNAME;
+    private int DB_LOADED_FLAG;
 
     private EditText price;
     private EditText target_price;
     private Button okButton;
 
-    public PurchasePriceDialog(Context context) { this.context = context; }
+    public PurchasePriceDialog(Context context) {
+        this.context = context;
+        DATABASE_PATH = context.getDatabasePath("User");
+        NICKNAME = new DBA().getNickname(DATABASE_PATH);
+        DB_LOADED_FLAG = 0;
+    }
 
     // 호출할 다이얼로그 함수를 정의한다.
     public void callFunction(MainViewModel mainViewModel, Stock stock) {
@@ -55,17 +64,13 @@ public class PurchasePriceDialog {
         price = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
         okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
 
-        final String[] targetPrice = {""};
-        final String[] purchasePrice = {""};
-        target_price.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+        String savedPurchasePrice = new DBA().getPurchasePrice(DATABASE_PATH, stock.getName());
+        if(!savedPurchasePrice.equals("-")) price.setText(savedPurchasePrice.replace(",", ""));
 
-            @Override
-            public void afterTextChanged(Editable s) { targetPrice[0] = s.toString(); }
-        });
+        String savedTargetProfit = new DBA().getTargetProfit(DATABASE_PATH, stock.getName());
+        if(!savedTargetProfit.equals("-")) target_price.setText(savedTargetProfit.replace(",", ""));
+
+        final String[] purchasePrice = {""};
         price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -78,17 +83,36 @@ public class PurchasePriceDialog {
             }
         });
 
+        final String[] targetPrice = {""};
+        target_price.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                targetPrice[0] = s.toString();
+            }
+        });
+
         okButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(purchasePrice[0])) {
+                if(TextUtils.isEmpty(purchasePrice[0]) && savedPurchasePrice.equals("-")) {
                     Toast.makeText(context, "매입가 입력은 필수입니다.", Toast.LENGTH_SHORT).show();
                 }else {
+                    if(purchasePrice[0].equals("")) purchasePrice[0] = savedPurchasePrice.replace(",", "");
+                    if(!savedTargetProfit.equals("-") && targetPrice[0] == "") targetPrice[0] = savedTargetProfit.replace(",", "");
+
                     stock.setPurchasePrice(purchasePrice[0]);
                     stock.setProfitAndLoss();
-                    if(!targetPrice[0].equals("")) stock.setTargetProfit(targetPrice[0]);
+                    new DBA().addPurchasePrice(DATABASE_PATH, NICKNAME, stock.getName(), stock.getPurchasePrice());
 
-                    new DBA().addPurchasePrice(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), stock.getName(), stock.getPurchasePrice());
+                    if(!targetPrice[0].equals("")) {
+                        stock.setTargetProfit(targetPrice[0]);
+                        new DBA().addTargetProfit(DATABASE_PATH, NICKNAME, stock.getName(), stock.getTargetProfit());
+                    }
 
                     int idx = 0;
                     for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {

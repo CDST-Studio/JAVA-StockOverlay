@@ -103,11 +103,10 @@ public class DBA {
                     }else {
                         bw.write(stockList.get(i) + ":" + price);
                     }
-                    bw.newLine();
                 }else {
                     bw.write(stockList.get(i));
-                    bw.newLine();
                 }
+                bw.newLine();
             }
             bw.flush();
 
@@ -137,7 +136,14 @@ public class DBA {
                 });
     }
 
-    public void addTargetProfit(File DB, String user, String name, String price) {
+    /**
+     * DB: getDatabasePath("User"), user: User, name: StockName, price: TargetProfit
+     * @param DB
+     * @param user
+     * @param name
+     * @param profit
+     */
+    public void addTargetProfit(File DB, String user, String name, String profit) {
         ArrayList<String> stockList = new ArrayList<>();
         String fileDir = DB + "/InterestedStocks.txt";
 
@@ -152,16 +158,11 @@ public class DBA {
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i=0; i<stockList.size(); i++) {
                 if(stockList.get(i).split(":")[0].equals(name)) {
-                    if(stockList.get(i).split(":").length > 1) {
-                        bw.write(stockList.get(i).split(":")[0] + ":" + price);
-                    }else {
-                        bw.write(stockList.get(i) + ":" + price);
-                    }
-                    bw.newLine();
+                    bw.write(stockList.get(i) + ":" + profit);
                 }else {
                     bw.write(stockList.get(i));
-                    bw.newLine();
                 }
+                bw.newLine();
             }
             bw.flush();
 
@@ -174,19 +175,19 @@ public class DBA {
         }
 
         HashMap<String, Object> setData = new HashMap<>();
-        setData.put("매입가", price);
+        setData.put("목표수익", profit);
         db.collection("User").document(user).collection("interestedStocks").document(name)
                 .update(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "매입가 추가 성공");
+                        Log.d("Updata Success", "목표수익 추가 성공");
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "매입가 추가 실패, ", e);
+                        Log.w("Update Failed", "목표수익 추가 실패, ", e);
                     }
                 });
     }
@@ -299,6 +300,60 @@ public class DBA {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w("Update Failed", "매입가 삭제 실패, ", e);
+                    }
+                });
+    }
+
+    /**
+     * DB: getDatabasePath("User"), user: User, name: StockName
+     * @param DB
+     * @param user
+     * @param name
+     */
+    public void subTargetProfit(File DB, User user, String name) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) { stockList.add(line); }
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i=0; i<stockList.size(); i++) {
+                if(stockList.get(i).split(":")[0].equals(name)) {
+                    bw.write(stockList.get(i).substring(0, stockList.size()-2));
+                    bw.newLine();
+                }else {
+                    bw.write(stockList.get(i));
+                    bw.newLine();
+                }
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name)
+                .update("목표수익", null)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Updata Success", "목표수익 삭제 성공");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Update Failed", "목표수익 삭제 실패, ", e);
                     }
                 });
     }
@@ -507,11 +562,11 @@ public class DBA {
     }
 
     /**
-     * 관심 종목 불러오기 메서드
+     * 모든 매입가 불러오기 메서드
      * DB: getDatabasePath("User")
      * @param DB
      */
-    public ArrayList<String> getPurchasePrice(File DB) {
+    public ArrayList<String> getPurchasePrices(File DB) {
         ArrayList<String> result = new ArrayList<>();
 
         try {
@@ -525,8 +580,100 @@ public class DBA {
                 if(split.length == 1) result.add("-");
                 else result.add(split[1]);
             }
-
             if(result.size() == 0) result.add("-");
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return result;
+    }
+
+    /**
+     * 특정 매입가 불러오기 메서드
+     * DB: getDatabasePath("User"), name: StockName
+     * @param DB
+     */
+    public String getPurchasePrice(File DB, String name) {
+        String result = "-";
+
+        try {
+            FileReader fr = new FileReader(DB + "/InterestedStocks.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) {
+                String[] split = line.split(":");
+
+                if(split[0].equals(name)) {
+                    result = split[1];
+                    break;
+                }
+            }
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return result;
+    }
+
+    /**
+     * 모든 목표수익 불러오기 메서드
+     * DB: getDatabasePath("User")
+     * @param DB
+     */
+    public ArrayList<String> getTargetProfits(File DB) {
+        ArrayList<String> result = new ArrayList<>();
+
+        try {
+            FileReader fr = new FileReader(DB + "/InterestedStocks.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) {
+                String[] split = line.split(":");
+
+                if(split.length < 3) result.add("-");
+                else result.add(split[2]);
+            }
+            if(result.size() == 0) result.add("-");
+
+            br.close();
+            fr.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        return result;
+    }
+
+    /**
+     * 특정 목표수익 불러오기 메서드
+     * DB: getDatabasePath("User"), name: StockName
+     * @param DB
+     * @param name
+     */
+    public String getTargetProfit(File DB, String name) {
+        String result = "-";
+
+        try {
+            FileReader fr = new FileReader(DB + "/InterestedStocks.txt"); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) {
+                String[] split = line.split(":");
+
+                if(split[0].equals(name)) {
+                    result = split[2];
+                    break;
+                }
+            }
 
             br.close();
             fr.close();
