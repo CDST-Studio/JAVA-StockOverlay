@@ -26,7 +26,6 @@ public class PriceThread extends MainViewModel implements Runnable {
     }
 
     private void priceCompare(){
-        Log.v("subal", "돌아가는중");
         mModel = new MainViewModel();
         tStockList = new ArrayList<Stock>();
         tStockList = mModel.getStockList().getValue();//LiveData Get
