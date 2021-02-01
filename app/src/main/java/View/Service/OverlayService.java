@@ -290,12 +290,6 @@ public class OverlayService extends Service {
         }
     }
 
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
     public void overServiceObserver(){
         if(iteratorStock != null) {
             if(!iteratorStock.hasNext()) stocks.iterator();
@@ -320,5 +314,12 @@ public class OverlayService extends Service {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
         editor.commit();
+    }
+
+    //  -------------- 기타 메서드 --------------
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
     }
 }

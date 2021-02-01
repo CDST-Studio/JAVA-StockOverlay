@@ -137,6 +137,60 @@ public class DBA {
                 });
     }
 
+    public void addTargetProfit(File DB, String user, String name, String price) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) { stockList.add(line); }
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(int i=0; i<stockList.size(); i++) {
+                if(stockList.get(i).split(":")[0].equals(name)) {
+                    if(stockList.get(i).split(":").length > 1) {
+                        bw.write(stockList.get(i).split(":")[0] + ":" + price);
+                    }else {
+                        bw.write(stockList.get(i) + ":" + price);
+                    }
+                    bw.newLine();
+                }else {
+                    bw.write(stockList.get(i));
+                    bw.newLine();
+                }
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+        HashMap<String, Object> setData = new HashMap<>();
+        setData.put("매입가", price);
+        db.collection("User").document(user).collection("interestedStocks").document(name)
+                .update(setData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d("Updata Success", "매입가 추가 성공");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.w("Update Failed", "매입가 추가 실패, ", e);
+                    }
+                });
+    }
+
     // ---------------------------- Sub ----------------------------
 
     /**
