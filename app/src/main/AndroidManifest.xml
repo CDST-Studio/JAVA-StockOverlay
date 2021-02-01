@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.needfor.stockoverlay">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
@@ -14,17 +15,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.StockOverlay">
-        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <activity android:name=".MainActivityasdfdsa"></activity>
+        <activity android:name=".ManualActivity" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5856926052915180~3184496531"/>
+            android:value="ca-app-pub-5856926052915180~3184496531" />
+
         <service
             android:name="View.Service.OverlayService"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:enabled="true"
             android:permission="android.permission.SYSTEM_ALERT_WINDOW"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            tools:ignore="WrongManifestParent">
-        </service>
+            tools:ignore="WrongManifestParent" />
 
         <activity android:name=".StartActivity">
             <intent-filter>
@@ -33,11 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="View.LoginActivity"/>
+        <activity android:name="View.LoginActivity" />
         <activity
             android:name="View.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>
