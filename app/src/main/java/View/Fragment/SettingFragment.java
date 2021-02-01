@@ -1,7 +1,7 @@
 package View.Fragment;
 
-import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,11 +10,11 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import Module.DBA;
 import View.Service.OverlayService;
 import View.MainActivity;
+import View.ManualActivity;
 
 public class SettingFragment extends Fragment {
     private ViewGroup viewGroup;
@@ -38,6 +39,7 @@ public class SettingFragment extends Fragment {
     private TextView nick;
     private EditText delay;
     private Switch purchaseSwich;
+    private Button manual;
 
     @Nullable
     @Override
@@ -84,7 +86,6 @@ public class SettingFragment extends Fragment {
                 purchaseSwich.setChecked(false);
             }
         }
-
         purchaseSwich.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -95,6 +96,14 @@ public class SettingFragment extends Fragment {
                     setConfigValue(getContext(), "purchaseSwitch", "OFF");
                     MainActivity.PURCHASE_PRICE_INPUT_FLAG = 0;
                 }
+            }
+        });
+
+        manual = (Button)viewGroup.findViewById(R.id.manual_button);
+        manual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), ManualActivity.class));
             }
         });
 

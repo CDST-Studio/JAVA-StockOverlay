@@ -1,15 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ManualActivity">
+    tools:context="View.ManualActivity"
+    android:background="@color/stockoverlay_black"
+    android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/stockoverlay_brown"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="흑우상향"
+                            android:textSize="22dp"
+                            android:textStyle="bold"></TextView>
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:srcCompat="@drawable/icon" />
+                </LinearLayout>
+        </androidx.appcompat.widget.Toolbar>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="매뉴얼"
+            android:textColor="@color/white"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
             android:orientation="vertical">
 
                 <LinearLayout
@@ -22,6 +65,7 @@
                             android:id="@+id/imageView5"
                             android:layout_width="65dp"
                             android:layout_height="53dp"
+                            android:background="@drawable/round_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.284"
@@ -36,7 +80,9 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:text="메인화면을 보여줍니다. 이곳에서 주식을 터치하여 매입가와 목표가를 설정할 수 있습니다." />
+                            android:text="메인화면을 보여줍니다. 이곳에서 주식을 터치하여 매입가와 목표수익을 설정할 수 있습니다."
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -50,6 +96,7 @@
                             android:id="@+id/imageView7"
                             android:layout_width="65dp"
                             android:layout_height="match_parent"
+                            android:background="@drawable/round_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.284"
@@ -64,7 +111,9 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:text="주식 종목을 검색합니다." />
+                            android:text="주식 종목을 검색합니다."
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -77,6 +126,7 @@
                             android:id="@+id/imageView8"
                             android:layout_width="65dp"
                             android:layout_height="match_parent"
+                            android:background="@drawable/round_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.284"
@@ -91,7 +141,9 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:text="스톡보드에 대한 딜레이와 매입가,목표가 여부에 대한 설정을 합니다." />
+                            android:text="스톡보드에 대한 딜레이와 매입가, 목표수익 표기 여부에 대한 설정을 합니다."
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -104,6 +156,7 @@
                             android:id="@+id/imageView9"
                             android:layout_width="65dp"
                             android:layout_height="match_parent"
+                            android:background="@drawable/round_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:layout_constraintVertical_bias="0.284"
@@ -117,15 +170,9 @@
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
                             android:layout_weight="1"
-                            android:text="스톡보드를 실행합니다. 스톡보드는 화면 상단에 표시됩니다." />
+                            android:text="화면 상단에 표시되는 스톡보드를 실행합니다. 목표수익 달성시 알림을 줍니다."
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
                 </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/imageView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp"
-                    app:srcCompat="@drawable/bono" />
-
         </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
