@@ -33,12 +33,11 @@ import Model.User;
 import Module.DBA;
 import View.Dialog.NicknameDialog;
 import View.Fragment.MainFragment;
+import View.Fragment.SearchFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.OverlayViewModel;
 import ViewModel.MainViewModel;
-import View.LoginActivity;
-import ViewModel.Thread.PriceThread;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
@@ -61,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createToolbar(); // 상단 네비게이션 바 생성
         createBottomNavigation(); // 하단 네비게이션 바 생성
+
+
 //테스트
         User user = new User();
         if(new DBA().isInitNickname(getDatabasePath("User"))) {
@@ -120,6 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 new OverlayService().overServiceObserver();
             }
         };
+
     }
 
 
@@ -146,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, settingFragment).commitAllowingStateLoss();
                         return true;
                     case R.id.tab2:
-                        startActivity(new Intent(MainActivity.this, SearchActivity.class));
+                        startActivity(new Intent(MainActivity.this, SearchFragment.class));
                         return true;
                     case R.id.tab3:
                         // Main 프래그먼트로 교채
@@ -221,7 +223,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
         editor.commit();
-    }
+    }//코딩과 디버깅의 순환은 계속된다. 우리는 잡을 것이고 저들은 생길 것이다. -코서스 송대석에게 받치는 시
+
+
 }
 
 

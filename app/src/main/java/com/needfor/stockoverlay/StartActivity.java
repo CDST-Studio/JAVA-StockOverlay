@@ -21,7 +21,7 @@ import Module.Parsing;
 import Module.Search;
 import View.LoginActivity;
 import View.MainActivity;
-import View.SearchActivity;
+import View.Fragment.SearchFragment;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -61,5 +61,5 @@ public class StartActivity extends AppCompatActivity {
                 }
             }
         }
-    }
+    }//다음 프로젝트는 뭐하지?
 }

@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         connectGoogleLogin();
     }
 
-    // -------------- 구글 로그인 메서드 --------------
+    // -------------- 구글 로그인 메서드 -------------
     public void connectGoogleLogin() {
         // 구글 로그인 연동
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
