@@ -15,6 +15,7 @@ public class Stock implements Parcelable {
     private String profitAndLoss; // 손익가
     private String profitChange; // 손익 동향
     private String targetProfit; // 목표수익
+    private boolean notification; // Notification 알람 여부, true: 알람 가능 / false: 알람 불가능
 
     // -------------- 생성자 --------------
     /**
@@ -124,6 +125,17 @@ public class Stock implements Parcelable {
         }
 
         this.targetProfit = price.toString();
+    }
+
+    public boolean isNotification() { return notification; }
+    public void setNotification(boolean notification) { this.notification = notification; }
+
+    // -------------- Init null --------------
+    public void nullTargetProfit() { this.targetProfit = null; }
+    public void nullPurchase() {
+        this.purchasePrice = null;
+        this.profitChange = null;
+        this.profitAndLoss = null;
     }
 
     // -------------- Parcelable --------------

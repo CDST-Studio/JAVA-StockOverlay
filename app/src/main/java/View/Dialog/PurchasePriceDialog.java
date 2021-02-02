@@ -5,7 +5,6 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -32,6 +31,7 @@ public class PurchasePriceDialog {
     private EditText price;
     private EditText target_price;
     private Button okButton;
+    private Button cancle;
 
     public PurchasePriceDialog(Context context) {
         this.context = context;
@@ -59,18 +59,23 @@ public class PurchasePriceDialog {
         // 커스텀 다이얼로그를 노출한다.
         dlg.show();
 
+        // 밖에 클릭해도 종료 안 되게
+        dlg.setCancelable(false);
+
         // 커스텀 다이얼로그의 각 위젯들을 정의한다.
         target_price = (EditText) dlg.findViewById(R.id.dialog_target_price);
         price = (EditText) dlg.findViewById(R.id.dialog_purchase_price);
         okButton = (Button) dlg.findViewById(R.id.dialog_price_okButton);
+        cancle = (Button) dlg.findViewById(R.id.dialog_cancle);
 
         String savedPurchasePrice = new DBA().getPurchasePrice(DATABASE_PATH, stock.getName());
-        if(!savedPurchasePrice.equals("-")) price.setText(savedPurchasePrice.replace(",", ""));
-
         String savedTargetProfit = new DBA().getTargetProfit(DATABASE_PATH, stock.getName());
-        if(!savedTargetProfit.equals("-")) target_price.setText(savedTargetProfit.replace(",", ""));
 
         final String[] purchasePrice = {""};
+        if(!savedPurchasePrice.equals("-")) {
+            price.setText(savedPurchasePrice.replace(",", ""));
+            purchasePrice[0] = savedPurchasePrice.replace(",", "");
+        }
         price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -84,6 +89,10 @@ public class PurchasePriceDialog {
         });
 
         final String[] targetPrice = {""};
+        if(!savedTargetProfit.equals("-")) {
+            target_price.setText(savedTargetProfit.replace(",", ""));
+            targetPrice[0] = savedTargetProfit.replace(",", "");
+        }
         target_price.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
@@ -102,17 +111,24 @@ public class PurchasePriceDialog {
                 if(TextUtils.isEmpty(purchasePrice[0]) && savedPurchasePrice.equals("-")) {
                     Toast.makeText(context, "매입가 입력은 필수입니다.", Toast.LENGTH_SHORT).show();
                 }else {
-                    if(purchasePrice[0].equals("")) purchasePrice[0] = savedPurchasePrice.replace(",", "");
-                    if(!savedTargetProfit.equals("-") && targetPrice[0] == "") targetPrice[0] = savedTargetProfit.replace(",", "");
-
-                    stock.setPurchasePrice(purchasePrice[0]);
-                    stock.setProfitAndLoss();
-                    new DBA().addPurchasePrice(DATABASE_PATH, NICKNAME, stock.getName(), stock.getPurchasePrice());
+                    if(purchasePrice[0].equals("") && targetPrice[0].equals("")) {
+                        stock.nullPurchase();
+                        new DBA().subPurchasePrice(DATABASE_PATH, NICKNAME, stock.getName());
+                    }else {
+                        stock.setPurchasePrice(purchasePrice[0]);
+                        stock.setProfitAndLoss();
+                        new DBA().addPurchasePrice(DATABASE_PATH, NICKNAME, stock.getName(), stock.getPurchasePrice());
+                    }
 
                     if(!targetPrice[0].equals("")) {
                         stock.setTargetProfit(targetPrice[0]);
                         new DBA().addTargetProfit(DATABASE_PATH, NICKNAME, stock.getName(), stock.getTargetProfit());
+                    }else if(stock.getPurchasePrice() != null) {
+                        stock.nullTargetProfit();
+                        new DBA().subTargetProfit(DATABASE_PATH, NICKNAME, stock.getName());
                     }
+
+                    stock.setNotification(true);
 
                     int idx = 0;
                     for (Stock s : Objects.requireNonNull(mainViewModel.getStockList().getValue())) {
@@ -123,10 +139,16 @@ public class PurchasePriceDialog {
                     ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
                     stocklist.set(idx, stock);
                     mainViewModel.getStockList().setValue(stocklist);
-                    Log.v("song","값 변동 발생!");
-                    Log.v("song", mainViewModel.getStockList().getValue().get(idx).getPurchasePrice());
+
                     dlg.dismiss();
                 }
+            }
+        });
+
+        cancle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dlg.dismiss();
             }
         });
     }

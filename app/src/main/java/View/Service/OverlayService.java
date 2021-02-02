@@ -82,10 +82,17 @@ public class OverlayService extends Service {
             // 텍스트 설정
             if(stock.getName().length() <= 5) stockName.setText(stock.getName());
             else stockName.setText(stock.getName().substring(0, 5) + "…");
+
             if(stock.getCurrentPrice().length() <= 7) currentPrice.setText(stock.getCurrentPrice());
+            else if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("Loding");
             else currentPrice.setText(stock.getCurrentPrice().substring(0, 7) + "…");
-            changePrice.setText(stock.getChange() + stock.getChangePrice());
-            changeRate.setText(stock.getChange() + stock.getChangeRate());
+
+            if(stock.getChangePrice().equals("로딩중")) changePrice.setText("Loding");
+            else changePrice.setText(stock.getChange() + stock.getChangePrice());
+
+            if(stock.getChangeRate().equals("로딩중")) changeRate.setText("Loding");
+            else changeRate.setText(stock.getChange() + stock.getChangeRate());
+
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
                 if (stock.getPurchasePrice() == null) {
                     purchasePrice.setText("매입가");
@@ -116,13 +123,13 @@ public class OverlayService extends Service {
                 changePrice.setTextColor(Color.parseColor("#800000FF"));
                 changeRate.setTextColor(Color.parseColor("#800000FF"));
             } else {
-                currentPrice.setTextColor(Color.parseColor("#80808080"));
-                changePrice.setTextColor(Color.parseColor("#80808080"));
-                changeRate.setTextColor(Color.parseColor("#80808080"));
+                currentPrice.setTextColor(Color.parseColor("#80696969"));
+                changePrice.setTextColor(Color.parseColor("#80696969"));
+                changeRate.setTextColor(Color.parseColor("#80696969"));
             }
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
                 if (stock.getProfitChange() == null) {
-                    purchasePrice.setTextColor(Color.parseColor("#80808080"));
+                    purchasePrice.setTextColor(Color.parseColor("#80696969"));
                 } else if (stock.getProfitChange().equals("▲")) {
                     purchasePrice.setTextColor(Color.parseColor("#80FF0000"));
                 } else {

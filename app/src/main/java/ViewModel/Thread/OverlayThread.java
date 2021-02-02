@@ -6,9 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.os.Build;
-import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -63,7 +61,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
                 }
 
                 // 목표수익 달성여부 확인 후 알림
-                achievedTargetProfit(i);
+                if(tStockList.get(i).getTargetProfit() != null && tStockList.get(i).getProfitAndLoss() != null) achievedTargetProfit(i);
             }
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
@@ -75,7 +73,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
         String targetProfit = targetStock.getTargetProfit().replace(",", "");
         String profitAndLoss = targetStock.getProfitAndLoss().replace(",", "");
-        if(targetProfit.equals(profitAndLoss)) {
+        if(targetProfit.equals(profitAndLoss) && targetStock.isNotification()) {
             //Notification용 채널 생성
             createNotificationChannel(targetStock.getName());
 
@@ -87,7 +85,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
                     .setSmallIcon(R.drawable.icon)
                     .setContentTitle(targetStock.getName())
                     .setContentText("목표수익 "+targetStock.getTargetProfit()+"원 달성")
-                    .setSubText("증권앱에서 매도해주세요")
                     .setTicker("흑우상향, "+targetStock.getName()+" 목표수익 달성알림")
                     // 알림시 진동과 소리 설정
                     .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
@@ -100,6 +97,8 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             // 알림 표시
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             notificationManager.notify(idx, builder.build());
+            // Notification 메세지 중복 방지
+            targetStock.setNotification(false);
         }
     }
 

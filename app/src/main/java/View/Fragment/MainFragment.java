@@ -2,7 +2,6 @@ package View.Fragment;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,12 +56,15 @@ public class MainFragment extends Fragment {
         // viewmodel 초기화
         model = new ViewModelProvider(this).get(MainViewModel.class);
 
-        // 상단 안내 문구 중 "손익" 관련 문구 제어 명령줄
+        // 상단 안내 문구 중 "손익", "목표수익" 관련 문구 제어 명령줄
         TextView profit = (TextView)viewGroup.findViewById(R.id.profit);
+        TextView targetProfit = (TextView)viewGroup.findViewById(R.id.targetprice);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-            if(!profit.getText().equals("손익")) profit.setText("손익");
+            profit.setText("손익");
+            targetProfit.setText("목표수익");
         }else {
             profit.setText("");
+            targetProfit.setText("");
         }
 
         // 번들 안의 텍스트 불러오기
@@ -88,7 +90,6 @@ public class MainFragment extends Fragment {
 
         //옵저버 스타트
         model.getStockList().observe(getViewLifecycleOwner(),stockObserver);
-
 
         // 쓰레드 스타트
         priceTh = new Thread(new PriceThread());

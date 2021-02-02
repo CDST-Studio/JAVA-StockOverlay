@@ -1,7 +1,6 @@
 package Module;
 
 import android.content.res.AssetManager;
-import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;

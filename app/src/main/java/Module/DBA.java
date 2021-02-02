@@ -1,17 +1,11 @@
 package Module;
 
 import android.content.res.AssetManager;
-import android.os.Environment;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.BufferedReader;
@@ -21,9 +15,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 
 import Model.Stock;
@@ -62,15 +54,11 @@ public class DBA {
                 .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "관심종목 추가 성공");
-                    }
+                    public void onSuccess(Void aVoid) { }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "관심종목 추가 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) { }
                 });
     }
     // 관심 종목 추가 메서드(복수)
@@ -124,15 +112,11 @@ public class DBA {
                 .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "매입가 추가 성공");
-                    }
+                    public void onSuccess(Void aVoid) { }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "매입가 추가 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
     }
 
@@ -180,15 +164,11 @@ public class DBA {
                 .update(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "목표수익 추가 성공");
-                    }
+                    public void onSuccess(Void aVoid) {}
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "목표수익 추가 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
     }
 
@@ -236,15 +216,11 @@ public class DBA {
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "관심종목 삭제 성공");
-                    }
+                    public void onSuccess(Void aVoid) {}
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "관심종목 삭제 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
     }
     // 관심 종목 삭제 메서드(복수)
@@ -256,7 +232,7 @@ public class DBA {
      * @param user
      * @param name
      */
-    public void subPurchasePrice(File DB, User user, String name) {
+    public void subPurchasePrice(File DB, String user, String name) {
         ArrayList<String> stockList = new ArrayList<>();
         String fileDir = DB + "/InterestedStocks.txt";
 
@@ -288,19 +264,15 @@ public class DBA {
             e.getStackTrace();
         }
 
-        db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name)
+        db.collection("User").document(user).collection("interestedStocks").document(name)
                 .update("매입가", null)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "매입가 삭제 성공");
-                    }
+                    public void onSuccess(Void aVoid) {}
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "매입가 삭제 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
     }
 
@@ -310,7 +282,7 @@ public class DBA {
      * @param user
      * @param name
      */
-    public void subTargetProfit(File DB, User user, String name) {
+    public void subTargetProfit(File DB, String user, String name) {
         ArrayList<String> stockList = new ArrayList<>();
         String fileDir = DB + "/InterestedStocks.txt";
 
@@ -325,7 +297,7 @@ public class DBA {
             BufferedWriter bw = new BufferedWriter(fw);
             for(int i=0; i<stockList.size(); i++) {
                 if(stockList.get(i).split(":")[0].equals(name)) {
-                    bw.write(stockList.get(i).substring(0, stockList.size()-2));
+                    bw.write(stockList.get(i).split(":")[0] + ":" + stockList.get(i).split(":")[1]);
                     bw.newLine();
                 }else {
                     bw.write(stockList.get(i));
@@ -342,19 +314,15 @@ public class DBA {
             e.getStackTrace();
         }
 
-        db.collection("User").document(user.getNickName()).collection("interestedStocks").document(name)
+        db.collection("User").document(user).collection("interestedStocks").document(name)
                 .update("목표수익", null)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d("Updata Success", "목표수익 삭제 성공");
-                    }
+                    public void onSuccess(Void aVoid) {}
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Update Failed", "목표수익 삭제 실패, ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
     }
 
@@ -459,14 +427,11 @@ public class DBA {
                 .set(setDate)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
-                    public void onSuccess(Void aVoid) {
-                    }
+                    public void onSuccess(Void aVoid) { }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w("Fail save", "회원가입 실패, Error: ", e);
-                    }
+                    public void onFailure(@NonNull Exception e) {}
                 });
 
         user.setNickName(nickname);

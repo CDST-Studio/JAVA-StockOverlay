@@ -9,13 +9,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <TextView
             android:id="@+id/stockboard_stockname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.9"
+            android:layout_weight="0.85"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -33,7 +35,7 @@
             android:id="@+id/stockboard_changeprice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.9"
+            android:layout_weight="0.95"
             android:gravity="center"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -61,8 +63,6 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_gravity="center"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
             android:background="@drawable/ic_close" />
     </LinearLayout>
 
