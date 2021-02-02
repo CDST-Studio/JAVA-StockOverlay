@@ -81,19 +81,21 @@ public class Stock implements Parcelable {
 
     public String getPurchasePrice() { return purchasePrice; }
     public void setPurchasePrice(String purchasePrice) {
-        if(!purchasePrice.equals("로딩중")) {
+        if(purchasePrice != null) {
             StringBuffer price = new StringBuffer(purchasePrice);
             for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
                 price.insert((price.length() - 1) - i, ",");
             }
 
             this.purchasePrice = price.toString();
+        }else {
+            this.purchasePrice = "";
         }
     }
 
     public String getProfitAndLoss() { return profitAndLoss; }
     public void setProfitAndLoss() {
-        if(purchasePrice.equals("로딩중") || currentPrice.equals("로딩중")) {
+        if(purchasePrice == null || currentPrice.equals("로딩중")) {
             this.profitAndLoss = "";
         }else {
             int profitLoss = Integer.parseInt(this.currentPrice.replaceAll(",", "")) - Integer.parseInt(this.purchasePrice.replaceAll(",", ""));

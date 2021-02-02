@@ -84,13 +84,13 @@ public class OverlayService extends Service {
             else stockName.setText(stock.getName().substring(0, 5) + "…");
 
             if(stock.getCurrentPrice().length() <= 7) currentPrice.setText(stock.getCurrentPrice());
-            else if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("Loding");
+            else if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("로딩중");
             else currentPrice.setText(stock.getCurrentPrice().substring(0, 7) + "…");
 
-            if(stock.getChangePrice().equals("로딩중")) changePrice.setText("Loding");
+            if(stock.getChangePrice().equals("로딩중")) changePrice.setText("로딩중");
             else changePrice.setText(stock.getChange() + stock.getChangePrice());
 
-            if(stock.getChangeRate().equals("로딩중")) changeRate.setText("Loding");
+            if(stock.getChangeRate().equals("로딩중")) changeRate.setText("로딩중");
             else changeRate.setText(stock.getChange() + stock.getChangeRate());
 
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {

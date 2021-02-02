@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -111,8 +112,11 @@ public class PurchasePriceDialog {
                 if(TextUtils.isEmpty(purchasePrice[0]) && savedPurchasePrice.equals("-")) {
                     Toast.makeText(context, "매입가 입력은 필수입니다.", Toast.LENGTH_SHORT).show();
                 }else {
+                    Log.d("purchasePrice[0]", purchasePrice[0]);
+                    Log.d("targetPrice[0]", targetPrice[0]);
                     if(purchasePrice[0].equals("") && targetPrice[0].equals("")) {
                         stock.nullPurchase();
+                        stock.nullTargetProfit();
                         new DBA().subPurchasePrice(DATABASE_PATH, NICKNAME, stock.getName());
                     }else {
                         stock.setPurchasePrice(purchasePrice[0]);

@@ -84,8 +84,8 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, targetStock.getName())
                     .setSmallIcon(R.drawable.icon)
                     .setContentTitle(targetStock.getName())
-                    .setContentText("목표수익 "+targetStock.getTargetProfit()+"원 달성")
-                    .setTicker("흑우상향, "+targetStock.getName()+" 목표수익 달성알림")
+                    .setContentText("목표수익 "+targetStock.getTargetProfit()+"₩ 달성")
+                    .setTicker("관심종목, "+targetStock.getName()+" 목표수익 달성알림")
                     // 알림시 진동과 소리 설정
                     .setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE)
                     // 우선순위 설정
@@ -97,7 +97,8 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             // 알림 표시
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
             notificationManager.notify(idx, builder.build());
-            // Notification 메세지 중복 방지
+
+            // 알람 중복 방지
             targetStock.setNotification(false);
         }
     }
