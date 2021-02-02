@@ -86,7 +86,6 @@ public class Stock implements Parcelable {
             for (int i=2; i<price.length() - 1; i = i+2+(i/2 + 1)) {
                 price.insert((price.length() - 1) - i, ",");
             }
-
             this.purchasePrice = price.toString();
         }else {
             this.purchasePrice = "";

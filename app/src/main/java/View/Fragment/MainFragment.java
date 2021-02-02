@@ -1,5 +1,7 @@
 package View.Fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -7,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +24,7 @@ import com.needfor.stockoverlay.R;
 import java.util.ArrayList;
 
 import Model.Stock;
+import View.Dialog.NicknameDialog;
 import View.MainActivity;
 import View.Adapter.ListViewAdapter;
 import ViewModel.MainViewModel;
@@ -41,6 +45,22 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_main, container,false);
+
+        if(NicknameDialog.SIGN_IN_FLAG == 1) {
+            // 내부저장소에 저장된다는 경고문구
+            new AlertDialog.Builder(getContext())
+                    .setTitle("필독사항")
+                    .setMessage("해당 사유에 대한 책임은 본인에게 있습니다.\n" +
+                            "1. 본 앱의 모든 데이터는 내부에 저장되므로\n앱 삭제시 데이터를 복구할 수 없습니다.\n" +
+                            "2. 본 앱의 갱신속도가 느릴 수 있으므로\n유의해주시기 바랍니다.\n\n" +
+                            "사용설명서는 설정에 있습니다.")
+                    .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which){
+                            Toast.makeText(getContext(), "환영합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .show();
+        }
 
         // 애드몹 광고창
         mAdView = viewGroup.findViewById(R.id.adView);

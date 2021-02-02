@@ -3,7 +3,9 @@ package View;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -11,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -20,7 +21,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,7 +37,6 @@ import View.Fragment.SearchFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
 import ViewModel.OverlayViewModel;
-import ViewModel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE = 5469;
@@ -46,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
 
     private MainFragment mainFragment = new MainFragment();
+    private SearchFragment searchFragment = new SearchFragment();
     private SettingFragment settingFragment = new SettingFragment();
 
     private ArrayList<Stock> stocks = new ArrayList<>();
@@ -60,22 +60,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         createToolbar(); // 상단 네비게이션 바 생성
         createBottomNavigation(); // 하단 네비게이션 바 생성
-
-
-//테스트
-        User user = new User();
-        if(new DBA().isInitNickname(getDatabasePath("User"))) {
-            NicknameDialog nicknameDialog = new NicknameDialog(MainActivity.this);
-            nicknameDialog.callFunction(user);
-        } else {
-            new DBA().initNickname(getDatabasePath("User"), user, new DBA().getNickname(getDatabasePath("User")));
-            new DBA().initInterestedStocks(getDatabasePath("User"), user);
-            if(user.getInterestedStocks().size() != 0) new MainViewModel().initStockList(getAssets(), user.getInterestedStocks());
-
-            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            //finish();
-        }
-//테스트
 
         // 매입가 입력여부 체크
         if(getConfigValue(getApplicationContext(), "purchaseSwitch") != null) {
@@ -121,11 +105,10 @@ public class MainActivity extends AppCompatActivity {
                 new OverlayService().overServiceObserver();
             }
         };
-
     }
 
 
-    //  -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
+    // -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
     public void createToolbar() {
         Toolbar toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
@@ -133,22 +116,22 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
-        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    //  -------------- 하단 네비게이션 바 생성 메서드 --------------
+    // -------------- 하단 네비게이션 바 생성 메서드 --------------
     @SuppressLint("ResourceType")
     public void createBottomNavigation() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView); // 하단 액션바(네비게이션 바, 툴바)
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() { 
-            @Override public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) { 
-                switch (menuItem.getItemId()) { 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
                     case R.id.tab1:
                         // Setting 프래그먼트로 교채
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, settingFragment).commitAllowingStateLoss();
                         return true;
                     case R.id.tab2:
-                        startActivity(new Intent(MainActivity.this, SearchFragment.class));
+                        // Search 프래그먼트로 교채
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, searchFragment).commitAllowingStateLoss();
                         return true;
                     case R.id.tab3:
                         // Main 프래그먼트로 교채
@@ -162,11 +145,12 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(), "스톡보드가 이미 실행 중입니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        if(getConfigValue(getApplicationContext(),"stockBoardStart").equals("stop")) checkPermission();
+                        if(getConfigValue(getApplicationContext(),"stockBoardStart").equals("stop") && viewModel.getStockList().getValue() != null) checkPermission();
+                        else if(viewModel.getStockList().getValue() == null) Toast.makeText(getApplicationContext(), "관심종목 추가 후 스톡보드를 켜주세요.", Toast.LENGTH_SHORT).show();
                         return true;
-                    default: return false; 
-                } 
-            } 
+                    default: return false;
+                }
+            }
         });
     }
 
@@ -223,9 +207,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(key, value);
         editor.commit();
-    }//코딩과 디버깅의 순환은 계속된다. 우리는 잡을 것이고 저들은 생길 것이다. -코서스 송대석에게 받치는 시
-
-
+    }
 }
 
 

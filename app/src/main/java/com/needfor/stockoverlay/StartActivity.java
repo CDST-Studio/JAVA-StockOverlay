@@ -13,15 +13,7 @@ import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
-import Model.Stock;
-import Module.Parsing;
-import Module.Search;
 import View.LoginActivity;
-import View.MainActivity;
-import View.Fragment.SearchFragment;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
@@ -41,7 +33,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) { }
         });
-        startActivity(new Intent(StartActivity.this, MainActivity.class));
+        startActivity(new Intent(StartActivity.this, LoginActivity.class));
         //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         finish();
     }
@@ -61,5 +53,5 @@ public class StartActivity extends AppCompatActivity {
                 }
             }
         }
-    }//다음 프로젝트는 뭐하지?
+    }
 }

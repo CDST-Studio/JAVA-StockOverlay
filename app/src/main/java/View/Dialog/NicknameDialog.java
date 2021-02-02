@@ -1,7 +1,9 @@
 package View.Dialog;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -21,6 +23,7 @@ import View.LoginActivity;
 import View.MainActivity;
 
 public class NicknameDialog {
+    public static int SIGN_IN_FLAG = 0;
     private Context context;
 
     public NicknameDialog(Context context) {
@@ -78,6 +81,7 @@ public class NicknameDialog {
 
                     // 커스텀 다이얼로그를 종료한다.
                     dlg.dismiss();
+                    SIGN_IN_FLAG = 1;
                     ((LoginActivity) context).startActivity(new Intent(loginActivity, MainActivity.class));
                     ((LoginActivity) context).finish();
                 }
