@@ -27,6 +27,21 @@
 * 내부 저장소에 개인 데이터가 저장되어 있어서 앱 삭제시 개인 데이터가 날라간다.  
 
 # 사용 설명서 (Manual)
+<img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/bottom_ic_bookmarkstock.png?raw=true" width = "80">
+메인화면을 보여줍니다. 메인화면에는 자신이 추가한 관심목록이 있으며, 이곳에서 주식을 터치하여 매입가와 목표수익을 설정할 수 있습니다.
+
+
+<img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/bottom_ic_search.png?raw=true" width = "80">
+주식 종목을 검색합니다.
+
+
+<img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/bottom_ic_setting.png?raw=true" width = "80">
+스톡보드에 대한 딜레이와 매입가, 목표수익 표기 여부에 대한 설정을 합니다.
+
+
+<img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/ic_up.png?raw=true" width = "80">
+화면 상단에 표시되는 스톡보드를 실행합니다. 목표수익 달성시 달성 알람이 옵니다.
+
 
 # 향후 업데이트 예정 (Update Scheduled Information)
 FireStore 데이터 연동 중인 것을 감안한 여러 서비스 제공 예정    
