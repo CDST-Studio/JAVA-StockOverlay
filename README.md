@@ -10,9 +10,16 @@
 
 * 오버레이 뷰 (Overlay View)
 
+![OverlayView](https://user-images.githubusercontent.com/38196821/106883752-c1ed4200-6723-11eb-9146-56b80e76eb3e.gif)
+
 * 목표 수익 달성 알림 (Revenue of Target Alarm)
 
-- 메뉴바에 알림표시
+![TargetProfit](https://user-images.githubusercontent.com/38196821/106883707-b26df900-6723-11eb-8342-efb6d7b3e4a9.gif)
+
+
+▶ 메뉴바에 알림표시
+
+![5](https://user-images.githubusercontent.com/38196821/106883813-d8939900-6723-11eb-9130-511afe693ec3.jpg)
 
 # 주의사항! (Precautions)
 * 크롤링으로 주식 정보를 긁어와서 반영 속도에 딜레이가 있다.
