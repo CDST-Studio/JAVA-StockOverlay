@@ -91,7 +91,7 @@ public class OverlayService extends Service {
             else changePrice.setText(stock.getChange() + stock.getChangePrice());
 
             if(stock.getChangeRate().equals("로딩중")) changeRate.setText("로딩중");
-            else changeRate.setText(stock.getChange() + stock.getChangeRate());
+            else changeRate.setText(stock.getChangeRate());
 
             if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
                 if (stock.getPurchasePrice() == null) {

@@ -60,6 +60,7 @@ public class MainFragment extends Fragment {
                         }
                     })
                     .show();
+            NicknameDialog.SIGN_IN_FLAG = 0;
         }
 
         // 애드몹 광고창
