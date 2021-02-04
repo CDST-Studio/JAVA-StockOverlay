@@ -6,9 +6,13 @@
 > PlayStore Link = "출시 예정"  
 
 # 주요기능
+관심종목 추가에 따른 부가기능 제공
+
 * 오버레이 뷰 (Overlay View)
 
 * 목표 수익 달성 알림 (Revenue of Target Alarm)
+
+- 메뉴바에 알림표시
 
 # 주의사항! (Precautions)
 * 크롤링으로 주식 정보를 긁어와서 반영 속도에 딜레이가 있다.
@@ -36,7 +40,4 @@ FireStore 데이터 연동 중인 것을 감안한 여러 서비스 제공 예�
 
 # 저작권 (CopyRight)
 * 저희의 코드는 기본적으로 *MIT License*를 따르고 있습니다.  
-* 로고 저작권자 : sunnyridgee@gmail.com    
-
-
-아이 카람바!
+* 로고 저작권자 : sunnyridgee@gmail.com
