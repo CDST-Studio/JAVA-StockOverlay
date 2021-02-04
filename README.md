@@ -3,10 +3,18 @@
 <img src="https://user-images.githubusercontent.com/37203016/106876573-2d7ee180-671b-11eb-98f8-5603d4735b13.png">
 
 코로나 시대에 따라 많은 개인들이 주식 투자에 뛰어들었고, 계속 주가 창을 바라볼 수 없는 바쁜 현대인들은 그에 따라 주식 시장의 흐름을 따라는 것이 힘들어, 많은 손해를 보기도 한다. 이러한 점을 "흑우상향" 앱으로 해결해보자  
-> PlayStore Link = "출시 예정"  
+> PlayStore Link = "출시 예정"
+
+* 로그인 화면
+
+![Login](https://user-images.githubusercontent.com/38196821/106884687-f9102300-6724-11eb-9d74-4fc25f6c6d7a.gif)
 
 # 주요기능
 관심종목 추가에 따른 부가기능 제공
+* 관심종목 추가
+
+![AddInterestedStocks](https://user-images.githubusercontent.com/38196821/106884698-fca3aa00-6724-11eb-9ffc-48deca87ce00.gif)
+
 
 * 오버레이 뷰 (Overlay View)
 
@@ -28,7 +36,8 @@
 
 # 사용 설명서 (Manual)
 <img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/bottom_ic_bookmarkstock.png?raw=true" width = "80">
-메인화면을 보여줍니다. 메인화면에는 자신이 추가한 관심목록이 있으며, 이곳에서 주식을 터치하여 매입가와 목표수익을 설정할 수 있습니다.
+<p>메인화면을 보여줍니다.</p>
+<p>메인화면에는 자신이 추가한 관심목록이 있으며, 이곳에서 주식을 터치하여 매입가와 목표수익을 설정할 수 있습니다.</p>
 
 
 <img src="https://github.com/Team-NeedFor/StockOverlay/blob/master/app/src/main/res/drawable-v24/bottom_ic_search.png?raw=true" width = "80">
