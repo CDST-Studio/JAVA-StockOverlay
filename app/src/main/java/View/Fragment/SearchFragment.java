@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.needfor.stockoverlay.R;
 
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class SearchFragment extends Fragment {
     private View viewGroup;
     private AssetManager assetManager;
 
+    private AdView mAdView;
     private Search search;
     private String name, code;
     private ArrayList<Stock> stock;
@@ -41,6 +44,11 @@ public class SearchFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewGroup = (View) inflater.inflate(R.layout.fragment_search, container,false);
+
+        // 애드몹 광고창
+        mAdView = viewGroup.findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         assetManager = getResources().getAssets();
         search = new Search();
