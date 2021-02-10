@@ -1,9 +1,7 @@
 package View.Dialog;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -15,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import Model.User;
 import Module.DBA;

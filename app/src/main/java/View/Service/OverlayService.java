@@ -15,7 +15,6 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,25 +24,16 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.LifecycleRegistry;
-import androidx.lifecycle.LifecycleRegistryOwner;
-import androidx.lifecycle.LifecycleService;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 import Model.Stock;
 import View.MainActivity;
-import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
 import ViewModel.Thread.OverlayThread;
 

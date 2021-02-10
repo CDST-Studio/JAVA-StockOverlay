@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 public class ManualActivity extends AppCompatActivity {
 

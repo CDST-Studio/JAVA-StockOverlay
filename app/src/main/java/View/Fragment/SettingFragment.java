@@ -20,7 +20,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import java.util.ArrayList;
 

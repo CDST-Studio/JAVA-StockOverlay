@@ -18,7 +18,7 @@ import View.MainActivity;
 import View.Dialog.PurchasePriceDialog;
 import ViewModel.MainViewModel;
 
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 
 public class ListViewAdapter extends BaseAdapter {

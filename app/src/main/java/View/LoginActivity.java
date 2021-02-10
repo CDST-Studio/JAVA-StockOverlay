@@ -22,7 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import Model.User;
 import Module.DBA;

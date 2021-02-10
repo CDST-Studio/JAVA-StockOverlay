@@ -3,9 +3,7 @@ package View;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -24,14 +22,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import java.util.ArrayList;
 
 import Model.Stock;
 import Model.User;
 import Module.DBA;
-import View.Dialog.NicknameDialog;
 import View.Fragment.MainFragment;
 import View.Fragment.SearchFragment;
 import View.Fragment.SettingFragment;

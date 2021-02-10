@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.needfor.stockoverlay.R;
+import com.cdst.stockoverlay.R;
 
 import java.util.ArrayList;
 

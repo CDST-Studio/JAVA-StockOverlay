@@ -1,4 +1,4 @@
-package com.needfor.stockoverlay;
+package com.cdst.stockoverlay;
 
 import org.junit.Test;
 

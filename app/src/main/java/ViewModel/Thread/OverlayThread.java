@@ -11,8 +11,8 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import com.needfor.stockoverlay.R;
-import com.needfor.stockoverlay.StartActivity;
+import com.cdst.stockoverlay.R;
+import com.cdst.stockoverlay.StartActivity;
 
 import java.util.ArrayList;
 
