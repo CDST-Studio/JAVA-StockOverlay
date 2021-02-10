@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 .build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this, this)
-                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
 
         setContentView(R.layout.activity_login);
@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
             } else {
-                Toast.makeText(getApplicationContext(), "Login Error: 운영측에게 연락 바랍니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Login Error: " + result.getStatus().toString(), Toast.LENGTH_SHORT).show();
             }
         }else{
             Toast.makeText(getApplicationContext(), "Login Error: 구글계정 연동 실패.", Toast.LENGTH_SHORT).show();
