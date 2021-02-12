@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "579738020007",
-    "project_id": "needfor-stockoverlay",
-    "storage_bucket": "needfor-stockoverlay.appspot.com"
+    "project_number": "1055706717038",
+    "project_id": "cdst-studio",
+    "storage_bucket": "cdst-studio.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:579738020007:android:87f757a72328e34d4c9382",
+        "mobilesdk_app_id": "1:1055706717038:android:07a7a55da9eafd9fb4ff7f",
         "android_client_info": {
-          "package_name": "com.needfor.stockoverlay"
+          "package_name": "com.cdst.stockoverlay"
         }
       },
       "oauth_client": [
         {
-          "client_id": "579738020007-q8rej07nko4dr9m5sthf74jiehdr7na2.apps.googleusercontent.com",
+          "client_id": "1055706717038-hfuormmbnonojli2s3kj2cbh6951ejen.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.needfor.stockoverlay",
+            "package_name": "com.cdst.stockoverlay",
             "certificate_hash": "046be28606b4f319f4635d922e80213e2cbc3f7e"
           }
         },
         {
-          "client_id": "579738020007-n6id8s80m8cble0tkvs98kubbkbu8ppu.apps.googleusercontent.com",
+          "client_id": "1055706717038-97qs42j2fs39p8ku6mfusbqoktvt8nvt.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAajrEEADheqBNfU59YcEaiiE7S4vZlN2c"
+          "current_key": "AIzaSyD17CrvK8jTzojQeY25UbrUzszZVA7T8-4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "579738020007-n6id8s80m8cble0tkvs98kubbkbu8ppu.apps.googleusercontent.com",
+              "client_id": "1055706717038-97qs42j2fs39p8ku6mfusbqoktvt8nvt.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

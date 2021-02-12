@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         // 로그인 관련 기초 변수들 초기화
         mAuth = FirebaseAuth.getInstance();
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken("1055706717038-k008naroeutrj0otfhs05cgft4dt9srp.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(!task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(), "인증 실패", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "인증 실패" + task.getResult().toString(), Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(getApplicationContext(), "구글 로그인 인증 성공", Toast.LENGTH_SHORT).show();
 
