@@ -14,7 +14,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "1055706717038-hfuormmbnonojli2s3kj2cbh6951ejen.apps.googleusercontent.com",
+          "client_id": "1055706717038-k3havt1diq6h340p9ps8ureqe67muafa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cdst.stockoverlay",
+            "certificate_hash": "05ed659e187dcd93704e0c3d7a40bec2da67573e"
+          }
+        },
+        {
+          "client_id": "1055706717038-ps41jnopdur4nsh66qvmad9tto3lojnp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.cdst.stockoverlay",
