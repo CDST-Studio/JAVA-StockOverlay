@@ -63,7 +63,7 @@ FireStore 데이터 연동 중인 것을 감안한 여러 서비스 제공 예�
 (대충 링크)에 댓글로 오류 제보 부탁드립니다.
 
 # 알려진 오류 (Issue)
-아직 알려진 오류가 없습니다.
+* 구글 연동 로그인 오류 : 구글 앱 콘솔 → 설정 → 앱 무결성 → 앱 서명키 인증서를 Firebase 설정에 sha1 키를 추가해서 해결
 
 # 개발자 정보 (Developer Information)
 * 송대석 : [Github](https://github.com/DaeSeokSong)  
