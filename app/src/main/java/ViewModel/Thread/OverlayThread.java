@@ -135,7 +135,9 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         String dTime = formatter.format(nowTime);
 
         int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
-        int min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+        int min = 0;
+        if(!dTime.split(":")[1].equals("")) Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+
         if(hour >= 9 && hour <= 15) {
             if(hour == 15 && min > 30) result = false;
         }else {
