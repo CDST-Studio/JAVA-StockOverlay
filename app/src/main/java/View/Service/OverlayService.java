@@ -70,12 +70,10 @@ public class OverlayService extends Service {
             Stock stock = iteratorStock.next();
 
             // 텍스트 설정
-            if(stock.getName().length() <= 5) stockName.setText(stock.getName());
-            else stockName.setText(stock.getName().substring(0, 5) + "…");
+            stockName.setText(stock.getName());
 
-            if(stock.getCurrentPrice().length() <= 7) currentPrice.setText(stock.getCurrentPrice());
-            else if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("로딩중");
-            else currentPrice.setText(stock.getCurrentPrice().substring(0, 7) + "…");
+            if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("로딩중");
+            else currentPrice.setText(stock.getCurrentPrice());
 
             if(stock.getChangePrice().equals("로딩중")) changePrice.setText("로딩중");
             else changePrice.setText(stock.getChange() + stock.getChangePrice());

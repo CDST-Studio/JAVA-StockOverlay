@@ -23,7 +23,9 @@
             android:layout_weight="0.85"
             android:gravity="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/stockboard_currentprice"
@@ -32,7 +34,9 @@
             android:layout_weight="0.85"
             android:gravity="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/stockboard_changeprice"
@@ -41,7 +45,9 @@
             android:layout_weight="0.9"
             android:gravity="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/stockboard_changerate"
@@ -50,7 +56,9 @@
             android:layout_weight="0.9"
             android:gravity="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
 
         <TextView
             android:id="@+id/stockboard_purchaseprice"
@@ -59,7 +67,9 @@
             android:layout_weight="0.9"
             android:gravity="center"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:ellipsize="marquee"
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/overlay_cancle"
