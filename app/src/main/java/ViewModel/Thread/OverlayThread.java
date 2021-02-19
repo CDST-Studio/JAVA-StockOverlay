@@ -29,12 +29,17 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
     @Override
     public void run() {
+        mModel = new OverlayViewModel();
+        tStockList = new ArrayList<Stock>();
+        tStockList = mModel.getStockList().getValue();//LiveData Get
+
         while(!Thread.currentThread().isInterrupted()) {
             try {
                 if(isMarketTime()) {
                     Thread.sleep(1000);
                     priceCompare();
-                } else Thread.currentThread().interrupt();
+                    onlyAlertTargetProfit();
+                }else onlyAlertTargetProfit();
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -42,11 +47,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
     }
 
     private void priceCompare() {
-        System.out.println("장시간이라 크롤링 중");
-        mModel = new OverlayViewModel();
-        tStockList = new ArrayList<Stock>();
-        tStockList = mModel.getStockList().getValue();//LiveData Get
-
         int changeFlag = 0;
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
@@ -70,6 +70,16 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             }
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
+    }
+
+    // 가격비교 없이 오직 목표가 달성만 알려주는 메서드
+    private void onlyAlertTargetProfit() {
+        if(mModel.getStockList().getValue() != null) {
+            for (int i = 0; i < tStockList.size(); i++) {
+                // 목표수익 달성여부 확인 후 알림
+                if(tStockList.get(i).getTargetProfit() != null && tStockList.get(i).getProfitAndLoss() != null) achievedTargetProfit(i);
+            }
+        }
     }
 
     // 목표수익 달성 시 알림해주는 메서드
@@ -136,7 +146,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
         int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
         int min = 0;
-        if(!dTime.split(":")[1].equals("")) Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
 
         if(hour >= 9 && hour <= 15) {
             if(hour == 15 && min > 30) result = false;
@@ -144,7 +154,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             result = false;
         }
 
-        if(result == false) System.out.println("장시간이 아닙니다.");
         return result;
     }
 

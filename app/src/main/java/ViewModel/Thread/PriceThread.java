@@ -19,7 +19,7 @@ public class PriceThread extends MainViewModel implements Runnable {
                 if(isMarketTime()) {
                     Thread.sleep(1000);
                     priceCompare();
-                } else Thread.currentThread().interrupt();
+                }
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -27,7 +27,6 @@ public class PriceThread extends MainViewModel implements Runnable {
     }
 
     private void priceCompare() {
-        System.out.println("장시간이라 크롤링 중");
         mModel = new MainViewModel();
         tStockList = new ArrayList<Stock>();
         tStockList = mModel.getStockList().getValue();//LiveData Get
@@ -65,14 +64,15 @@ public class PriceThread extends MainViewModel implements Runnable {
         String dTime = formatter.format(nowTime);
 
         int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
-        int min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+        int min = 0;
+        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+
         if(hour >= 9 && hour <= 15) {
             if(hour == 15 && min > 30) result = false;
         }else {
             result = false;
         }
 
-        if(result == false) System.out.println("장시간이 아닙니다.");
         return result;
     }
 }
