@@ -26,7 +26,6 @@ public class PurchasePriceDialog {
     private Context context;
     private static File DATABASE_PATH;
     private static String NICKNAME;
-    private int DB_LOADED_FLAG;
 
     private EditText price;
     private EditText target_price;
@@ -37,7 +36,6 @@ public class PurchasePriceDialog {
         this.context = context;
         DATABASE_PATH = context.getDatabasePath("User");
         NICKNAME = new DBA().getNickname(DATABASE_PATH);
-        DB_LOADED_FLAG = 0;
     }
 
     // 호출할 다이얼로그 함수를 정의한다.

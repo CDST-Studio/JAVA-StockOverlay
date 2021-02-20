@@ -37,8 +37,8 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             try {
                 if(isMarketTime()) {
                     Thread.sleep(1000);
-                    priceCompare();
                     onlyAlertTargetProfit();
+                    priceCompare();
                 }else onlyAlertTargetProfit();
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();

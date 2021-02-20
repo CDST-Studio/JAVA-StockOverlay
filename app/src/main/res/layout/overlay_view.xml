@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5dp"
-        android:paddingRight="10dp"
         android:paddingBottom="5dp">
 
         <TextView
@@ -74,9 +73,13 @@
 
         <Button
             android:id="@+id/overlay_cancle"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
+            android:layout_width="17.5dp"
+            android:layout_height="17.5dp"
             android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
             android:background="@drawable/ic_close" />
     </LinearLayout>
 
