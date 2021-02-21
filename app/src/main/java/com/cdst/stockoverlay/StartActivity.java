@@ -13,6 +13,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import View.LoginActivity;
+import View.MainActivity;
 
 public class StartActivity extends AppCompatActivity {
     private String [] permission_list = {
