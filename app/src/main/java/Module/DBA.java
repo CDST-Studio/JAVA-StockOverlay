@@ -172,6 +172,22 @@ public class DBA {
                 });
     }
 
+    public void addProfitSelling(String user, Stock stock) {
+        HashMap<String, Object> setData = new HashMap<>();
+        setData.put("매입가", stock.getPurchasePrice());
+        setData.put("수익", stock.getProfitAndLoss());
+        db.collection("User").document(user).collection("profitSelling").document(stock.getName())
+                .set(setData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) { }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) { }
+                });
+    }
+
     // ---------------------------- Sub ----------------------------
 
     /**

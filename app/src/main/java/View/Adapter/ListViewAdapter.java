@@ -26,6 +26,9 @@ public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private final ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
 
+    private int purchase = 0;
+    private int target = 0;
+
     private TextView targetProfit;
     private TextView purchasePrice;
     private ImageButton profitSelling;
@@ -123,13 +126,17 @@ public class ListViewAdapter extends BaseAdapter {
                 targetProfit.setText("목표수익");
             }
 
-            int purchase = 0;
-            int target = 0;
             if (!purchasePrice.getText().equals("매입가")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
             if (!targetProfit.getText().equals("목표수익")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
-            if (purchase >= target) {
+            if ((purchase != 0 && target != 0) && purchase >= target) {
                 profitSelling = convertView.findViewById(R.id.profit_selling);
                 profitSelling.setVisibility(View.VISIBLE);
+                profitSelling.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        new DBA().addProfitSelling(new DBA().getNickname(context.getDatabasePath("User")), listViewItem);
+                    }
+                });
             }else {
                 if(profitSelling != null) profitSelling.setVisibility(View.INVISIBLE);
                 targetProfit.setTextColor(Color.parseColor("#BD8F4D"));
