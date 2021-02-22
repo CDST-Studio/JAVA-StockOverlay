@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     private TextView targetProfit;
     private TextView purchasePrice;
+    private ImageButton profitSelling;
     private MainViewModel mainViewModel;
 
     private int DB_LOADED_FLAG;
@@ -120,7 +122,18 @@ public class ListViewAdapter extends BaseAdapter {
             } else {
                 targetProfit.setText("목표수익");
             }
-            targetProfit.setTextColor(Color.parseColor("#BD8F4D"));
+
+            int purchase = 0;
+            int target = 0;
+            if (!purchasePrice.getText().equals("매입가")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
+            if (!targetProfit.getText().equals("목표수익")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
+            if (purchase >= target) {
+                profitSelling = convertView.findViewById(R.id.profit_selling);
+                profitSelling.setVisibility(View.VISIBLE);
+            }else {
+                if(profitSelling != null) profitSelling.setVisibility(View.INVISIBLE);
+                targetProfit.setTextColor(Color.parseColor("#BD8F4D"));
+            }
         }
 
         // 텍스트 색상 변경
