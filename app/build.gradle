@@ -30,7 +30,9 @@ android {
     dataBinding{
         enabled = true
     }
-
+    dependencies{
+        implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    }
     viewBinding {
         enabled = true
     }

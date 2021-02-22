@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import Model.Stock;
 import Model.User;
 import Module.DBA;
+import View.Fragment.EditFragment;
 import View.Fragment.MainFragment;
 import View.Fragment.SearchFragment;
 import View.Fragment.SettingFragment;
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment = new MainFragment();
     private SearchFragment searchFragment = new SearchFragment();
     private SettingFragment settingFragment = new SettingFragment();
+    private EditFragment editFragment = new EditFragment();
 
     private ArrayList<Stock> stocks = new ArrayList<>();
     private User user = new User();
@@ -94,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         // mainFragment로 번들 전달
         mainFragment.setArguments(bundle);
+        editFragment.setArguments(bundle);
 
         //Observer 정의
         overlayObserver = new Observer<ArrayList<Stock>>() {
@@ -113,6 +116,19 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_edit);
+    }
+
+    // ------------ 상단 툴바 편집 버튼 이벤트 메서드----------------
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, editFragment).commitAllowingStateLoss();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     // -------------- 하단 네비게이션 바 생성 메서드 --------------
