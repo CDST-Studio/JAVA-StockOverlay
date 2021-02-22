@@ -25,16 +25,8 @@ import com.cdst.stockoverlay.R;
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private final ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
-
-    private int purchase = 0;
-    private int target = 0;
-
-    private TextView targetProfit;
-    private TextView purchasePrice;
-    private ImageButton profitSelling;
-    private MainViewModel mainViewModel;
-
     private int DB_LOADED_FLAG;
+    private MainViewModel mainViewModel;
 
     // ListViewAdapter의 생성자
     public ListViewAdapter() {
@@ -72,6 +64,9 @@ public class ListViewAdapter extends BaseAdapter {
         TextView CurrentPrice = (TextView) convertView.findViewById(R.id.currentprice);
         TextView ChangePrice = (TextView) convertView.findViewById(R.id.changeprice);
         TextView ChangeRate = (TextView) convertView.findViewById(R.id.changerate);
+
+        TextView targetProfit = null;
+        TextView purchasePrice = null;
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
             targetProfit = (TextView) convertView.findViewById(R.id.list_targetprice);
@@ -126,6 +121,9 @@ public class ListViewAdapter extends BaseAdapter {
                 targetProfit.setText("목표수익");
             }
 
+            int purchase = 0;
+            int target = 0;
+            ImageButton profitSelling = null;
             if (!purchasePrice.getText().equals("매입가")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
             if (!targetProfit.getText().equals("목표수익")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
             if ((purchase != 0 && target != 0) && purchase >= target) {
@@ -135,6 +133,7 @@ public class ListViewAdapter extends BaseAdapter {
                     @Override
                     public void onClick(View v) {
                         new DBA().addProfitSelling(new DBA().getNickname(context.getDatabasePath("User")), listViewItem);
+                        new DBA().subInterestedStocks(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), listViewItem.getName());
                     }
                 });
             }else {

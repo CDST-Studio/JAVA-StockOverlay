@@ -144,8 +144,9 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         // format에 맞게 출력하기 위한 문자열 변환
         String dTime = formatter.format(nowTime);
 
-        int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        int hour = 0;
         int min = 0;
+        if(!dTime.split(":")[0].equals("") && !dTime.split(":")[0].equals("00")) hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
         if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
 
         if(hour >= 9 && hour <= 15) {
