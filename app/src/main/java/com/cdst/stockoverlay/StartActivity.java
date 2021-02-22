@@ -38,7 +38,7 @@ public class StartActivity extends AppCompatActivity {
         finish();
     }
 
-    //  -------------- 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 소스 코드 --------------
+    //  -------------- 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 소스 코드 -------------
     public void checkPermission() {
         // 마시멜로우 이상일 경우
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
