@@ -47,11 +47,6 @@ public class EditFragment extends Fragment {
 
         init();
 
-        // 애드몹 광고창
-        mAdView = EditView.findViewById(R.id.adView2);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
         // RequestActivity에서 전달한 번들 저장
         Bundle bundle = getArguments();
 
@@ -85,7 +80,7 @@ public class EditFragment extends Fragment {
         return EditView;
     }
 
-    // 리사이클러뷰 생성하는 메소드
+    // ---------------- 리사이클러뷰 및 광고 생성하는 메서드 ----------------
     public void init() {
         recyclerView = (RecyclerView)EditView.findViewById(R.id.edit_list);
         recyclerView.setHasFixedSize(true);
@@ -95,5 +90,10 @@ public class EditFragment extends Fragment {
         //ItemTouchHelper 생성
         helper = new ItemTouchHelper(new ItemTouchHelperCallback(adapter));
         helper.attachToRecyclerView(recyclerView);
+
+        // 애드몹 광고창
+        mAdView = EditView.findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 }

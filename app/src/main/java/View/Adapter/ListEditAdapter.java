@@ -41,13 +41,15 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
     private View view;
     private MainHolder mainHolder;
 
-    // 생성자
+    // -------------- 생성자 --------------
     public ListEditAdapter() { }
 
+    // -------------- 뷰모델 세팅 --------------
     public void setMainViewModel(MainViewModel mainViewModel) {
         this.mainViewModel = mainViewModel;
     }
 
+    //-------------- 객체지정 및 이벤트 처리 --------------
     public class MainHolder extends RecyclerView.ViewHolder  {
         public TextView StockName, StockCode;
         public Button remove;
@@ -91,6 +93,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         }
     }
 
+    //-------------- 뷰홀더 생성 --------------
     @NonNull
     @Override
     public MainHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -99,6 +102,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         return mainHolder;
     }
 
+    //-------------- pos가 필요한 객체 결합 --------------
     @Override
     public void onBindViewHolder(@NonNull MainHolder mainHolder, int position) {
         listViewItem = listViewItemList.get(position);
@@ -107,6 +111,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         Log.i("뷰홀더 체크", listViewItem.getName());
     }
 
+    //-------------- 움직임 감지 메서드 --------------
     @Override
     public boolean onItemMove(int from_position, int to_position) {
         //이동할 객체 저장
@@ -122,7 +127,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         return true;
     }
 
-
+    //-------------- ArrayList에 아이템 추가 --------------
     public void addItem(String searchname, String searchcode) {
         Stock item = new Stock();
         item.setName(searchname);
@@ -131,6 +136,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         Log.i("데이터 체크", searchname+"체크"+searchcode);
     }
 
+    //-------------- 뷰모델 세팅 관련 메서드 --------------
     public void setItem(ArrayList<Stock> stocks) {
         if(stocks.size() < listViewItemList.size()) {
             int flag = 0;

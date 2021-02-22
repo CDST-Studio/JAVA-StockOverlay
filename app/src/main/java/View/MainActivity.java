@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
         actionBar.setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_edit);
+        actionBar.setHomeAsUpIndicator(R.drawable.ic_edit);
     }
 
     // ------------ 상단 툴바 편집 버튼 이벤트 메서드----------------
