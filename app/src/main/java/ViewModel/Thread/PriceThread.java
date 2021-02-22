@@ -1,6 +1,8 @@
 package ViewModel.Thread;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import Model.Stock;
 import Module.Crawling;
@@ -14,8 +16,10 @@ public class PriceThread extends MainViewModel implements Runnable {
     public void run() {
         while(!Thread.currentThread().isInterrupted()) {
             try {
-                Thread.sleep(1000);
-                priceCompare();
+                if(isMarketTime()) {
+                    Thread.sleep(1000);
+                    priceCompare();
+                }
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -47,5 +51,28 @@ public class PriceThread extends MainViewModel implements Runnable {
             }
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
+    }
+
+    private boolean isMarketTime() {
+        boolean result = true;
+
+        // 현재 시스템 시간 구하기, UTC(영국 그리니치 천문대 기준 +9시간(32400000 밀리초) 해야 한국 시간)
+        long nowTime = System.currentTimeMillis() + 32400000;
+        // 출력 형태를 위한 formmater
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm", Locale.KOREA);
+        // format에 맞게 출력하기 위한 문자열 변환
+        String dTime = formatter.format(nowTime);
+
+        int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        int min = 0;
+        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+
+        if(hour >= 9 && hour <= 15) {
+            if(hour == 15 && min > 30) result = false;
+        }else {
+            result = false;
+        }
+
+        return result;
     }
 }

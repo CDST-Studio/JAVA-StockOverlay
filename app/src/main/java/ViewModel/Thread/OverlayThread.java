@@ -14,7 +14,9 @@ import androidx.core.app.NotificationManagerCompat;
 import com.cdst.stockoverlay.R;
 import com.cdst.stockoverlay.StartActivity;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import Model.Stock;
 import Module.Crawling;
@@ -27,10 +29,17 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
     @Override
     public void run() {
+        mModel = new OverlayViewModel();
+        tStockList = new ArrayList<Stock>();
+        tStockList = mModel.getStockList().getValue();//LiveData Get
+
         while(!Thread.currentThread().isInterrupted()) {
             try {
-                Thread.sleep(1000);
-                priceCompare();
+                if(isMarketTime()) {
+                    Thread.sleep(1000);
+                    priceCompare();
+                    onlyAlertTargetProfit();
+                }else onlyAlertTargetProfit();
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
@@ -38,10 +47,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
     }
 
     private void priceCompare() {
-        mModel = new OverlayViewModel();
-        tStockList = new ArrayList<Stock>();
-        tStockList = mModel.getStockList().getValue();//LiveData Get
-
         int changeFlag = 0;
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
@@ -65,6 +70,16 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             }
         }
         if(changeFlag == 1) mModel.getStockList().postValue(tStockList);
+    }
+
+    // 가격비교 없이 오직 목표가 달성만 알려주는 메서드
+    private void onlyAlertTargetProfit() {
+        if(mModel.getStockList().getValue() != null) {
+            for (int i = 0; i < tStockList.size(); i++) {
+                // 목표수익 달성여부 확인 후 알림
+                if(tStockList.get(i).getTargetProfit() != null && tStockList.get(i).getProfitAndLoss() != null) achievedTargetProfit(i);
+            }
+        }
     }
 
     // 목표수익 달성 시 알림해주는 메서드
@@ -117,6 +132,29 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
+    }
+
+    private boolean isMarketTime() {
+        boolean result = true;
+
+        // 현재 시스템 시간 구하기, UTC(영국 그리니치 천문대 기준 +9시간(32400000 밀리초) 해야 한국 시간)
+        long nowTime = System.currentTimeMillis() + 32400000;
+        // 출력 형태를 위한 formmater
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm", Locale.KOREA);
+        // format에 맞게 출력하기 위한 문자열 변환
+        String dTime = formatter.format(nowTime);
+
+        int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        int min = 0;
+        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+
+        if(hour >= 9 && hour <= 15) {
+            if(hour == 15 && min > 30) result = false;
+        }else {
+            result = false;
+        }
+
+        return result;
     }
 
     public void setContext(Context context) { this.context = context; }

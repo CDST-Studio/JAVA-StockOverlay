@@ -52,7 +52,8 @@ public class MainFragment extends Fragment {
                     .setTitle("필독사항")
                     .setMessage("해당 사유에 대한 책임은 본인에게 있습니다.\n" +
                             "1. 본 앱의 모든 데이터는 내부에 저장되므로\n앱 삭제시 데이터를 복구할 수 없습니다.\n" +
-                            "2. 본 앱의 갱신속도가 느릴 수 있으므로\n유의해주시기 바랍니다.\n\n" +
+                            "2. 본 앱의 갱신속도가 느릴 수 있으므로\n유의해주시기 바랍니다.\n" +
+                            "3. 본 앱은 데이터를 데이터를 사용합니다.\n\n" +
                             "사용설명서는 설정에 있습니다.")
                     .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which){
