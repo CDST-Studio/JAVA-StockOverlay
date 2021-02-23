@@ -29,47 +29,38 @@ import View.Service.ItemTouchHelperCallback;
 import ViewModel.MainViewModel;
 
 public class EditFragment extends Fragment {
+    private ArrayList<Stock> stocks = new ArrayList<>();
 
     private View EditView;
     private RecyclerView recyclerView;
     private ListEditAdapter adapter;
     private MainViewModel model;
     private AdView mAdView;
-    private ArrayList<Stock> stocks = new ArrayList<>();
-    private ArrayList<Stock> test = new ArrayList<>();
-    private Thread priceTh;
     private ItemTouchHelper helper;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        EditView = (View)inflater.inflate(R.layout.fragment_edit, container, false);
-
-        init();
-
-        // RequestActivity에서 전달한 번들 저장
-        Bundle bundle = getArguments();
+        // 초기화
+        init(inflater, container);
 
         // viewmodel 초기화
         model = new ViewModelProvider(this).get(MainViewModel.class);
-
-        // 번들 안의 텍스트 불러오기
-        ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
         adapter.setMainViewModel(model);
 
-        // fragment1의 TextView에 전달 받은 text 띄우기
-        if(text!=null && text.size()>0) {
-            for (int i = 0; i < text.size(); i++) {
-                stocks.add((Stock) text.get(i));
+        ArrayList<Stock> stockList = model.getStockList().getValue();
+        if(stockList != null && stockList.size()>0) {
+            for (int i = 0; i < stockList.size(); i++) {
+                stocks.add(stockList.get(i));
                 adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode());
             }
         }
         recyclerView.setAdapter(adapter);
 
         // 옵저버
-        final androidx.lifecycle.Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
+        final Observer<ArrayList<Stock>> stockObserver = new Observer<ArrayList<Stock>>() {
             @Override
-            public void onChanged(ArrayList<Stock> stockArray) {
+            public void onChanged(ArrayList<Stock> stocks) {
                 adapter.setItem(model.getStockList().getValue());
             }
         };
@@ -81,7 +72,9 @@ public class EditFragment extends Fragment {
     }
 
     // ---------------- 리사이클러뷰 및 광고 생성하는 메서드 ----------------
-    public void init() {
+    public void init(@NonNull LayoutInflater inflater, @Nullable ViewGroup container) {
+        EditView = (View)inflater.inflate(R.layout.fragment_edit, container, false);
+
         recyclerView = (RecyclerView)EditView.findViewById(R.id.edit_list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

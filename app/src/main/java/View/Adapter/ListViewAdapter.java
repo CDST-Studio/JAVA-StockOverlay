@@ -18,15 +18,18 @@ import Module.DBA;
 import View.MainActivity;
 import View.Dialog.PurchasePriceDialog;
 import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 import com.cdst.stockoverlay.R;
 
 
 public class ListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
-    private final ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
+    private ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
     private int DB_LOADED_FLAG;
+
     private MainViewModel mainViewModel;
+    private OverlayViewModel overlayViewModel = new OverlayViewModel();
 
     // ListViewAdapter의 생성자
     public ListViewAdapter() {
@@ -123,21 +126,26 @@ public class ListViewAdapter extends BaseAdapter {
 
             int purchase = 0;
             int target = 0;
-            ImageButton profitSelling = null;
+            ImageButton profitSelling = convertView.findViewById(R.id.profit_selling);
             if (!purchasePrice.getText().equals("매입가")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
             if (!targetProfit.getText().equals("목표수익")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
             if ((purchase != 0 && target != 0) && purchase >= target) {
-                profitSelling = convertView.findViewById(R.id.profit_selling);
                 profitSelling.setVisibility(View.VISIBLE);
                 profitSelling.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         new DBA().addProfitSelling(new DBA().getNickname(context.getDatabasePath("User")), listViewItem);
                         new DBA().subInterestedStocks(context.getDatabasePath("User"), new DBA().getNickname(context.getDatabasePath("User")), listViewItem.getName());
+
+                        ArrayList<Stock> stocks = mainViewModel.getStockList().getValue();
+                        stocks.remove(listViewItem);
+
+                        mainViewModel.getStockList().setValue(stocks);
+                        overlayViewModel.getStockList().setValue(stocks);
                     }
                 });
             }else {
-                if(profitSelling != null) profitSelling.setVisibility(View.INVISIBLE);
+                profitSelling.setVisibility(View.INVISIBLE);
                 targetProfit.setTextColor(Color.parseColor("#BD8F4D"));
             }
         }
@@ -207,33 +215,40 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     public void setItem(ArrayList<Stock> stocks) {
-        if(stocks.size() < listViewItemList.size()) {
-            int flag = 0;
-            for(int i=0; i<listViewItemList.size(); i++) {
-                for(int k=0; k<stocks.size(); k++) {
-                    if(listViewItemList.get(i).getName().equals(stocks.get(k).getName())) break;
-                    if(k == stocks.size()-1) flag = 1;
+        if (stocks.size() > 0) {
+            if (stocks.size() < listViewItemList.size()) {
+                int flag = 0;
+                for (int i = 0; i < listViewItemList.size(); i++) {
+                    for (int k = 0; k < stocks.size(); k++) {
+                        if (listViewItemList.get(i).getName().equals(stocks.get(k).getName()))
+                            break;
+                        if (k == stocks.size() - 1) flag = 1;
+                    }
+                    if (flag == 1) {
+                        listViewItemList.remove(i);
+                        flag = 0;
+                    }
                 }
-                if(flag == 1) {
-                    listViewItemList.remove(i);
-                    flag = 0;
+            } else if (stocks.size() > listViewItemList.size()) {
+                for (int i = listViewItemList.size(); i < stocks.size(); i++) {
+                    listViewItemList.add(stocks.get(i));
                 }
+            } else {
+                for (int i = 0; i < stocks.size(); i++)
+                    if (listViewItemList.get(i) != stocks.get(i)) {
+                        listViewItemList.set(i, stocks.get(i));
+                    }
             }
-        }else if(stocks.size() > listViewItemList.size()) {
-            for(int i=listViewItemList.size(); i<stocks.size(); i++) {
-                listViewItemList.add(stocks.get(i));
+
+            for (int i = 0; i < listViewItemList.size(); i++) {
+                listViewItemList.get(i).setChange(stocks.get(i).getChange());
+                listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
+                listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());
+                listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
+                this.notifyDataSetChanged();
             }
         }else {
-            for(int i=0; i<stocks.size(); i++) if(listViewItemList.get(i) != stocks.get(i)) {
-                listViewItemList.set(i, stocks.get(i));
-            }
-        }
-
-        for(int i = 0; i < listViewItemList.size(); i++){
-            listViewItemList.get(i).setChange(stocks.get(i).getChange());
-            listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
-            listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());
-            listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
+            listViewItemList = new ArrayList<>();
             this.notifyDataSetChanged();
         }
     }

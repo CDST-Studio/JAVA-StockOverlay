@@ -72,9 +72,6 @@ public class MainFragment extends Fragment {
         // 실행중으로 변경
         MAINFRAGMENT_ON_ACTIVITY = 1;
 
-        // RequestActivity에서 전달한 번들 저장
-        Bundle bundle = getArguments();
-
         // viewmodel 초기화
         model = new ViewModelProvider(this).get(MainViewModel.class);
 
@@ -89,16 +86,18 @@ public class MainFragment extends Fragment {
             targetProfit.setText("");
         }
 
-        // 번들 안의 텍스트 불러오기
-        ArrayList<Parcelable> text = bundle.getParcelableArrayList("stocks");
+        // 어답터 할당
         ListView listview = viewGroup.findViewById(R.id.stocklist);
         adapter = new ListViewAdapter();
         adapter.setMainViewModel(model);
 
-        // fragment1의 TextView에 전달 받은 text 띄우기
-        for(int i=0; i<text.size(); i++) {
-            stocks.add((Stock)text.get(i));
-            adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
+        // 매인 뷰모델에서 값 가져오기
+        ArrayList<Stock> stockList = model.getStockList().getValue();
+        if(stockList != null && stockList.size()>0) {
+            for (int i = 0; i < stockList.size(); i++) {
+                stocks.add(stockList.get(i));
+                adapter.addItem(stocks.get(i).getName(), stocks.get(i).getStockCode(), stocks.get(i).getCurrentPrice(), stocks.get(i).getChangePrice(), stocks.get(i).getChangeRate(), stocks.get(i).getChange());
+            }
         }
         listview.setAdapter(adapter);
 

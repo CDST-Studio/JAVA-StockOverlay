@@ -1,10 +1,5 @@
 package View.Adapter;
 
-
-import android.app.Service;
-import android.content.Context;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
 
@@ -23,23 +17,23 @@ import java.util.ArrayList;
 
 import Model.Stock;
 import Module.DBA;
-import View.Fragment.EditFragment;
 import View.Service.ItemTouchHelperListener;
 import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHolder> implements ItemTouchHelperListener {
     private ArrayList<Stock> listViewItemList = new ArrayList<>();
     private ArrayList<Stock> stocks;
-    private Stock listViewItem;
-    private MainViewModel mainViewModel;
+
     private File file;
     private String user;
-    private DBA dba = new DBA();
-    private Bundle bundle = new Bundle();
-    private EditFragment editFragment = new EditFragment();
-    private FragmentActivity fragmentActivity = new FragmentActivity();
-    private View view;
+    private Stock listViewItem;
     private MainHolder mainHolder;
+
+    private MainViewModel mainViewModel;
+    private OverlayViewModel overlayViewModel = new OverlayViewModel();
+
+    private DBA dba = new DBA();
 
     // -------------- 생성자 --------------
     public ListEditAdapter() { }
@@ -69,7 +63,6 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
                     if(pos != RecyclerView.NO_POSITION) {
-
                         listViewItem = listViewItemList.get(pos);
                         stockName = listViewItem.getName();
 
@@ -82,11 +75,8 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
                             dba.subInterestedStocks(file, user, stockName);
                             stocks.remove(idx);
                             mainViewModel.getStockList().setValue(stocks);
-                            Toast.makeText(v.getContext(), "관심종목 삭제 성공", Toast.LENGTH_SHORT).show();
-                        } catch (Exception e) {
-                            Toast.makeText(v.getContext(), "관심종목삭제 실패", Toast.LENGTH_SHORT).show();
-                            Log.d("ERROR", "관심종목 삭제 실패");
-                        }
+                            overlayViewModel.getStockList().setValue(stocks);
+                        } catch (Exception e) { }
                     }
                 }
             });
@@ -108,7 +98,6 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         listViewItem = listViewItemList.get(position);
         mainHolder.StockName.setText(listViewItem.getName());
         mainHolder.StockCode.setText(listViewItem.getStockCode());
-        Log.i("뷰홀더 체크", listViewItem.getName());
     }
 
     //-------------- 움직임 감지 메서드 --------------
@@ -133,38 +122,44 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         item.setName(searchname);
         item.setStockCode(searchcode);
         listViewItemList.add(item);
-        Log.i("데이터 체크", searchname+"체크"+searchcode);
     }
 
     //-------------- 뷰모델 세팅 관련 메서드 --------------
     public void setItem(ArrayList<Stock> stocks) {
-        if(stocks.size() < listViewItemList.size()) {
-            int flag = 0;
-            for(int i=0; i<listViewItemList.size(); i++) {
-                for(int k=0; k<stocks.size(); k++) {
-                    if(listViewItemList.get(i).getName().equals(stocks.get(k).getName())) break;
-                    if(k == stocks.size()-1) flag = 1;
+        if(stocks.size() > 0) {
+            if (stocks.size() < listViewItemList.size()) {
+                int flag = 0;
+                for (int i = 0; i < listViewItemList.size(); i++) {
+                    for (int k = 0; k < stocks.size(); k++) {
+                        if (listViewItemList.get(i).getName().equals(stocks.get(k).getName()))
+                            break;
+                        if (k == stocks.size() - 1) flag = 1;
+                    }
+                    if (flag == 1) {
+                        listViewItemList.remove(i);
+                        flag = 0;
+                    }
                 }
-                if(flag == 1) {
-                    listViewItemList.remove(i);
-                    flag = 0;
+            } else if (stocks.size() > listViewItemList.size()) {
+                for (int i = listViewItemList.size(); i < stocks.size(); i++) {
+                    listViewItemList.add(stocks.get(i));
                 }
+            } else {
+                for (int i = 0; i < stocks.size(); i++)
+                    if (listViewItemList.get(i) != stocks.get(i)) {
+                        listViewItemList.set(i, stocks.get(i));
+                    }
             }
-        }else if(stocks.size() > listViewItemList.size()) {
-            for(int i=listViewItemList.size(); i<stocks.size(); i++) {
-                listViewItemList.add(stocks.get(i));
+
+            for (int i = 0; i < listViewItemList.size(); i++) {
+                listViewItemList.get(i).setChange(stocks.get(i).getChange());
+                listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
+                listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());
+                listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
+                this.notifyDataSetChanged();
             }
         }else {
-            for(int i=0; i<stocks.size(); i++) if(listViewItemList.get(i) != stocks.get(i)) {
-                listViewItemList.set(i, stocks.get(i));
-            }
-        }
-
-        for(int i = 0; i < listViewItemList.size(); i++){
-            listViewItemList.get(i).setChange(stocks.get(i).getChange());
-            listViewItemList.get(i).setChangePrice(stocks.get(i).getChangePrice());
-            listViewItemList.get(i).setChangeRate(stocks.get(i).getChangeRate());
-            listViewItemList.get(i).setCurrentPrice(stocks.get(i).getCurrentPrice());
+            listViewItemList = new ArrayList<>();
             this.notifyDataSetChanged();
         }
     }

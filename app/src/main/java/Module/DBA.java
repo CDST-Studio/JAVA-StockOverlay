@@ -173,10 +173,19 @@ public class DBA {
     }
 
     public void addProfitSelling(String user, Stock stock) {
+
+        // 현재 시스템 시간 구하기, UTC(영국 그리니치 천문대 기준 +9시간(32400000 밀리초) 해야 한국 시간)
+        long nowTime = System.currentTimeMillis() + 32400000;
+        // 출력 형태를 위한 formmater
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.KOREA);
+        // format에 맞게 출력하기 위한 문자열 변환
+        String dTime = formatter.format(nowTime);
+
         HashMap<String, Object> setData = new HashMap<>();
         setData.put("매입가", stock.getPurchasePrice());
         setData.put("수익", stock.getProfitAndLoss());
-        db.collection("User").document(user).collection("profitSelling").document(stock.getName())
+        setData.put("날짜", dTime);
+       db.collection("User").document(user).collection("profitSelling").document(stock.getName())
                 .set(setData)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

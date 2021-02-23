@@ -34,6 +34,7 @@ import View.Fragment.MainFragment;
 import View.Fragment.SearchFragment;
 import View.Fragment.SettingFragment;
 import View.Service.OverlayService;
+import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Stock> stocks = new ArrayList<>();
     private User user = new User();
 
+    private MainViewModel mainViewModel;
     private OverlayViewModel viewModel;
     private Observer<ArrayList<Stock>> overlayObserver;
 
@@ -90,13 +92,9 @@ public class MainActivity extends AppCompatActivity {
         // 제일 처음 띄워줄 뷰를 세팅, commit();까지 해줘야 함
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
 
-        // 번들객체 생성, text값 저장
-        Bundle bundle = new Bundle();
-        bundle.putParcelableArrayList("stocks",stocks);
-
-        // mainFragment로 번들 전달
-        mainFragment.setArguments(bundle);
-        editFragment.setArguments(bundle);
+        // 매인 뷰모델에 값 할당
+        mainViewModel = new MainViewModel();
+        mainViewModel.getStockList().setValue(stocks);
 
         //Observer 정의
         overlayObserver = new Observer<ArrayList<Stock>>() {
