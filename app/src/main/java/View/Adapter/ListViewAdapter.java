@@ -126,7 +126,7 @@ public class ListViewAdapter extends BaseAdapter {
 
             int purchase = 0;
             int target = 0;
-            ImageButton profitSelling = convertView.findViewById(R.id.profit_selling);
+            ImageButton profitSelling = convertView.findViewById(R.id.edit_button);
             if (!purchasePrice.getText().equals("매입가")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
             if (!targetProfit.getText().equals("목표수익")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
             if ((purchase != 0 && target != 0) && purchase >= target) {

@@ -15,8 +15,10 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override
     public int getMovementFlags(@NonNull RecyclerView recyclerView,
                                 @NonNull RecyclerView.ViewHolder viewHolder){
-        int drag_flags = ItemTouchHelper.UP|ItemTouchHelper.DOWN;
-        //int swipe_flags = ItemTouchHelper.START|ItemTouchHelper.END;
+        // 상하 드래그
+        int drag_flags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+        // 좌우 드래그
+        // int swipe_flags = ItemTouchHelper.START|ItemTouchHelper.END;
         return makeMovementFlags(drag_flags,0);
     }
 
@@ -24,10 +26,11 @@ public class ItemTouchHelperCallback extends ItemTouchHelper.Callback {
     @Override public boolean onMove(@NonNull RecyclerView recyclerView,
                                     @NonNull RecyclerView.ViewHolder viewHolder,
                                     @NonNull RecyclerView.ViewHolder target) {
-        return listener.onItemMove(viewHolder.getAdapterPosition(),target.getAdapterPosition()); }
+        return listener.onItemMove(viewHolder.getAdapterPosition(), target.getAdapterPosition());
+    }
 
     @Override public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) { }
 
-    //롱클릭감지 메소드
+    // 롱클릭감지 메소드
     @Override public boolean isLongPressDragEnabled() { return true; }
 }

@@ -1,11 +1,12 @@
 package View.Adapter;
 
+import android.view.DragEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
     private Stock listViewItem;
     private MainHolder mainHolder;
 
-    private MainViewModel mainViewModel;
+    private static MainViewModel mainViewModel;
     private OverlayViewModel overlayViewModel = new OverlayViewModel();
 
     private DBA dba = new DBA();
@@ -100,6 +101,12 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         mainHolder.StockCode.setText(listViewItem.getStockCode());
     }
 
+    //-------------- 수정사항 저장 메서드 --------------
+    public void saveEditedList(){
+        // 데이터 저장
+        mainViewModel.getStockList().setValue(listViewItemList);
+    }
+
     //-------------- 움직임 감지 메서드 --------------
     @Override
     public boolean onItemMove(int from_position, int to_position) {
@@ -108,11 +115,10 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         //이동할 객체 삭제
         listViewItemList.remove(from_position);
         // 이동하고 싶은 position에 추가
-        listViewItemList.add(to_position,stock);
+        listViewItemList.add(to_position, stock);
         // Adapter에 데이터 이동알림
-        notifyItemMoved(from_position,to_position);
-        // 데이터 저장
-        mainViewModel.getStockList().setValue(listViewItemList);
+        notifyItemMoved(from_position, to_position);
+
         return true;
     }
 

@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -29,6 +32,7 @@ import java.util.ArrayList;
 import Model.Stock;
 import Model.User;
 import Module.DBA;
+import View.Adapter.ListEditAdapter;
 import View.Fragment.EditFragment;
 import View.Fragment.MainFragment;
 import View.Fragment.SearchFragment;
@@ -55,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
     private OverlayViewModel viewModel;
     private Observer<ArrayList<Stock>> overlayObserver;
 
+    private ImageButton editBtn;
+    private Button editComplete;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +77,27 @@ public class MainActivity extends AppCompatActivity {
                 PURCHASE_PRICE_INPUT_FLAG = 0;
             }
         }
+
+        // 편집 버튼
+        editBtn = findViewById(R.id.edit_button);
+        // 편집 완료 버튼
+        editComplete = findViewById(R.id.edit_complete);
+
+        editBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Edit 프래그먼트로 교채
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, editFragment).commitAllowingStateLoss();
+                editComplete.setVisibility(View.VISIBLE);
+            }
+        });
+        editComplete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, mainFragment).commitAllowingStateLoss();
+                editComplete.setVisibility(View.INVISIBLE);
+            }
+        });
 
         //오버레이 observer를 여기에 set
         //라이브데이터에 observer를 add하기 위해서는 라이브데이터는 항상 Provider를 통해 생성해 줘야한다.
@@ -115,18 +143,6 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);//기본 제목을 없애줍니다.
         actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setHomeAsUpIndicator(R.drawable.ic_edit);
-    }
-
-    // ------------ 상단 툴바 편집 버튼 이벤트 메서드----------------
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_zone, editFragment).commitAllowingStateLoss();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     // -------------- 하단 네비게이션 바 생성 메서드 --------------

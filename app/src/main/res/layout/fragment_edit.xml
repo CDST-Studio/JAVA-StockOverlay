@@ -12,13 +12,13 @@
         android:background="@color/black">
 
         <com.google.android.gms.ads.AdView
-            android:id="@+id/adView2"
+            android:id="@+id/adView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-5856926052915180~3184496531"></com.google.android.gms.ads.AdView>
+            app:adUnitId="ca-app-pub-5856926052915180/5725444090"></com.google.android.gms.ads.AdView>
     </LinearLayout>
 
     <LinearLayout
