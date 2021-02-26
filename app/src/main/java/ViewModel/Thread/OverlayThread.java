@@ -31,7 +31,6 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
     public void run() {
         mModel = new OverlayViewModel();
         tStockList = new ArrayList<Stock>();
-        tStockList = mModel.getStockList().getValue();//LiveData Get
 
         while(!Thread.currentThread().isInterrupted()) {
             try {
@@ -51,6 +50,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
         if(mModel.getStockList().getValue() != null) {
+            tStockList = mModel.getStockList().getValue();//LiveData Get
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
 
