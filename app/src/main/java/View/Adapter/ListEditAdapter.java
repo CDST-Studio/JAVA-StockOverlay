@@ -1,11 +1,12 @@
 package View.Adapter;
 
-import android.view.DragEvent;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,6 +51,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
         public Button remove;
         public String stockName;
 
+        @SuppressLint("ClickableViewAccessibility")
         public MainHolder(@NonNull View view) {
             super(view);
             StockName = view.findViewById(R.id.edit_name);
@@ -59,7 +61,7 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
             file = view.getContext().getDatabasePath("User");
             user = dba.getNickname(file);
 
-            this.remove.setOnClickListener(new View.OnClickListener() {
+            remove.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition();
@@ -102,9 +104,16 @@ public class ListEditAdapter extends RecyclerView.Adapter<ListEditAdapter.MainHo
     }
 
     //-------------- 수정사항 저장 메서드 --------------
-    public void saveEditedList(){
+    public void saveEditedList() {
         // 데이터 저장
         mainViewModel.getStockList().setValue(listViewItemList);
+        overlayViewModel.getStockList().setValue(listViewItemList);
+
+        // DB 반영
+        ArrayList<String> result = new ArrayList<>();
+        for(int i=0; i<listViewItemList.size(); i++) result.add(listViewItemList.get(i).getName());
+
+        dba.updateInterestedStocks(file, result);
     }
 
     //-------------- 움직임 감지 메서드 --------------

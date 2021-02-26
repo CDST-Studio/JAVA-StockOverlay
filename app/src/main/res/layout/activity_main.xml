@@ -52,7 +52,7 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1.6">
+                    android:layout_weight="2">
 
                     <ImageButton
                         android:id="@+id/edit_button"
@@ -73,7 +73,7 @@
                         android:layout_gravity="right"
                         android:layout_marginEnd="5dp"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/button_color"
+                        android:background="@drawable/round_background_complete"
                         android:text="수정 완료"
                         android:textColor="@color/white"
                         android:textSize="14sp"

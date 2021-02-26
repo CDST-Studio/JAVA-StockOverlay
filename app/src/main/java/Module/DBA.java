@@ -197,6 +197,41 @@ public class DBA {
                 });
     }
 
+    // --------------------------- Update ---------------------------
+    public void updateInterestedStocks(File DB, ArrayList<String> editedList) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) stockList.add(line);
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(String target : editedList) {
+                for(String original : stockList) {
+                    if(target.equals(original.split(":")[0])) {
+                        bw.write(original);
+                        stockList.remove(original);
+                        break;
+                    }
+                }
+                bw.newLine();
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
     // ---------------------------- Sub ----------------------------
 
     /**
