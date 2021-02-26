@@ -29,14 +29,15 @@
             android:permission="android.permission.SYSTEM_ALERT_WINDOW"
             tools:ignore="WrongManifestParent" />
 
-        <activity android:name="com.cdst.stockoverlay.StartActivity">
+        <activity
+            android:name="com.cdst.stockoverlay.StartActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="View.LoginActivity" />
+        <activity android:name="View.LoginActivity"/>
         <activity
             android:name="View.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

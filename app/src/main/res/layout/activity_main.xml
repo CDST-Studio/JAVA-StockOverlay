@@ -45,7 +45,7 @@
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/icon" />
+                        app:srcCompat="@drawable/ic_icon" />
 
                 </LinearLayout>
 

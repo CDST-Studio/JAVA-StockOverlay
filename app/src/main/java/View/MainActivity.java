@@ -26,6 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.cdst.stockoverlay.StartActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.cdst.stockoverlay.R;
 
@@ -101,20 +102,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //오버레이 observer를 여기에 set
-        //라이브데이터에 observer를 add하기 위해서는 라이브데이터는 항상 Provider를 통해 생성해 줘야한다.
-        //하지만 백그라운드에서 돌아갈 방법이 없으므로 Main에서 set 한 후 스톡보드 실행 지점에서 observer를 activty하고 스톡보드 종류 지점에서 removeObserver를 해준다.
-        //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
-        viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
-
         // 유저 초기화
         user.setNickName(new DBA().getNickname(getDatabasePath("User")));
         new DBA().initInterestedStocks(getDatabasePath("User"), user);
 
         // 종목 초기화 및 관심종목 프래그먼트로 전달
-        for(int i=0; i<user.getInterestedStocks().size(); i++) {
+        for (int i = 0; i < user.getInterestedStocks().size(); i++) {
             stocks.add(new DBA().getStock(getAssets(), user.getInterestedStocks().get(i).toString()));
         }
+
+        //오버레이 observer를 여기에 set
+        //라이브데이터에 observer를 add하기 위해서는 라이브데이터는 항상 Provider를 통해 생성해 줘야한다.
+        //하지만 백그라운드에서 돌아갈 방법이 없으므로 Main에서 set 한 후 스톡보드 실행 지점에서 observer를 activty하고 스톡보드 종류 지점에서 removeObserver를 해준다.
+        //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
+        viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
 
         // 스톡보드 상태 초기화
         setConfigValue(getApplicationContext(), "stockBoardStart", "stop");
@@ -134,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             }
         };
     }
-
 
     // -------------- 앱바(액션바) 및 메뉴 생성 메서드 --------------
     public void createToolbar() {

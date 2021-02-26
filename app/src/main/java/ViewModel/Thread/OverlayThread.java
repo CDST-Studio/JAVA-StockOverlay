@@ -97,7 +97,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, targetStock.getName())
-                    .setSmallIcon(R.drawable.icon)
+                    .setSmallIcon(R.drawable.ic_icon)
                     .setContentTitle(targetStock.getName())
                     .setContentText("목표수익 "+targetStock.getTargetProfit()+"₩ 달성")
                     .setTicker("관심종목, "+targetStock.getName()+" 목표수익 달성알림")

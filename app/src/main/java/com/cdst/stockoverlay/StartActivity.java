@@ -13,9 +13,10 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 
 import View.LoginActivity;
-import View.MainActivity;
 
 public class StartActivity extends AppCompatActivity {
+    public static int BOOT_PROGRAM = 0;
+
     private String [] permission_list = {
             Manifest.permission.SYSTEM_ALERT_WINDOW,
             Manifest.permission.FOREGROUND_SERVICE,
@@ -33,8 +34,8 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) { }
         });
+
         startActivity(new Intent(StartActivity.this, LoginActivity.class));
-        //startActivity(new Intent(StartActivity.this, LoginActivity.class));
         finish();
     }
 
