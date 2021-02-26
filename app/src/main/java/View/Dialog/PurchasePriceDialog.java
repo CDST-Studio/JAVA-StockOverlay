@@ -21,6 +21,7 @@ import java.util.Objects;
 import Model.Stock;
 import Module.DBA;
 import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 public class PurchasePriceDialog {
     private Context context;
@@ -31,6 +32,8 @@ public class PurchasePriceDialog {
     private EditText target_price;
     private Button okButton;
     private Button cancle;
+    
+    private OverlayViewModel overlayViewModel = new OverlayViewModel();
 
     public PurchasePriceDialog(Context context) {
         this.context = context;
@@ -137,7 +140,9 @@ public class PurchasePriceDialog {
 
                     ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
                     stocklist.set(idx, stock);
+
                     mainViewModel.getStockList().setValue(stocklist);
+                    overlayViewModel.getStockList().setValue(stocklist);
 
                     dlg.dismiss();
                 }
