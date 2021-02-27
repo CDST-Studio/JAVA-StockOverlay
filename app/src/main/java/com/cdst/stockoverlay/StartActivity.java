@@ -54,7 +54,7 @@ public class StartActivity extends AppCompatActivity {
                     if (document.exists()) {
                         Double CURRENT_VERSION = Double.parseDouble(document.getData().get("version").toString());
                         if(version < CURRENT_VERSION) {
-                            AlertDialog.Builder msgBuilder = new AlertDialog.Builder(getApplicationContext())
+                            AlertDialog.Builder msgBuilder = new AlertDialog.Builder(StartActivity.this)
                                     .setTitle("업데이트 필요")
                                     .setMessage("앱 버전이 낮습니다.\n" +
                                             "스토어에서 업데이트 해주시기 바랍니다.")

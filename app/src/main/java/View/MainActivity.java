@@ -116,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         //하지만 백그라운드에서 돌아갈 방법이 없으므로 Main에서 set 한 후 스톡보드 실행 지점에서 observer를 activty하고 스톡보드 종류 지점에서 removeObserver를 해준다.
         //이렇게 하는 이유는 observerForever은 owner가 항상 active상태인것처럼 동작하므로 자동으로 해제되지 않는다.
         viewModel = new ViewModelProvider(this).get(OverlayViewModel.class);
+        mainFragment.setOverlayViewModel(viewModel);
 
         // 스톡보드 상태 초기화
         setConfigValue(getApplicationContext(), "stockBoardStart", "stop");

@@ -29,7 +29,7 @@ public class ListViewAdapter extends BaseAdapter {
     private int DB_LOADED_FLAG;
 
     private MainViewModel mainViewModel;
-    private OverlayViewModel overlayViewModel = new OverlayViewModel();
+    private OverlayViewModel overlayViewModel;
 
     // ListViewAdapter의 생성자
     public ListViewAdapter() {
@@ -37,9 +37,8 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     // Setter
-    public void setMainViewModel(MainViewModel mainViewModel) {
-        this.mainViewModel = mainViewModel;
-    }
+    public void setMainViewModel(MainViewModel mainViewModel) { this.mainViewModel = mainViewModel; }
+    public void setOverlayViewModel(OverlayViewModel overlayViewModel) { this.overlayViewModel = overlayViewModel; }
 
     // Adapter에 사용되는 데이터의 개수를 리턴.
     @Override
@@ -182,7 +181,7 @@ public class ListViewAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     PurchasePriceDialog purchasePriceDialog = new PurchasePriceDialog(context);
-                    purchasePriceDialog.callFunction(mainViewModel, listViewItem);
+                    purchasePriceDialog.callFunction(mainViewModel, overlayViewModel, listViewItem);
                 }
             });
         }
