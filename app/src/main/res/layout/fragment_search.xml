@@ -19,8 +19,9 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/6300978111">
-            <!--배포시 배너의 UnitID ca-app-pub-5856926052915180/5016037664-->
+            app:adUnitId="ca-app-pub-5856926052915180~5310419231">
+            <!--배포시 배너의 UnitID ca-app-pub-5856926052915180~5310419231-->
+            <!--테스트시 배너의 UnitID ca-app-pub-3940256099942544/6300978111-->
         </com.google.android.gms.ads.AdView>
     </LinearLayout>
 
