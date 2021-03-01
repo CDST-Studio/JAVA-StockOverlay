@@ -3,17 +3,34 @@ package View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import com.cdst.stockoverlay.R;
 
+import View.Fragment.CalOutputFragment;
+
 public class CaculatorActivity extends AppCompatActivity {
 
+    private CalOutputFragment outputFragment = new CalOutputFragment();
+    private Button plustBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        setContentView(R.layout.activity_calculator);
 
-        
+        plustBtn = (Button) findViewById(R.id.plusButton);
+
+        plustBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, CalInputFragment).commitAllowingStateLoss();
+            }
+        });
+
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commitAllowingStateLoss();
     }
 
     private double caculBuy(String name, int amount, int stockPrice){
