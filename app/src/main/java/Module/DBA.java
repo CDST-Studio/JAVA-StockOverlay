@@ -172,6 +172,66 @@ public class DBA {
                 });
     }
 
+    public void addProfitSelling(String user, Stock stock) {
+
+        // 현재 시스템 시간 구하기, UTC(영국 그리니치 천문대 기준 +9시간(32400000 밀리초) 해야 한국 시간)
+        long nowTime = System.currentTimeMillis() + 32400000;
+        // 출력 형태를 위한 formmater
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.KOREA);
+        // format에 맞게 출력하기 위한 문자열 변환
+        String dTime = formatter.format(nowTime);
+
+        HashMap<String, Object> setData = new HashMap<>();
+        setData.put("매입가", stock.getPurchasePrice());
+        setData.put("수익", stock.getProfitAndLoss());
+        setData.put("날짜", dTime);
+       db.collection("User").document(user).collection("profitSelling").document(stock.getName())
+                .set(setData)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) { }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) { }
+                });
+    }
+
+    // --------------------------- Update ---------------------------
+    public void updateInterestedStocks(File DB, ArrayList<String> editedList) {
+        ArrayList<String> stockList = new ArrayList<>();
+        String fileDir = DB + "/InterestedStocks.txt";
+
+        try {
+            FileReader fr = new FileReader(fileDir); // 파일 스트림 생성
+            BufferedReader br = new BufferedReader(fr);
+
+            String line;
+            while((line = br.readLine()) != null) stockList.add(line);
+
+            FileWriter fw = new FileWriter(new File(fileDir), false);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(String target : editedList) {
+                for(String original : stockList) {
+                    if(target.equals(original.split(":")[0])) {
+                        bw.write(original);
+                        stockList.remove(original);
+                        break;
+                    }
+                }
+                bw.newLine();
+            }
+            bw.flush();
+
+            br.close();
+            fr.close();
+            bw.close();
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
     // ---------------------------- Sub ----------------------------
 
     /**

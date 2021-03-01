@@ -21,12 +21,12 @@ import java.util.Objects;
 import Model.Stock;
 import Module.DBA;
 import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 public class PurchasePriceDialog {
     private Context context;
     private static File DATABASE_PATH;
     private static String NICKNAME;
-    private int DB_LOADED_FLAG;
 
     private EditText price;
     private EditText target_price;
@@ -37,11 +37,10 @@ public class PurchasePriceDialog {
         this.context = context;
         DATABASE_PATH = context.getDatabasePath("User");
         NICKNAME = new DBA().getNickname(DATABASE_PATH);
-        DB_LOADED_FLAG = 0;
     }
 
     // 호출할 다이얼로그 함수를 정의한다.
-    public void callFunction(MainViewModel mainViewModel, Stock stock) {
+    public void callFunction(MainViewModel mainViewModel, OverlayViewModel overlayViewModel, Stock stock) {
 
         // 커스텀 다이얼로그를 정의하기위해 Dialog클래스를 생성한다.
         final Dialog dlg = new Dialog(context, android.R.style.Theme_Translucent_NoTitleBar_Fullscreen);
@@ -139,7 +138,9 @@ public class PurchasePriceDialog {
 
                     ArrayList<Stock> stocklist = mainViewModel.getStockList().getValue();
                     stocklist.set(idx, stock);
+
                     mainViewModel.getStockList().setValue(stocklist);
+                    overlayViewModel.getStockList().setValue(stocklist);
 
                     dlg.dismiss();
                 }

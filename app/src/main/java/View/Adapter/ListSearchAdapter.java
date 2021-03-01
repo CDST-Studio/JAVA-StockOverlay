@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import Model.Stock;
 import Module.DBA;
 import ViewModel.MainViewModel;
+import ViewModel.OverlayViewModel;
 
 public class ListSearchAdapter extends BaseAdapter{
     private ArrayList<Stock> listViewItemList = new ArrayList<Stock>();
@@ -30,6 +31,7 @@ public class ListSearchAdapter extends BaseAdapter{
 
     private ArrayList<Stock> stocks;
     private MainViewModel mainViewModel;
+    private OverlayViewModel overlayViewModel = new OverlayViewModel();
 
     public ListSearchAdapter() {
     }
@@ -98,6 +100,7 @@ public class ListSearchAdapter extends BaseAdapter{
                                 stocks.remove(idx);
 
                                 mainViewModel.getStockList().setValue(stocks);
+                                overlayViewModel.getStockList().setValue(stocks);
                                 flag[0] = 0;
                             } catch (Exception e) {
                                 Toast.makeText(context, "관심종목 삭제 에러, 관리자에게 문의바랍니다.", Toast.LENGTH_SHORT).show();
@@ -109,7 +112,9 @@ public class ListSearchAdapter extends BaseAdapter{
                                 DBA.addInterestedStocks(file, user, stockName);
 
                                 stocks.add(DBA.getStock(context.getAssets(), stockName));
+
                                 mainViewModel.getStockList().setValue(stocks);
+                                overlayViewModel.getStockList().setValue(stocks);
                                 flag[0] = 1;
                             } catch (Exception e) {
                                 Toast.makeText(context, "관심종목 추가 에러, 관리자에게 문의바랍니다.", Toast.LENGTH_SHORT).show();

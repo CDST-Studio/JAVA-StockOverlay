@@ -14,6 +14,9 @@ public class PriceThread extends MainViewModel implements Runnable {
 
     @Override
     public void run() {
+        mModel = new MainViewModel();
+        tStockList = new ArrayList<Stock>();
+
         while(!Thread.currentThread().isInterrupted()) {
             try {
                 if(isMarketTime()) {
@@ -27,14 +30,10 @@ public class PriceThread extends MainViewModel implements Runnable {
     }
 
     private void priceCompare() {
-        mModel = new MainViewModel();
-        tStockList = new ArrayList<Stock>();
-        tStockList = mModel.getStockList().getValue();//LiveData Get
-
         int changeFlag = 0;
-
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
         if(mModel.getStockList().getValue() != null) {
+            tStockList = mModel.getStockList().getValue();//LiveData Get
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
 
@@ -63,9 +62,10 @@ public class PriceThread extends MainViewModel implements Runnable {
         // format에 맞게 출력하기 위한 문자열 변환
         String dTime = formatter.format(nowTime);
 
-        int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        int hour = 0;
         int min = 0;
-        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+        if(!dTime.split(":")[0].equals("") && !dTime.split(":")[0].equals("00")) hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        if(!dTime.split(":")[1].equals("") && !dTime.split(":")[1].equals("00")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
 
         if(hour >= 9 && hour <= 15) {
             if(hour == 15 && min > 30) result = false;

@@ -34,7 +34,8 @@ public class Parsing {
             JSONObject stockData = jsonObject.getJSONObject(name);
 
             result = stockData.getString(codeType);
-            if (result.length() < 6) for (int i=0; i<=6-(result.length()); i++) result = "0" + result;
+            int repeatCount = 6-result.length();
+            if (result.length() < 6) for (int i=0; i<repeatCount; i++) result = "0" + result;
         } catch (IOException | JSONException ex) {
             ex.printStackTrace();
         }

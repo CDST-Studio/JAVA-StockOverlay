@@ -10,8 +10,8 @@ android {
         applicationId "com.cdst.stockoverlay"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 3
-        versionName "1.2"
+        versionCode 7
+        versionName "1.4"
 
         multiDexEnabled true
         testInstrumentationRunner "androidx.TestActivity.runner.AndroidJUnitRunner"
@@ -30,7 +30,9 @@ android {
     dataBinding{
         enabled = true
     }
-
+    dependencies{
+        implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    }
     viewBinding {
         enabled = true
     }

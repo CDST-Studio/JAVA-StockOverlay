@@ -31,14 +31,13 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
     public void run() {
         mModel = new OverlayViewModel();
         tStockList = new ArrayList<Stock>();
-        tStockList = mModel.getStockList().getValue();//LiveData Get
 
         while(!Thread.currentThread().isInterrupted()) {
             try {
                 if(isMarketTime()) {
                     Thread.sleep(1000);
-                    priceCompare();
                     onlyAlertTargetProfit();
+                    priceCompare();
                 }else onlyAlertTargetProfit();
             }catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
@@ -51,6 +50,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
 
         //반복문으로 모든 값을 비교 하여 변경점이 있으면 값 Input
         if(mModel.getStockList().getValue() != null) {
+            tStockList = mModel.getStockList().getValue();//LiveData Get
             for (int i = 0; i < tStockList.size(); i++) {
                 Crawling crawling = new Crawling(mModel.getStockList().getValue().get(i));
 
@@ -97,7 +97,7 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
             PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, targetStock.getName())
-                    .setSmallIcon(R.drawable.icon)
+                    .setSmallIcon(R.drawable.ic_icon)
                     .setContentTitle(targetStock.getName())
                     .setContentText("목표수익 "+targetStock.getTargetProfit()+"₩ 달성")
                     .setTicker("관심종목, "+targetStock.getName()+" 목표수익 달성알림")
@@ -144,9 +144,10 @@ public class OverlayThread extends OverlayViewModel implements Runnable {
         // format에 맞게 출력하기 위한 문자열 변환
         String dTime = formatter.format(nowTime);
 
-        int hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        int hour = 0;
         int min = 0;
-        if(!dTime.split(":")[1].equals("")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
+        if(!dTime.split(":")[0].equals("") && !dTime.split(":")[0].equals("00")) hour = Integer.parseInt(dTime.split(":")[0].replace("0", ""));
+        if(!dTime.split(":")[1].equals("") && !dTime.split(":")[1].equals("00")) min = Integer.parseInt(dTime.split(":")[1].replace("0", ""));
 
         if(hour >= 9 && hour <= 15) {
             if(hour == 15 && min > 30) result = false;

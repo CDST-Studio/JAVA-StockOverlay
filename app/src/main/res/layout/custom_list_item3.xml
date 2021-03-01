@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="stock"
+            type="Model.Stock">
+        </variable>
+    </data>
+
+    <RelativeLayout
+        android:layout_height="53dp"
+        android:layout_width="match_parent"
+        android:id="@+id/edit_body">
+            <Button
+                android:id="@+id/Button_drag"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic_drag"
+                android:layout_alignParentLeft="true"
+                android:layout_margin="10dp"
+                >
+            </Button>
+            <TextView
+                android:id="@+id/edit_name"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center_vertical"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:layout_toRightOf="@id/Button_drag"/>
+            <TextView
+                android:id="@+id/edit_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp"
+                android:layout_below="@+id/edit_name"
+                android:layout_toRightOf="@id/Button_drag"
+                />
+            <Button
+                android:id="@+id/Button_remove"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/ic_remove"
+                android:layout_margin="15dp"
+                android:layout_alignParentRight="true" ></Button>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:background="#FFFFFF"
+                android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</layout>

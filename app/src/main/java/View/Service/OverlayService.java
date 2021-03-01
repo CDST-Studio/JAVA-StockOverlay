@@ -58,8 +58,9 @@ public class OverlayService extends Service {
 
     private Thread priceTh;
     private OverlayViewModel overlayViewModel;
-    private static ArrayList<Stock> stocks = new ArrayList<>();
 
+    private Stock targetStock = new Stock();
+    private static ArrayList<Stock> stocks = new ArrayList<>();
 
     /** 스톡보드 스레드 실행용 핸들러 */
     @SuppressLint("HandlerLeak")
@@ -67,68 +68,73 @@ public class OverlayService extends Service {
         @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
             if(!iteratorStock.hasNext()) iteratorStock = stocks.iterator();
-            Stock stock = iteratorStock.next();
+            if(iteratorStock.hasNext() && iteratorStock != null) {
+                // 다음 종목 가져오기
+                targetStock = iteratorStock.next();
+                
+                // 텍스트 설정
+                stockName.setSelected(true);
+                stockName.setText(targetStock.getName());
 
-            // 텍스트 설정
-            stockName.setSelected(true);
-            stockName.setText(stock.getName());
+                currentPrice.setSelected(true);
+                if (targetStock.getCurrentPrice().equals("로딩중")) currentPrice.setText("로딩중");
+                else currentPrice.setText(targetStock.getCurrentPrice());
 
-            currentPrice.setSelected(true);
-            if(stock.getCurrentPrice().equals("로딩중")) currentPrice.setText("로딩중");
-            else currentPrice.setText(stock.getCurrentPrice());
+                changePrice.setSelected(true);
+                if (targetStock.getChangePrice().equals("로딩중")) changePrice.setText("로딩중");
+                else changePrice.setText(targetStock.getChange() + targetStock.getChangePrice());
 
-            changePrice.setSelected(true);
-            if(stock.getChangePrice().equals("로딩중")) changePrice.setText("로딩중");
-            else changePrice.setText(stock.getChange() + stock.getChangePrice());
+                changeRate.setSelected(true);
+                if (targetStock.getChangeRate().equals("로딩중")) changeRate.setText("로딩중");
+                else changeRate.setText(targetStock.getChangeRate());
 
-            changeRate.setSelected(true);
-            if(stock.getChangeRate().equals("로딩중")) changeRate.setText("로딩중");
-            else changeRate.setText(stock.getChangeRate());
-
-            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-                if (stock.getPurchasePrice() == null) {
-                    purchasePrice.setText("매입가");
-                }else {
-                    if(stock.getProfitAndLoss().length() > 7) purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss().substring(0,7) + "…");
-                    else purchasePrice.setText(stock.getProfitChange() + stock.getProfitAndLoss());
-                }
-            }else {
-                purchasePrice.setText("");
-            }
-
-            // 텍스트 애니매이션 설정
-            Animation translate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.stockboard_text);
-            stockName.startAnimation(translate);
-            currentPrice.startAnimation(translate);
-            changePrice.startAnimation(translate);
-            changeRate.startAnimation(translate);
-            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) purchasePrice.startAnimation(translate);
-
-            // 텍스트 색상 변경
-            stockName.setTextColor(Color.parseColor("#80000000"));
-            if (stock.getChange().equals("▲")) {
-                currentPrice.setTextColor(Color.parseColor("#80FF0000"));
-                changePrice.setTextColor(Color.parseColor("#80FF0000"));
-                changeRate.setTextColor(Color.parseColor("#80FF0000"));
-            } else if (stock.getChange().equals("▼")) {
-                currentPrice.setTextColor(Color.parseColor("#800000FF"));
-                changePrice.setTextColor(Color.parseColor("#800000FF"));
-                changeRate.setTextColor(Color.parseColor("#800000FF"));
-            } else {
-                currentPrice.setTextColor(Color.parseColor("#80696969"));
-                changePrice.setTextColor(Color.parseColor("#80696969"));
-                changeRate.setTextColor(Color.parseColor("#80696969"));
-            }
-            if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
-                if (stock.getProfitChange() == null) {
-                    purchasePrice.setTextColor(Color.parseColor("#80696969"));
-                } else if (stock.getProfitChange().equals("▲")) {
-                    purchasePrice.setTextColor(Color.parseColor("#80FF0000"));
+                if (MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+                    if (targetStock.getPurchasePrice() == null) {
+                        purchasePrice.setText("매입가");
+                    } else {
+                        if (targetStock.getProfitAndLoss().length() > 7)
+                            purchasePrice.setText(targetStock.getProfitChange() + targetStock.getProfitAndLoss().substring(0, 7) + "…");
+                        else
+                            purchasePrice.setText(targetStock.getProfitChange() + targetStock.getProfitAndLoss());
+                    }
                 } else {
-                    purchasePrice.setTextColor(Color.parseColor("#800000FF"));
+                    purchasePrice.setText("");
+                }
+
+                // 텍스트 애니매이션 설정
+                Animation translate = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.stockboard_text);
+                stockName.startAnimation(translate);
+                currentPrice.startAnimation(translate);
+                changePrice.startAnimation(translate);
+                changeRate.startAnimation(translate);
+                if (MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1)
+                    purchasePrice.startAnimation(translate);
+
+                // 텍스트 색상 변경
+                stockName.setTextColor(Color.parseColor("#80000000"));
+                if (targetStock.getChange().equals("▲")) {
+                    currentPrice.setTextColor(Color.parseColor("#80FF0000"));
+                    changePrice.setTextColor(Color.parseColor("#80FF0000"));
+                    changeRate.setTextColor(Color.parseColor("#80FF0000"));
+                } else if (targetStock.getChange().equals("▼")) {
+                    currentPrice.setTextColor(Color.parseColor("#800000FF"));
+                    changePrice.setTextColor(Color.parseColor("#800000FF"));
+                    changeRate.setTextColor(Color.parseColor("#800000FF"));
+                } else {
+                    currentPrice.setTextColor(Color.parseColor("#80696969"));
+                    changePrice.setTextColor(Color.parseColor("#80696969"));
+                    changeRate.setTextColor(Color.parseColor("#80696969"));
+                }
+                if (MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
+                    if (targetStock.getProfitChange() == null) {
+                        purchasePrice.setTextColor(Color.parseColor("#80696969"));
+                    } else if (targetStock.getProfitChange().equals("▲")) {
+                        purchasePrice.setTextColor(Color.parseColor("#80FF0000"));
+                    } else {
+                        purchasePrice.setTextColor(Color.parseColor("#800000FF"));
+                    }
                 }
             }
-
         }
     };
 
@@ -243,7 +249,7 @@ public class OverlayService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         stocks = overlayViewModel.getStockList().getValue();
-        iteratorStock = stocks.iterator();
+        if(stocks != null) iteratorStock = stocks.iterator();
 
         overlayCancle.setOnClickListener(new View.OnClickListener() {
             @Override
