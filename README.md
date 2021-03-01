@@ -67,6 +67,10 @@ FireStore 데이터 연동 중인 것을 감안한 여러 서비스 제공 예�
 
 # 알려진 오류 (Issue)
 * 구글 연동 로그인 오류 : 구글 앱 콘솔 → 설정 → 앱 무결성 → 앱 서명키 인증서를 Firebase 설정에 sha1 키를 추가해서 해결
+* java.lang.RuntimeException : 스플래시 이미지를 xxhdpi로 바꿔서 해결
+* java.util.NoSuchElementException : OverlayService에 iterator 다음 값 가져올 때 Null일 경우 NoSuch 안 뜨게 Null값 처리 추가해서 해결
+* java.lang.NullPointerException : Thread 및 OverlayService에 Null값 처리 추가해서 해결
+* android.view.WindowManager$BadTokenException : StartActivity 종료되고 DialogAlert가 실행이 되서 나는 에러였기에 finish()를 onDestroy() 메서드에서 실행되도록 옮겨서 해결
 
 # 개발자 정보 (Developer Information)
 * 송대석 : [Github](https://github.com/DaeSeokSong)  
