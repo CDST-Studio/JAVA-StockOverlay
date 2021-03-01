@@ -63,7 +63,6 @@ public class StartActivity extends AppCompatActivity {
                                             String url = "https://play.google.com/store/apps/details?id=com.cdst.stockoverlay";
                                             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                                             startActivity(intent);
-                                            finish();
                                         }
                                     });
 
@@ -83,6 +82,12 @@ public class StartActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finish();
     }
 
     //  -------------- 다른 앱 위에 그리기 권한 및 각종 권한을 사용자에게 요구하는 소스 코드 -------------
