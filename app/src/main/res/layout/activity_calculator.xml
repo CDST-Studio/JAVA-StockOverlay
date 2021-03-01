@@ -15,7 +15,7 @@
         android:layout_marginRight="55dp"/>
 
     <FrameLayout
-        android:id="@+id/fragment_calculator"
+        android:id="@+id/fragment_CalZone"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="6.25"
