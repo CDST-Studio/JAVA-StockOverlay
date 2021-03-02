@@ -1,60 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="stock"
-            type="Model.Stock">
-        </variable>
-    </data>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:id="@+id/search_body">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
+            android:orientation="vertical">
             <TextView
                 android:id="@+id/search_name"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:gravity="center_vertical"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:textColor="#FFFFFF"
                 android:textSize="24dp" />
-
-            <Button
-                android:id="@+id/Button_bookmark"
+            <TextView
+                android:id="@+id/search_code"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/search_name"
-                android:layout_weight="3"
-                android:background="@drawable/ic_bookmark"></Button>
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:textColor="#FFFFFF"
+                android:textSize="16dp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/search_code"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/search_name"
-            android:layout_weight="1"
-            android:textColor="#FFFFFF"
-            android:textSize="16dp" />
+        <Button
+            android:id="@+id/Button_bookmark"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/ic_bookmark"></Button>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@id/search_code"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
-            android:background="#FFFFFF" />
     </LinearLayout>
-</layout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="#FFFFFF" />
+
+</LinearLayout>
