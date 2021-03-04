@@ -35,7 +35,7 @@
 
         <Button
             android:id="@+id/Button_bookmark"
-            android:layout_width="40dp"
+            android:layout_width="50dp"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
             android:layout_marginRight="5dp"

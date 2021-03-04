@@ -67,8 +67,8 @@ public class OverlayService extends Service {
     final Handler handler = new Handler() {
         @SuppressLint("SetTextI18n")
         public void handleMessage(Message msg) {
-            if(!iteratorStock.hasNext()) iteratorStock = stocks.iterator();
-            if(iteratorStock.hasNext() && iteratorStock != null) {
+            if(!iteratorStock.hasNext() || iteratorStock == null) iteratorStock = stocks.iterator();
+            else {
                 // 다음 종목 가져오기
                 targetStock = iteratorStock.next();
                 
