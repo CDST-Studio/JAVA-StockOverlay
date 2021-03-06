@@ -42,13 +42,19 @@
                 android:layout_below="@+id/edit_name"
                 android:layout_toRightOf="@id/Button_drag"
                 />
-            <Button
-                android:id="@+id/Button_remove"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:background="@drawable/ic_remove"
-                android:layout_margin="15dp"
-                android:layout_alignParentRight="true" ></Button>
+
+        <Button
+            android:id="@+id/Button_remove"
+            android:layout_width="25dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/ic_remove"></Button>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"

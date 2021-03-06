@@ -10,7 +10,7 @@ import com.cdst.stockoverlay.R;
 
 import View.Fragment.CalOutputFragment;
 
-public class CaculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;

@@ -2,6 +2,7 @@ package View.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,7 @@ import java.util.Objects;
 import Model.Stock;
 import Module.DBA;
 import View.MainActivity;
+import View.CalculatorActivity;
 import View.Dialog.PurchasePriceDialog;
 import ViewModel.MainViewModel;
 import ViewModel.OverlayViewModel;
@@ -73,6 +75,14 @@ public class ListViewAdapter extends BaseAdapter {
             purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
             targetProfit = (TextView) convertView.findViewById(R.id.list_targetprice);
         }
+
+        ImageButton calculator = (ImageButton) convertView.findViewById(R.id.main_calculator);
+        calculator.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, CalculatorActivity.class));
+            }
+        });
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Stock listViewItem = listViewItemList.get(position);
