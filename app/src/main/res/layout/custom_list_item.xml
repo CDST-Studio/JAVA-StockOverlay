@@ -46,7 +46,6 @@
                     android:layout_weight="4"
                     android:background="@drawable/button_color"
                     android:scaleType="fitCenter"
-                    android:visibility="invisible"
                     app:srcCompat="@drawable/ic_calculator" />
 
                 <TextView
