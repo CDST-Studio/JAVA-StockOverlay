@@ -50,4 +50,3 @@ public class MainViewModel extends ViewModel implements Serializable {
         return stockList;
     }
 }
-

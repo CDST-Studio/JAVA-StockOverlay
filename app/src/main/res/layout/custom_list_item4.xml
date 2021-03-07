@@ -4,6 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <TextView
+        android:id="@+id/cal_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="TextView" />
+
     <Button
         android:id="@+id/avg_Buy_Button"
         android:drawableLeft="@drawable/ic_calculator_button"
