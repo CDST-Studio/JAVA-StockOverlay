@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import com.cdst.stockoverlay.R;
 
-import View.Adapter.CalculAdapter;
 import View.Fragment.CalOutputFragment;
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -17,7 +16,7 @@ public class CalculatorActivity extends AppCompatActivity {
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;
     private ListView listView;
-    private CalculAdapter adapter;
+    //private CalculAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +35,9 @@ public class CalculatorActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commitAllowingStateLoss();
 
-        adapter = new CalculAdapter();
+        //adapter = new CalculAdapter();
         listView = (ListView) findViewById(R.id.cal_list);
-        listView.setAdapter(adapter);
+       // listView.setAdapter(adapter);
 
     }
 

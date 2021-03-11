@@ -20,7 +20,7 @@
         <activity android:name="View.ManualActivity" /> <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-5856926052915180~3184496531" />
+            android:value="ca-app-pub-5856926052915180~5310419231" />
 
         <service
             android:name="View.Service.OverlayService"
