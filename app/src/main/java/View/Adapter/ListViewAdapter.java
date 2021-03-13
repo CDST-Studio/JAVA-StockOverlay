@@ -71,9 +71,12 @@ public class ListViewAdapter extends BaseAdapter {
 
         TextView targetProfit = null;
         TextView purchasePrice = null;
+        ImageButton profitSelling = convertView.findViewById(R.id.edit_button);
         if(MainActivity.PURCHASE_PRICE_INPUT_FLAG == 1) {
             purchasePrice = (TextView) convertView.findViewById(R.id.list_purchaseprice);
             targetProfit = (TextView) convertView.findViewById(R.id.list_targetprice);
+        }else {
+            profitSelling.setVisibility(View.INVISIBLE);
         }
 
         ImageButton calculator = (ImageButton) convertView.findViewById(R.id.main_calculator);
@@ -135,9 +138,8 @@ public class ListViewAdapter extends BaseAdapter {
 
             int purchase = 0;
             int target = 0;
-            ImageButton profitSelling = convertView.findViewById(R.id.edit_button);
-            if (!purchasePrice.getText().equals("매입가") || !purchasePrice.getText().equals("")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
-            if (!targetProfit.getText().equals("목표수익") || !targetProfit.getText().equals("")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
+            if (!purchasePrice.getText().equals("매입가") && !purchasePrice.getText().equals("")) purchase = Integer.parseInt(purchasePrice.getText().subSequence(1, purchasePrice.getText().length()).toString().replace(",", ""));
+            if (!targetProfit.getText().equals("목표수익") && !targetProfit.getText().equals("")) target = Integer.parseInt(targetProfit.getText().toString().replace(",", ""));
             if ((purchase != 0 && target != 0) && purchase >= target) {
                 profitSelling.setVisibility(View.VISIBLE);
                 profitSelling.setOnClickListener(new View.OnClickListener() {
