@@ -61,7 +61,7 @@
                         android:layout_gravity="right"
                         android:layout_marginEnd="5dp"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/round_background_yellow"
+                        android:background="@drawable/round_background_edit"
                         android:src="@drawable/ic_edit"
                         android:textStyle="bold"
                         android:visibility="visible" />
@@ -73,7 +73,7 @@
                         android:layout_gravity="right"
                         android:layout_marginEnd="5dp"
                         android:layout_marginRight="5dp"
-                        android:background="@drawable/round_background_complete"
+                        android:background="@drawable/round_background_editcomplete"
                         android:text="수정 완료"
                         android:textColor="@color/white"
                         android:textSize="14sp"
