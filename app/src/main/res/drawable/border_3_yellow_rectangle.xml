@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#5E5E5E"/>
+    <stroke
+        android:color="@color/stockoverlay_brown"
+        android:width="1dp" />
+</shape>

@@ -9,14 +9,17 @@ import android.widget.ListView;
 
 import com.cdst.stockoverlay.R;
 
+import java.util.ArrayList;
+
+import Model.Calcul;
+import View.Adapter.CalculAdapter;
 import View.Fragment.CalOutputFragment;
 
 public class CalculatorActivity extends AppCompatActivity {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;
-    private ListView listView;
-    //private CalculAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,9 @@ public class CalculatorActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commitAllowingStateLoss();
 
-        //adapter = new CalculAdapter();
-        listView = (ListView) findViewById(R.id.cal_list);
-       // listView.setAdapter(adapter);
+
+
+
 
     }
 
@@ -67,4 +70,8 @@ public class CalculatorActivity extends AppCompatActivity {
         }
 
     }
+
+    //경호 집은 우리집 냉장고
+
+
 }
