@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ListView;
 
 import com.cdst.stockoverlay.R;
+import com.google.common.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,8 @@ public class CalculatorActivity extends AppCompatActivity {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;
-
+    private ArrayList<Calcul> buylist;
+    private ArrayList<Calcul> selllist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,7 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
 
-
+        Bundle bundle = getArgument
 
     }
 

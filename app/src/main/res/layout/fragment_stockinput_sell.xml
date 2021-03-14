@@ -88,7 +88,7 @@
             </EditText>
         </LinearLayout>
             <Button
-                android:id="@+id/inut_Sell_Button"
+                android:id="@+id/input_Sell_Button"
                 android:layout_width="120dp"
                 android:layout_height="0dp"
                 android:layout_weight="0.5"
