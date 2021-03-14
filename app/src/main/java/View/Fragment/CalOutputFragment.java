@@ -28,18 +28,18 @@ public class CalOutputFragment  extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        CalOutputview = (View) inflater.inflate(R.layout.fragment_stockoutput, container,false);
+        CalOutputview = (View) inflater.inflate(R.layout.fragment_stockoutput_2, container,false);
 
-        recyclerView = (RecyclerView) CalOutputview.findViewById(R.id.cal_list);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView = (RecyclerView) CalOutputview.findViewById(R.id.cal_list);
+        //recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+        //layoutManager = new LinearLayoutManager(getActivity());
+        //recyclerView.setLayoutManager(layoutManager);
 
-        init();
+        //init();
 
-        adapter = new CalculAdapter(datalist);
-        recyclerView.setAdapter(adapter);
+        //adapter = new CalculAdapter(datalist);
+        //recyclerView.setAdapter(adapter);
 
 
         return CalOutputview;
