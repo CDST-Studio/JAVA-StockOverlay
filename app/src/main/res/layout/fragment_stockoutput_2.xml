@@ -37,6 +37,7 @@
             android:textAlignment="center"
             android:background="#222222" />
         <LinearLayout
+            android:id="@+id/cal_Buy_Linear"
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:orientation="vertical"
@@ -166,6 +167,7 @@
             android:textAlignment="center"
             android:background="#414141" />
         <LinearLayout
+            android:id="@+id/cal_sell_Linear"
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:orientation="vertical"
@@ -294,6 +296,7 @@
             android:textAlignment="center"
             android:background="#5E5E5E" />
         <LinearLayout
+            android:id="@+id/cal_total_Linear"
             android:layout_width="match_parent"
             android:layout_height="270dp"
             android:orientation="vertical"
