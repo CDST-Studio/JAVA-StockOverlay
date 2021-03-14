@@ -22,6 +22,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import View.CalculatorActivity;
 import View.LoginActivity;
 
 public class StartActivity extends AppCompatActivity {
@@ -37,6 +38,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        checkPermission();
 
         // 애드몹 초기화
         MobileAds.initialize(this, new OnInitializationCompleteListener() {
@@ -71,7 +73,7 @@ public class StartActivity extends AppCompatActivity {
                             // 권한 확인
                             checkPermission();
 
-                            startActivity(new Intent(StartActivity.this, LoginActivity.class));
+                            startActivity(new Intent(StartActivity.this, CalculatorActivity.class));//다시 로그인으로 돌리기
                             finish();
                         }
                     } else {

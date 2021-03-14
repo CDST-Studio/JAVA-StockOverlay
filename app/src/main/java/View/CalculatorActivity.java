@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import Model.Calcul;
 import View.Adapter.CalculAdapter;
+import View.Fragment.CalInputBuyFragment;
 import View.Fragment.CalOutputFragment;
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -31,7 +32,7 @@ public class CalculatorActivity extends AppCompatActivity {
         plustBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, CalInputFragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, new CalInputBuyFragment()).commitAllowingStateLoss();
             }
         });
 

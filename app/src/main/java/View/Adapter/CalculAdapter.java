@@ -84,7 +84,7 @@ public class CalculAdapter extends RecyclerView.Adapter<CalculAdapter.ViewHolder
 
                 }
             });
-            textView = view.findViewById(R.id.cal_name);
+            textView = view.findViewById(R.id.avg_Buy_Button);
         }
 
 
