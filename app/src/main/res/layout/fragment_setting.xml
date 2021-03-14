@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="50dp"
-        android:background="#111111"
+        android:background="#000000"
         android:orientation="vertical"
         android:padding="10dp">
 
@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            android:background="#111111"
+            android:background="#000000"
             android:padding="30dp"
             app:srcCompat="@drawable/bottom_ic_setting" />
 
@@ -30,7 +30,7 @@
             android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#111111"
+            android:background="#000000"
             android:gravity="center"
             android:text="설정"
             android:textColor="@color/stockoverlay_brown"
