@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.cdst.stockoverlay.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -40,12 +44,15 @@ public class CalOutputFragment  extends Fragment {
         LinearLayout sellLinear = CalOutputview.findViewById(R.id.cal_sell_Linear);
         LinearLayout totalLinear = CalOutputview.findViewById(R.id.cal_total_Linear);
 
+        ListView buy_Cacul_List = CalOutputview.findViewById(R.id.N_Buy_List);
+
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 if(buyLinear.getVisibility() == View.GONE){
                     buyLinear.setVisibility(View.VISIBLE);
+                    //buy_Cacul_List.add
                 }
                 else{
                     buyLinear.setVisibility(View.GONE);
@@ -76,26 +83,8 @@ public class CalOutputFragment  extends Fragment {
                 }
             }
         });
-        //recyclerView = (RecyclerView) CalOutputview.findViewById(R.id.cal_list);
-        //recyclerView.setHasFixedSize(true);
-
-        //layoutManager = new LinearLayoutManager(getActivity());
-        //recyclerView.setLayoutManager(layoutManager);
-
-        //init();
-
-        //adapter = new CalculAdapter(datalist);
-        //recyclerView.setAdapter(adapter);
 
 
         return CalOutputview;
     }
-
-    void init(){
-        datalist = new ArrayList<>();
-        datalist.add("총 매수");
-        datalist.add("총 매도");
-        datalist.add("총 손익");
-    }
-
 }

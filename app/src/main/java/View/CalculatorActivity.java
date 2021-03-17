@@ -2,10 +2,10 @@ package View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.cdst.stockoverlay.R;
 import com.google.common.eventbus.EventBus;
@@ -13,11 +13,9 @@ import com.google.common.eventbus.EventBus;
 import java.util.ArrayList;
 
 import Model.Calcul;
-import View.Adapter.CalculAdapter;
-import View.Fragment.CalInputBuyFragment;
 import View.Fragment.CalOutputFragment;
 
-public class CalculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity implements CalInputBuyFragment.CalculInteface {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;
@@ -43,9 +41,8 @@ public class CalculatorActivity extends AppCompatActivity {
 
 
 
-        Bundle bundle = getArgument
-
     }
+
 
     private double caculBuy(String name, int amount, int stockPrice){
         return (amount * stockPrice) + caculCommission(name, amount, stockPrice) + ((amount * stockPrice) * 0.0043);//매수금액 + 수수료 + 유관기관제비용
@@ -72,6 +69,11 @@ public class CalculatorActivity extends AppCompatActivity {
                 return 0.015;
         }
 
+    }
+
+    @Override
+    public void setCalculList(Calcul calcul) {
+        buylist.add(calcul);
     }
 
     //경호 집은 우리집 냉장고
