@@ -1,119 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/stockoverlay_black">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="142"
-        android:layout_gravity="center"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"/>
+    android:layout_height="380dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:background="@color/stockoverlay_black"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1000"
-        android:layout_gravity="center"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:background="@drawable/round_background_cal"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12"/>
-
-        <LinearLayout
-            android:id="@+id/fragment_CalZone"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@color/stockoverlay_black"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1000"/>
-            <Button
-                android:id="@+id/avg_Buy_Button"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="252"
-                android:paddingLeft="90dp"
-                android:textSize="20dp"
-                android:textColor="@color/stockoverlay_brown"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:background="@drawable/button_cal_1" />
-            <Button
-                android:id="@+id/avg_Sell_Button"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="252"
-                android:drawableLeft="@drawable/ic_calculator_button"
-                android:drawablePadding="-90dp"
-                android:paddingLeft="90dp"
-                android:text="총 매도 단가"
-                android:textSize="20dp"
-                android:textColor="@color/stockoverlay_brown"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:background="#414141" />
-            <Button
-                android:id="@+id/Button_Total_ProfitLoss"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="252"
-                android:drawableLeft="@drawable/ic_calculator_button"
-                android:drawablePadding="-90dp"
-                android:paddingLeft="90dp"
-                android:text="총 손익"
-                android:textSize="20dp"
-                android:textColor="@color/stockoverlay_brown"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:background="#5E5E5E" />
-            </LinearLayout>
+        android:background="@color/stockoverlay_black"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_stockcal"/>
     </LinearLayout>
 
-
-    <LinearLayout
+    <Button
+        android:id="@+id/avg_Buy_Button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="351"
-        android:layout_gravity="center"
-        android:layout_marginLeft="65dp"
-        android:layout_marginRight="65dp"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="426"/>
-
-        <Button
-            android:id="@+id/plusButton"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1000"
-            android:gravity="center"
-            android:background="@drawable/button_plus" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="2278"/>
-    </LinearLayout>
-
+        android:layout_weight="251"
+        android:background="@drawable/button_cal_1" />
+    <Button
+        android:id="@+id/avg_Sell_Button"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="251"
+        android:background="@drawable/button_cal_2" />
+    <Button
+        android:id="@+id/Button_Total_ProfitLoss"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="251"
+        android:background="@drawable/button_cal_3" />
 </LinearLayout>

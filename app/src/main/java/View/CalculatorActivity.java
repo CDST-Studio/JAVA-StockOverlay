@@ -1,19 +1,23 @@
 package View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.cdst.stockoverlay.R;
-import com.google.common.eventbus.EventBus;
 
 import java.util.ArrayList;
 
 import Model.Calcul;
-import View.Fragment.CalOutputFragment;
+import View.Fragment.Calculator.CalInputBuyFragment;
+import View.Fragment.Calculator.CalOutputFragment;
+import View.Fragment.Calculator.CalInputSellFragment;
+
 
 public class CalculatorActivity extends AppCompatActivity implements CalInputBuyFragment.CalculInteface {
 
@@ -21,6 +25,7 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
     private Button plustBtn;
     private ArrayList<Calcul> buylist;
     private ArrayList<Calcul> selllist;
+    private int index = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,19 +33,14 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
         setContentView(R.layout.activity_calculator);
 
         plustBtn = (Button) findViewById(R.id.plusButton);
-
         plustBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, new CalInputBuyFragment()).commitAllowingStateLoss();
-            }
-        });
+                    fragmentChange(CalInputSellFragment.newInstance());
+                }
+            });
 
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commitAllowingStateLoss();
-
-
-
+        fragmentChange(CalOutputFragment.newInstance());
     }
 
 
@@ -54,6 +54,11 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
         return amount * stockPrice * stockCommission(name);
     }
 
+    public void fragmentChange(Fragment fragment){ //Cal 액티비티에서 화면 전환을 위한 함수
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_CalZone, fragment).commit();
+    }
 
     private double stockCommission(String name){
         switch (name){
@@ -75,8 +80,5 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
     public void setCalculList(Calcul calcul) {
         buylist.add(calcul);
     }
-
-    //경호 집은 우리집 냉장고
-
 
 }

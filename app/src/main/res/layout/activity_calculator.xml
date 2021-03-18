@@ -18,24 +18,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1000"
-        android:background="@drawable/round_background_cal"
         android:layout_gravity="center"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
+        android:layout_weight="1000"
+        android:background="@drawable/round_background_cal"
         android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.12"/>
 
         <FrameLayout
             android:id="@+id/fragment_CalZone"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="3dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -43,8 +40,8 @@
         android:layout_height="0dp"
         android:layout_weight="351"
         android:layout_gravity="center"
-        android:layout_marginLeft="65dp"
-        android:layout_marginRight="65dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -57,8 +54,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1000"
-            android:gravity="center"
-            android:background="@drawable/button_plus" />
+            android:background="@drawable/ic_button_plus"
+            android:gravity="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
