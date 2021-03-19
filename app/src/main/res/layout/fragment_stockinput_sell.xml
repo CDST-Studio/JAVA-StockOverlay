@@ -2,102 +2,109 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="380dp"
+    android:background="@color/stockoverlay_black"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.75"
-        android:background="@color/black"
-        android:gravity="center">
-
-    <ImageView
-        android:layout_width="210dp"
-        android:layout_height="210dp"
-        android:background="@drawable/ic_stockcal"/>
+        android:layout_weight="1000"
+        android:background="@color/stockoverlay_black"
+        android:gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/button_cal_transform_sell"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_gravity="left"
+            android:background="@drawable/round_background_minute"
+            android:text="임시 전환 버튼"/>
+        <Button
+            android:id="@+id/button_backhome_sell"
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:layout_gravity="left"
+            android:background="@drawable/round_background_minute"
+            android:layout_marginTop="3dp"
+            android:text="임시 홈 버튼"/>
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_stockcal"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.75"
-        android:orientation="vertical"
-        android:background="@color/black">
+        android:layout_weight="140"
+        android:background="@drawable/border_1_yellow_rectangle"
+        android:layout_gravity="center"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginBottom="6dp">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/edit_SellPrice"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:background="#343434"
-            android:layout_gravity="center"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="65dp"
-            android:layout_marginBottom="15dp">
-
-            <EditText
-                android:id="@+id/edit_SellPrice"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/stockoverlay_brown"
-                android:text="매도 단가"
-                android:textSize="20dp"
-                android:layout_gravity="center">
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:background="#343434"
-            android:layout_gravity="center"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="65dp"
-            android:layout_marginBottom="15dp">
-
-            <EditText
-                android:id="@+id/edit_SellQuantity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/stockoverlay_brown"
-                android:text="매도 수량"
-                android:textSize="20dp"
-                android:layout_gravity="center">
-            </EditText>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.6"
-            android:background="#343434"
-            android:layout_gravity="center"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="65dp"
-            android:layout_marginBottom="15dp">
-
-            <EditText
-                android:id="@+id/edit_SellFee"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/stockoverlay_brown"
-                android:text="매도 수수료"
-                android:textSize="20dp"
-                android:layout_gravity="center">
-            </EditText>
-        </LinearLayout>
-            <Button
-                android:id="@+id/input_Sell_Button"
-                android:layout_width="120dp"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:background="@drawable/round_background_income"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:textSize="20dp"
-                android:text="입력">
-            </Button>
+            android:layout_height="match_parent"
+            android:textColor="@color/stockoverlay_brown"
+            android:text="매도 단가"
+            android:textSize="9dp"
+            android:layout_gravity="center">
+        </EditText>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="140"
+        android:background="@drawable/border_1_yellow_rectangle"
+        android:layout_gravity="center"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginBottom="6dp">
+
+        <EditText
+            android:id="@+id/edit_SellQuantity"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/stockoverlay_brown"
+            android:text="매도 수량"
+            android:textSize="9dp"
+            android:layout_gravity="center">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="140"
+        android:background="@drawable/border_1_yellow_rectangle"
+        android:layout_gravity="center"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="130dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/edit_SellFee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/stockoverlay_brown"
+            android:text="매도 수수료"
+            android:textSize="9dp"
+            android:layout_gravity="center">
+        </EditText>
+    </LinearLayout>
+    <Button
+        android:id="@+id/input_Sell_Button"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_weight="150"
+        android:background="@drawable/round_background_minute"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textSize="10dp"
+        android:text="입력">
+    </Button>
 </LinearLayout>
