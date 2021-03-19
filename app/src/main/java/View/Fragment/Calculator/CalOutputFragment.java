@@ -17,7 +17,7 @@ import com.cdst.stockoverlay.R;
 import java.util.ArrayList;
 
 import Model.Calcul;
-import View.Adapter.CalculAdapter;
+import View.Adapter.Calculator.CalculAdapter;
 import View.CalculatorActivity;
 
 public class CalOutputFragment  extends Fragment {
@@ -45,58 +45,23 @@ public class CalOutputFragment  extends Fragment {
         Button sellButton = CalOutputview.findViewById(R.id.avg_Sell_Button);
         Button totalButton = CalOutputview.findViewById(R.id.Button_Total_ProfitLoss);
 
-        /*LinearLayout buyLinear = CalOutputview.findViewById(R.id.cal_Buy_Linear);
-        LinearLayout sellLinear = CalOutputview.findViewById(R.id.cal_sell_Linear);
-        LinearLayout totalLinear = CalOutputview.findViewById(R.id.cal_total_Linear);
-
-        ListView buy_Cacul_List = CalOutputview.findViewById(R.id.N_Buy_List); */
-
         Bundle bundle = getArguments();
-        buyList = (ArrayList<Calcul>) bundle.getSerializable("BuyList");
-        sellList = (ArrayList<Calcul>) bundle.getSerializable("SellList");
+        //buyList = (ArrayList<Calcul>) bundle.getSerializable("BuyList");
+        //sellList = (ArrayList<Calcul>) bundle.getSerializable("SellList");
 
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                calculatorActivity.fragmentChange(CalOutput_BuyFragment.newInstance());
-                /*
-                if(buyLinear.getVisibility() == View.GONE){
-                    buyLinear.setVisibility(View.VISIBLE);
-                    //buy_Cacul_List.add
-                }
-                else{
-                    buyLinear.setVisibility(View.GONE);
-                }  */
-            }
+            public void onClick(View v) { calculatorActivity.fragmentChange(CalOutput_BuyFragment.newInstance()); }
         });
 
         sellButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                calculatorActivity.fragmentChange(CalOutput_SellFragment.newInstance());
-                /*
-                if(sellLinear.getVisibility() == View.GONE){
-                    sellLinear.setVisibility(View.VISIBLE);
-                }
-                else {
-                    sellLinear.setVisibility(View.GONE);
-                } */
-            }
+            public void onClick(View v) { calculatorActivity.fragmentChange(CalOutput_SellFragment.newInstance()); }
         });
 
         totalButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                calculatorActivity.fragmentChange(CalOutput_ProfitLossFragment.newInstance());
-                /*
-                if(totalLinear.getVisibility() == View.GONE){
-                    totalLinear.setVisibility(View.VISIBLE);
-                }
-                else{
-                    totalLinear.setVisibility(View.GONE);
-                }*/
-            }
+            public void onClick(View v) { calculatorActivity.fragmentChange(CalOutput_ProfitLossFragment.newInstance()); }
         });
 
         return CalOutputview;

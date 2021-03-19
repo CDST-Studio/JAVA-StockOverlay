@@ -49,8 +49,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/stockoverlay_brown"
-                android:text="매수 단가"
+                android:hint="매수 단가"
                 android:textSize="9dp"
+                android:inputType="number"
                 android:layout_gravity="center">
             </EditText>
         </LinearLayout>
@@ -70,8 +71,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/stockoverlay_brown"
-                android:text="매수 수량"
+                android:hint="매수 수량"
                 android:textSize="9dp"
+                android:inputType="number"
                 android:layout_gravity="center">
             </EditText>
         </LinearLayout>
@@ -91,8 +93,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/stockoverlay_brown"
-                android:text="매수 수수료"
+                android:hint="매수 수수료"
                 android:textSize="9dp"
+                android:inputType="number"
                 android:layout_gravity="center">
             </EditText>
         </LinearLayout>

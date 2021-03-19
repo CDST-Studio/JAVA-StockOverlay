@@ -1,4 +1,4 @@
-package View.Adapter;
+package View.Adapter.Calculator;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -45,13 +45,10 @@ public class CalculOutputBuyAdater extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.fragment_stockoutput_2, parent, false);
-            View
         }
         return null;
     }
 
     public class CalculOutputBuyHolder{
-        private TextView
     }
 }

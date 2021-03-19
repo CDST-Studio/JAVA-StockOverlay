@@ -19,7 +19,7 @@ import View.Fragment.Calculator.CalOutputFragment;
 import View.Fragment.Calculator.CalInputSellFragment;
 
 
-public class CalculatorActivity extends AppCompatActivity implements CalInputBuyFragment.CalculInteface {
+public class CalculatorActivity extends AppCompatActivity  {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
     private Button plustBtn;
@@ -74,11 +74,6 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
                 return 0.015;
         }
 
-    }
-
-    @Override
-    public void setCalculList(Calcul calcul) {
-        buylist.add(calcul);
     }
 
 }

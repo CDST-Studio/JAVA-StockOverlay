@@ -28,9 +28,10 @@ public class CalInputBuyFragment extends Fragment {
     int price;
     int quantity;
     int fee;
-    private CalculInteface calculInteface;
+
     private Calcul calcul;
     private CalculatorActivity calculatorActivity;
+    private CalOutput_BuyFragment calOutputBuyFragment = new CalOutput_BuyFragment();
 
     public static CalInputBuyFragment newInstance() {
         return new CalInputBuyFragment();
@@ -54,12 +55,17 @@ public class CalInputBuyFragment extends Fragment {
         Button_BuyInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(calculInteface != null){
-                   calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
-                   calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
-                   calcul.setFee(Integer.parseInt(fee_ed.getText().toString()));
-                   calculInteface.setCalculList(calcul);
-               }
+                calcul = new Calcul();
+                calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
+                calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
+                calcul.setFee(Integer.parseInt(fee_ed.getText().toString()));
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("BuyCalcul",calcul);
+                calOutputBuyFragment.setArguments(bundle);
+                Log.v("input",Integer.toString(calcul.getFee()));
+
+                calculatorActivity.fragmentChange(CalOutputFragment.newInstance());
             }
         });
 
@@ -84,25 +90,15 @@ public class CalInputBuyFragment extends Fragment {
         return CalInputBuyView;
     }
 
-    public interface CalculInteface{
-        void setCalculList(Calcul calcul);
-    }
+
 
     public void onAttach(Context context) {
         super.onAttach(context);
         calculatorActivity = (CalculatorActivity) getActivity();
-
-        if(context instanceof CalculInteface){
-            calculInteface = (CalculInteface) context;
-        } else{
-            throw new RuntimeException(context.toString() + "must implement CalculInteface");
-        }
-
     }
 
     public void onDetach() {
         super.onDetach();
-        calculInteface = null;
     }
 
 

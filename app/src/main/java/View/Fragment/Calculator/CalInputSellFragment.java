@@ -22,11 +22,11 @@ import View.CalculatorActivity;
 public class CalInputSellFragment extends Fragment {
 
     private View CalInputSellView;
-    int price;
-    int quantity;
-    int fee;
+
     private Calcul calcul;
     private CalculatorActivity calculatorActivity;
+
+    private CalInputSellFragment calInputSellFragment;
 
 
     public static CalInputSellFragment newInstance() {
@@ -42,15 +42,18 @@ public class CalInputSellFragment extends Fragment {
         EditText quantity_ed = CalInputSellView.findViewById(R.id.edit_SellQuantity);
         EditText fee_ed = CalInputSellView.findViewById(R.id.edit_SellPrice);
 
-        //int price = Integer.parseInt(price_ed.getText().toString());
-        //int quantity = Integer.parseInt(quantity_ed.getText().toString());
-        //int fee = Integer.parseInt(fee_ed.getText().toString());
-
 
         Button Button_BuyInput = CalInputSellView.findViewById(R.id.input_Sell_Button); //Input 버튼
         Button_BuyInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
+                calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
+                calcul.setFee(Integer.parseInt(fee_ed.getText().toString()));
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("SellCalcul",calcul);
+                calInputSellFragment.setArguments(bundle);
             }
         });
 
