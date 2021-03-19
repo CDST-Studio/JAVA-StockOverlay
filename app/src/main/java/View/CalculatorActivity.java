@@ -41,6 +41,8 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
 
 
 
+
+
     }
 
 
@@ -76,7 +78,18 @@ public class CalculatorActivity extends AppCompatActivity implements CalInputBuy
         buylist.add(calcul);
     }
 
-    //경호 집은 우리집 냉장고
+    public void replaceOutput(){
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("BuyList",buylist);
+        bundle.putSerializable("SellList", selllist);
+
+        outputFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commit();
+    }
+
+
+    //경호 집은 우리집 냉장고 오히려 좋아 츄릅
 
 
 }

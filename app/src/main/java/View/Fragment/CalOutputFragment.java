@@ -21,6 +21,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import Model.Calcul;
 import View.Adapter.CalculAdapter;
 
 public class CalOutputFragment  extends Fragment {
@@ -30,6 +31,8 @@ public class CalOutputFragment  extends Fragment {
     private CalculAdapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<String> datalist;//혹시나 해서 ㅎㅎ;;
+    private ArrayList<Calcul> buyList;
+    private ArrayList<Calcul> sellList;
 
     @Nullable
     @Override
@@ -45,6 +48,10 @@ public class CalOutputFragment  extends Fragment {
         LinearLayout totalLinear = CalOutputview.findViewById(R.id.cal_total_Linear);
 
         ListView buy_Cacul_List = CalOutputview.findViewById(R.id.N_Buy_List);
+
+        Bundle bundle = getArguments();
+        buyList = (ArrayList<Calcul>) bundle.getSerializable("BuyList");
+        sellList = (ArrayList<Calcul>) bundle.getSerializable("SellList");
 
         buyButton.setOnClickListener(new View.OnClickListener() {
             @Override
