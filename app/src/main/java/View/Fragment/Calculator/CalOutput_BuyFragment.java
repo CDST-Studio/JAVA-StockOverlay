@@ -10,6 +10,7 @@ import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,10 +28,6 @@ import View.CalculatorActivity;
 public class CalOutput_BuyFragment extends Fragment {
 
     private View CalBuyView;
-    int price;
-    int quantity;
-    int fee;
-    private ArrayList<Calcul> buyCalcul = new ArrayList<>();
     private CalculatorActivity calculatorActivity;
     private Bundle bundle;
 
@@ -49,16 +46,17 @@ public class CalOutput_BuyFragment extends Fragment {
         CalBuyView = (View) inflater.inflate(R.layout.fragment_stockoutput_buy,container,false);
 
         ListView listView = CalBuyView.findViewById(R.id.N_Buy_List);
-        //CalculOutputBuyAdater adapter = new CalculOutputBuyAdater(this, );
+        CalculOutputBuyAdater adapter = new CalculOutputBuyAdater();
         listView.setAdapter(adapter);
 
         bundle = calculatorActivity.bundle;
         if(bundle != null) {
             Calcul bundleCalcul;
             bundleCalcul = (Calcul) bundle.getSerializable("BuyCalcul");
-            buyCalcul.add(bundleCalcul);
-            adapter.addItem(bundleCalcul.getStockprice(),bundleCalcul.getQuantity(),bundleCalcul.getFee());
+            adapter.addItem(bundleCalcul);
         }
+
+        if(adapter.getList().size() > 0) totalOutput(adapter);
 
 
 
@@ -81,5 +79,35 @@ public class CalOutput_BuyFragment extends Fragment {
 
     public void onDetach() {
         super.onDetach();
+    }
+
+    public void totalOutput(CalculOutputBuyAdater mAdater){
+        /*더러우니까 토탈 관련한거 여기다가 박았습니다.*/
+
+        int i = 0;
+        int total_price = 0;
+        int total_Quantity = 0;
+        float total_fee = 0;
+        ArrayList<Calcul> buyCalcul = new ArrayList<>();
+
+        TextView buy_Quantity = CalBuyView.findViewById(R.id.Buy_Quantity);
+        TextView buy_Price_Total = CalBuyView.findViewById(R.id.Total_Buy_Price);
+        TextView buy_Price = CalBuyView.findViewById(R.id.Buy_Price);
+        TextView buy_Tex_Total = CalBuyView.findViewById(R.id.Total_Buy_Tex);
+
+        buyCalcul = mAdater.getList();
+        while (i < buyCalcul.size()){
+            total_price += buyCalcul.get(i).getStockprice();
+            total_Quantity += buyCalcul.get(i).getQuantity();
+            total_fee += buyCalcul.get(i).getFee();
+            i++;
+        }
+
+        buy_Quantity.setText(Integer.toString(total_Quantity));
+        buy_Price_Total.setText(Integer.toString(total_price));
+        buy_Price.setText(Integer.toString(total_price / total_Quantity));
+        buy_Tex_Total.setText(Float.toString(total_fee / buyCalcul.size()));
+
+
     }
 }

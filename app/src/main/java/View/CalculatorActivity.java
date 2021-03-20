@@ -36,7 +36,7 @@ public class CalculatorActivity extends AppCompatActivity  {
         plustBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    fragmentChange(CalInputSellFragment.newInstance());
+                    fragmentChange(CalInputBuyFragment.newInstance());
                 }
             });
         fragmentChange(CalOutputFragment.newInstance());

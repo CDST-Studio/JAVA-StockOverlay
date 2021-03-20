@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.io.Serializable;
 
 public class Calcul implements Serializable {
-    private int fee;
+    private float fee;
     private int stockprice;
     private int quantity;
 
@@ -34,8 +34,8 @@ public class Calcul implements Serializable {
 
     //public Calcul(int )
     //----------------------개셋---------------------------
-    public void setFee(int bos){this.fee = bos;}
-    public int getFee(){return this.fee;}
+    public void setFee(float bos){this.fee = bos;}
+    public float getFee(){return this.fee;}
 
     public void setStockprice(int stockpric){this.stockprice = stockpric;}
     public int getStockprice(){return this.stockprice;}
@@ -49,9 +49,9 @@ public class Calcul implements Serializable {
     }
 
 
-    public void writeToParcel(Parcel dest, int flags) {
+    /*public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(fee);
         dest.writeInt(stockprice);
         dest.writeInt(quantity);
-    }
+    }*/
 }

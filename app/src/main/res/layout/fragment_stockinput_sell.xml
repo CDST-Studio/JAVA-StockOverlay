@@ -95,7 +95,7 @@
             android:textColor="@color/stockoverlay_brown"
             android:hint="매도 수수료"
             android:textSize="9dp"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:layout_gravity="center">
         </EditText>
     </LinearLayout>

@@ -26,7 +26,7 @@ public class CalInputSellFragment extends Fragment {
     private Calcul calcul;
     private CalculatorActivity calculatorActivity;
 
-    private CalInputSellFragment calInputSellFragment;
+    private CalOutput_SellFragment calOutputSellFragment = new CalOutput_SellFragment();
 
 
     public static CalInputSellFragment newInstance() {
@@ -49,11 +49,14 @@ public class CalInputSellFragment extends Fragment {
             public void onClick(View v) {
                 calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
                 calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
-                calcul.setFee(Integer.parseInt(fee_ed.getText().toString()));
+                calcul.setFee(Float.parseFloat(fee_ed.getText().toString()));
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("SellCalcul",calcul);
-                calInputSellFragment.setArguments(bundle);
+                calOutputSellFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().commit();
+                calculatorActivity.getBundle(bundle);
+                calculatorActivity.fragmentChange(CalOutputFragment.newInstance());
             }
         });
 
@@ -84,5 +87,6 @@ public class CalInputSellFragment extends Fragment {
 
     public void onDetach() {
         super.onDetach();
+        calOutputSellFragment = null;
     }
 }

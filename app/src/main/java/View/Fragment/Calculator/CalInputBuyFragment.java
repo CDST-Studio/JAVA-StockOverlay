@@ -46,10 +46,6 @@ public class CalInputBuyFragment extends Fragment {
         EditText quantity_ed = CalInputBuyView.findViewById(R.id.edit_BuyQuantity);
         EditText fee_ed = CalInputBuyView.findViewById(R.id.edit_BuyFee);
 
-        //int price = Integer.parseInt(price_ed.getText().toString());
-        //int quantity = Integer.parseInt(quantity_ed.getText().toString());
-        //int fee = Integer.parseInt(fee_ed.getText().toString());
-
 
         Button Button_BuyInput = CalInputBuyView.findViewById(R.id.input_Buy_Button);//Input 버튼
         Button_BuyInput.setOnClickListener(new View.OnClickListener() {
@@ -58,11 +54,10 @@ public class CalInputBuyFragment extends Fragment {
                 calcul = new Calcul();
                 calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
                 calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
-                calcul.setFee(Integer.parseInt(fee_ed.getText().toString()));
+                calcul.setFee(Float.parseFloat(fee_ed.getText().toString()));
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("BuyCalcul",calcul);
-                Log.v("output","그만");
                 calOutputBuyFragment.setArguments(bundle);
                 getFragmentManager().beginTransaction().commit();
                 calculatorActivity.getBundle(bundle);
@@ -86,8 +81,6 @@ public class CalInputBuyFragment extends Fragment {
             }
         });
 
-        Bundle bundle = new Bundle();
-        bundle.putInt("price",price);
         return CalInputBuyView;
     }
 

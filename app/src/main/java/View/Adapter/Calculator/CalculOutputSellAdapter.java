@@ -9,35 +9,29 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.cdst.stockoverlay.R;
-import com.google.android.gms.ads.mediation.Adapter;
-import com.google.android.gms.ads.mediation.InitializationCompleteCallback;
-import com.google.android.gms.ads.mediation.MediationConfiguration;
-import com.google.android.gms.ads.mediation.VersionInfo;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import Model.Calcul;
 
-public class CalculOutputBuyAdater extends BaseAdapter {
-    private static ArrayList<Calcul> buyList = new ArrayList<>();
-
-    public CalculOutputBuyAdater(Context mcontext, ArrayList<Calcul> mbuyList){
-        this.buyList = mbuyList;
+public class CalculOutputSellAdapter extends BaseAdapter {
+    private static ArrayList<Calcul> sellList = new ArrayList<Calcul>();
+    public CalculOutputSellAdapter(){
     }
-
-    public CalculOutputBuyAdater() {
-
+    public CalculOutputSellAdapter(Context mcontext, ArrayList<Calcul> mSellList){
+        this.sellList = mSellList;
     }
 
     @Override
     public int getCount() {
-        return buyList.size();
+        return sellList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return buyList.get(position);
+        return sellList.get(position);
     }
 
     @Override
@@ -48,7 +42,7 @@ public class CalculOutputBuyAdater extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Context context = parent.getContext();
-        if(convertView == null){
+        if(context == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.custom_list_item5,parent,false);
         }
@@ -58,22 +52,21 @@ public class CalculOutputBuyAdater extends BaseAdapter {
         TextView n_Quantity_Text = convertView.findViewById(R.id.N_Buy_Quantity_Text);
         TextView n_Quantity_Number = convertView.findViewById(R.id.N_Buy_Quantity_Number);
 
-        n_Price_Text.setText(Integer.toString(position + 1) + "차 매수 주가:");
-        n_Price_Number.setText(Integer.toString(buyList.get(position).getStockprice()));
-        n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매수 수량");
-        n_Quantity_Number.setText(Integer.toString(buyList.get(position).getQuantity()));
+
+
+        n_Price_Text.setText(Integer.toString(position + 1) + "차 매도 주가:");
+        n_Price_Number.setText(Integer.toString(sellList.get(position).getStockprice()));
+        n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매도 수량");
+        n_Quantity_Number.setText(Integer.toString(sellList.get(position).getQuantity()));
 
         return convertView;
     }
 
-    public ArrayList<Calcul> getList(){
-        return buyList;
-    }
-
-
     public void addItem(Calcul calcul){
-        this.buyList.add(calcul);
-        Log.v("output","addItem 발동 : " + Integer.toString(buyList.size()));
+        this.sellList.add(calcul);
+        Log.v("output","addItem 발동 : " + Integer.toString(sellList.size()));
     }
-
+    public ArrayList<Calcul> getList(){
+        return sellList;
+    }
 }
