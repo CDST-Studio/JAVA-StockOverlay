@@ -48,11 +48,12 @@
             android:id="@+id/edit_SellPrice"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/stockoverlay_brown"
             android:hint="매도 단가"
             android:textSize="9dp"
+            android:textColor="@color/stockoverlay_brown"
             android:inputType="number"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:textColorHint="@color/stockoverlay_brown">
         </EditText>
     </LinearLayout>
 
@@ -70,11 +71,13 @@
             android:id="@+id/edit_SellQuantity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/stockoverlay_brown"
             android:hint="매도 수량"
+            android:textColorHint="@color/stockoverlay_brown"
+            android:textColor="@color/stockoverlay_brown"
             android:textSize="9dp"
             android:inputType="number"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            >
         </EditText>
     </LinearLayout>
 
@@ -92,9 +95,10 @@
             android:id="@+id/edit_SellFee"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/stockoverlay_brown"
             android:hint="매도 수수료"
+            android:textColorHint="@color/stockoverlay_brown"
             android:textSize="9dp"
+            android:textColor="@color/stockoverlay_brown"
             android:inputType="numberDecimal"
             android:layout_gravity="center">
         </EditText>

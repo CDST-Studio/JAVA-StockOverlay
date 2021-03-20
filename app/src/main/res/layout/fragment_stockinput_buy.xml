@@ -48,8 +48,9 @@
                 android:id="@+id/edit_BuyPrice"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:textColor="@color/stockoverlay_brown"
                 android:hint="매수 단가"
+                android:textColor="@color/stockoverlay_brown"
+                android:textColorHint="@color/stockoverlay_brown"
                 android:textSize="9dp"
                 android:inputType="number"
                 android:layout_gravity="center">
@@ -72,6 +73,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/stockoverlay_brown"
                 android:hint="매수 수량"
+                android:textColorHint="@color/stockoverlay_brown"
                 android:textSize="9dp"
                 android:inputType="number"
                 android:layout_gravity="center">
@@ -94,6 +96,7 @@
                 android:layout_height="match_parent"
                 android:textColor="@color/stockoverlay_brown"
                 android:hint="매수 수수료"
+                android:textColorHint="@color/stockoverlay_brown"
                 android:textSize="9dp"
                 android:inputType="numberDecimal"
                 android:layout_gravity="center">
