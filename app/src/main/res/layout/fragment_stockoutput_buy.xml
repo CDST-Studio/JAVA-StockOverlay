@@ -48,34 +48,34 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="95dp"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="N차 매수 수량:"
                         android:textColor="@color/stockoverlay_brown"
-                        android:textSize="14dp" />
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/N_Buy_Quantity"
-                        android:layout_width="75dp"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/stockoverlay_brown"
-                        android:textSize="15dp" />
+                        android:textSize="13dp" />
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="95dp"
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:text="N차 매수 주가:"
                         android:textColor="@color/stockoverlay_brown"
-                        android:textSize="14dp" />
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/N_Buy_Price"
-                        android:layout_width="75dp"
+                        android:layout_width="80dp"
                         android:layout_height="match_parent"
                         android:textColor="@color/stockoverlay_brown"
-                        android:textSize="14dp" />
+                        android:textSize="13dp" />
                 </LinearLayout>
 
                 <ListView

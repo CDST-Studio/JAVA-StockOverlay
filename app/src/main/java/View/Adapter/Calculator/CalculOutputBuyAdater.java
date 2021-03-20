@@ -51,6 +51,9 @@ public class CalculOutputBuyAdater extends BaseAdapter {
 
         convertView.setBackgroundColor(414141);
 
+        LinearLayout background = (LinearLayout) convertView.findViewById(R.id.cal_list);
+        background.setBackgroundResource(R.drawable.border_1_yellow_side);
+
         TextView n_Price_Text = convertView.findViewById(R.id.N_BUY_Price_Text);
         TextView n_Price_Number = convertView.findViewById(R.id.N_BUY_Price_Number);
         TextView n_Quantity_Text = convertView.findViewById(R.id.N_Buy_Quantity_Text);

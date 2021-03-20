@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cal_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/stockoverlay_black"
@@ -8,33 +9,40 @@
 
     <TextView
         android:id="@+id/N_BUY_Price_Text"
-        android:layout_width="93dp"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="95"
+        android:gravity="center"
         android:textColor="@color/stockoverlay_brown"
+        android:textSize="13dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/N_BUY_Price_Number"
-        android:layout_width="75dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="80"
         android:textColor="@color/stockoverlay_brown"
+        android:textSize="13dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/N_Buy_Quantity_Text"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="95"
+        android:gravity="center"
         android:textColor="@color/stockoverlay_brown"
+        android:textSize="13dp"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/N_Buy_Quantity_Number"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="80"
         android:textColor="@color/stockoverlay_brown"
+        android:textSize="13dp"
         android:text="TextView" />
 
 </LinearLayout>
