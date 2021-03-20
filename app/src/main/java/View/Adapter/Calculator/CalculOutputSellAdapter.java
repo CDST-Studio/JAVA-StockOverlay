@@ -1,6 +1,7 @@
 package View.Adapter.Calculator;
 
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,17 +43,17 @@ public class CalculOutputSellAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         Context context = parent.getContext();
-        if(context == null){
+        if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.custom_list_item5,parent,false);
         }
+
+        convertView.setBackgroundColor(222222);
 
         TextView n_Price_Text = convertView.findViewById(R.id.N_BUY_Price_Text);
         TextView n_Price_Number = convertView.findViewById(R.id.N_BUY_Price_Number);
         TextView n_Quantity_Text = convertView.findViewById(R.id.N_Buy_Quantity_Text);
         TextView n_Quantity_Number = convertView.findViewById(R.id.N_Buy_Quantity_Number);
-
-
 
         n_Price_Text.setText(Integer.toString(position + 1) + "차 매도 주가:");
         n_Price_Number.setText(Integer.toString(sellList.get(position).getStockprice()));
@@ -62,11 +63,11 @@ public class CalculOutputSellAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void addItem(Calcul calcul){
-        this.sellList.add(calcul);
-        Log.v("output","addItem 발동 : " + Integer.toString(sellList.size()));
-    }
     public ArrayList<Calcul> getList(){
         return sellList;
     }
+    public void addItem(Calcul calcul){
+        this.sellList.add(calcul);
+    }
+
 }

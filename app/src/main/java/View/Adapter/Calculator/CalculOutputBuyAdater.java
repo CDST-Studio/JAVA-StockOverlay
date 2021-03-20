@@ -21,13 +21,9 @@ import Model.Calcul;
 
 public class CalculOutputBuyAdater extends BaseAdapter {
     private static ArrayList<Calcul> buyList = new ArrayList<>();
-
+    public CalculOutputBuyAdater(){}
     public CalculOutputBuyAdater(Context mcontext, ArrayList<Calcul> mbuyList){
         this.buyList = mbuyList;
-    }
-
-    public CalculOutputBuyAdater() {
-
     }
 
     @Override
@@ -69,11 +65,8 @@ public class CalculOutputBuyAdater extends BaseAdapter {
     public ArrayList<Calcul> getList(){
         return buyList;
     }
-
-
     public void addItem(Calcul calcul){
         this.buyList.add(calcul);
-        Log.v("output","addItem 발동 : " + Integer.toString(buyList.size()));
     }
 
 }

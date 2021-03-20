@@ -47,6 +47,7 @@ public class CalInputSellFragment extends Fragment {
         Button_BuyInput.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                calcul = new Calcul();
                 calcul.setStockprice(Integer.parseInt(price_ed.getText().toString()));
                 calcul.setQuantity(Integer.parseInt(quantity_ed.getText().toString()));
                 calcul.setFee(Float.parseFloat(fee_ed.getText().toString()));
