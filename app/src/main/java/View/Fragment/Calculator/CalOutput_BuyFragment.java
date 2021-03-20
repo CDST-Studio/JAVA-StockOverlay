@@ -54,9 +54,10 @@ public class CalOutput_BuyFragment extends Fragment {
             Calcul bundleCalcul;
             bundleCalcul = (Calcul) bundle.getSerializable("BuyCalcul");
             adapter.addItem(bundleCalcul);
+            if((bundleCalcul != null) && (adapter.getList().size() > 0)) totalOutput(adapter);
         }
 
-        if(adapter.getList().size() > 0) totalOutput(adapter);
+
 
 
 

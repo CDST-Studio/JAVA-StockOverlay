@@ -52,9 +52,10 @@ public class CalOutput_SellFragment extends Fragment {
             Calcul bundleCalcul;
             bundleCalcul = (Calcul) bundle.getSerializable("SellCalcul");
             adapter.addItem(bundleCalcul);
+            if((bundleCalcul != null) && (adapter.getList().size() > 0)) totalOutput(adapter);
         }
 
-        if(adapter.getList().size() > 0) totalOutput(adapter);
+
 
         Button Button_Back = CalSellView.findViewById(R.id.avg_Sell_Button_back); // 초기 화면 돌아감
         Button_Back.setOnClickListener(new View.OnClickListener() {

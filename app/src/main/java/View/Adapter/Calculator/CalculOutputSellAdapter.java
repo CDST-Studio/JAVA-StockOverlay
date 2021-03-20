@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import Model.Calcul;
 
 public class CalculOutputSellAdapter extends BaseAdapter {
-    private static ArrayList<Calcul> sellList = new ArrayList<Calcul>();
+    private static ArrayList<Calcul> sellList = new ArrayList<>();
     public CalculOutputSellAdapter(){
     }
     public CalculOutputSellAdapter(Context mcontext, ArrayList<Calcul> mSellList){
@@ -55,10 +55,12 @@ public class CalculOutputSellAdapter extends BaseAdapter {
         TextView n_Quantity_Text = convertView.findViewById(R.id.N_Buy_Quantity_Text);
         TextView n_Quantity_Number = convertView.findViewById(R.id.N_Buy_Quantity_Number);
 
-        n_Price_Text.setText(Integer.toString(position + 1) + "차 매도 주가:");
-        n_Price_Number.setText(Integer.toString(sellList.get(position).getStockprice()));
-        n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매도 수량");
-        n_Quantity_Number.setText(Integer.toString(sellList.get(position).getQuantity()));
+        if(sellList != null) {
+            n_Price_Text.setText(Integer.toString(position + 1) + "차 매도 주가:");
+            n_Price_Number.setText(Integer.toString(sellList.get(position).getStockprice()));
+            n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매도 수량");
+            n_Quantity_Number.setText(Integer.toString(sellList.get(position).getQuantity()));
+        }
 
         return convertView;
     }

@@ -49,16 +49,19 @@ public class CalculOutputBuyAdater extends BaseAdapter {
             convertView = inflater.inflate(R.layout.custom_list_item5,parent,false);
         }
 
+        convertView.setBackgroundColor(414141);
+
         TextView n_Price_Text = convertView.findViewById(R.id.N_BUY_Price_Text);
         TextView n_Price_Number = convertView.findViewById(R.id.N_BUY_Price_Number);
         TextView n_Quantity_Text = convertView.findViewById(R.id.N_Buy_Quantity_Text);
         TextView n_Quantity_Number = convertView.findViewById(R.id.N_Buy_Quantity_Number);
 
-        n_Price_Text.setText(Integer.toString(position + 1) + "차 매수 주가:");
-        n_Price_Number.setText(Integer.toString(buyList.get(position).getStockprice()));
-        n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매수 수량");
-        n_Quantity_Number.setText(Integer.toString(buyList.get(position).getQuantity()));
-
+        if(buyList != null) {
+            n_Price_Text.setText(Integer.toString(position + 1) + "차 매수 주가:");
+            n_Price_Number.setText(Integer.toString(buyList.get(position).getStockprice()));
+            n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매수 수량");
+            n_Quantity_Number.setText(Integer.toString(buyList.get(position).getQuantity()));
+        }
         return convertView;
     }
 
