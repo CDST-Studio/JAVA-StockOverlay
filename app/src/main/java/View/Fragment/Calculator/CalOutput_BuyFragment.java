@@ -20,6 +20,7 @@ import com.cdst.stockoverlay.R;
 import java.util.ArrayList;
 
 import Model.Calcul;
+import View.Adapter.Calculator.CalculOutputBuyAdater;
 import View.CalculatorActivity;
 
 
@@ -47,13 +48,19 @@ public class CalOutput_BuyFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         CalBuyView = (View) inflater.inflate(R.layout.fragment_stockoutput_buy,container,false);
 
-        bundle = new Bundle();
-        bundle = getArguments();
-        buyCalcul.add((Calcul) bundle.getSerializable("BuyCalcul"));
-
         ListView listView = CalBuyView.findViewById(R.id.N_Buy_List);
-        ArrayAdapter<Calcul> adapter = new ArrayAdapter<Calcul>(getActivity(), android.R.layout.simple_list_item_1,buyCalcul);
+        //CalculOutputBuyAdater adapter = new CalculOutputBuyAdater(this, );
         listView.setAdapter(adapter);
+
+        bundle = calculatorActivity.bundle;
+        if(bundle != null) {
+            Calcul bundleCalcul;
+            bundleCalcul = (Calcul) bundle.getSerializable("BuyCalcul");
+            buyCalcul.add(bundleCalcul);
+            adapter.addItem(bundleCalcul.getStockprice(),bundleCalcul.getQuantity(),bundleCalcul.getFee());
+        }
+
+
 
         Button Button_Back = CalBuyView.findViewById(R.id.avg_Buy_Button_back); // 초기 화면 돌아감
         Button_Back.setOnClickListener(new View.OnClickListener() {

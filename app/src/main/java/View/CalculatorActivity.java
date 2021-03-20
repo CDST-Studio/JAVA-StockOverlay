@@ -26,7 +26,7 @@ public class CalculatorActivity extends AppCompatActivity  {
     private ArrayList<Calcul> buylist;
     private ArrayList<Calcul> selllist;
     private int index = 0;
-
+    public Bundle bundle;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,6 @@ public class CalculatorActivity extends AppCompatActivity  {
                     fragmentChange(CalInputSellFragment.newInstance());
                 }
             });
-
         fragmentChange(CalOutputFragment.newInstance());
     }
 
@@ -76,4 +75,7 @@ public class CalculatorActivity extends AppCompatActivity  {
 
     }
 
+    public void getBundle(Bundle bundle){
+        this.bundle = bundle;
+    }
 }

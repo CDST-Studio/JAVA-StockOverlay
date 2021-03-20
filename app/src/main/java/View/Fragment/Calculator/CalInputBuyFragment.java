@@ -62,9 +62,10 @@ public class CalInputBuyFragment extends Fragment {
 
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("BuyCalcul",calcul);
+                Log.v("output","그만");
                 calOutputBuyFragment.setArguments(bundle);
-                Log.v("input",Integer.toString(calcul.getFee()));
-
+                getFragmentManager().beginTransaction().commit();
+                calculatorActivity.getBundle(bundle);
                 calculatorActivity.fragmentChange(CalOutputFragment.newInstance());
             }
         });
@@ -99,7 +100,10 @@ public class CalInputBuyFragment extends Fragment {
 
     public void onDetach() {
         super.onDetach();
+        calOutputBuyFragment = null;
     }
+
+
 
 
 
