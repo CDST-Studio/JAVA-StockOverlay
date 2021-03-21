@@ -73,6 +73,7 @@ public class CalInputSellFragment extends Fragment {
         Button_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                calculatorActivity.setFlag();
                 calculatorActivity.fragmentChange(CalOutputFragment.newInstance());
             }
         });

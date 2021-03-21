@@ -1,11 +1,14 @@
 package View;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -22,11 +25,16 @@ import View.Fragment.Calculator.CalInputSellFragment;
 public class CalculatorActivity extends AppCompatActivity  {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
+    private CalInputBuyFragment calInputBuyFragment = new CalInputBuyFragment();
+    private CalInputSellFragment calInputSellFragment = new CalInputSellFragment();
+
     private Button plustBtn;
     private ArrayList<Calcul> buylist;
     private ArrayList<Calcul> selllist;
     private int index = 0;
     public Bundle bundle;
+    private boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +44,10 @@ public class CalculatorActivity extends AppCompatActivity  {
         plustBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    fragmentChange(CalInputBuyFragment.newInstance());
-                }
-            });
+                setFlag();
+                fragmentChange(CalInputBuyFragment.newInstance());
+            }
+        });
         fragmentChange(CalOutputFragment.newInstance());
     }
 
@@ -78,4 +87,10 @@ public class CalculatorActivity extends AppCompatActivity  {
     public void getBundle(Bundle bundle){
         this.bundle = bundle;
     }
+
+    public void setFlag(){
+        if (flag) flag = false;
+        else flag = true;
+    }
+    public boolean getFlag(){return flag;}
 }

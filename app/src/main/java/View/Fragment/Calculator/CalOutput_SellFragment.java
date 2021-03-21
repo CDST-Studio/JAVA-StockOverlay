@@ -24,9 +24,7 @@ import View.CalculatorActivity;
 public class CalOutput_SellFragment extends Fragment {
 
     private View CalSellView;
-    int price;
-    int quantity;
-    int fee;
+
     private CalculatorActivity calculatorActivity;
     private Bundle bundle;
 
@@ -48,13 +46,16 @@ public class CalOutput_SellFragment extends Fragment {
         listView.setAdapter(adapter);
 
         bundle = calculatorActivity.bundle;
-        if(bundle != null){
+        if(calculatorActivity.getFlag() && (bundle != null) && (bundle.getSerializable("SellCalcul") != null)){
             Calcul bundleCalcul;
             bundleCalcul = (Calcul) bundle.getSerializable("SellCalcul");
             adapter.addItem(bundleCalcul);
+            //if((bundleCalcul != null) && (adapter.getList().size() > 0)) totalOutput(adapter);
+            calculatorActivity.setFlag();
         }
+        totalOutput(adapter);
 
-        if(adapter.getList().size() > 0) totalOutput(adapter);
+
 
         Button Button_Back = CalSellView.findViewById(R.id.avg_Sell_Button_back); // 초기 화면 돌아감
         Button_Back.setOnClickListener(new View.OnClickListener() {
@@ -99,11 +100,18 @@ public class CalOutput_SellFragment extends Fragment {
             i++;
         }
 
-        buy_Quantity.setText(Integer.toString(total_Quantity));
-        buy_Price_Total.setText(Integer.toString(total_price));
-        buy_Price.setText(Integer.toString(total_price / total_Quantity));
-        buy_Tex_Total.setText(Float.toString(total_fee / sellCalcul.size()));
-
+        if(total_Quantity != 0) {
+            buy_Quantity.setText(Integer.toString(total_Quantity));
+            buy_Price_Total.setText(Integer.toString(total_price));
+            buy_Price.setText(Integer.toString(total_price / total_Quantity));
+            buy_Tex_Total.setText(Float.toString(total_fee / total_Quantity));
+        }
+        else{
+            buy_Quantity.setText("0");
+            buy_Price_Total.setText("0");
+            buy_Price.setText("0");
+            buy_Tex_Total.setText("0");
+        }
 
     }
 }
