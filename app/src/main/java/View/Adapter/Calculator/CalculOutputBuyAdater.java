@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cdst.stockoverlay.R;
@@ -65,6 +66,7 @@ public class CalculOutputBuyAdater extends BaseAdapter {
             n_Quantity_Text.setText(Integer.toString(position + 1) + "차 매수 수량");
             n_Quantity_Number.setText(Integer.toString(buyList.get(position).getQuantity()));
         }
+        Log.v("output",Integer.toString(getCount()));
         return convertView;
     }
 

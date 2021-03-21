@@ -50,12 +50,14 @@ public class CalOutput_BuyFragment extends Fragment {
         listView.setAdapter(adapter);
 
         bundle = calculatorActivity.bundle;
-        if(bundle != null) {
+
+        if(calculatorActivity.getFlag() && (bundle != null) && (bundle.getSerializable("BuyCalcul") != null)) {
             Calcul bundleCalcul;
             bundleCalcul = (Calcul) bundle.getSerializable("BuyCalcul");
             adapter.addItem(bundleCalcul);
-            if((bundleCalcul != null) && (adapter.getList().size() > 0)) totalOutput(adapter);
+            calculatorActivity.setFlag();
         }
+        totalOutput(adapter);
 
 
 
@@ -104,11 +106,19 @@ public class CalOutput_BuyFragment extends Fragment {
             i++;
         }
 
-        buy_Quantity.setText(Integer.toString(total_Quantity));
-        buy_Price_Total.setText(Integer.toString(total_price));
-        buy_Price.setText(Integer.toString(total_price / total_Quantity));
-        buy_Tex_Total.setText(Float.toString(total_fee / buyCalcul.size()));
-
+        if(total_Quantity != 0) {
+            buy_Quantity.setText(Integer.toString(total_Quantity));
+            buy_Price_Total.setText(Integer.toString(total_price));
+            buy_Price.setText(Integer.toString(total_price / total_Quantity));
+            buy_Tex_Total.setText(Float.toString(total_fee / total_Quantity));
+        }
+        else{
+            buy_Quantity.setText("0");
+            buy_Price_Total.setText("0");
+            buy_Price.setText("0");
+            buy_Tex_Total.setText("0");
+        }
 
     }
+
 }

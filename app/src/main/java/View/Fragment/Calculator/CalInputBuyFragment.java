@@ -25,10 +25,6 @@ public class CalInputBuyFragment extends Fragment {
 
     private View CalInputBuyView;
 
-    int price;
-    int quantity;
-    int fee;
-
     private Calcul calcul;
     private CalculatorActivity calculatorActivity;
     private CalOutput_BuyFragment calOutputBuyFragment = new CalOutput_BuyFragment();
@@ -77,6 +73,7 @@ public class CalInputBuyFragment extends Fragment {
         Button_Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                calculatorActivity.setFlag();
                 calculatorActivity.fragmentChange(CalOutputFragment.newInstance());
             }
         });
