@@ -5,37 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/stockoverlay_black"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/black"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:background="@drawable/round_background_admob2"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingTop="5dp"
+        android:paddingRight="5dp">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView2"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
-    </LinearLayout>
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_background_admob"
+            android:gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="20dp"
-        android:text="검색"
-        android:textColor="@color/stockoverlay_brown"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+        </LinearLayout>
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -59,19 +58,16 @@
                 android:id="@+id/search_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="25dp"
                 android:background="@color/stockoverlay_black"
                 android:iconifiedByDefault="false"
-                android:queryHint="종목명 또는 종목코드 검색"
                 app:searchIcon="@drawable/ic_searchbar"
-                tools:ignore="MissingConstraints">
-
-            </androidx.appcompat.widget.SearchView>
+                tools:ignore="MissingConstraints"></androidx.appcompat.widget.SearchView>
 
             <ListView
                 android:id="@+id/search_list"
