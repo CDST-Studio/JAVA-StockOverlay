@@ -4,13 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/stockoverlay_black"
+    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/stockoverlay_black"
-        android:gravity="center">
+        android:background="@color/black"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <com.google.android.gms.ads.AdView
             android:id="@+id/adView2"
@@ -19,26 +22,64 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-3940256099942544/6300978111">
-        </com.google.android.gms.ads.AdView>
-        <!--배포시 배너의 UnitID ca-app-pub-5856926052915180/9290382063-->
-        <!--테스트시 배너의 UnitID ca-app-pub-3940256099942544/6300978111-->
+            app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
     </LinearLayout>
 
-    <SearchView
-        android:id="@+id/search_bar"
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:queryHint="종목명 또는 종목코드 검색"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="검색"
+        android:textColor="@color/stockoverlay_brown"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-    <ListView
-        android:id="@+id/search_list"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:background="@color/stockoverlay_black">
-    </ListView>
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:background="@color/stockoverlay_brown" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_background_search"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginBottom="25dp"
+                android:background="@color/stockoverlay_black"
+                android:iconifiedByDefault="false"
+                android:queryHint="종목명 또는 종목코드 검색"
+                app:searchIcon="@drawable/ic_searchbar"
+                tools:ignore="MissingConstraints">
+
+            </androidx.appcompat.widget.SearchView>
+
+            <ListView
+                android:id="@+id/search_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:orientation="horizontal"></ListView>
+        </LinearLayout>
+    </FrameLayout>
 
 </LinearLayout>
