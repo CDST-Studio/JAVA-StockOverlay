@@ -67,17 +67,14 @@ public class CalOutput_ProfitLossFragment extends Fragment {
 
         for(int i = 0; i < sellList.size(); i++){
             totalSell += (float) sellList.get(i).getStockprice();
-            Log.v("output","totalSell/" + Integer.toString(i) + "/" + Float.toString(totalSell));
             totalSellQuantity += sellList.get(i).getQuantity();
             totalSellFee += sellList.get(i).getFee();
         }
-        Log.v("output","totalSell : " + Float.toString(totalSell));
         totalSellFee = totalSellFee / totalSellQuantity;
         totalSellFee = totalSellFee * totalSell;
         totalTex = totalSell * 0.0021;
         totalProfit += totalSell - totalSellFee - totalTex;
         totalFee += totalSellFee;
-        Log.v("output","매도 계산 후 : " + Float.toString(totalProfit));
 
         //총 매수 비용 계산
         for(int i = 0; i < buyList.size(); i++){
@@ -90,10 +87,12 @@ public class CalOutput_ProfitLossFragment extends Fragment {
         totalProfit = totalProfit - totalBuy - totalBuyFee;
         totalFee += totalBuyFee;
 
-        Log.v("output","Set 직전 : " + Float.toString(totalProfit));
-        totalProfit_Text.setText(Float.toString(totalProfit));
-        totalTex_Text.setText(Double.toString(totalTex));
-        totalFee_Text.setText(Float.toString(totalFee));
+        Log.v("profit","Pro : " + Integer.toString((int) totalProfit));
+        totalProfit_Text.setText(Integer.toString((int) totalProfit));
+        Log.v("profit","Tex : " + Integer.toString((int) totalTex));
+        totalTex_Text.setText(String.format("%.2f",totalTex));
+        Log.v("profit","Fee : " + Float.toString(totalFee));
+        totalFee_Text.setText(Integer.toString((int) totalFee));
 
 
 

@@ -48,12 +48,12 @@
                         android:textColor="@color/stockoverlay_brown"
                         android:textSize="14dp" />
 
-                    <TextView
-                        android:id="@+id/Total_ProfitLoss"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:textColor="@color/stockoverlay_brown"
-                        android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/Total_ProfitLoss"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textColor="@color/stockoverlay_brown"
+                    android:textSize="15dp" />
             </LinearLayout>
 
             <LinearLayout
