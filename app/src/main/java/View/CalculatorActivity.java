@@ -1,26 +1,39 @@
 package View;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import com.cdst.stockoverlay.R;
 
 import java.util.ArrayList;
 
 import Model.Calcul;
-import View.Adapter.CalculAdapter;
-import View.Fragment.CalInputBuyFragment;
-import View.Fragment.CalOutputFragment;
+import View.Fragment.Calculator.CalInputBuyFragment;
+import View.Fragment.Calculator.CalOutputFragment;
+import View.Fragment.Calculator.CalInputSellFragment;
 
-public class CalculatorActivity extends AppCompatActivity {
+
+public class CalculatorActivity extends AppCompatActivity  {
 
     private CalOutputFragment outputFragment = new CalOutputFragment();
-    private Button plustBtn;
+    private CalInputBuyFragment calInputBuyFragment = new CalInputBuyFragment();
+    private CalInputSellFragment calInputSellFragment = new CalInputSellFragment();
 
+    private Button plustBtn;
+    private ArrayList<Calcul> buylist;
+    private ArrayList<Calcul> selllist;
+    private int index = 0;
+    public Bundle bundle;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,22 +41,16 @@ public class CalculatorActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculator);
 
         plustBtn = (Button) findViewById(R.id.plusButton);
-
         plustBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, new CalInputBuyFragment()).commitAllowingStateLoss();
+                setFlag();
+                fragmentChange(CalInputBuyFragment.newInstance());
             }
         });
-
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_CalZone, outputFragment).commitAllowingStateLoss();
-
-
-
-
-
+        fragmentChange(CalOutputFragment.newInstance());
     }
+
 
     private double caculBuy(String name, int amount, int stockPrice){
         return (amount * stockPrice) + caculCommission(name, amount, stockPrice) + ((amount * stockPrice) * 0.0043);//매수금액 + 수수료 + 유관기관제비용
@@ -55,6 +62,11 @@ public class CalculatorActivity extends AppCompatActivity {
         return amount * stockPrice * stockCommission(name);
     }
 
+    public void fragmentChange(Fragment fragment){ //Cal 액티비티에서 화면 전환을 위한 함수
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_CalZone, fragment).commit();
+    }
 
     private double stockCommission(String name){
         switch (name){
@@ -72,7 +84,13 @@ public class CalculatorActivity extends AppCompatActivity {
 
     }
 
-    //경호 집은 우리집 냉장고
+    public void getBundle(Bundle bundle){
+        this.bundle = bundle;
+    }
 
-
+    public void setFlag(){
+        if (flag) flag = false;
+        else flag = true;
+    }
+    public boolean getFlag(){return flag;}
 }

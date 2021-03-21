@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:background="@color/stockoverlay_black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1000"
+        android:background="@color/stockoverlay_black"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_stockcal"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="888">
+        <LinearLayout
+            android:id="@+id/cal_Buy_Linear"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/stockoverlay_black"
+            android:translationZ="90dp">
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="1000"
+                android:background="@drawable/border_1_yellow_rectangle"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="382"
+                    android:background="@drawable/border_1_yellow_rectangle"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="95dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="N차 매수 수량:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/N_Buy_Quantity"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="95dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="N차 매수 주가:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:id="@+id/N_Buy_Price"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="13dp" />
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/N_Buy_List"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="623"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="매수 수량:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/Buy_Quantity"
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:text="총 매수 단가:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/Total_Buy_Price"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:text="매수 단가:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp"
+                        android:gravity="center"/>
+                    <TextView
+                        android:id="@+id/Buy_Price"
+                        android:layout_width="90dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:gravity="center"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:text="총 수수료:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp" />
+                    <TextView
+                        android:id="@+id/Total_Buy_Tex"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/stockoverlay_brown"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/avg_Buy_Button_back"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_gravity="top"
+            android:background="@drawable/button_cal_1" />
+    </FrameLayout>
+</LinearLayout>

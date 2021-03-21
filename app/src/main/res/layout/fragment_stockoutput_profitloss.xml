@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="380dp"
+    android:layout_marginLeft="12dp"
+    android:layout_marginRight="12dp"
+    android:background="@color/stockoverlay_black"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1000"
+        android:background="@color/stockoverlay_black"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/ic_stockcal"/>
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="888">
+        <LinearLayout
+            android:id="@+id/cal_ProfitLoss_Linear"
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:layout_gravity="center|bottom"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:background="@color/stockoverlay_black"
+            android:translationZ="90dp">
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="205"
+                android:background="@drawable/border_3_yellow_rectangle"
+                android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="총 손익:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/Total_ProfitLoss"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:textColor="@color/stockoverlay_brown"
+                    android:textSize="15dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="0dp"
+                android:layout_weight="1000"
+                android:orientation="horizontal"
+                android:gravity="bottom">
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="20dp"
+                        android:text="총 세금:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp"
+                        android:gravity="bottom"/>
+                    <TextView
+                        android:id="@+id/Total_Tex"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:gravity="bottom"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="20dp"
+                        android:text="총 수수료:"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:textSize="14dp"
+                        android:gravity="bottom"/>
+                    <TextView
+                        android:id="@+id/Total_Buy_Tex"
+                        android:layout_width="120dp"
+                        android:layout_height="20dp"
+                        android:textColor="@color/stockoverlay_brown"
+                        android:gravity="bottom"/>
+            </LinearLayout>
+        </LinearLayout>
+    <Button
+        android:id="@+id/avg_ProfitLoss_back"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="top"
+        android:background="@drawable/button_cal_3" />
+    </FrameLayout>
+</LinearLayout>

@@ -1,19 +1,57 @@
 package Model;
 
-public class Calcul {
-    private int buyorsell;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Calcul implements Serializable {
+    private float fee;
     private int stockprice;
-    private String name;
+    private int quantity;
+
+    public Calcul(Parcel in) {
+        fee = in.readInt();
+        stockprice = in.readInt();
+        quantity = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Calcul> CREATOR = new Parcelable.Creator<Calcul>() {
+        @Override
+        public Calcul createFromParcel(Parcel in) {
+            return new Calcul(in);
+        }
+
+        @Override
+        public Calcul[] newArray(int size) {
+            return new Calcul[size];
+        }
+    };
+
+    public Calcul() {
+
+    }
 
     //public Calcul(int )
     //----------------------개셋---------------------------
-    public void setBuyorsell(int bos){this.buyorsell = bos;}
-    public int getBuyorsell(){return this.buyorsell;}
+    public void setFee(float bos){this.fee = bos;}
+    public float getFee(){return this.fee;}
 
     public void setStockprice(int stockpric){this.stockprice = stockpric;}
     public int getStockprice(){return this.stockprice;}
 
-    public void setName(String name){this.name = name;}
-    public String getName(){return this.name;}
+    public void setQuantity(int quantiti ){this.quantity = quantiti;}
+    public int getQuantity(){return this.quantity;}
 
+
+    public int describeContents() {
+        return 0;
+    }
+
+
+    /*public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(fee);
+        dest.writeInt(stockprice);
+        dest.writeInt(quantity);
+    }*/
 }

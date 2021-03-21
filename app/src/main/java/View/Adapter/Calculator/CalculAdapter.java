@@ -1,9 +1,6 @@
-package View.Adapter;
+package View.Adapter.Calculator;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.Color;
-import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +17,8 @@ public class CalculAdapter extends RecyclerView.Adapter<CalculAdapter.ViewHolder
 {
     private ArrayList<String> listData = new ArrayList<>();
 
-    private SparseBooleanArray selected = new SparseBooleanArray();//아이템 클릭 상태를 저장할 array 객체
-    private int prePosition = -1;
+
+
     private Context context;
 
 
@@ -44,20 +41,7 @@ public class CalculAdapter extends RecyclerView.Adapter<CalculAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        /*
-        if (position == 0){
-            holder.textView.setText("총 매수");
-        }
-        else if (position == 1){
-            holder.textView.setText("총 매도");
-        }
-        else{
-            holder.textView.setText("총 손익");
-        }
-         */
-        if(position == 0) holder.textView.setBackgroundColor(Color.parseColor("#343434"));
-        else if (position == 1) holder.textView.setBackgroundColor(Color.parseColor("#5F5E5D"));
-        else holder.textView.setBackgroundColor(Color.parseColor("#808080"));
+
 
         holder.onBind(listData.get(position));
     }
@@ -90,23 +74,6 @@ public class CalculAdapter extends RecyclerView.Adapter<CalculAdapter.ViewHolder
 
         void onBind(String str){
             textView.setText(str);
-        }
-
-        private void changeVisibility(final boolean isExpanded){
-            int dpValue = 150;
-            float d = context.getResources().getDisplayMetrics().density;
-            int height = (int) (dpValue + d);
-
-            ValueAnimator va = isExpanded ? ValueAnimator.ofInt(0, height) : ValueAnimator.ofInt(height, 0);
-            va.setDuration(600);
-            va.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                @Override
-                public void onAnimationUpdate(ValueAnimator animation) {
-                    int value = (int) animation.getAnimatedValue();
-
-
-                }
-            });
         }
 
     }
