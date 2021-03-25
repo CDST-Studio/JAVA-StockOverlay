@@ -32,7 +32,10 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-3940256099942544/6300978111"></com.google.android.gms.ads.AdView>
+                app:adUnitId="ca-app-pub-5856926052915180/9290382063">
+                <!--배포시 배너의 UnitID ca-app-pub-5856926052915180/9290382063-->
+                <!--테스트시 배너의 UnitID ca-app-pub-3940256099942544/6300978111-->
+            </com.google.android.gms.ads.AdView>
         </LinearLayout>
     </LinearLayout>
 
@@ -65,7 +68,8 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="25dp"
                 android:background="@color/stockoverlay_black"
-                android:iconifiedByDefault="false"
+                android:iconifiedByDefault="true"
+                app:queryHint="종목명 또는 종목코드 입력"
                 app:searchIcon="@drawable/ic_searchbar"
                 tools:ignore="MissingConstraints"></androidx.appcompat.widget.SearchView>
 

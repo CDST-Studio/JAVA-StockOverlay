@@ -1,13 +1,16 @@
 package View.Fragment;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -60,7 +63,6 @@ public class SearchFragment extends Fragment {
 
         listview = (ListView) viewGroup.findViewById(R.id.search_list);
         searchView = (SearchView) viewGroup.findViewById(R.id.search_bar);
-        searchView.setQueryHint("종목명 또는 종목코드 입력");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) { //입력결과
