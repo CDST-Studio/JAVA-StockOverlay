@@ -73,8 +73,8 @@ public class StartActivity extends AppCompatActivity {
                             // 권한 확인
                             checkPermission();
 
-                            //startActivity(new Intent(StartActivity.this, LoginActivity.class));//다시 로그인으로 돌리기
-                            startActivity(new Intent(StartActivity.this, CalculatorActivity.class));
+                            startActivity(new Intent(StartActivity.this, LoginActivity.class));//다시 로그인으로 돌리기
+                            //startActivity(new Intent(StartActivity.this, CalculatorActivity.class));
                             finish();
                         }
                     } else {

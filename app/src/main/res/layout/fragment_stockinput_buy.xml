@@ -19,7 +19,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="left"
                 android:background="@drawable/round_background_minute"
-                android:text="임시 전환 버튼"/>
+                android:text="매도 전환"/>
             <Button
                 android:id="@+id/button_backhome_buy"
                 android:layout_width="100dp"
@@ -27,7 +27,7 @@
                 android:layout_gravity="left"
                 android:background="@drawable/round_background_minute"
                 android:layout_marginTop="3dp"
-                android:text="임시 홈 버튼"/>
+                android:text="홈으로"/>
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="150dp"
